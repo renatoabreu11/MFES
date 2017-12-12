@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Championship" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Partner" version="4">
   <OBJECT>
-    <ID name="Championship" mc="Standard.Class" uid="4053e8d7-bba1-4b8c-8346-1b8d84fc6892"/>
+    <ID name="Partner" mc="Standard.Class" uid="f8cec214-4d23-4426-a443-750c8c45d7c1"/>
     <PID name="rally" mc="Standard.Package" uid="a5cd72cf-101f-4654-88e4-6cda998ba80c"/>
     <ATTRIBUTES>
       <ATT name="IsActive">false</ATT>
@@ -11,15 +11,9 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Championship]]></ATT>
+      <ATT name="Name"><![CDATA[Partner]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
-    <DEPENDENCIES>
-      <COMP relation="OwnedEnd">
-        <REFOBJ>
-          <ID name="" mc="Standard.AssociationEnd" uid="f9116a50-8017-45fb-9bf8-90f95fe6421b"/>
-        </REFOBJ>
-      </COMP>
-    </DEPENDENCIES>
+    <DEPENDENCIES></DEPENDENCIES>
   </OBJECT>
 </EXT>

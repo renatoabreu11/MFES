@@ -14,7 +14,14 @@
     </ATTRIBUTES>
     <DEPENDENCIES>
       <COMP relation="OwnedElement">
-        <COMPID name="Competition" mc="Standard.Class" uid="4053e8d7-bba1-4b8c-8346-1b8d84fc6892"/>
+        <COMPID name="Championship" mc="Standard.Class" uid="4053e8d7-bba1-4b8c-8346-1b8d84fc6892"/>
+        <COMPID name="Sponsor" mc="Standard.Class" uid="8d0161c4-c672-43a8-8946-13ee2fddeec6"/>
+        <COMPID name="Stage" mc="Standard.Class" uid="59dd139f-b833-45a5-a1af-9dd669c02c5a"/>
+        <COMPID name="StagePlace" mc="Standard.Class" uid="86551e9b-e79b-4238-9da4-ab6a128441fa"/>
+        <COMPID name="Team" mc="Standard.Class" uid="1d003b9b-b3b6-4df9-a188-8e8b9a149b89"/>
+        <COMPID name="Manufacturer" mc="Standard.Class" uid="f3b19f55-906c-429b-9047-09d2a61255c0"/>
+        <COMPID name="Car" mc="Standard.Class" uid="bada8a93-3dd0-498b-811d-52f8b65c55c6"/>
+        <COMPID name="Partner" mc="Standard.Class" uid="f8cec214-4d23-4426-a443-750c8c45d7c1"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="rally Class diagram" mc="Standard.ClassDiagram" uid="379ef6b7-d0cd-4068-998a-d452fe3f93e7"/>
