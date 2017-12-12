@@ -1,0 +1,31 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="rally Class diagram" version="4">
+  <OBJECT>
+    <ID name="rally Class diagram" mc="Standard.ClassDiagram" uid="379ef6b7-d0cd-4068-998a-d452fe3f93e7"/>
+    <PID name="rally" mc="Standard.Package" uid="a5cd72cf-101f-4654-88e4-6cda998ba80c"/>
+    <ATTRIBUTES>
+      <ATT name="UiDataVersion">0</ATT>
+      <ATT name="UiData"></ATT>
+      <ATT name="Name"><![CDATA[rally Class diagram]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Descriptor">
+        <OBJECT>
+          <ID name="" mc="Infrastructure.Note" uid="a8221655-1306-429b-af8c-15a9c5b8927d"/>
+          <ATTRIBUTES>
+            <ATT name="Content"></ATT>
+            <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Model">
+              <FOREIGNID name="description" mc="Infrastructure.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

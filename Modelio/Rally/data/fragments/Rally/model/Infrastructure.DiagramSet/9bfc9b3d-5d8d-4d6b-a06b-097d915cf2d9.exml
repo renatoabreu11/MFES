@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Rally" version="4">
+  <OBJECT>
+    <ID name="Rally" mc="Infrastructure.DiagramSet" uid="9bfc9b3d-5d8d-4d6b-a06b-097d915cf2d9"/>
+    <PID name="Rally" mc="Standard.Project" uid="9b1e44e0-6b84-48c8-a81a-e9aed40aadc8"/>
+    <ATTRIBUTES>
+      <ATT name="Name"><![CDATA[Rally]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>
