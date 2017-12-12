@@ -4,12 +4,15 @@
     <ID name="rally Class diagram" mc="Standard.ClassDiagram" uid="379ef6b7-d0cd-4068-998a-d452fe3f93e7"/>
     <PID name="rally" mc="Standard.Package" uid="a5cd72cf-101f-4654-88e4-6cda998ba80c"/>
     <ATTRIBUTES>
-      <ATT name="UiDataVersion">0</ATT>
-      <ATT name="UiData"></ATT>
+      <ATT name="UiDataVersion">5</ATT>
+      <ATT name="UiData"><![CDATA[eJztmm1zmkAQgP8Kw3dRkChObDqJdmym5mW07Uz7JXPAaq45OOfubDS/vncgNpqEEFTIZPikt3B7b88uuyzdz4uAaH+BcUzDT7ppNHTt80n3yv0DntCwL0W6JpYz+KRTNjUC6gPB1PAxmjIUGOBjQZnBBRL4zgACAYSCx20vuWkQjKN2P27rWoD+UHazHrShn3SvGZ0BE0stRIEci6AlnYs+Ekhe+4nIHFaTCOeE6PWTbj3p8KTrWCwJ6BtLsNKWwNX93PAoAyPum2F+PcQ95IOfDPZlIUYwyTjKpVSx6qnBQvTdcznH6K/6cxH31JrGYmuh9XhJaYtnQJAAX85la98ulEj7qyRqi1DoI+YbPYI4Xx2L1mx3YNJy2zW/4fk1u9Fyap2Og2q+fWRNoDnpNKGdvvVSm/gW0vtwiFwgWzMYC4bDqX7CECFLLRpZW+1Otx7dmLowSuA87NFgRjkW8lhe0J5BVe8WE5+B0jDEXGyQ0swBu0fQw4OEPFrSTnCP5DRQOFVcrE7KtNrHTvvYNO1jp/Fm7u2Dc6+gjy2sEFQ1u3HUBMdv11wXmTXbdbya07RbNdN1fMeeeC2nsz2VPIwqzkBEnL0fNo92ZfOa4QCx5aXsumdMG8eNvIy2sjIqVS2WO4NqV6C+DuoFwqGiZEdg2zmAVVr5DHlwC/L4mET3MpF8jSTFRw9OsYS2KkJfJzRmIYNCfkvvb7D3RNEZlSOhcL05E0Q4pC83UnUHy3vK/D1oE8i7u+ECGNBXtAk2zzI18swpvF0VcrlgyBM5Vrgm9ZHxdPI9tDjHExyZf2/dGAHHD8glMGB0PiveD5iNyhG8O0ew4yPKzJPdIiEHd+cCpgpEyehpIiiLzMwJ7n7INLfDvArNZ7RuUpEH1PrqJ93FmnmSVqUQqcknDF8lgrIYzpysVgwXmAmAuKX+oQHOk9niUIZOoYxCZEjjibnkYhCcr2TjRFYCxgXnsxXGWTBOwNg1WsiT0WYCtSynW3Bua36wmHaPiB7ax+ZJxDKh+5uGJfhZq+Bk7KORexg/q1jYM8PZ8Lby5HE4DIFFLxsirmVj9xKOMo+peku5Ot2a+Xa0q2zuHaId8bFj/GDlydReoLSkiMEqOE2zqspi+cGDlS9Be5Zb4CUFDAUnZhW47y9geHppaxzMf8oW9lCOOkr2UZ6W440VYa8EE80MBRcrV44aoCmsS69RIUkZrZKq8utYSWM49hkbbdfiMxhxwflq9bVABhsey/USgkUWQ/4I5disc8tZj92LIxvi8I6neMut28+mfYbu5WkO0VIa6KbNpb85SFyIHyvgBlEqpPfY0FjM4/5tvcr9VhJvQ5uYU39gDE9/fRndnJ32vg1GVz8u+/t+Qr6o5fGZ/cfn8feRqa9dKhgOBsP3q+vC4qR/2foqAA==]]></ATT>
       <ATT name="Name"><![CDATA[rally Class diagram]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
+      <LINK relation="Represented">
+        <ID name="Competition" mc="Standard.Class" uid="4053e8d7-bba1-4b8c-8346-1b8d84fc6892"/>
+      </LINK>
       <COMP relation="Descriptor">
         <OBJECT>
           <ID name="" mc="Infrastructure.Note" uid="a8221655-1306-429b-af8c-15a9c5b8927d"/>
