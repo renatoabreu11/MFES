@@ -87,7 +87,34 @@
             <ATT name="Name"><![CDATA[PointType]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
-          <DEPENDENCIES></DEPENDENCIES>
+          <DEPENDENCIES>
+            <COMP relation="Value">
+              <OBJECT>
+                <ID name="Refuel" mc="Standard.EnumerationLiteral" uid="55a7575d-0ce8-48e7-9c91-c160cf5f21ac"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Refuel]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="Grouping" mc="Standard.EnumerationLiteral" uid="3d1dbf06-a716-49ae-836c-6a45f5a8bfc5"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Grouping]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="Time and Passage Control" mc="Standard.EnumerationLiteral" uid="256cb198-7306-4c27-8c93-8ec871d29e80"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Time and Passage Control]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
         </OBJECT>
       </COMP>
     </DEPENDENCIES>
