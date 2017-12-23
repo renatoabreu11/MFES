@@ -1,0 +1,7 @@
+class Performance
+instance variables
+  averageSpeed:?;
+  time:?;
+  distance:?;
+
+end Performance

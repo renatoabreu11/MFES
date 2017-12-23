@@ -1,0 +1,6 @@
+class Partner
+instance variables
+  championship:set of (Championship);
+  name:seq of (char);
+
+end Partner

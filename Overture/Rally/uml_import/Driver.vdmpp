@@ -1,0 +1,10 @@
+class Driver
+instance variables
+  codriver:[Codriver];
+  car:Car;
+  team:Team;
+  stagePerformance:set of (StagePerformance);
+  globalPerformance:set of (GlobalPerformance);
+  name:seq of (char);
+
+end Driver

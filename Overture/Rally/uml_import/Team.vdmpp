@@ -1,0 +1,10 @@
+class Team
+instance variables
+  car:set of (Car);
+  manufacturer:Manufacturer;
+  sponsor:set of (Sponsor);
+  championship:set of (Championship);
+  driver:set of (Driver);
+  name:seq of (char);
+
+end Team

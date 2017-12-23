@@ -21,32 +21,23 @@
         <COMPID name="Manufacturer" mc="Standard.Class" uid="f3b19f55-906c-429b-9047-09d2a61255c0"/>
         <COMPID name="Car" mc="Standard.Class" uid="bada8a93-3dd0-498b-811d-52f8b65c55c6"/>
         <COMPID name="Partner" mc="Standard.Class" uid="f8cec214-4d23-4426-a443-750c8c45d7c1"/>
-        <COMPID name="Participant" mc="Standard.Class" uid="c9cc8b6e-e7f5-492e-b247-73a9fc82aa49"/>
-        <OBJECT>
-          <ID name="For a pair Championship-Participant, there can only be one car associated (?)" mc="Standard.InformationItem" uid="a5f8b54d-563c-41d2-94a0-cf631ba1b8a2"/>
-          <ATTRIBUTES>
-            <ATT name="IsAbstract">false</ATT>
-            <ATT name="IsLeaf">false</ATT>
-            <ATT name="IsRoot">false</ATT>
-            <ATT name="Visibility">Public</ATT>
-            <ATT name="Name"><![CDATA[For a pair Championship-Participant, there can only be one car associated (?)]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES></DEPENDENCIES>
-        </OBJECT>
+        <COMPID name="Driver" mc="Standard.Class" uid="c9cc8b6e-e7f5-492e-b247-73a9fc82aa49"/>
         <COMPID name="Point" mc="Standard.Class" uid="bb3f5a49-b1d8-4338-aa0d-57c8f245ad4b"/>
         <OBJECT>
-          <ID name="Falta aqui algo nesta relacao para: average speed, time and distance. Nao sei qual o tipo de relacao xD" mc="Standard.InformationItem" uid="2bb66e91-c9f5-4cf7-8695-f57ba5936a81"/>
+          <ID name="Codriver e driver devem ser da mesma team" mc="Standard.InformationItem" uid="2bb66e91-c9f5-4cf7-8695-f57ba5936a81"/>
           <ATTRIBUTES>
             <ATT name="IsAbstract">false</ATT>
             <ATT name="IsLeaf">false</ATT>
             <ATT name="IsRoot">false</ATT>
             <ATT name="Visibility">Public</ATT>
-            <ATT name="Name"><![CDATA[Falta aqui algo nesta relacao para: average speed, time and distance. Nao sei qual o tipo de relacao xD]]></ATT>
+            <ATT name="Name"><![CDATA[Codriver e driver devem ser da mesma team]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
+        <COMPID name="Codriver" mc="Standard.Class" uid="5ce2950d-1e0d-4665-8173-344d31235be6"/>
+        <COMPID name="StagePerformance" mc="Standard.Class" uid="c3568dcf-9bb3-49af-85e8-969b31557b2b"/>
+        <COMPID name="GlobalPerformance" mc="Standard.Class" uid="733bb983-7584-44d3-bc23-14eb1db09427"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="rally Class diagram" mc="Standard.ClassDiagram" uid="379ef6b7-d0cd-4068-998a-d452fe3f93e7"/>

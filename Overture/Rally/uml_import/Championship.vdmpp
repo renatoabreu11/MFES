@@ -1,0 +1,10 @@
+class Championship
+instance variables
+  team:set of (Team);
+  stage:set of (Stage);
+  partner:set of (Partner);
+  driverGlobalPerformance:set of (GlobalPerformance);
+  name:seq of (char);
+  year:int;
+
+end Championship

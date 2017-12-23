@@ -1,0 +1,6 @@
+class Sponsor
+instance variables
+  team:[Team];
+  name:seq of (char);
+
+end Sponsor

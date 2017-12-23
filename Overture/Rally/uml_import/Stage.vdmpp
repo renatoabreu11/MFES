@@ -1,0 +1,11 @@
+class Stage
+types
+  public StageType = ();
+  public StagePlace = ();
+
+instance variables
+  championship:Championship;
+  point:set of (Point);
+  stagePerformance:set of (StagePerformance);
+
+end Stage

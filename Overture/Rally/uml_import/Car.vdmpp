@@ -1,0 +1,7 @@
+class Car
+instance variables
+  driver:Driver;
+  team:Team;
+  model:seq of (char);
+
+end Car

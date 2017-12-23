@@ -1,0 +1,5 @@
+class Point
+types
+  public PointType = ();
+
+end Point

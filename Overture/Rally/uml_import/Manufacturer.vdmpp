@@ -1,0 +1,6 @@
+class Manufacturer
+instance variables
+  car:set of (Car);
+  name:seq of (char);
+
+end Manufacturer
