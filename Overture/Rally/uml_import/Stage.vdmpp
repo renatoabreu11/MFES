@@ -1,11 +1,8 @@
 class Stage
-types
-  public StageType = ();
-  public StagePlace = ();
-
 instance variables
-  championship:Championship;
-  point:set of (Point);
-  stagePerformance:set of (StagePerformance);
+  performances:set of (Performance);
+  type:StageType;
+  date:?;
+  distance:?;
 
 end Stage

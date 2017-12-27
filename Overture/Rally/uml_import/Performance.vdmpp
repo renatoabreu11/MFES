@@ -1,7 +1,9 @@
 class Performance
 instance variables
+  driver:Driver;
   averageSpeed:?;
   time:?;
   distance:?;
+  penalty:?;
 
 end Performance

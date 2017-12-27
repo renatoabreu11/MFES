@@ -1,9 +1,0 @@
-class StagePerformance
-instance variables
-  driver:Driver;
-  stage:Stage;
-  averageSpeed:?;
-  time:?;
-  distance:?;
-
-end StagePerformance

@@ -198,7 +198,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="car" mc="Standard.AssociationEnd" uid="b77c0a76-1a79-4978-8bdd-31da40d8603e"/>
+          <ID name="car" mc="Standard.AssociationEnd" uid="183baecd-c5b8-4655-ab17-7a5fa11ea51e"/>
           <ATTRIBUTES>
             <ATT name="Aggregation">KindIsAssociation</ATT>
             <ATT name="IsChangeable">true</ATT>
@@ -206,8 +206,8 @@
             <ATT name="IsDerived">false</ATT>
             <ATT name="IsOrdered">false</ATT>
             <ATT name="IsUnique">false</ATT>
-            <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
-            <ATT name="MultiplicityMax"></ATT>
+            <ATT name="MultiplicityMin"></ATT>
+            <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
             <ATT name="Visibility">Public</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
@@ -216,11 +216,11 @@
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Car" mc="Standard.Class" uid="bada8a93-3dd0-498b-811d-52f8b65c55c6"/>
+              <ID name="Car" mc="Standard.Class" uid="31e42ded-3842-4ea4-a21c-895457767368"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
-                <ID name="" mc="Standard.AssociationEnd" uid="0240aa61-3a82-40c6-bb7a-594dd75809b5"/>
+                <ID name="" mc="Standard.AssociationEnd" uid="8b64a287-3109-4016-a388-3b68afd550a2"/>
                 <ATTRIBUTES>
                   <ATT name="Aggregation">KindIsAssociation</ATT>
                   <ATT name="IsChangeable">true</ATT>
@@ -228,8 +228,8 @@
                   <ATT name="IsDerived">false</ATT>
                   <ATT name="IsOrdered">false</ATT>
                   <ATT name="IsUnique">false</ATT>
-                  <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
-                  <ATT name="MultiplicityMax"></ATT>
+                  <ATT name="MultiplicityMin"></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
                   <ATT name="Visibility">Public</ATT>
                   <ATT name="IsClass">false</ATT>
                   <ATT name="IsAbstract">false</ATT>
@@ -238,11 +238,11 @@
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <COMP relation="Opposite">
-                    <COMPID name="car" mc="Standard.AssociationEnd" uid="b77c0a76-1a79-4978-8bdd-31da40d8603e"/>
+                    <COMPID name="car" mc="Standard.AssociationEnd" uid="183baecd-c5b8-4655-ab17-7a5fa11ea51e"/>
                   </COMP>
                   <COMP relation="Association">
                     <OBJECT>
-                      <ID name="" mc="Standard.Association" uid="8994b2a4-9ea7-42dc-a538-080c2d5681f4"/>
+                      <ID name="" mc="Standard.Association" uid="05b40d29-c8a6-41ed-a1d8-b5f8e07f5cb6"/>
                       <ATTRIBUTES>
                         <ATT name="Name"></ATT>
                         <ATT name="status">1970354901745664</ATT>
@@ -254,7 +254,7 @@
               </OBJECT>
             </COMP>
             <COMP relation="Association">
-              <COMPID name="" mc="Standard.Association" uid="8994b2a4-9ea7-42dc-a538-080c2d5681f4"/>
+              <COMPID name="" mc="Standard.Association" uid="05b40d29-c8a6-41ed-a1d8-b5f8e07f5cb6"/>
             </COMP>
           </DEPENDENCIES>
         </OBJECT>

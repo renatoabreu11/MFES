@@ -1,10 +1,9 @@
 class Championship
 instance variables
-  team:set of (Team);
-  stage:set of (Stage);
-  partner:set of (Partner);
-  driverGlobalPerformance:set of (GlobalPerformance);
+  series:set of (Rally);
+  teams:set of (Team);
+  partners:set of (Partner);
   name:seq of (char);
-  year:int;
+  season:int;
 
 end Championship

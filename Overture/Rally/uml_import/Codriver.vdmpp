@@ -1,7 +1,0 @@
-class Codriver
-instance variables
-  driver:Driver;
-  team:[Team];
-  name:seq of (char);
-
-end Codriver

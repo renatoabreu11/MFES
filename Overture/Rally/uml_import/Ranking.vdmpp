@@ -1,0 +1,7 @@
+class Ranking
+instance variables
+  driver:Driver;
+  rank:int;
+  points:?;
+
+end Ranking

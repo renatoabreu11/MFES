@@ -1,6 +1,7 @@
 class Manufacturer
 instance variables
-  car:set of (Car);
   name:seq of (char);
+  description:seq of (char);
+  country:Country;
 
 end Manufacturer

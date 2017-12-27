@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Sponsor" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Manufacturer" version="4">
   <OBJECT>
-    <ID name="Sponsor" mc="Standard.Class" uid="8d0161c4-c672-43a8-8946-13ee2fddeec6"/>
+    <ID name="Manufacturer" mc="Standard.Class" uid="7114a4d5-a0f8-4348-84ca-bfcb293e5e36"/>
     <PID name="class-model" mc="Standard.Package" uid="a5cd72cf-101f-4654-88e4-6cda998ba80c"/>
     <ATTRIBUTES>
       <ATT name="IsActive">false</ATT>
@@ -11,13 +11,13 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Sponsor]]></ATT>
+      <ATT name="Name"><![CDATA[Manufacturer]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
       <COMP relation="OwnedAttribute">
         <OBJECT>
-          <ID name="name" mc="Standard.Attribute" uid="63551f23-c622-4ab5-a366-ea02348f1c1f"/>
+          <ID name="name" mc="Standard.Attribute" uid="84936108-0917-448c-8618-3c22d858bb98"/>
           <ATTRIBUTES>
             <ATT name="TypeConstraint"></ATT>
             <ATT name="Value"></ATT>
@@ -41,7 +41,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="description" mc="Standard.Attribute" uid="472a5da1-b8f1-4234-aacd-6e1eb2304a2c"/>
+          <ID name="description" mc="Standard.Attribute" uid="ad6ee885-8517-4ca7-b971-51b0cee9e5ff"/>
           <ATTRIBUTES>
             <ATT name="TypeConstraint"></ATT>
             <ATT name="Value"></ATT>
@@ -61,6 +61,32 @@
           <DEPENDENCIES>
             <LINK relation="Type">
               <FOREIGNID name="string" mc="Standard.DataType" uid="00000004-0000-000d-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="country" mc="Standard.Attribute" uid="d942b660-7006-4a3a-b27d-a065fce948f0"/>
+          <ATTRIBUTES>
+            <ATT name="TypeConstraint"></ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="TargetIsClass">false</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+            <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[country]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Type">
+              <REFOBJ>
+                <ID name="Country" mc="Standard.Enumeration" uid="cfeaae8d-ed67-40b1-96bc-95fdb5a8170c"/>
+              </REFOBJ>
             </LINK>
           </DEPENDENCIES>
         </OBJECT>

@@ -1,6 +1,6 @@
 class Sponsor
 instance variables
-  team:[Team];
   name:seq of (char);
+  description:seq of (char);
 
 end Sponsor

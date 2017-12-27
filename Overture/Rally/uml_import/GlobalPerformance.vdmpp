@@ -1,7 +1,0 @@
-class GlobalPerformance
-instance variables
-  driver:Driver;
-  championship:Championship;
-  position:int;
-
-end GlobalPerformance

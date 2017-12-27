@@ -1,6 +1,6 @@
 class Partner
 instance variables
-  championship:set of (Championship);
   name:seq of (char);
+  description:seq of (char);
 
 end Partner

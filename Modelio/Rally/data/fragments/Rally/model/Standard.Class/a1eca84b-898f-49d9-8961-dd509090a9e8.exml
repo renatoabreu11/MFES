@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Manufacturer" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Sponsor" version="4">
   <OBJECT>
-    <ID name="Manufacturer" mc="Standard.Class" uid="f3b19f55-906c-429b-9047-09d2a61255c0"/>
-    <PID name="rally-classdiagram" mc="Standard.Package" uid="a5cd72cf-101f-4654-88e4-6cda998ba80c"/>
+    <ID name="Sponsor" mc="Standard.Class" uid="a1eca84b-898f-49d9-8961-dd509090a9e8"/>
+    <PID name="class-model" mc="Standard.Package" uid="a5cd72cf-101f-4654-88e4-6cda998ba80c"/>
     <ATTRIBUTES>
       <ATT name="IsActive">false</ATT>
       <ATT name="IsMain">false</ATT>
@@ -11,13 +11,13 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[Manufacturer]]></ATT>
+      <ATT name="Name"><![CDATA[Sponsor]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
       <COMP relation="OwnedAttribute">
         <OBJECT>
-          <ID name="name" mc="Standard.Attribute" uid="624ee555-e61a-4d89-8b88-94a42bb49e03"/>
+          <ID name="name" mc="Standard.Attribute" uid="310ae918-30d0-48c2-888b-b426dbc5db63"/>
           <ATTRIBUTES>
             <ATT name="TypeConstraint"></ATT>
             <ATT name="Value"></ATT>
@@ -41,7 +41,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="description" mc="Standard.Attribute" uid="8f7a60d2-c39b-4b8d-aaee-380f8451b0ca"/>
+          <ID name="description" mc="Standard.Attribute" uid="bbe18fff-f359-4b0c-83c1-802252bb384f"/>
           <ATTRIBUTES>
             <ATT name="TypeConstraint"></ATT>
             <ATT name="Value"></ATT>
@@ -61,32 +61,6 @@
           <DEPENDENCIES>
             <LINK relation="Type">
               <FOREIGNID name="string" mc="Standard.DataType" uid="00000004-0000-000d-0000-000000000000"/>
-            </LINK>
-          </DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="country" mc="Standard.Attribute" uid="8ad8a897-4c39-4b0f-91e3-4ca7dc8c43db"/>
-          <ATTRIBUTES>
-            <ATT name="TypeConstraint"></ATT>
-            <ATT name="Value"></ATT>
-            <ATT name="TargetIsClass">false</ATT>
-            <ATT name="Changeable">ReadWrite</ATT>
-            <ATT name="IsDerived">false</ATT>
-            <ATT name="IsOrdered">false</ATT>
-            <ATT name="IsUnique">false</ATT>
-            <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
-            <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
-            <ATT name="Visibility">Public</ATT>
-            <ATT name="IsClass">false</ATT>
-            <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[country]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES>
-            <LINK relation="Type">
-              <REFOBJ>
-                <ID name="Country" mc="Standard.Enumeration" uid="cfeaae8d-ed67-40b1-96bc-95fdb5a8170c"/>
-              </REFOBJ>
             </LINK>
           </DEPENDENCIES>
         </OBJECT>

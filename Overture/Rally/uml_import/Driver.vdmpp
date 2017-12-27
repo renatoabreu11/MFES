@@ -1,10 +1,12 @@
 class Driver
 instance variables
-  codriver:[Codriver];
-  car:Car;
   team:Team;
-  stagePerformance:set of (StagePerformance);
-  globalPerformance:set of (GlobalPerformance);
+  car:Car;
   name:seq of (char);
+  nationality:Country;
+  age:int;
+  dateOfBirth:?;
+  birthplace:seq of (char);
+  summary:seq of (char);
 
 end Driver

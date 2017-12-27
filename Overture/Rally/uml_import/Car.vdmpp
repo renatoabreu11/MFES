@@ -1,7 +1,6 @@
 class Car
 instance variables
-  driver:Driver;
-  team:Team;
+  manufacturer:[Manufacturer];
   model:seq of (char);
 
 end Car

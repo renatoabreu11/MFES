@@ -1,0 +1,13 @@
+class Rally
+instance variables
+  stages:set of (Stage);
+  rankings:set of (Ranking);
+  startDate:?;
+  endDate:?;
+  name:seq of (char);
+  description:seq of (char);
+  country:Country;
+  surface:Surface;
+  distance:?;
+
+end Rally
