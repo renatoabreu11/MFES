@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="rally-classdiagram" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="class-model" version="4">
   <OBJECT>
-    <ID name="rally-classdiagram" mc="Standard.Package" uid="a5cd72cf-101f-4654-88e4-6cda998ba80c"/>
+    <ID name="class-model" mc="Standard.Package" uid="a5cd72cf-101f-4654-88e4-6cda998ba80c"/>
     <PID name="Rally" mc="Standard.Project" uid="9b1e44e0-6b84-48c8-a81a-e9aed40aadc8"/>
     <ATTRIBUTES>
       <ATT name="IsInstantiable">false</ATT>
@@ -9,7 +9,7 @@
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[rally-classdiagram]]></ATT>
+      <ATT name="Name"><![CDATA[class-model]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
@@ -20,7 +20,6 @@
         <COMPID name="Team" mc="Standard.Class" uid="1d003b9b-b3b6-4df9-a188-8e8b9a149b89"/>
         <COMPID name="Manufacturer" mc="Standard.Class" uid="f3b19f55-906c-429b-9047-09d2a61255c0"/>
         <COMPID name="Car" mc="Standard.Class" uid="bada8a93-3dd0-498b-811d-52f8b65c55c6"/>
-        <COMPID name="Partner" mc="Standard.Class" uid="f8cec214-4d23-4426-a443-750c8c45d7c1"/>
         <COMPID name="Driver" mc="Standard.Class" uid="c9cc8b6e-e7f5-492e-b247-73a9fc82aa49"/>
         <COMPID name="Performance" mc="Standard.Class" uid="c3568dcf-9bb3-49af-85e8-969b31557b2b"/>
         <OBJECT>
@@ -176,7 +175,8 @@
           </DEPENDENCIES>
         </OBJECT>
         <COMPID name="Rally" mc="Standard.Class" uid="60a4d05a-f044-417c-af13-4a70f352a76b"/>
-        <COMPID name="Leaderboard" mc="Standard.Class" uid="71c8d63a-4f8d-4fb1-8ad4-69c5dd0c0caa"/>
+        <COMPID name="Ranking" mc="Standard.Class" uid="71c8d63a-4f8d-4fb1-8ad4-69c5dd0c0caa"/>
+        <COMPID name="Partner" mc="Standard.Class" uid="271443fb-c7bd-4504-991d-6aa9010699d6"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="rally Class diagram" mc="Standard.ClassDiagram" uid="379ef6b7-d0cd-4068-998a-d452fe3f93e7"/>

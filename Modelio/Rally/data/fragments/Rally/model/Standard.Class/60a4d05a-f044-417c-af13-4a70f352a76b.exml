@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Rally" version="4">
   <OBJECT>
     <ID name="Rally" mc="Standard.Class" uid="60a4d05a-f044-417c-af13-4a70f352a76b"/>
-    <PID name="rally-classdiagram" mc="Standard.Package" uid="a5cd72cf-101f-4654-88e4-6cda998ba80c"/>
+    <PID name="class-model" mc="Standard.Package" uid="a5cd72cf-101f-4654-88e4-6cda998ba80c"/>
     <ATTRIBUTES>
       <ATT name="IsActive">false</ATT>
       <ATT name="IsMain">false</ATT>
@@ -252,9 +252,9 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="" mc="Standard.AssociationEnd" uid="b6aeefb8-ba65-4f4d-8103-dc612c007ddc"/>
+          <ID name="rankings" mc="Standard.AssociationEnd" uid="b8471076-055b-4070-a337-79a975e6a52b"/>
           <ATTRIBUTES>
-            <ATT name="Aggregation">KindIsAssociation</ATT>
+            <ATT name="Aggregation">KindIsComposition</ATT>
             <ATT name="IsChangeable">true</ATT>
             <ATT name="Changeable">ReadWrite</ATT>
             <ATT name="IsDerived">false</ATT>
@@ -265,16 +265,16 @@
             <ATT name="Visibility">Public</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"></ATT>
+            <ATT name="Name"><![CDATA[rankings]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Driver" mc="Standard.Class" uid="c9cc8b6e-e7f5-492e-b247-73a9fc82aa49"/>
+              <ID name="Ranking" mc="Standard.Class" uid="71c8d63a-4f8d-4fb1-8ad4-69c5dd0c0caa"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
-                <ID name="" mc="Standard.AssociationEnd" uid="69bf0c88-3a17-488c-8a91-2e7d7c5df7cf"/>
+                <ID name="" mc="Standard.AssociationEnd" uid="e6164b0e-43f0-4f57-897a-c3b12b7c4493"/>
                 <ATTRIBUTES>
                   <ATT name="Aggregation">KindIsAssociation</ATT>
                   <ATT name="IsChangeable">true</ATT>
@@ -282,8 +282,8 @@
                   <ATT name="IsDerived">false</ATT>
                   <ATT name="IsOrdered">false</ATT>
                   <ATT name="IsUnique">false</ATT>
-                  <ATT name="MultiplicityMin"></ATT>
-                  <ATT name="MultiplicityMax"><![CDATA[*]]></ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
                   <ATT name="Visibility">Public</ATT>
                   <ATT name="IsClass">false</ATT>
                   <ATT name="IsAbstract">false</ATT>
@@ -292,38 +292,23 @@
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <COMP relation="Opposite">
-                    <COMPID name="" mc="Standard.AssociationEnd" uid="b6aeefb8-ba65-4f4d-8103-dc612c007ddc"/>
+                    <COMPID name="rankings" mc="Standard.AssociationEnd" uid="b8471076-055b-4070-a337-79a975e6a52b"/>
                   </COMP>
                   <COMP relation="Association">
                     <OBJECT>
-                      <ID name="" mc="Standard.Association" uid="c2b3c2fe-7404-421a-90d8-7374f37d77ac"/>
+                      <ID name="" mc="Standard.Association" uid="7deabac7-d6ea-47fe-b9cc-f4995d91da5b"/>
                       <ATTRIBUTES>
                         <ATT name="Name"></ATT>
                         <ATT name="status">1970354901745664</ATT>
                       </ATTRIBUTES>
-                      <DEPENDENCIES>
-                        <COMP relation="LinkToClass">
-                          <OBJECT>
-                            <ID name="ClassAssociation" mc="Standard.ClassAssociation" uid="8b419f0c-b8a3-4b78-9795-5e11510d7bac"/>
-                            <ATTRIBUTES>
-                              <ATT name="Name"><![CDATA[ClassAssociation]]></ATT>
-                              <ATT name="status">1970354901745664</ATT>
-                            </ATTRIBUTES>
-                            <DEPENDENCIES>
-                              <LINK relation="ClassPart">
-                                <ID name="Leaderboard" mc="Standard.Class" uid="71c8d63a-4f8d-4fb1-8ad4-69c5dd0c0caa"/>
-                              </LINK>
-                            </DEPENDENCIES>
-                          </OBJECT>
-                        </COMP>
-                      </DEPENDENCIES>
+                      <DEPENDENCIES></DEPENDENCIES>
                     </OBJECT>
                   </COMP>
                 </DEPENDENCIES>
               </OBJECT>
             </COMP>
             <COMP relation="Association">
-              <COMPID name="" mc="Standard.Association" uid="c2b3c2fe-7404-421a-90d8-7374f37d77ac"/>
+              <COMPID name="" mc="Standard.Association" uid="7deabac7-d6ea-47fe-b9cc-f4995d91da5b"/>
             </COMP>
           </DEPENDENCIES>
         </OBJECT>

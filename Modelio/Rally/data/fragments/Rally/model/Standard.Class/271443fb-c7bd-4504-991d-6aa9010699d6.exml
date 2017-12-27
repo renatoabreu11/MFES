@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Partner" version="4">
   <OBJECT>
-    <ID name="Partner" mc="Standard.Class" uid="f8cec214-4d23-4426-a443-750c8c45d7c1"/>
-    <PID name="rally-classdiagram" mc="Standard.Package" uid="a5cd72cf-101f-4654-88e4-6cda998ba80c"/>
+    <ID name="Partner" mc="Standard.Class" uid="271443fb-c7bd-4504-991d-6aa9010699d6"/>
+    <PID name="class-model" mc="Standard.Package" uid="a5cd72cf-101f-4654-88e4-6cda998ba80c"/>
     <ATTRIBUTES>
       <ATT name="IsActive">false</ATT>
       <ATT name="IsMain">false</ATT>
@@ -17,7 +17,7 @@
     <DEPENDENCIES>
       <COMP relation="OwnedAttribute">
         <OBJECT>
-          <ID name="name" mc="Standard.Attribute" uid="923ed0ab-cea9-4f2f-82da-8e821a8b7bcd"/>
+          <ID name="name" mc="Standard.Attribute" uid="bfb31263-5e93-47b2-9e0b-96822018799d"/>
           <ATTRIBUTES>
             <ATT name="TypeConstraint"></ATT>
             <ATT name="Value"></ATT>
@@ -41,7 +41,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="description" mc="Standard.Attribute" uid="caccb9c6-ac0a-4ef7-b560-ff579649b0f8"/>
+          <ID name="description" mc="Standard.Attribute" uid="65a71738-7b60-4868-9864-70721217eff0"/>
           <ATTRIBUTES>
             <ATT name="TypeConstraint"></ATT>
             <ATT name="Value"></ATT>

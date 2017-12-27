@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Stage" version="4">
   <OBJECT>
     <ID name="Stage" mc="Standard.Class" uid="59dd139f-b833-45a5-a1af-9dd669c02c5a"/>
-    <PID name="rally-classdiagram" mc="Standard.Package" uid="a5cd72cf-101f-4654-88e4-6cda998ba80c"/>
+    <PID name="class-model" mc="Standard.Package" uid="a5cd72cf-101f-4654-88e4-6cda998ba80c"/>
     <ATTRIBUTES>
       <ATT name="IsActive">false</ATT>
       <ATT name="IsMain">false</ATT>
@@ -93,9 +93,9 @@
       </COMP>
       <COMP relation="OwnedEnd">
         <OBJECT>
-          <ID name="" mc="Standard.AssociationEnd" uid="3f65c881-02e9-426f-b883-3f1411a30e7f"/>
+          <ID name="performances" mc="Standard.AssociationEnd" uid="34e916f6-f42e-4174-b6ad-99f9a66456cc"/>
           <ATTRIBUTES>
-            <ATT name="Aggregation">KindIsAssociation</ATT>
+            <ATT name="Aggregation">KindIsComposition</ATT>
             <ATT name="IsChangeable">true</ATT>
             <ATT name="Changeable">ReadWrite</ATT>
             <ATT name="IsDerived">false</ATT>
@@ -106,16 +106,16 @@
             <ATT name="Visibility">Public</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"></ATT>
+            <ATT name="Name"><![CDATA[performances]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Driver" mc="Standard.Class" uid="c9cc8b6e-e7f5-492e-b247-73a9fc82aa49"/>
+              <ID name="Performance" mc="Standard.Class" uid="c3568dcf-9bb3-49af-85e8-969b31557b2b"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
-                <ID name="" mc="Standard.AssociationEnd" uid="92587360-5b8c-4c90-a6a6-adc8e1d079df"/>
+                <ID name="" mc="Standard.AssociationEnd" uid="a10c6b81-b47f-4d75-ae55-dbbce3be5688"/>
                 <ATTRIBUTES>
                   <ATT name="Aggregation">KindIsAssociation</ATT>
                   <ATT name="IsChangeable">true</ATT>
@@ -123,8 +123,8 @@
                   <ATT name="IsDerived">false</ATT>
                   <ATT name="IsOrdered">false</ATT>
                   <ATT name="IsUnique">false</ATT>
-                  <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
-                  <ATT name="MultiplicityMax"><![CDATA[*]]></ATT>
+                  <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
                   <ATT name="Visibility">Public</ATT>
                   <ATT name="IsClass">false</ATT>
                   <ATT name="IsAbstract">false</ATT>
@@ -133,54 +133,23 @@
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <COMP relation="Opposite">
-                    <COMPID name="" mc="Standard.AssociationEnd" uid="3f65c881-02e9-426f-b883-3f1411a30e7f"/>
+                    <COMPID name="performances" mc="Standard.AssociationEnd" uid="34e916f6-f42e-4174-b6ad-99f9a66456cc"/>
                   </COMP>
                   <COMP relation="Association">
                     <OBJECT>
-                      <ID name="" mc="Standard.Association" uid="0be1e749-1449-4b7e-b326-9a7083bf6207"/>
+                      <ID name="" mc="Standard.Association" uid="5973283d-1dee-4ca7-9baa-4409d201e50f"/>
                       <ATTRIBUTES>
                         <ATT name="Name"></ATT>
                         <ATT name="status">1970354901745664</ATT>
                       </ATTRIBUTES>
-                      <DEPENDENCIES>
-                        <COMP relation="LinkToClass">
-                          <OBJECT>
-                            <ID name="ClassAssociation" mc="Standard.ClassAssociation" uid="7481d15d-95ca-4268-848c-476b2625db0c"/>
-                            <ATTRIBUTES>
-                              <ATT name="Name"><![CDATA[ClassAssociation]]></ATT>
-                              <ATT name="status">1970354901745664</ATT>
-                            </ATTRIBUTES>
-                            <DEPENDENCIES>
-                              <LINK relation="ClassPart">
-                                <ID name="Performance" mc="Standard.Class" uid="c3568dcf-9bb3-49af-85e8-969b31557b2b"/>
-                              </LINK>
-                            </DEPENDENCIES>
-                          </OBJECT>
-                        </COMP>
-                      </DEPENDENCIES>
+                      <DEPENDENCIES></DEPENDENCIES>
                     </OBJECT>
                   </COMP>
                 </DEPENDENCIES>
               </OBJECT>
             </COMP>
             <COMP relation="Association">
-              <COMPID name="" mc="Standard.Association" uid="0be1e749-1449-4b7e-b326-9a7083bf6207"/>
-            </COMP>
-            <COMP relation="Descriptor">
-              <OBJECT>
-                <ID name="" mc="Infrastructure.Note" uid="518c8dd5-b218-436d-b01b-c38742c35768"/>
-                <ATTRIBUTES>
-                  <ATT name="Content"><![CDATA[<Enter note text here>]]></ATT>
-                  <ATT name="MimeType"><![CDATA[text/plain]]></ATT>
-                  <ATT name="Name"></ATT>
-                  <ATT name="status">1970354901745664</ATT>
-                </ATTRIBUTES>
-                <DEPENDENCIES>
-                  <LINK relation="Model">
-                    <FOREIGNID name="description" mc="Infrastructure.NoteType" uid="00000000-0000-3e81-0000-000000000000"/>
-                  </LINK>
-                </DEPENDENCIES>
-              </OBJECT>
+              <COMPID name="" mc="Standard.Association" uid="5973283d-1dee-4ca7-9baa-4409d201e50f"/>
             </COMP>
           </DEPENDENCIES>
         </OBJECT>
