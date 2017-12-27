@@ -22,22 +22,161 @@
         <COMPID name="Car" mc="Standard.Class" uid="bada8a93-3dd0-498b-811d-52f8b65c55c6"/>
         <COMPID name="Partner" mc="Standard.Class" uid="f8cec214-4d23-4426-a443-750c8c45d7c1"/>
         <COMPID name="Driver" mc="Standard.Class" uid="c9cc8b6e-e7f5-492e-b247-73a9fc82aa49"/>
-        <COMPID name="Point" mc="Standard.Class" uid="bb3f5a49-b1d8-4338-aa0d-57c8f245ad4b"/>
+        <COMPID name="Performance" mc="Standard.Class" uid="c3568dcf-9bb3-49af-85e8-969b31557b2b"/>
+        <COMPID name="GlobalPerformance" mc="Standard.Class" uid="733bb983-7584-44d3-bc23-14eb1db09427"/>
         <OBJECT>
-          <ID name="Codriver e driver devem ser da mesma team" mc="Standard.InformationItem" uid="2bb66e91-c9f5-4cf7-8695-f57ba5936a81"/>
+          <ID name="Country" mc="Standard.Enumeration" uid="cfeaae8d-ed67-40b1-96bc-95fdb5a8170c"/>
           <ATTRIBUTES>
+            <ATT name="IsElementary">true</ATT>
             <ATT name="IsAbstract">false</ATT>
             <ATT name="IsLeaf">false</ATT>
             <ATT name="IsRoot">false</ATT>
             <ATT name="Visibility">Public</ATT>
-            <ATT name="Name"><![CDATA[Codriver e driver devem ser da mesma team]]></ATT>
+            <ATT name="Name"><![CDATA[Country]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
-          <DEPENDENCIES></DEPENDENCIES>
+          <DEPENDENCIES>
+            <COMP relation="Value">
+              <OBJECT>
+                <ID name="Portugal" mc="Standard.EnumerationLiteral" uid="7ad2c59e-fdd1-4f58-87c9-e24da94ab260"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Portugal]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="France" mc="Standard.EnumerationLiteral" uid="e80fc4ac-ad9b-4f71-824d-cb05d367ac35"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[France]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="Great Britain" mc="Standard.EnumerationLiteral" uid="25a33c3b-3bf9-4a13-be75-c0177cc65015"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Great Britain]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="Germany" mc="Standard.EnumerationLiteral" uid="349e28cb-5ee2-4304-9013-ccaa83e779ca"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Germany]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
         </OBJECT>
-        <COMPID name="Codriver" mc="Standard.Class" uid="5ce2950d-1e0d-4665-8173-344d31235be6"/>
-        <COMPID name="StagePerformance" mc="Standard.Class" uid="c3568dcf-9bb3-49af-85e8-969b31557b2b"/>
-        <COMPID name="GlobalPerformance" mc="Standard.Class" uid="733bb983-7584-44d3-bc23-14eb1db09427"/>
+        <OBJECT>
+          <ID name="StageType" mc="Standard.Enumeration" uid="ae79ca56-8222-4471-9270-0841a650a17c"/>
+          <ATTRIBUTES>
+            <ATT name="IsElementary">true</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[StageType]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Value">
+              <OBJECT>
+                <ID name="Timed" mc="Standard.EnumerationLiteral" uid="11be6713-9c92-4bf8-863c-205e39d9c358"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Timed]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="Transport" mc="Standard.EnumerationLiteral" uid="4402fd5b-980b-40a4-8221-abcb8ff35890"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Transport]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="Special" mc="Standard.EnumerationLiteral" uid="828cedc8-349d-4c2a-8c88-d740ede09aa6"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Special]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="Surface" mc="Standard.Enumeration" uid="1750bbf8-9c4a-4c4b-9b47-0611e15eb0da"/>
+          <ATTRIBUTES>
+            <ATT name="IsElementary">true</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="IsLeaf">false</ATT>
+            <ATT name="IsRoot">false</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="Name"><![CDATA[Surface]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="Value">
+              <OBJECT>
+                <ID name="Mountain" mc="Standard.EnumerationLiteral" uid="ee26721c-b1e3-44e5-9763-6852041a220c"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Mountain]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="Asphalt" mc="Standard.EnumerationLiteral" uid="75443e2f-5695-47b0-a652-4dad757b4a44"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Asphalt]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="Sand" mc="Standard.EnumerationLiteral" uid="3fdd89f4-14db-4040-9929-6042d45a3330"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Sand]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="Forest" mc="Standard.EnumerationLiteral" uid="42ad226c-b993-47b0-963e-408649f87908"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Forest]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="Snow" mc="Standard.EnumerationLiteral" uid="352f1f79-377e-4736-9d7c-b0f3061d7d3c"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Snow]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+              <OBJECT>
+                <ID name="Gravel" mc="Standard.EnumerationLiteral" uid="c59d492e-a036-48a2-ae99-60e7f26790a8"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"><![CDATA[Gravel]]></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <COMPID name="Rally" mc="Standard.Class" uid="e39324ab-81cf-496c-8513-77a54743b10e"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="rally Class diagram" mc="Standard.ClassDiagram" uid="379ef6b7-d0cd-4068-998a-d452fe3f93e7"/>
