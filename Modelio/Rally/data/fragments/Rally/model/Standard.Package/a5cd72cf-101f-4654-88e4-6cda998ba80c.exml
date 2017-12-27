@@ -176,6 +176,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <COMPID name="Rally" mc="Standard.Class" uid="60a4d05a-f044-417c-af13-4a70f352a76b"/>
+        <COMPID name="Leaderboard" mc="Standard.Class" uid="71c8d63a-4f8d-4fb1-8ad4-69c5dd0c0caa"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="rally Class diagram" mc="Standard.ClassDiagram" uid="379ef6b7-d0cd-4068-998a-d452fe3f93e7"/>
