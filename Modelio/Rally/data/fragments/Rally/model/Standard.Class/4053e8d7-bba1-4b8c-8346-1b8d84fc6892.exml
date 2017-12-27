@@ -67,7 +67,45 @@
       </COMP>
       <COMP relation="OwnedEnd">
         <OBJECT>
-          <ID name="team" mc="Standard.AssociationEnd" uid="f00cbb0f-c3ae-44da-9b5b-f0d6e52d5ab5"/>
+          <ID name="" mc="Standard.AssociationEnd" uid="9e020e76-b65e-45e3-804b-d788468a4482"/>
+          <ATTRIBUTES>
+            <ATT name="Aggregation">KindIsAssociation</ATT>
+            <ATT name="IsChangeable">true</ATT>
+            <ATT name="Changeable">ReadWrite</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
+            <ATT name="MultiplicityMax"><![CDATA[*]]></ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID name="Partner" mc="Standard.Class" uid="f8cec214-4d23-4426-a443-750c8c45d7c1"/>
+            </LINK>
+            <COMP relation="Opposite">
+              <REFOBJ>
+                <ID name="" mc="Standard.AssociationEnd" uid="2a55c3bf-27a4-459c-9d8e-fe2c4a8dce4e"/>
+              </REFOBJ>
+            </COMP>
+            <COMP relation="Association">
+              <OBJECT>
+                <ID name="" mc="Standard.Association" uid="b65822c2-2183-409a-abc4-2a3eb38e80bc"/>
+                <ATTRIBUTES>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES></DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="teams" mc="Standard.AssociationEnd" uid="f00cbb0f-c3ae-44da-9b5b-f0d6e52d5ab5"/>
           <ATTRIBUTES>
             <ATT name="Aggregation">KindIsAssociation</ATT>
             <ATT name="IsChangeable">true</ATT>
@@ -80,7 +118,7 @@
             <ATT name="Visibility">Public</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[team]]></ATT>
+            <ATT name="Name"><![CDATA[teams]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
@@ -89,7 +127,7 @@
             </LINK>
             <COMP relation="Opposite">
               <REFOBJ>
-                <ID name="championship" mc="Standard.AssociationEnd" uid="d53dd859-22d1-4a1b-b7b9-e90c3f075fa4"/>
+                <ID name="" mc="Standard.AssociationEnd" uid="d53dd859-22d1-4a1b-b7b9-e90c3f075fa4"/>
               </REFOBJ>
             </COMP>
             <COMP relation="Association">
@@ -105,7 +143,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="stage" mc="Standard.AssociationEnd" uid="f9116a50-8017-45fb-9bf8-90f95fe6421b"/>
+          <ID name="rally series" mc="Standard.AssociationEnd" uid="16402fcd-9a55-4057-8daf-a5f639d1fa2c"/>
           <ATTRIBUTES>
             <ATT name="Aggregation">KindIsAssociation</ATT>
             <ATT name="IsChangeable">true</ATT>
@@ -118,57 +156,16 @@
             <ATT name="Visibility">Public</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[stage]]></ATT>
+            <ATT name="Name"><![CDATA[rally series]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Stage" mc="Standard.Class" uid="59dd139f-b833-45a5-a1af-9dd669c02c5a"/>
-            </LINK>
-            <COMP relation="Opposite">
-              <REFOBJ>
-                <ID name="championship" mc="Standard.AssociationEnd" uid="99a476fe-89ec-4fd5-989c-be564d639554"/>
-              </REFOBJ>
-            </COMP>
-            <COMP relation="Association">
-              <OBJECT>
-                <ID name="" mc="Standard.Association" uid="ff06e2e3-b8d9-4db0-aa5e-6cc14db49854"/>
-                <ATTRIBUTES>
-                  <ATT name="Name"></ATT>
-                  <ATT name="status">1970354901745664</ATT>
-                </ATTRIBUTES>
-                <DEPENDENCIES></DEPENDENCIES>
-              </OBJECT>
-            </COMP>
-          </DEPENDENCIES>
-        </OBJECT>
-        <REFOBJ>
-          <ID name="partner" mc="Standard.AssociationEnd" uid="9e020e76-b65e-45e3-804b-d788468a4482"/>
-        </REFOBJ>
-        <OBJECT>
-          <ID name="driverGlobalPerformance" mc="Standard.AssociationEnd" uid="9eccb976-8737-4621-bb43-93a0cb1bcc21"/>
-          <ATTRIBUTES>
-            <ATT name="Aggregation">KindIsAssociation</ATT>
-            <ATT name="IsChangeable">true</ATT>
-            <ATT name="Changeable">ReadWrite</ATT>
-            <ATT name="IsDerived">false</ATT>
-            <ATT name="IsOrdered">false</ATT>
-            <ATT name="IsUnique">false</ATT>
-            <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
-            <ATT name="MultiplicityMax"><![CDATA[*]]></ATT>
-            <ATT name="Visibility">Public</ATT>
-            <ATT name="IsClass">false</ATT>
-            <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[driverGlobalPerformance]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES>
-            <LINK relation="Target">
-              <ID name="GlobalPerformance" mc="Standard.Class" uid="733bb983-7584-44d3-bc23-14eb1db09427"/>
+              <ID name="Rally" mc="Standard.Class" uid="60a4d05a-f044-417c-af13-4a70f352a76b"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
-                <ID name="championship" mc="Standard.AssociationEnd" uid="c7c8d148-7b1b-463b-a106-0adca27d5966"/>
+                <ID name="" mc="Standard.AssociationEnd" uid="3ed7ee6d-c480-4667-ba37-d6e854ac0fde"/>
                 <ATTRIBUTES>
                   <ATT name="Aggregation">KindIsAssociation</ATT>
                   <ATT name="IsChangeable">true</ATT>
@@ -181,19 +178,16 @@
                   <ATT name="Visibility">Public</ATT>
                   <ATT name="IsClass">false</ATT>
                   <ATT name="IsAbstract">false</ATT>
-                  <ATT name="Name"><![CDATA[championship]]></ATT>
+                  <ATT name="Name"></ATT>
                   <ATT name="status">1970354901745664</ATT>
                 </ATTRIBUTES>
                 <DEPENDENCIES>
-                  <LINK relation="Target">
-                    <ID name="Championship" mc="Standard.Class" uid="4053e8d7-bba1-4b8c-8346-1b8d84fc6892"/>
-                  </LINK>
                   <COMP relation="Opposite">
-                    <COMPID name="driverGlobalPerformance" mc="Standard.AssociationEnd" uid="9eccb976-8737-4621-bb43-93a0cb1bcc21"/>
+                    <COMPID name="rally series" mc="Standard.AssociationEnd" uid="16402fcd-9a55-4057-8daf-a5f639d1fa2c"/>
                   </COMP>
                   <COMP relation="Association">
                     <OBJECT>
-                      <ID name="" mc="Standard.Association" uid="5fa41e78-7870-44b9-90fe-9ab91deac76e"/>
+                      <ID name="" mc="Standard.Association" uid="292d20ee-1d4e-4316-b7e1-5c42b2d1c7de"/>
                       <ATTRIBUTES>
                         <ATT name="Name"></ATT>
                         <ATT name="status">1970354901745664</ATT>
@@ -205,7 +199,7 @@
               </OBJECT>
             </COMP>
             <COMP relation="Association">
-              <COMPID name="" mc="Standard.Association" uid="5fa41e78-7870-44b9-90fe-9ab91deac76e"/>
+              <COMPID name="" mc="Standard.Association" uid="292d20ee-1d4e-4316-b7e1-5c42b2d1c7de"/>
             </COMP>
           </DEPENDENCIES>
         </OBJECT>

@@ -23,7 +23,6 @@
         <COMPID name="Partner" mc="Standard.Class" uid="f8cec214-4d23-4426-a443-750c8c45d7c1"/>
         <COMPID name="Driver" mc="Standard.Class" uid="c9cc8b6e-e7f5-492e-b247-73a9fc82aa49"/>
         <COMPID name="Performance" mc="Standard.Class" uid="c3568dcf-9bb3-49af-85e8-969b31557b2b"/>
-        <COMPID name="GlobalPerformance" mc="Standard.Class" uid="733bb983-7584-44d3-bc23-14eb1db09427"/>
         <OBJECT>
           <ID name="Country" mc="Standard.Enumeration" uid="cfeaae8d-ed67-40b1-96bc-95fdb5a8170c"/>
           <ATTRIBUTES>
@@ -176,7 +175,7 @@
             </COMP>
           </DEPENDENCIES>
         </OBJECT>
-        <COMPID name="Rally" mc="Standard.Class" uid="e39324ab-81cf-496c-8513-77a54743b10e"/>
+        <COMPID name="Rally" mc="Standard.Class" uid="60a4d05a-f044-417c-af13-4a70f352a76b"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="rally Class diagram" mc="Standard.ClassDiagram" uid="379ef6b7-d0cd-4068-998a-d452fe3f93e7"/>
