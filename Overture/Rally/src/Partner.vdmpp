@@ -12,11 +12,12 @@ instance variables
   
 operations
   Partner : String * String ==> Partner
-	Partner(nm, desc) == (
-	  name := nm;
-	  description := desc;
+	Partner(name0, description0) == (
+	  name := name0;
+	  description := description0;
 	  return self;
-	); 
+	)
+	post self.name = name0 and self.description = description0;
 	
 functions
 -- TODO Define functiones here

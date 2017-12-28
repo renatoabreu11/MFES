@@ -14,12 +14,13 @@ instance variables
   
 operations
   Manufacturer : String * String * Country ==> Manufacturer
-	Manufacturer(nm, desc, ctr) == (
-	  name := nm;
-	  description := desc;
-	  country := ctr;
+	Manufacturer(name0, description0, country0) == (
+	  name := name0;
+	  description := description0;
+	  country := country0;
 	  return self;
-	);
+	)
+	post self.name = name0 and self.description = description0 and self.country = country0;
 	
 functions
 -- TODO Define functiones here

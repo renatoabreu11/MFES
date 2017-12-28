@@ -14,16 +14,15 @@ instance variables
   public car : set of (Car) := {};
   public name : String;
   public based : Country;
-  public established : String;
   
 operations
-  Team : String * Country * String ==> Team
-	Team(nm, bsd, estab) == (
-		name := nm;
-		based := bsd;
-		established := estab;
+  Team : String * Country ==> Team
+	Team(name0, based0) == (
+		name := name0;
+		based := based0;
 	  return self;
-	); 
+	)
+	post self.name = name0 and self.based = based0;
 
 functions
 -- TODO Define functiones here

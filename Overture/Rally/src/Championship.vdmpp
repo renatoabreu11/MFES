@@ -15,11 +15,13 @@ instance variables
   
 operations
   Championship : String * int ==> Championship
-	Championship(n, seas) == (
-	  name := n;
-	  season := seas;
+	Championship(name0, season0) == (
+	  name := name0;
+	  season := season0;
 	  return self;
-	);  
+	)
+	pre season0 > 01 and season0 < 18
+	post self.name = name0 and self.season = season0;
 	
 functions
 -- TODO Define functiones here

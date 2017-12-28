@@ -10,14 +10,20 @@ values
 instance variables
   public manufacturer : [Manufacturer];
   public model : String;
+  public horsePower : nat;
+  public weight : nat;
   
 operations
-  Car : String * Manufacturer ==> Car
-	Car(mdl, manuf) == (
-	  model := mdl;
-	  manufacturer := manuf;
+	Car : String * Manufacturer * nat * nat ==> Car
+	Car(model0, manufacturer0, horsePower0, weight0) == (
+	  model := model0;
+	  manufacturer := manufacturer0;
+	  horsePower := horsePower0;
+	  weight := weight0; 
 	  return self;
-	);
+	)
+	pre horsePower0 > 350 and horsePower0 < 500 and weight0 > 1000 and weight0 < 1400
+	post self.model = model0 and self.manufacturer = manufacturer0 and self.weight = weight0 and self.horsePower = horsePower0;
 	
 functions
 -- TODO Define functiones here

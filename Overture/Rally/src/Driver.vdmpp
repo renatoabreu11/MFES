@@ -4,6 +4,8 @@ types
 	String = Utils`String;
 	Country = Utils`Country;
 	Date = DateUtils`Date;
+	Gender = Utils`Gender;
+	DriverType = <Pilot> | <CoPilot>;
 	
 values
 -- TODO Define values here
@@ -12,22 +14,26 @@ instance variables
   public team : Team;
   public car : Car;
   public name : String;
+  public gender : Gender;
+  public type : DriverType;
   public nationality : Country;
   public age : int;
-  public dateOfBirth : Date;
-  public birthplace : String;
-  public summary : String;
+  public birth : Date;
   
 operations
-  Driver : String * Country * int * String * String ==> Driver
-	Driver(nm, nation, ag, birtplc, summ) == (
-	  name := nm;
-	  nationality := nation;
-	  age := ag;
-	  birthplace := birtplc;
-	  summary := summ;
+  Driver : String * Gender * DriverType * Country * int * Date ==> Driver
+	Driver(name0, gender0, type0, nationality0, age0, birth0) == (
+	  name := name0;
+	  gender := gender0;
+	  type := type0;
+	  nationality := nationality0;
+	  age := age0;
+	  birth := birth0;
 	  return self;
-	);   
+	)
+	pre age0 > 18 and age0 < 45
+	post self.name = name0 and self.gender = gender0 and self.type = type0 and self.nationality = nationality0
+		and self.age = age0 and self.birth = birth0;
 	
 functions
 -- TODO Define functiones here

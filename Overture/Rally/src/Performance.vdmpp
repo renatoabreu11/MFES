@@ -8,15 +8,17 @@ values
 instance variables
   public driver : Driver;
   public averageSpeed : real := 0.0;
-  public time : ?;
+  public time : real := 0.0;
   public distance: real := 0.0;
-  public penalty : ?;
+  public penalty : nat := 0;
 
 operations
-  Performance : () ==> Performance
-	Performance() == (
+  Performance : Driver ==> Performance
+	Performance(driver0) == (
+		driver := driver0;
 	  return self;
-	);  
+	)
+	post self.driver = driver0;
 	
 functions
 -- TODO Define functiones here

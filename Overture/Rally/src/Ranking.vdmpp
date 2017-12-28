@@ -12,10 +12,11 @@ instance variables
   
 operations
   Ranking : Driver ==> Ranking
-	Ranking(dri) == (
-		driver := dri;
+	Ranking(driver0) == (
+		driver := driver0;
 	  return self;
-	); 
+	)
+	post self.driver = driver0 and rank = 0 and points = 0;
 	
 functions
 -- TODO Define functiones here

@@ -15,12 +15,14 @@ instance variables
   
 operations
   Stage : StageType * Date * real ==> Stage
-	Stage(stageType, d, dist) == (
-		type := stageType;
-		date := d;
-		distance := dist;
+	Stage(type0, date0, distance0) == (
+		type := type0;
+		date := date0;
+		distance := distance0;
 	  return self;
-	);     
+	)
+	pre distance0 > 0
+	post self.type = type0 and self.date = date0 and self.distance = distance0;
 	
 functions
 -- TODO Define functiones here

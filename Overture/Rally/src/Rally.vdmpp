@@ -21,14 +21,18 @@ instance variables
   public distance : real := 0.0;
   
 operations
-  Rally : String * String * Country * Surface ==> Rally
-	Rally(nm, desc, cntr, surf) == (
-		name := nm;
-		description := desc;
-		country := cntr;
-		surface := surf;
+  Rally : String * String * Country * Surface * Date * Date ==> Rally
+	Rally(name0, description0, country0, surface0, startDate0, endDate0) == (
+		name := name0;
+		description := description0;
+		country := country0;
+		surface := surface0;
+		startDate := startDate0;
+		endDate := endDate0;
 	  return self;
-	); 
+	)
+	post self.name = name0 and self.description = description0 and self.country = country0
+		and self.surface = surface0 and self.startDate = startDate0 and self.endDate = endDate0;
 	
 functions
 -- TODO Define functiones here

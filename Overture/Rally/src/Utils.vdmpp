@@ -3,8 +3,9 @@ class Utils
 types
 	public String = seq of char;
 	public String1 = seq1 of char;
-	public Country = <Italy> | <France> | <Spain> | <SouthKorea> |
-       <Germany> | <GreatBritain> | <Japan>;
+	public Gender = <Male> | <Female>;
+	public Country = <Italy> | <France> | <Spain> | 
+									 <SouthKorea> | <Germany> | <GreatBritain> | <Japan>;
 
 functions
 	public static SubString(s: String, offset, length: nat) res:String ==
