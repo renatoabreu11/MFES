@@ -1,21 +1,25 @@
 class Driver
 
 types 
-	string = Utils`string;
+	String = Utils`String;
 	Country = Utils`Country;
+	Date = DateUtils`Date;
+	
+values
+-- TODO Define values here
 
 instance variables
   public team : Team;
   public car : Car;
-  public name : string;
+  public name : String;
   public nationality : Country;
   public age : int;
-  public dateOfBirth : ?;
-  public birthplace : string;
-  public summary : string;
+  public dateOfBirth : Date;
+  public birthplace : String;
+  public summary : String;
   
 operations
-  Driver : string * Country * int * string * string ==> Driver
+  Driver : String * Country * int * String * String ==> Driver
 	Driver(nm, nation, ag, birtplc, summ) == (
 	  name := nm;
 	  nationality := nation;
@@ -24,5 +28,10 @@ operations
 	  summary := summ;
 	  return self;
 	);   
+	
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
   
 end Driver

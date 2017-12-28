@@ -1,0 +1,26 @@
+class Partner
+
+types 
+	String = Utils`String;
+	
+values
+-- TODO Define values here
+
+instance variables
+  public name : String;
+  public description : String;
+  
+operations
+  Partner : String * String ==> Partner
+	Partner(nm, desc) == (
+	  name := nm;
+	  description := desc;
+	  return self;
+	); 
+	
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+
+end Partner

@@ -1,16 +1,26 @@
 class Performance
 
+types
+-- TODO Define types here
+values
+-- TODO Define values here
+
 instance variables
   public driver : Driver;
   public averageSpeed : real := 0.0;
   public time : ?;
   public distance: real := 0.0;
   public penalty : ?;
-  
+
 operations
   Performance : () ==> Performance
 	Performance() == (
 	  return self;
-	);    
+	);  
+	
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
 
 end Performance

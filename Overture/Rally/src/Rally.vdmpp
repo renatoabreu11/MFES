@@ -1,0 +1,38 @@
+class Rally
+
+types
+	Country = Utils`Country;
+	Surface = <Mountain> | <Asphalt> | <Sand> | <Forest> | <Snow> | <Gravel>;
+	String = Utils`String;
+	Date = DateUtils`Date;
+	
+values
+-- TODO Define values here
+
+instance variables
+  public stages : set of (Stage) := {};
+  public rankings : set of (Ranking) := {};
+  public startDate : Date;
+  public endDate : Date;
+  public name : String;
+  public description : String;
+  public country : Country;
+  public surface : Surface;
+  public distance : real := 0.0;
+  
+operations
+  Rally : String * String * Country * Surface ==> Rally
+	Rally(nm, desc, cntr, surf) == (
+		name := nm;
+		description := desc;
+		country := cntr;
+		surface := surf;
+	  return self;
+	); 
+	
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+
+end Rally

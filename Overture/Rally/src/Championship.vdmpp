@@ -1,21 +1,29 @@
 class Championship
 
 types 
-	string = Utils`string;
+	String = Utils`String;
+	
+values
+-- TODO Define values here
 
 instance variables
   public series : set of (Rally) := {};
   public teams : set of (Team) := {};
   public partners : set of (Partner):= {};
-  public name : string;
+  public name : String;
   public season:  int;
   
 operations
-  Championship : string * int ==> Championship
+  Championship : String * int ==> Championship
 	Championship(n, seas) == (
 	  name := n;
 	  season := seas;
 	  return self;
 	);  
+	
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
 
 end Championship

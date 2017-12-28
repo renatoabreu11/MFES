@@ -1,0 +1,29 @@
+class Manufacturer
+
+types 
+	String = Utils`String;
+	Country = Utils`Country;
+	
+values
+-- TODO Define values here
+
+instance variables
+  public name : String;
+  public description : String;
+  public country : Country;
+  
+operations
+  Manufacturer : String * String * Country ==> Manufacturer
+	Manufacturer(nm, desc, ctr) == (
+	  name := nm;
+	  description := desc;
+	  country := ctr;
+	  return self;
+	);
+	
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here	  
+	  
+end Manufacturer

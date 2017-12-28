@@ -1,0 +1,29 @@
+class Stage
+
+types
+	StageType = <Timed> | <Transport> | <Special>;
+	Date = DateUtils`Date;
+	
+values
+-- TODO Define values here
+
+instance variables
+  public performances : set of (Performance) := {};
+  public type : StageType;
+  public date : Date;
+  public distance : real;
+  
+operations
+  Stage : StageType * Date * real ==> Stage
+	Stage(stageType, d, dist) == (
+		type := stageType;
+		date := d;
+		distance := dist;
+	  return self;
+	);     
+	
+functions
+-- TODO Define functiones here
+traces
+-- TODO Define Combinatorial Test Traces here
+end Stage
