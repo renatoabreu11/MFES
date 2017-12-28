@@ -1,28 +1,38 @@
 class Championship
 
 types 
-	String = Utils`String;
+	public String = Utils`String;
 	
 values
 -- TODO Define values here
 
 instance variables
-  public series : set of (Rally) := {};
-  public teams : set of (Team) := {};
-  public partners : set of (Partner):= {};
-  public name : String;
-  public season:  int;
+  private series: set of (Rally) := {};
+  private teams: set of (Team) := {};
+  private partners: set of (Partner):= {};
+  private name: String;
+  private season: nat1;
   
 operations
-  Championship : String * int ==> Championship
+  public Championship: String * nat1 ==> Championship
 	Championship(name0, season0) == (
-	  name := name0;
-	  season := season0;
-	  return self;
-	)
-	pre season0 > 01 and season0 < 18
-	post self.name = name0 and self.season = season0;
+		  name := name0;
+		  season := season0;
+		  return self;
+		)
+		pre season0 > 1 and season0 < 18
+		post name = name0 and season = season0;
 	
+	pure public GetName: () ==> String
+	GetName() ==
+	  return name
+		post RESULT = name;
+		
+	pure public GetSeason: () ==> nat1
+	GetSeason() ==
+	  return season
+		post RESULT = season;		
+		
 functions
 -- TODO Define functiones here
 traces

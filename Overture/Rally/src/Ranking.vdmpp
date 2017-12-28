@@ -6,17 +6,32 @@ values
 -- TODO Define values here
 
 instance variables
-  public driver : Driver;
-  public rank : nat := 0;
-  public points : nat := 0;
+  private driver: [Driver] := nil;
+  private rank: nat := 0;
+  private points: nat := 0;
   
 operations
-  Ranking : Driver ==> Ranking
+  public Ranking : Driver ==> Ranking
 	Ranking(driver0) == (
 		driver := driver0;
 	  return self;
 	)
-	post self.driver = driver0 and rank = 0 and points = 0;
+	post driver = driver0 and rank = 0 and points = 0;
+
+	pure public GetDriver: () ==> [Driver]
+	GetDriver() ==
+	  return driver
+		post RESULT = driver;		
+		
+	pure public GetRank: () ==> nat
+	GetRank() ==
+	  return rank
+		post RESULT = rank;
+		
+	pure public GetPoints: () ==> nat
+	GetPoints() ==
+	  return points
+		post RESULT = points;	
 	
 functions
 -- TODO Define functiones here

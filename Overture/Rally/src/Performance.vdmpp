@@ -6,20 +6,45 @@ values
 -- TODO Define values here
 
 instance variables
-  public driver : Driver;
-  public averageSpeed : real := 0.0;
-  public time : real := 0.0;
-  public distance: real := 0.0;
-  public penalty : nat := 0;
+  private driver: [Driver] := nil;
+  private averageSpeed: real := 0.0;
+  private time: real := 0.0;
+  private distance: real := 0.0;
+  private penalty: nat := 0;
 
 operations
-  Performance : Driver ==> Performance
+  public Performance : Driver ==> Performance
 	Performance(driver0) == (
 		driver := driver0;
 	  return self;
 	)
-	post self.driver = driver0;
+	post driver = driver0;
 	
+	pure public GetDriver: () ==> [Driver]
+	GetDriver() ==
+	  return driver
+		post RESULT = driver;		
+		
+	pure public GetAverageSpeed: () ==> real
+	GetAverageSpeed() ==
+	  return averageSpeed
+		post RESULT = averageSpeed;
+		
+	pure public GetTime: () ==> real
+	GetTime() ==
+	  return time
+		post RESULT = time;		
+		
+	pure public GetDistance: () ==> real
+	GetDistance() ==
+	  return distance
+		post RESULT = distance;
+		
+	pure public GetPenalty: () ==> nat
+	GetPenalty() ==
+	  return penalty
+		post RESULT = penalty;							
+			
 functions
 -- TODO Define functiones here
 traces

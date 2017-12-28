@@ -1,39 +1,71 @@
 class Driver
 
 types 
-	String = Utils`String;
-	Country = Utils`Country;
-	Date = DateUtils`Date;
-	Gender = Utils`Gender;
-	DriverType = <Pilot> | <CoPilot>;
+	public String = Utils`String;
+	public Country = Utils`Country;
+	public Date = DateUtils`Date;
+	public Gender = Utils`Gender;
 	
 values
 -- TODO Define values here
 
 instance variables
-  public team : Team;
-  public car : Car;
-  public name : String;
-  public gender : Gender;
-  public type : DriverType;
-  public nationality : Country;
-  public age : int;
-  public birth : Date;
+  private team: [Team] := nil;
+  private car: [Car] := nil;
+  private name: String;
+  private gender: Gender;
+  private nationality: Country;
+  private age: nat1;
+  private birth: Date;
   
 operations
-  Driver : String * Gender * DriverType * Country * int * Date ==> Driver
-	Driver(name0, gender0, type0, nationality0, age0, birth0) == (
+  public Driver: String * Gender * Country * nat1 * Date ==> Driver
+	Driver(name0, gender0, nationality0, age0, birth0) == (
 	  name := name0;
 	  gender := gender0;
-	  type := type0;
 	  nationality := nationality0;
 	  age := age0;
 	  birth := birth0;
 	  return self;
 	)
 	pre age0 > 18 and age0 < 45
-	post self.name = name0 and self.gender = gender0 and self.type = type0 and self.nationality = nationality0
-		and self.age = age0 and self.birth = birth0;
+	post name = name0 and gender = gender0 and nationality = nationality0
+		and age = age0 and birth = birth0;
+
+	pure public GetTeam: () ==> [Team]
+	GetTeam() ==
+	  return team
+		post RESULT = team;
+		
+	pure public GetCar: () ==> [Car]
+	GetCar() ==
+	  return car
+		post RESULT = car;	
+		
+	pure public GetName: () ==> String
+	GetName() ==
+	  return name
+		post RESULT = name;	
+		
+	pure public GetGender: () ==> Gender
+	GetGender() ==
+	  return gender
+		post RESULT = gender;	
+		
+	pure public GetNationality: () ==> Country
+	GetNationality() ==
+	  return nationality
+		post RESULT = nationality;	
+		
+	pure public GetAge: () ==> nat1
+	GetAge() ==
+	  return age
+		post RESULT = age;	
+		
+	pure public GetBirth: () ==> Date
+	GetBirth() ==
+	  return birth
+		post RESULT = birth;	
 	
 functions
 -- TODO Define functiones here

@@ -1,23 +1,33 @@
 class Partner
 
 types 
-	String = Utils`String;
+	public String = Utils`String;
 	
 values
 -- TODO Define values here
 
 instance variables
-  public name : String;
-  public description : String;
+  private name: String;
+  private description: String;
   
 operations
-  Partner : String * String ==> Partner
+  public Partner : String * String ==> Partner
 	Partner(name0, description0) == (
 	  name := name0;
 	  description := description0;
 	  return self;
 	)
-	post self.name = name0 and self.description = description0;
+	post name = name0 and description = description0;
+	
+	pure public GetName: () ==> String
+	GetName() ==
+	  return name
+		post RESULT = name;		
+		
+	pure public GetDescription: () ==> String
+	GetDescription() ==
+	  return description
+		post RESULT = description;	
 	
 functions
 -- TODO Define functiones here

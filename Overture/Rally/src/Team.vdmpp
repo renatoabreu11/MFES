@@ -1,28 +1,43 @@
 class Team
 
 types
-	Country = Utils`Country;
-	String = Utils`String;
+	public Country = Utils`Country;
+	public String = Utils`String;
 
 values
 -- TODO Define values here
 
 instance variables
-  public drivers : set of (Driver) := {};
-  public sponsors : set of (Sponsor) := {};
-  public backer : [Manufacturer] := nil;
-  public car : set of (Car) := {};
-  public name : String;
-  public based : Country;
+  private drivers : set of (Driver) := {};
+  private sponsors : set of (Sponsor) := {};
+  private backer : [Manufacturer] := nil;
+  private car : set of (Car) := {};
+  private name : String;
+  private based : Country;
   
 operations
-  Team : String * Country ==> Team
+  public Team : String * Country ==> Team
 	Team(name0, based0) == (
 		name := name0;
 		based := based0;
 	  return self;
 	)
-	post self.name = name0 and self.based = based0;
+	post name = name0 and based = based0;
+
+	pure public GetBacker: () ==> [Manufacturer]
+	GetBacker() ==
+	  return backer
+		post RESULT = backer;		
+		
+	pure public GetName: () ==> String
+	GetName() ==
+	  return name
+		post RESULT = name;
+		
+	pure public GetBased: () ==> Country
+	GetBased() ==
+	  return based
+		post RESULT = based;	
 
 functions
 -- TODO Define functiones here

@@ -1,0 +1,41 @@
+class SeqUtils
+
+types
+  public SortDirection = <Asc> | <Desc>;
+
+functions
+  public static SortBy[@T](s: set of @T, func: @T -> int, 
+                           dir : SortDirection) res: seq of @T ==
+    Sort[@T](SetToSeq[@T](s), 
+        lambda e1: @T, e2: @T & 
+           if dir = <Asc> then func(e1)-func(e2) else func(e2)-func(e1));
+
+  public static SetToSeq[@T](arg: set of @T) res: seq of @T ==
+    if arg = {} then []
+    else let elem in set arg in [elem] ^ SetToSeq[@T](arg \ {elem});
+
+  public static Sort[@T](l: seq of @T, compare: @T * @T -> int) res: seq of @T ==
+    if l = [] then []
+    else InsertSorted[@T](hd l, Sort[@T](tl l, compare), compare);
+
+  private static InsertSorted[@T](i: @T, l: seq of @T, 
+                  compare: @T * @T -> int) res : seq of @T ==
+    cases true :
+      (l = [])    -> [i],
+      (compare(i, hd l) <= 0)  -> [i] ^ l,
+      others      -> [hd l] ^ InsertSorted[@T](i, tl l, compare)
+    end;
+
+
+    -- Determine se uma sequência tem elementos repetidos
+   public static HasDuplicates[@elem](s: seq of @elem) res: bool ==
+      exists i, j in set inds s & i <> j and s(i) = s(j);
+
+
+    -- Remove um elemento duma sequência (se existir duplicado, remove
+    -- todas as ocorrências)
+   public static Remove[@elem](e: @elem, s: seq of @elem) res: seq of @elem ==
+        [s(i) | i in set inds s & s(i) <> e];
+
+
+end SeqUtils
