@@ -1,6 +1,19 @@
 class Car
+
+types 
+	string = Utils`string;
+	Country = Utils`Country;
+
 instance variables
-  manufacturer:[Manufacturer];
-  model:seq of (char);
+  public manufacturer : [Manufacturer];
+  public model : string;
+
+operations
+  Car : string * Manufacturer ==> Car
+	Car(mdl, manuf) == (
+	  model := mdl;
+	  manufacturer := manuf;
+	  return self;
+	);
 
 end Car

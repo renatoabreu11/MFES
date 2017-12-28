@@ -1,9 +1,16 @@
 class Performance
+
 instance variables
-  driver:Driver;
-  averageSpeed:?;
-  time:?;
-  distance:?;
-  penalty:?;
+  public driver : Driver;
+  public averageSpeed : real := 0.0;
+  public time : ?;
+  public distance: real := 0.0;
+  public penalty : ?;
+  
+operations
+  Performance : () ==> Performance
+	Performance() == (
+	  return self;
+	);    
 
 end Performance

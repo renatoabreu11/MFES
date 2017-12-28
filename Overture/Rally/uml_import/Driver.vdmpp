@@ -1,12 +1,28 @@
 class Driver
-instance variables
-  team:Team;
-  car:Car;
-  name:seq of (char);
-  nationality:Country;
-  age:int;
-  dateOfBirth:?;
-  birthplace:seq of (char);
-  summary:seq of (char);
 
+types 
+	string = Utils`string;
+	Country = Utils`Country;
+
+instance variables
+  public team : Team;
+  public car : Car;
+  public name : string;
+  public nationality : Country;
+  public age : int;
+  public dateOfBirth : ?;
+  public birthplace : string;
+  public summary : string;
+  
+operations
+  Driver : string * Country * int * string * string ==> Driver
+	Driver(nm, nation, ag, birtplc, summ) == (
+	  name := nm;
+	  nationality := nation;
+	  age := ag;
+	  birthplace := birtplc;
+	  summary := summ;
+	  return self;
+	);   
+  
 end Driver

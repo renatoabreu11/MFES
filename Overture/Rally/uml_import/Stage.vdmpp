@@ -1,8 +1,21 @@
 class Stage
+
+types
+	StageType = Utils`StageType;
+
 instance variables
-  performances:set of (Performance);
-  type:StageType;
-  date:?;
-  distance:?;
+  public performances : set of (Performance) := {};
+  public type : StageType;
+  public date : ?;
+  public distance : real;
+  
+operations
+  Stage : StageType * real ==> Stage
+	Stage(stageType, dist) == (
+		type := stageType;
+		distance := dist;
+	  return self;
+	);      
+  
 
 end Stage

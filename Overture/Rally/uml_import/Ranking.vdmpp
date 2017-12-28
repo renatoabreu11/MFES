@@ -1,7 +1,13 @@
 class Ranking
 instance variables
-  driver:Driver;
-  rank:int;
-  points:?;
+  public driver : Driver;
+  public rank : nat := 0;
+  public points : nat := 0;
+  
+operations
+  Ranking : () ==> Ranking
+	Ranking() == (
+	  return self;
+	);      
 
 end Ranking

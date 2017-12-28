@@ -1,7 +1,21 @@
 class Manufacturer
-instance variables
-  name:seq of (char);
-  description:seq of (char);
-  country:Country;
 
+types 
+	string = Utils`string;
+	Country = Utils`Country;
+
+instance variables
+  public name : string;
+  public description : string;
+  public country : Country;
+  
+operations
+  Manufacturer : string * string * Country ==> Manufacturer
+	Manufacturer(nm, desc, ctr) == (
+	  name := nm;
+	  description := desc;
+	  country := ctr;
+	  return self;
+	);
+	  
 end Manufacturer

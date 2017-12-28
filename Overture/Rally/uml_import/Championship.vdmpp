@@ -1,9 +1,21 @@
 class Championship
+
+types 
+	string = Utils`string;
+
 instance variables
-  series:set of (Rally);
-  teams:set of (Team);
-  partners:set of (Partner);
-  name:seq of (char);
-  season:int;
+  public series : set of (Rally) := {};
+  public teams : set of (Team) := {};
+  public partners : set of (Partner):= {};
+  public name : string;
+  public season:  int;
+  
+operations
+  Championship : string * int ==> Championship
+	Championship(n, seas) == (
+	  name := n;
+	  season := seas;
+	  return self;
+	);  
 
 end Championship

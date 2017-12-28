@@ -1,11 +1,25 @@
 class Team
+
+types
+	Country = Utils`Country;
+	string = Utils`string;
+
 instance variables
-  drivers:set of (Driver);
-  sponsors:set of (Sponsor);
-  backer:[Manufacturer];
-  car:set of (Car);
-  name:seq of (char);
-  based:Country;
-  established:seq of (char);
+  public drivers : set of (Driver) := {};
+  public sponsors : set of (Sponsor) := {};
+  public backer : [Manufacturer] := nil;
+  public car : set of (Car) := {};
+  public name : string;
+  public based : Country;
+  public established : string;
+  
+operations
+  Team : string * Country * string ==> Team
+	Team(nm, bsd, estab) == (
+		name := nm;
+		based := bsd;
+		established := estab;
+	  return self;
+	);        
 
 end Team

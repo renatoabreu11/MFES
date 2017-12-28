@@ -1,13 +1,29 @@
 class Rally
+
+types
+	Country = Utils`Country;
+	Surface = Utils`Surface;
+	string = Utils`string;
+
 instance variables
-  stages:set of (Stage);
-  rankings:set of (Ranking);
-  startDate:?;
-  endDate:?;
-  name:seq of (char);
-  description:seq of (char);
-  country:Country;
-  surface:Surface;
-  distance:?;
+  public stages : set of (Stage) := {};
+  public rankings : set of (Ranking) := {};
+  public startDate : ?;
+  public endDate : ?;
+  public name : string;
+  public description : string;
+  public country : Country;
+  public surface : Surface;
+  public distance : real := 0.0;
+  
+operations
+  Rally : string * string * Country * Surface ==> Rally
+	Rally(nm, desc, cntr, surf) == (
+		name := nm;
+		description := desc;
+		country := cntr;
+		surface := surf;
+	  return self;
+	);      
 
 end Rally

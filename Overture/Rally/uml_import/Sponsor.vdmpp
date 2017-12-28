@@ -1,6 +1,18 @@
 class Sponsor
+
+types 
+	string = Utils`string;
+
 instance variables
-  name:seq of (char);
-  description:seq of (char);
+  public name : string;
+  public description : string;
+  
+operations
+  Sponsor : string * string ==> Sponsor
+	Sponsor(nm, desc) == (
+	  name := nm;
+	  description := desc;
+	  return self;
+	);  
 
 end Sponsor
