@@ -1,4 +1,4 @@
-class RallyTest is subclass of MyTestCase
+class RankingTest is subclass of MyTestCase
 types
 -- TODO Define types here
 values
@@ -11,4 +11,4 @@ functions
 -- TODO Define functiones here
 traces
 -- TODO Define Combinatorial Test Traces here
-end RallyTest
+end RankingTest

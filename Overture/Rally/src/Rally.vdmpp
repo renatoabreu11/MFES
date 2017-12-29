@@ -10,7 +10,7 @@ values
 -- TODO Define values here
 
 instance variables
-  private stages: seq of (Stage) := {};
+  private stages: seq of (Stage);
   private rankings: set of (Ranking) := {};
   private startDate: Date;
   private endDate: Date;

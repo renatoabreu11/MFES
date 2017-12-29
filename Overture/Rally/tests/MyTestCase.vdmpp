@@ -1,4 +1,4 @@
-class TestOperations
+class MyTestCase
 
 operations
   protected assertTrue: bool ==> ()
@@ -21,4 +21,4 @@ operations
     )
 	post expected = actual
 	
-end TestOperations
+end MyTestCase
