@@ -10,7 +10,7 @@ values
 -- TODO Define values here
 
 instance variables
-  private stages: set of (Stage) := {};
+  private stages: seq of (Stage) := {};
   private rankings: set of (Ranking) := {};
   private startDate: Date;
   private endDate: Date;
@@ -67,7 +67,17 @@ operations
 	pure public GetDistance: () ==> real
 	GetDistance() ==
 	  return distance
-		post RESULT = distance;		
+		post RESULT = distance;
+		
+	pure public GetStages: () ==> seq of Stage
+	GetStages() ==
+		return stages
+		post RESULT = stages;
+		
+	public SetStages: seq of Stage ==> ()
+	SetStages(stages0) == (
+		stages := stages0
+	)
 	
 functions
 -- TODO Define functiones here

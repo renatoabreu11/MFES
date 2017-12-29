@@ -2,7 +2,7 @@
 <!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="See performance information" version="4">
   <OBJECT>
     <ID name="See performance information" mc="Standard.UseCase" uid="1e1056e3-40e3-4bcf-a982-18ec7db7daa0"/>
-    <PID name="rally-usecases" mc="Standard.Package" uid="35bf0559-bde7-42f6-b6da-1aa32408fed7"/>
+    <PID name="use-cases" mc="Standard.Package" uid="35bf0559-bde7-42f6-b6da-1aa32408fed7"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
@@ -38,6 +38,21 @@
           <DEPENDENCIES>
             <LINK relation="Target">
               <ID name="See a stage's performance" mc="Standard.UseCase" uid="581ce4c9-02e8-4b2c-b6f7-09499625ce71"/>
+            </LINK>
+            <LINK relation="Extension">
+              <FOREIGNID name="extend" mc="Infrastructure.Stereotype" uid="00000000-0000-9c48-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="UseCaseDependency" mc="Standard.UseCaseDependency" uid="8b3b523c-a7f1-4143-8abd-dbcc19213e8b"/>
+          <ATTRIBUTES>
+            <ATT name="Name"><![CDATA[UseCaseDependency]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Target">
+              <ID name="See car's information" mc="Standard.UseCase" uid="8fa45ad8-2688-453c-9c63-3c4d299abd07"/>
             </LINK>
             <LINK relation="Extension">
               <FOREIGNID name="extend" mc="Infrastructure.Stereotype" uid="00000000-0000-9c48-0000-000000000000"/>

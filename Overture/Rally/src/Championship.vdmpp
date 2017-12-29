@@ -31,7 +31,17 @@ operations
 	pure public GetSeason: () ==> nat1
 	GetSeason() ==
 	  return season
-		post RESULT = season;		
+		post RESULT = season;
+		
+	pure public GetPartners: () ==> set of Partner
+	GetPartners() ==
+		return partners
+		post RESULT = partners;
+		
+	public AddPartner: Partner ==> ()
+	AddPartner(p) == (
+		partners := partners union {p}
+	)
 		
 functions
 -- TODO Define functiones here

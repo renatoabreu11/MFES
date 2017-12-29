@@ -18,17 +18,16 @@
         <COMPID name="Driver" mc="Standard.Actor" uid="a6b94150-af8f-43fd-b463-49c76d97466c"/>
         <COMPID name="Manage Championship" mc="Standard.UseCase" uid="fbc8cec3-d618-418b-b743-fce53ef54089"/>
         <COMPID name="Set partners" mc="Standard.UseCase" uid="3027455f-bea9-4900-aecb-af47433e4bdc"/>
-        <COMPID name="Team Manager" mc="Standard.Actor" uid="1a8b2518-2937-4a12-98fa-44c9966f2a70"/>
         <COMPID name="Manage team" mc="Standard.UseCase" uid="19322ce7-1e4b-49dc-9893-094baf06f13e"/>
         <COMPID name="Set stages" mc="Standard.UseCase" uid="01e36fb2-94ff-4d16-8635-12e75dcad63c"/>
         <COMPID name="Set drivers' cars" mc="Standard.UseCase" uid="8b144303-7102-47de-8922-f8fdebe8cfcc"/>
-        <COMPID name="Set drivers' codrivers" mc="Standard.UseCase" uid="6f64e562-3e51-4361-9c14-90e14f132e5a"/>
         <COMPID name="See a stage's performance" mc="Standard.UseCase" uid="581ce4c9-02e8-4b2c-b6f7-09499625ce71"/>
         <COMPID name="See global performance" mc="Standard.UseCase" uid="b758c600-dab5-44a5-8481-60fed270d880"/>
         <COMPID name="Set sponsors" mc="Standard.UseCase" uid="a305bc87-ff1a-4575-aa9f-3e16a4ee7cc5"/>
         <COMPID name="See performance information" mc="Standard.UseCase" uid="1e1056e3-40e3-4bcf-a982-18ec7db7daa0"/>
         <COMPID name="Record stage " mc="Standard.UseCase" uid="d5dd574c-37ed-47c8-9537-1cd57996d187"/>
         <COMPID name="Record relevant stage info" mc="Standard.UseCase" uid="7c5a864c-f7ca-4957-b628-3b1b18c382da"/>
+        <COMPID name="See car's information" mc="Standard.UseCase" uid="8fa45ad8-2688-453c-9c63-3c4d299abd07"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="rally-usecases Use Case diagram" mc="Standard.UseCaseDiagram" uid="0cb6c4cd-053f-48d3-8477-905585d510ea"/>
