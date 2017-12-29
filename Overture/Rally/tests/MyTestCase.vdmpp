@@ -6,7 +6,7 @@ operations
     return
   pre arg;
   
-	private assertFalse: bool ==> ()
+	protected assertFalse: bool ==> ()
   	assertFalse(arg) == return
 	pre not arg;
   
