@@ -1,18 +1,17 @@
 class PartnerTest is subclass of MyTestCase
 
 instance variables
-	partner1: Partner := new Partner("Bosch", "123456");
-	partner2: Partner := new Partner("Michelin", "123452226");	
-	partner3: Partner := new Partner("Amazon", "123455556");
-	partner4: Partner := new Partner("Boch", "123452226");
+	partner1: Partner := new Partner("Michelin", "Michelin, the leading tire company, is dedicated to enhancing its clients’ mobility, sustainably; designing and distributing the most suitable tires, services and solutions for its clients’ needs.");
+	partner2: Partner := new Partner("Certina", "Precision, reliability, innovation and dynamism. These are the values that have always linked Certina to sport.");	
+	partner3: Partner := new Partner("OneBet", "OneBet is the official sports betting partner of the FIA World Rally Championship, providing spectacular opportunities to boost the rush and experience of WRC.");
 	
 operations
 	public Run: () ==> ()
 	Run() == (
 		IO`println("\nPartner Tests");
 			
-		assertEqual("Bosch", partner1.GetName());
-		assertEqual("123452226", partner2.GetDescription());
+		assertEqual("Michelin", partner1.GetName());
+		assertEqual("Precision, reliability, innovation and dynamism. These are the values that have always linked Certina to sport.", partner2.GetDescription());
 			
 		IO`println("\nFinalizing Partner Tests");
 	);

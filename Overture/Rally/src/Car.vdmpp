@@ -2,51 +2,43 @@ class Car
 
 types 
 	public String = Utils`String;
-	
-values
--- TODO Define values here
 
 instance variables
-  private manufacturer: [Manufacturer] := nil;
+  private manufacturer: [Manufacturer];
   private model: String;
   private horsePower: nat;
   private weight: nat;
   
 operations
 	public Car: String * Manufacturer * nat * nat ==> Car
-	Car(model0, manufacturer0, horsePower0, weight0) == (
-	  model := model0;
-	  manufacturer := manufacturer0;
-	  horsePower := horsePower0;
-	  weight := weight0; 
-	  return self;
-	)
-	pre horsePower0 > 350 and horsePower0 < 500 and weight0 > 1000 and weight0 < 1400
-	post model = model0 and manufacturer = manufacturer0 and weight = weight0 and horsePower = horsePower0;
+		Car(model0, manufacturer0, horsePower0, weight0) == (
+		  model := model0;
+		  manufacturer := manufacturer0;
+		  horsePower := horsePower0;
+		  weight := weight0; 
+		  return self;
+		)
+		pre horsePower0 > 350 and horsePower0 < 500 and weight0 > 1000 and weight0 < 1400 and manufacturer <> nil and model <> ""
+		post model = model0 and manufacturer = manufacturer0 and weight = weight0 and horsePower = horsePower0;
 	
 	pure public GetModel: () ==> String
-	GetModel() ==
-	  return model
+		GetModel() ==
+		  return model
 		post RESULT = model;
 	  
 	pure public GetHorsePower: () ==> nat
-	GetHorsePower() ==
-	  return horsePower
-	  post RESULT = horsePower;
+		GetHorsePower() ==
+		  return horsePower
+		post RESULT = horsePower;
 	  
 	pure public GetWeight: () ==> nat
-	GetWeight() ==
-	  return weight
-	  post RESULT = weight;
+		GetWeight() ==
+		  return weight
+		post RESULT = weight;
 	  
 	pure public GetManufacturer: () ==> [Manufacturer]
-	GetManufacturer() ==
-	  return manufacturer
-	  post RESULT = manufacturer;
-	  
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here
+		GetManufacturer() ==
+		  return manufacturer
+		post RESULT = manufacturer;
 
 end Car

@@ -1,18 +1,18 @@
 class SponsorTest is subclass of MyTestCase
 
 instance variables
-	sponsor1: Sponsor := new Sponsor("SuperBock", "123456");
-	sponsor2: Sponsor := new Sponsor("Adidas", "123452226");	
-	sponsor3: Sponsor := new Sponsor("Nike", "123455556");
-	sponsor4: Sponsor := new Sponsor("Sagres", "123452226");
+	sponsor1: Sponsor := new Sponsor("Abu Dhabi", "Official visitor website for Abu Dhabi travel and tourism, offering information on hotels, restaurants, things to do, culture & heritage and events.");
+	sponsor2: Sponsor := new Sponsor("Eparco", "Spécialiste assainissement compact, développe et fabrique en exclusivité des solutions pour l'assainissement non collectif depuis 45 ans.");	
+	sponsor3: Sponsor := new Sponsor("Stilo", "Stilo helmets competition. Top functionality, everything a driver needs must be standard feature: intercom, connections, earmuffs, drinking system.");
+	sponsor4: Sponsor := new Sponsor("Michelin", "Michelin, the leading tire company, is dedicated to enhancing its clients’ mobility, sustainably; designing and distributing the most suitable tires, services and solutions for its clients’ needs.");
 	
 operations
 	public Run: () ==> ()
 	Run() == (
 		IO`println("\nSponsor Tests");
 			
-		assertEqual("SuperBock", sponsor1.GetName());
-		assertEqual("123452226", sponsor2.GetDescription());
+		assertEqual("Abu Dhabi", sponsor1.GetName());
+		assertEqual("Spécialiste assainissement compact, développe et fabrique en exclusivité des solutions pour l'assainissement non collectif depuis 45 ans.", sponsor2.GetDescription());
 			
 		IO`println("\nFinalizing Sponsor Tests");
 	);

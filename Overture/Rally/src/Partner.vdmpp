@@ -14,6 +14,7 @@ operations
 		  description := description0;
 		  return self;
 		)
+		pre name0 <> "" and description0 <> "" 
 		post name = name0 and description = description0;
 	
 	pure public GetName: () ==> String

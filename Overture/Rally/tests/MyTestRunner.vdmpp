@@ -7,6 +7,8 @@ operations
 		new ChampionshipTest().Run();
     new PartnerTest().Run();
     new SponsorTest().Run();    
+    new ManufacturerTest().Run();
+    new CarTest().Run();
     
     IO`println("Finalizing Test Runner");
 	);

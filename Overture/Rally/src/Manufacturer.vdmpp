@@ -3,9 +3,6 @@ class Manufacturer
 types 
 	public String = Utils`String;
 	public Country = Utils`Country;
-	
-values
--- TODO Define values here
 
 instance variables
   private name: String;
@@ -14,32 +11,28 @@ instance variables
   
 operations
   public Manufacturer : String * String * Country ==> Manufacturer
-	Manufacturer(name0, description0, country0) == (
-	  name := name0;
-	  description := description0;
-	  country := country0;
-	  return self;
-	)
-	post name = name0 and description = description0 and country = country0;
+		Manufacturer(name0, description0, country0) == (
+		  name := name0;
+		  description := description0;
+		  country := country0;
+		  return self;
+		)
+		pre name0 <> "" and description0 <> "" 
+		post name = name0 and description = description0 and country = country0;
 	
 	pure public GetName: () ==> String
-	GetName() ==
-	  return name
+		GetName() ==
+		  return name
 		post RESULT = name;		
 		
 	pure public GetDescription: () ==> String
-	GetDescription() ==
-	  return description
+		GetDescription() ==
+		  return description
 		post RESULT = description;	
 		
 	pure public GetCountry: () ==> Country
-	GetCountry() ==
-	  return country
-		post RESULT = country;	
-					
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here	  
+		GetCountry() ==
+		  return country
+		post RESULT = country;	 
 	  
 end Manufacturer
