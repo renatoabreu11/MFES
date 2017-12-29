@@ -1,0 +1,8 @@
+class MyTestRunner
+operations
+	public static run() == (
+		IO`println("Initializing Test Runner");
+    new ChampionshipTest().setup();
+    IO`println("Finalizing Test Runner");
+);
+end MyTestRunner

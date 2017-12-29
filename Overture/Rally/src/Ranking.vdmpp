@@ -16,8 +16,10 @@ operations
 		driver := driver0;
 	  return self;
 	)
-	post driver = driver0 and rank = 0 and points = 0;
+		post driver = driver0 and rank = 0 and points = 0;
 
+	-- *** Getters ***
+	
 	pure public GetDriver: () ==> [Driver]
 	GetDriver() ==
 	  return driver

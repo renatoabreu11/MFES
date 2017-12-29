@@ -11,9 +11,18 @@ instance variables
   private drivers : set of (Driver) := {};
   private sponsors : set of (Sponsor) := {};
   private backer : [Manufacturer] := nil;
-  private car : set of (Car) := {};
+  private cars : set of (Car) := {};
   private name : String;
   private based : Country;
+  
+  inv not exists d1, d2 in set drivers &
+        d1 <> d2 and d1.GetName() = d2.GetName();
+
+  inv not exists s1, s2 in set sponsors &
+        s1 <> s2 and s1.GetName() = s2.GetName();
+
+  inv not exists c1, c2 in set cars &
+        c1 <> c2 and c1.GetModel() = c2.GetModel();
   
 operations
   public Team : String * Country ==> Team
@@ -23,6 +32,50 @@ operations
 	  return self;
 	)
 	post name = name0 and based = based0;
+
+	-- *** Transactions ***
+	
+	public AddSponsor: Sponsor ==> ()
+	AddSponsor(s) == (
+		sponsors := sponsors union {s}
+	)
+		pre not exists s1 in set sponsors & s1.GetName() = s.GetName();
+	
+	public AddDriver: Driver ==> ()
+	AddDriver(d) == (
+		drivers := drivers union {d}
+	)
+		pre not exists d1 in set drivers & d1.GetName() = d.GetName();
+
+	public AddCar: Car ==> ()
+	AddCar(c) == (
+		cars := cars union {c}
+	)
+		pre if(backer <> nil) then c.GetManufacturer().GetName() = backer.GetName() else true
+			and not exists c1 in set cars & c1.GetModel() = c.GetModel();	
+	
+	public SetBacker: Manufacturer ==> ()
+	SetBacker(m) == (
+		backer := m;
+	)
+		pre not exists c1 in set cars & c1.GetManufacturer().GetName() <> m.GetName();
+
+	-- *** Getters ***
+
+	pure public GetCars: () ==> set of (Car)
+	GetCars() ==
+	  return cars
+		post RESULT = cars;		
+		
+	pure public GetSponsors: () ==> set of (Sponsor)
+	GetSponsors() ==
+	  return sponsors
+		post RESULT = sponsors;
+		
+	pure public GetDrivers: () ==> set of (Driver)
+	GetDrivers() ==
+	  return drivers
+		post RESULT = drivers;	
 
 	pure public GetBacker: () ==> [Manufacturer]
 	GetBacker() ==

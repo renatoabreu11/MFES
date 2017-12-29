@@ -10,8 +10,8 @@ values
 -- TODO Define values here
 
 instance variables
-  private stages: seq of (Stage);
-  private rankings: set of (Ranking) := {};
+  private stages: seq of (Stage) := [];
+  private rankings: seq of (Ranking) := [];
   private startDate: Date;
   private endDate: Date;
   private name: String;
@@ -19,6 +19,11 @@ instance variables
   private country: Country;
   private surface: Surface;
   private distance: real := 0.0;
+  
+  inv endDate > startDate;
+  
+  inv not exists r1, r2 in seq rankings &
+        r1 <> r2 and r1.GetDriver().GetName() = r2.GetDriver().GetName();  
   
 operations
   public Rally : String * String * Country * Surface * Date * Date ==> Rally
@@ -31,8 +36,19 @@ operations
 		endDate := endDate0;
 	  return self;
 	)
-	post name = name0 and description = description0 and country = country0
-		and surface = surface0 and startDate = startDate0 and endDate = endDate0;
+		pre endDate0 > startDate0
+		post name = name0 and description = description0 and country = country0
+			and surface = surface0 and startDate = startDate0 and endDate = endDate0;
+
+	-- *** Transactions ***
+	
+	public AddState: Stage ==> ()
+	AddState(s) == (
+		stages := stages ^ [s];
+		distance := distance + s.GetDistance();
+	);
+
+	-- *** Getters ***
 
 	pure public GetStartDate: () ==> Date
 	GetStartDate() ==
@@ -73,11 +89,6 @@ operations
 	GetStages() ==
 		return stages
 		post RESULT = stages;
-		
-	public SetStages: seq of Stage ==> ()
-	SetStages(stages0) == (
-		stages := stages0
-	)
 	
 functions
 -- TODO Define functiones here

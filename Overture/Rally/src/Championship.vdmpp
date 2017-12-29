@@ -7,11 +7,21 @@ values
 -- TODO Define values here
 
 instance variables
-  private series: set of (Rally) := {};
+  private series: seq of (Rally) := [];
   private teams: set of (Team) := {};
   private partners: set of (Partner):= {};
   private name: String;
   private season: nat1;
+  
+  -- nome é chave de rally/team/partner, isto é, não podem existir dois rallies/teams/partners diferentes com o mesmo nome
+  inv not exists r1, r2 in seq series &
+        r1 <> r2 and r1.GetName() = r2.GetName();
+
+  inv not exists t1, t2 in set teams &
+        t1 <> t2 and t1.GetName() = t2.GetName();
+
+  inv not exists p1, p2 in set partners &
+        p1 <> p2 and p1.GetName() = p2.GetName();
   
 operations
   public Championship: String * nat1 ==> Championship
@@ -20,8 +30,30 @@ operations
 		  season := season0;
 		  return self;
 		)
-		pre season0 > 1 and season0 < 18
+		pre season0 >= 1 and season0 <= 18
 		post name = name0 and season = season0;
+	
+	-- *** Transactions ***
+			
+	public AddPartner: Partner ==> ()
+	AddPartner(p) == (
+		partners := partners union {p}
+	)
+		pre not exists p1 in set partners & p1.GetName() = p.GetName();
+	
+	public AddRally: Rally ==> ()
+	AddRally(r) == (
+		series := series ^ [r]
+	)
+		pre not exists r1 in seq series & r1.GetName() = r.GetName();
+
+	public AddTeam: Team ==> ()
+	AddTeam(t) == (
+		teams := teams union {t}
+	)
+		pre not exists t1 in set partners & t1.GetName() = t.GetName();	
+	
+	-- *** Getters ***
 	
 	pure public GetName: () ==> String
 	GetName() ==
@@ -38,10 +70,15 @@ operations
 		return partners
 		post RESULT = partners;
 		
-	public AddPartner: Partner ==> ()
-	AddPartner(p) == (
-		partners := partners union {p}
-	)
+	pure public GetTeams: () ==> set of Team
+	GetTeams() ==
+		return teams
+		post RESULT = teams;
+		
+	pure public GetSeries: () ==> seq of Rally
+	GetSeries() ==
+		return series
+		post RESULT = series;				
 		
 functions
 -- TODO Define functiones here

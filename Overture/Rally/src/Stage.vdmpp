@@ -8,7 +8,7 @@ values
 -- TODO Define values here
 
 instance variables
-  private performances: set of (Performance) := {};
+  private performances: seq of (Performance) := [];
   private type: StageType;
   private date: Date;
   private distance: real;
