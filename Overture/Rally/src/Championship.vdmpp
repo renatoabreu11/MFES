@@ -13,7 +13,7 @@ instance variables
   private name: String;
   private season: nat1;
   
-  -- nome √© chave de rally/team/partner, isto √©, n√£o podem existir dois rallies/teams/partners diferentes com o mesmo nome
+  -- nome È chave de rally/team/partner, isto È, n„o podem existir dois rallies/teams/partners diferentes com o mesmo nome
   inv not exists r1, r2 in seq series &
         r1 <> r2 and r1.GetName() = r2.GetName();
 
@@ -39,7 +39,8 @@ operations
 	AddPartner(p) == (
 		partners := partners union {p}
 	)
-		pre not exists p1 in set partners & p1.GetName() = p.GetName();
+		pre not exists p1 in set partners & p1.GetName() = p.GetName()
+		post p in set partners;
 	
 	public AddRally: Rally ==> ()
 	AddRally(r) == (
@@ -65,6 +66,11 @@ operations
 	  return season
 		post RESULT = season;
 		
+	pure public GetTeams: () ==> set of Team
+	GetTeams() ==
+		return teams
+	post RESULT = teams;
+		
 	pure public GetPartners: () ==> set of Partner
 	GetPartners() ==
 		return partners
@@ -80,6 +86,7 @@ operations
 		return series
 		post RESULT = series;				
 		
+
 functions
 -- TODO Define functiones here
 traces
