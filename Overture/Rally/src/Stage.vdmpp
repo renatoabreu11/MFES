@@ -43,14 +43,13 @@ operations
 	  return distance
 		post RESULT = distance;
 		
-	pure public GetDriverPerformance: Driver ==> Performance
+	public GetDriverPerformance: Driver ==> Performance
 	GetDriverPerformance(d) == (
-		return if exists i in seq inds performances &
-            performances(i).GetDriver() = d
-          then performances(i)
-          else nil;
+		let p in seq performances be st d in p.GetDriver()
+    return p;
 	)
-	post (RESULT in seq performances) or RESULT = nil;
+	--TO DO precondition to ensure driver exists
+	post RESULT in set performances;
 	
 functions
 -- TODO Define functiones here
