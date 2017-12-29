@@ -1,8 +1,21 @@
 class MyTestRunner
+
 operations
 	public static run() == (
 		IO`println("Initializing Test Runner");
-    new ChampionshipTest().setup();
+		
+		new ChampionshipTest().Run();
+    new PartnerTest().Run();
+    new SponsorTest().Run();    
+    
     IO`println("Finalizing Test Runner");
-);
+	);
+	
+	private SystemTest: () ==> ()
+	 SystemTest() == (
+		 IO`println("\nInitializing System Test");
+	   
+	   IO`println("\nFinalizing System Test");
+	 )
+	
 end MyTestRunner

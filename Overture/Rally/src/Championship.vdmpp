@@ -2,16 +2,15 @@ class Championship
 
 types 
 	public String = Utils`String;
-	
-values
--- TODO Define values here
+	public Date = DateUtils`Date;
 
 instance variables
   private series: seq of (Rally) := [];
   private teams: set of (Team) := {};
   private partners: set of (Partner):= {};
   private name: String;
-  private season: nat1;
+  private startDate: Date;
+  private endDate: Date;
   
   -- nome é chave de rally/team/partner, isto é, não podem existir dois rallies/teams/partners diferentes com o mesmo nome
   inv not exists r1, r2 in seq series &
@@ -22,67 +21,70 @@ instance variables
 
   inv not exists p1, p2 in set partners &
         p1 <> p2 and p1.GetName() = p2.GetName();
+        
+	inv endDate > startDate;     
   
 operations
-  public Championship: String * nat1 ==> Championship
-	Championship(name0, season0) == (
-		  name := name0;
-		  season := season0;
-		  return self;
-		)
-		pre season0 >= 1 and season0 <= 18
-		post name = name0 and season = season0;
+  public Championship: String * Date * Date ==> Championship
+		Championship(name0, startDate0, endDate0) == (
+			  name := name0;
+			  startDate := startDate0;
+			  endDate := endDate0;
+			  return self;
+			)
+		pre endDate0 > startDate0
+		post name = name0 and startDate = startDate0 and endDate = endDate0;
 	
 	-- *** Transactions ***
 			
 	public AddPartner: Partner ==> ()
-	AddPartner(p) == (
-		partners := partners union {p}
-	)
+		AddPartner(p) == (
+			partners := partners union {p}
+		)
 		pre not exists p1 in set partners & p1.GetName() = p.GetName();
 	
 	public AddRally: Rally ==> ()
-	AddRally(r) == (
-		series := series ^ [r]
-	)
+		AddRally(r) == (
+			series := series ^ [r]
+		)
 		pre not exists r1 in seq series & r1.GetName() = r.GetName();
 
 	public AddTeam: Team ==> ()
-	AddTeam(t) == (
-		teams := teams union {t}
-	)
+		AddTeam(t) == (
+			teams := teams union {t}
+		)
 		pre not exists t1 in set partners & t1.GetName() = t.GetName();	
 	
 	-- *** Getters ***
 	
 	pure public GetName: () ==> String
-	GetName() ==
-	  return name
+		GetName() ==
+		  return name
 		post RESULT = name;
 		
-	pure public GetSeason: () ==> nat1
-	GetSeason() ==
-	  return season
-		post RESULT = season;
+	pure public GetStartDate: () ==> Date
+		GetStartDate() ==
+		  return startDate
+		post RESULT = startDate;
+		
+	pure public GetEndDate: () ==> Date
+		GetEndDate() ==
+		  return endDate
+		post RESULT = endDate;		
 		
 	pure public GetPartners: () ==> set of Partner
-	GetPartners() ==
-		return partners
+		GetPartners() ==
+			return partners
 		post RESULT = partners;
 		
 	pure public GetTeams: () ==> set of Team
-	GetTeams() ==
-		return teams
+		GetTeams() ==
+			return teams
 		post RESULT = teams;
 		
 	pure public GetSeries: () ==> seq of Rally
-	GetSeries() ==
-		return series
+		GetSeries() ==
+			return series
 		post RESULT = series;				
-		
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here
 
 end Championship

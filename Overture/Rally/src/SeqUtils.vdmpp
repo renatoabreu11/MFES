@@ -26,12 +26,88 @@ functions
       others      -> [hd l] ^ InsertSorted[@T](i, tl l, compare)
     end;
 
+		static public Sum[@T]: seq of @T ->  @T
+		Sum(s) == SumAux[@T](s)(0)
+		pre
+			is_(s, seq of real);
+		
+		static SumAux[@T] : seq of @T -> @T -> @T
+		SumAux(s)(sum) ==
+		  if is_(s,seq of real) and is_real(sum)
+		  then
+			if s = [] then
+				sum
+			else
+				SumAux[@T](tl s)(sum + hd s)
+		  else undefined;
+		  
+		static public GetAverage[@T]: seq of @T ->  [real]
+		GetAverage(s) == if s = [] then nil else GetAverageAux[@T](s)(0)(len s);
+
+		static GetAverageAux[@T] : seq of @T -> @T -> @T -> real
+		GetAverageAux(s)(sum)(numberOfElem) ==
+		 if is_(s,seq of real) and is_real(sum) and is_real(numberOfElem)
+		 then
+			cases s :
+			[h] ^ tail	-> GetAverageAux[@T](tail)(sum + h)(numberOfElem),
+			[]			-> sum / numberOfElem
+			end
+		else undefined;
 
     -- Determine se uma sequência tem elementos repetidos
-   public static HasDuplicates[@elem](s: seq of @elem) res: bool ==
+   	public static HasDuplicates[@elem](s: seq of @elem) res: bool ==
       exists i, j in set inds s & i <> j and s(i) = s(j);
 
+		static public Merge[@T] : (@T * @T -> bool) -> seq of @T -> seq of @T -> seq of @T
+		Merge(decideOrderFunc)(s1)(s2) == 
+			cases mk_(s1,s2):
+				mk_([], y)						-> y,
+				mk_(x, [])						-> x,
+				mk_([h1]^tail1,[h2]^tail2)		->
+					if decideOrderFunc(h1,h2) then
+						[h1] ^ Merge[@T](decideOrderFunc)(tail1)(s2)
+					else
+						[h2] ^ Merge[@T](decideOrderFunc)(s1)(tail2)
+			end;
 
+		static public InsertAt[@T]: nat1 -> @T -> seq of @T -> seq of @T
+		InsertAt(position)(e)(s) ==
+			cases mk_(position, s) :
+			mk_(1, str)				-> [e] ^ str,
+			mk_(-, [])				-> [e],
+			mk_(pos, [h] ^ tail)	-> [h] ^ InsertAt[@T](pos - 1)(e)(tail)
+			end;
+
+		static public RemoveAt[@T]: nat1 -> seq of @T -> seq of @T
+		RemoveAt(position)(s) ==
+			cases mk_(position, s) :
+			mk_(1, [-] ^ tail)		-> tail,
+			mk_(pos, [h] ^ tail)	-> [h] ^ RemoveAt[@T](pos - 1)(tail),
+			mk_(-, [])				-> []
+			end;
+
+		static public last[@T]: seq of @T -> @T
+		last(s) == s(len s);
+		
+		static public filter[@T]: (@T -> bool) -> seq of @T -> seq of @T
+		filter(f)(s) == [s(i) | i in set inds s & f(s(i))];
+		
+		static public Index[@T]: @T -> seq of @T -> int
+		Index(e)(s) == 
+			let	i = 0
+			in	IndexAux[@T](e)(s)(i);
+		
+		static IndexAux[@T]: @T -> seq of @T -> int -> int
+		IndexAux(e)(s)(indx) ==
+			cases s:
+				[]			-> 0,
+				[x]^xs	->
+					if x = e then 
+						indx + 1
+					else
+						IndexAux[@T](e)(xs)(indx+1)
+			end;
+	
     -- Remove um elemento duma sequência (se existir duplicado, remove
     -- todas as ocorrências)
    public static Remove[@elem](e: @elem, s: seq of @elem) res: seq of @elem ==
@@ -39,3 +115,6 @@ functions
 
 
 end SeqUtils
+
+
+

@@ -36,9 +36,9 @@ operations
 	-- *** Transactions ***
 	
 	public AddSponsor: Sponsor ==> ()
-	AddSponsor(s) == (
-		sponsors := sponsors union {s}
-	)
+		AddSponsor(s) == (
+			sponsors := sponsors union {s}
+		)
 		pre not exists s1 in set sponsors & s1.GetName() = s.GetName();
 	
 	public AddDriver: Driver ==> ()

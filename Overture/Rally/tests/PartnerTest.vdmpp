@@ -1,14 +1,20 @@
 class PartnerTest is subclass of MyTestCase
-types
--- TODO Define types here
-values
--- TODO Define values here
+
 instance variables
--- TODO Define instance variables here
+	partner1: Partner := new Partner("Bosch", "123456");
+	partner2: Partner := new Partner("Michelin", "123452226");	
+	partner3: Partner := new Partner("Amazon", "123455556");
+	partner4: Partner := new Partner("Boch", "123452226");
+	
 operations
--- TODO Define operations here
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here
+	public Run: () ==> ()
+	Run() == (
+		IO`println("\nPartner Tests");
+			
+		assertEqual("Bosch", partner1.GetName());
+		assertEqual("123452226", partner2.GetDescription());
+			
+		IO`println("\nFinalizing Partner Tests");
+	);
+	
 end PartnerTest

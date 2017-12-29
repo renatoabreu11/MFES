@@ -1,16 +1,20 @@
 class ChampionshipTest is subclass of MyTestCase
 
 instance variables
-	c1: Championship := new Championship("WRC", 1);
-	c2: Championship := new Championship("WRC", 2);
-	c3: Championship := new Championship("WRC", 3);
-	c4: Championship := new Championship("WRC", 4);
-			
+	champ1: Championship := new Championship("WRC", DateUtils`MakeDate(2017, 10, 2), DateUtils`MakeDate(2017, 11, 20));
+	champ2: Championship := new Championship("WRC Junior", DateUtils`MakeDate(2017, 8, 23), DateUtils`MakeDate(2017, 10, 11));
+	champ3: Championship := new Championship("WRC Pro", DateUtils`MakeDate(2017, 1, 13), DateUtils`MakeDate(2017, 3, 20));
+	champ4: Championship := new Championship("Amateur WRC", DateUtils`MakeDate(2017, 2, 2), DateUtils`MakeDate(2017, 5, 15));
+	
 operations
-	public setup: () ==> ()
-	setup() == (
+	public Run: () ==> ()
+	Run() == (
 		IO`println("\nChampionship Tests");
-		assertEqual("WRC", c1.GetName());
-	)
-
+			
+		assertEqual("WRC", champ1.GetName());
+		assertTrue(champ1.GetStartDate() < champ1.GetEndDate());
+			
+		IO`println("\nFinalizing Championship Tests");
+	);
+		
 end ChampionshipTest

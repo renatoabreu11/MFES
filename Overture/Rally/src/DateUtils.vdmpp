@@ -8,49 +8,62 @@ class DateUtils
     public MinDate = MakeDate(1,1,1);
 
   functions
+			
+		public static IsValidDate: nat * nat * nat -> bool
+			IsValidDate(year, month, day) ==
+				year >= 1 and month >= 1 and month <= 12 and day >= 1 and day <= DaysOfMonth(year, month);
+		
+		public static IsLeapYear: nat -> bool
+			IsLeapYear(year) == 
+				year mod 4 = 0 and year mod 100 <> 0 or year mod 400 = 0;
 
-    public static IsValidDate(year, month, day: nat) res : bool == 
-      year >= 1 and month >= 1 and month <= 12 and 
-      day >= 1 and day <= DaysOfMonth(year, month);
+    public static DaysOfMonth: nat * nat -> nat
+	    DaysOfMonth(year, month) == (
+	    	cases month :
+	        1, 3, 5, 7, 8, 10, 12 -> 31,
+	        4, 6, 9, 11 -> 30,
+	        2 -> if IsLeapYear(year) then 29 else 28
+	      end
+	     )
+	    pre month >= 1 and month <= 12;
 
-    public static IsLeapYear(year: nat) res : bool ==
-      year mod 4 = 0 and year mod 100 <> 0 or year mod 400 = 0;
-
-    public static DaysOfMonth(year, month: nat) res : nat ==
-    ( 
-      cases month :
-        1, 3, 5, 7, 8, 10, 12 -> 31,
-        4, 6, 9, 11 -> 30,
-        2 -> if IsLeapYear(year) then 29 else 28
-      end 
-    )
-    pre month >= 1 and month <= 12;
-
-    public static MakeDate(year, month, day: nat) res : Date == 
-       year * 10000 + month * 100 + day
-       pre IsValidDate(year, month, day);
+		public static MakeDate: nat * nat * nat -> Date
+			MakeDate(year, month, day) == 
+				year * 10000 + month * 100 + day
+			pre IsValidDate(year, month, day);
  
-    public static Year(d : Date) res : nat == d div 10000;
-    public static Month(d : Date) res : nat == (d div 100) mod 100;
-    public static Day(d : Date) res : nat == d mod 100;
-
-    public static NextDate(d: Date) res : Date ==
-      if Day(d) < DaysOfMonth(Year(d), Month(d)) then
-         MakeDate(Year(d), Month(d), Day(d) + 1)
-      else if Month(d) < 12 then
-         MakeDate(Year(d), Month(d) + 1, 1)
-      else
-         MakeDate(Year(d) + 1 , 1, 1);
-
-    public static PrevDate(d: Date) res : Date ==
-      if Day(d) > 1 then
-        MakeDate(Year(d), Month(d), Day(d) - 1)
-      else if Month(d) > 1 then
-        MakeDate(Year(d), Month(d) - 1, DaysOfMonth(Year(d), Month(d)-1))
-      else
-        MakeDate(Year(d) - 1 , 12, 31);
-
-    public static DateAdd(d: Date, ndays: nat) res : Date == 
-        if ndays = 0 then d else DateAdd(NextDate(d), ndays - 1);
+ 		public static Year: Date -> nat
+	 		Year(d) == 
+	 			d div 10000;
+ 			
+ 		public static Month: Date -> nat
+	 		Month(d) == 
+	 			(d div 100) mod 100;
+ 			
+ 		public static Day: Date -> nat
+	 		Day(d) == 
+	 			d mod 100;
+ 			
+ 		public static NextDate: Date -> Date
+	 		NextDate(d) == 
+	 			if Day(d) < DaysOfMonth(Year(d), Month(d)) then
+	         MakeDate(Year(d), Month(d), Day(d) + 1)
+	      else if Month(d) < 12 then
+	         MakeDate(Year(d), Month(d) + 1, 1)
+	      else
+	         MakeDate(Year(d) + 1 , 1, 1);
+ 			
+ 		public static PrevDate: Date -> Date
+	 		PrevDate(d) == 
+	      if Day(d) > 1 then
+	        MakeDate(Year(d), Month(d), Day(d) - 1)
+	      else if Month(d) > 1 then
+	        MakeDate(Year(d), Month(d) - 1, DaysOfMonth(Year(d), Month(d)-1))
+	      else
+	        MakeDate(Year(d) - 1 , 12, 31);
+ 			
+ 		public static DateAdd: Date * nat -> Date
+	 		DateAdd(d, ndays) == 
+	 			if ndays = 0 then d else DateAdd(NextDate(d), ndays - 1);		 			 			
 
 end DateUtils

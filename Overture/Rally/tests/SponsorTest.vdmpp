@@ -1,14 +1,20 @@
 class SponsorTest is subclass of MyTestCase
-types
--- TODO Define types here
-values
--- TODO Define values here
+
 instance variables
--- TODO Define instance variables here
+	sponsor1: Sponsor := new Sponsor("SuperBock", "123456");
+	sponsor2: Sponsor := new Sponsor("Adidas", "123452226");	
+	sponsor3: Sponsor := new Sponsor("Nike", "123455556");
+	sponsor4: Sponsor := new Sponsor("Sagres", "123452226");
+	
 operations
--- TODO Define operations here
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here
+	public Run: () ==> ()
+	Run() == (
+		IO`println("\nSponsor Tests");
+			
+		assertEqual("SuperBock", sponsor1.GetName());
+		assertEqual("123452226", sponsor2.GetDescription());
+			
+		IO`println("\nFinalizing Sponsor Tests");
+	);
+
 end SponsorTest
