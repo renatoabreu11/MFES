@@ -49,18 +49,10 @@ operations
 		
 		--Driver Performance
 		assertEqual(performance1, stage3.GetDriverPerformance(driver1));
-		assertEqual(performance3, stage3.GetDriverPerformance(driver2));
+		assertEqual(performance3, stage3.GetDriverPerformance(driver3));
 		
 		--Performances
-		assertEqual([performance1, performance3, performance2], stage3.GetPerformances()); --TODO may never fail?
-		
-		--Avg Speed
-		assertEqual(50, performance1.GetAverageSpeed());
-		assertEqual(48, performance2.GetAverageSpeed());
-		
-		--Penalty
-		assertEqual(1, performance2.GetPenalty());
-		assertEqual(0, performance3.GetPenalty());
+		assertEqual([performance1, performance3, performance2], stage3.GetPerformances());
 			
 		IO`println("\nFinalizing Stage Tests");
 	);

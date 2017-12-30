@@ -11,8 +11,8 @@ instance variables
   private distance: real;
   
   -- performances have unique drivers
-  inv not exists p1, p2 in seq performances &
-  			p1.GetDriver() = p2.GetDriver();
+  inv not exists p1, p2 in seq performances & 
+        p1<>p2 and p1.GetDriver() = p2.GetDriver();
   
 operations
   public Stage : StageType * Date * real ==> Stage

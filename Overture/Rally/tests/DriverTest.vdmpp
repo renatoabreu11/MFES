@@ -24,8 +24,11 @@ operations
 		
 		-- Setup
 		driver1.SetCar(car1);
+		driver1.GetTeam().AddDriver(driver1);
 		driver2.SetCar(car2);
+		driver2.GetTeam().AddDriver(driver2);
 		driver3.SetCar(car3);
+		driver3.GetTeam().AddDriver(driver3);
 		
 		-- Team
 		assertEqual(team1, driver1.GetTeam());

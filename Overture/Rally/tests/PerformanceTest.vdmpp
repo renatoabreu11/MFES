@@ -1,14 +1,49 @@
 class PerformanceTest is subclass of MyTestCase
-types
--- TODO Define types here
-values
--- TODO Define values here
+
 instance variables
--- TODO Define instance variables here
+	team0: Team := new Team("Test Team", <Germany>);
+	driver1: Driver := new Driver("Anne", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7), team0);
+	driver2: Driver := new Driver("Anna", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7), team0);
+	driver3: Driver := new Driver("Annie", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7), team0);
+	
+	performance1: Performance := new Performance(driver1);
+	performance2: Performance := new Performance(driver2);
+	performance3: Performance := new Performance(driver3);
+
 operations
--- TODO Define operations here
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here
+	public Run() == (
+		IO`println("\nPerformance Tests");
+		
+		--Setup
+		performance1.SetTime(200);
+		performance1.SetAverageSpeed(50);
+		
+		performance2.SetTime(217);
+		performance2.SetAverageSpeed(48);
+		performance2.SetPenalty(1);
+		
+		performance3.SetTime(202);
+		performance3.SetAverageSpeed(50);
+		
+		--Avg Speed
+		assertEqual(50, performance1.GetAverageSpeed());
+		assertEqual(48, performance2.GetAverageSpeed());
+		
+		--Penalty
+		assertEqual(1, performance2.GetPenalty());
+		assertEqual(0, performance3.GetPenalty());
+		
+		--Driver
+		assertEqual(driver1, performance1.GetDriver());
+		assertEqual(driver3, performance3.GetDriver());
+		
+		--Time
+		assertEqual(200, performance1.GetTime());
+		assertEqual(217, performance2.GetTime());
+		
+		--Comparison (TODO?)
+		
+		IO`println("\nFinalizing Performance Tests");
+	);
+
 end PerformanceTest
