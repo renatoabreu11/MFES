@@ -20,6 +20,7 @@ instance variables
   inv not exists p1, p2 in set partners &
         p1 <> p2 and p1.GetName() = p2.GetName();
 	inv endDate > startDate;     
+	inv forall r in seq series & r.GetEndDate() < endDate and r.GetStartDate() > startDate;
   
 operations
   public Championship: String * Date * Date ==> Championship
@@ -45,7 +46,7 @@ operations
 		AddRally(r) == (
 			series := series ^ [r]
 		)
-		pre not exists r1 in seq series & r1.GetName() = r.GetName();
+		pre not exists r1 in seq series & r1.GetName() = r.GetName() and r1.GetStartDate() > startDate and r1.GetEndDate() < endDate;
 
 	public AddTeam: Team ==> ()
 		AddTeam(t) == (

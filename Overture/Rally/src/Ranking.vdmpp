@@ -2,16 +2,21 @@ class Ranking
 
 instance variables
   private driver: [Driver] := nil;
-  private rank: nat := 0;
-  private points: nat := 0;
+  private points: int := 0;
+  
+  inv driver.GetTeam() <> nil;
   
 operations
-  public Ranking : Driver ==> Ranking
+  public Ranking: Driver ==> Ranking
 		Ranking(driver0) == (
 			driver := driver0;
 		  return self;
 		)
-		post driver = driver0 and rank = 0 and points = 0;
+		post driver = driver0 and points = 0;
+
+	public AddPoints: int ==> ()
+		AddPoints(score) == 
+			points := points + score;	
 
 	-- *** Getters ***
 	
@@ -20,12 +25,7 @@ operations
 		  return driver
 		post RESULT = driver;		
 		
-	pure public GetRank: () ==> nat
-		GetRank() ==
-		  return rank
-		post RESULT = rank;
-		
-	pure public GetPoints: () ==> nat
+	pure public GetPoints: () ==> int
 		GetPoints() ==
 		  return points
 		post RESULT = points;	
