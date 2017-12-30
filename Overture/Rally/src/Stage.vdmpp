@@ -3,12 +3,9 @@ class Stage
 types
 	public StageType = <Timed> | <Transport> | <Special>;
 	public Date = DateUtils`Date;
-	
-values
--- TODO Define values here
 
 instance variables
-  private performances: seq of (Performance) := [];
+  private performances: seq of Performance := [];
   private type: StageType;
   private date: Date;
   private distance: real;
@@ -19,38 +16,34 @@ instance variables
   
 operations
   public Stage : StageType * Date * real ==> Stage
-	Stage(type0, date0, distance0) == (
-		type := type0;
-		date := date0;
-		distance := distance0;
-	  return self;
-	)
-	pre distance0 > 0
-	post type = type0 and date = date0 and distance = distance0;
+		Stage(type0, date0, distance0) == (
+			type := type0;
+			date := date0;
+			distance := distance0;
+		  return self;
+		)
+		pre distance0 > 0
+		post type = type0 and date = date0 and distance = distance0;
 
 	pure public GetType: () ==> StageType
-	GetType() ==
-	  return type
+		GetType() ==
+		  return type
 		post RESULT = type;		
 		
 	pure public GetDate: () ==> Date
-	GetDate() ==
-	  return date
+		GetDate() ==
+		  return date
 		post RESULT = date;
 		
 	pure public GetDistance: () ==> real
-	GetDistance() ==
-	  return distance
+		GetDistance() ==
+		  return distance
 		post RESULT = distance;
 		
 	public GetDriverPerformance: Driver ==> Performance
-	GetDriverPerformance(d) == (
-		let i in set inds performances be st performances(i).GetDriver() = d
-    in return performances(i);
-	);
-	
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here
+		GetDriverPerformance(d) == (
+			let i in set inds performances be st performances(i).GetDriver() = d
+	    in return performances(i);
+		);
+
 end Stage

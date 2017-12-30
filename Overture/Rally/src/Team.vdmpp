@@ -4,14 +4,11 @@ types
 	public Country = Utils`Country;
 	public String = Utils`String;
 
-values
--- TODO Define values here
-
 instance variables
-  private drivers : set of (Driver) := {};
-  private sponsors : set of (Sponsor) := {};
+  private drivers : set of Driver := {};
+  private sponsors : set of Sponsor := {};
   private backer : [Manufacturer] := nil;
-  private cars : set of (Car) := {};
+  private cars : set of Car := {};
   private name : String;
   private based : Country;
   
@@ -61,17 +58,17 @@ operations
 
 	-- *** Getters ***
 
-	pure public GetCars: () ==> set of (Car)
+	pure public GetCars: () ==> set of Car
 		GetCars() ==
 		  return cars
 		post RESULT = cars;		
 		
-	pure public GetSponsors: () ==> set of (Sponsor)
+	pure public GetSponsors: () ==> set of Sponsor
 		GetSponsors() ==
 		  return sponsors
 		post RESULT = sponsors;
 		
-	pure public GetDrivers: () ==> set of (Driver)
+	pure public GetDrivers: () ==> set of Driver
 		GetDrivers() ==
 		  return drivers
 		post RESULT = drivers;	
@@ -89,11 +86,6 @@ operations
 	pure public GetBased: () ==> Country
 		GetBased() ==
 		  return based
-		post RESULT = based;	
-
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here     
+		post RESULT = based;	    
 
 end Team

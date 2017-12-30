@@ -5,9 +5,9 @@ types
 	public Date = DateUtils`Date;
 
 instance variables
-  private series: seq of (Rally) := [];
-  private teams: set of (Team) := {};
-  private partners: set of (Partner):= {};
+  private series: seq of Rally := [];
+  private teams: set of Team := {};
+  private partners: set of Partner := {};
   private name: String;
   private startDate: Date;
   private endDate: Date;
@@ -15,13 +15,10 @@ instance variables
   -- nome � chave de rally/team/partner, isto �, n�o podem existir dois rallies/teams/partners diferentes com o mesmo nome
   inv not exists r1, r2 in seq series &
         r1 <> r2 and r1.GetName() = r2.GetName();
-
   inv not exists t1, t2 in set teams &
         t1 <> t2 and t1.GetName() = t2.GetName();
-
   inv not exists p1, p2 in set partners &
         p1 <> p2 and p1.GetName() = p2.GetName();
-        
 	inv endDate > startDate;     
   
 operations
@@ -38,9 +35,9 @@ operations
 	-- *** Transactions ***
 			
 	public AddPartner: Partner ==> ()
-	AddPartner(p) == (
-		partners := partners union {p}
-	)
+		AddPartner(p) == (
+			partners := partners union {p}
+		)
 		pre not exists p1 in set partners & p1.GetName() = p.GetName()
 		post p in set partners;
 	

@@ -5,13 +5,10 @@ types
 	public Surface = <Mountain> | <Asphalt> | <Sand> | <Forest> | <Snow> | <Gravel>;
 	public String = Utils`String;
 	public Date = DateUtils`Date;
-	
-values
--- TODO Define values here
 
 instance variables
-  private stages: seq of (Stage) := [];
-  private rankings: seq of (Ranking) := [];
+  private stages: seq of Stage := [];
+  private rankings: seq of Ranking := [];
   private startDate: Date;
   private endDate: Date;
   private name: String;
@@ -21,78 +18,72 @@ instance variables
   private distance: real := 0.0;
   
   inv endDate > startDate;
-  
   inv not exists r1, r2 in seq rankings &
         r1 <> r2 and r1.GetDriver().GetName() = r2.GetDriver().GetName();  
   
 operations
   public Rally : String * String * Country * Surface * Date * Date ==> Rally
-	Rally(name0, description0, country0, surface0, startDate0, endDate0) == (
-		name := name0;
-		description := description0;
-		country := country0;
-		surface := surface0;
-		startDate := startDate0;
-		endDate := endDate0;
-	  return self;
-	)
-		pre endDate0 > startDate0
+		Rally(name0, description0, country0, surface0, startDate0, endDate0) == (
+			name := name0;
+			description := description0;
+			country := country0;
+			surface := surface0;
+			startDate := startDate0;
+			endDate := endDate0;
+		  return self;
+		)
+		pre endDate0 > startDate0 and name0 <> "" and description0 <> ""
 		post name = name0 and description = description0 and country = country0
 			and surface = surface0 and startDate = startDate0 and endDate = endDate0;
 
 	-- *** Transactions ***
 	
 	public AddState: Stage ==> ()
-	AddState(s) == (
-		stages := stages ^ [s];
-		distance := distance + s.GetDistance();
-	);
+		AddState(s) == (
+			stages := stages ^ [s];
+			distance := distance + s.GetDistance();
+		);
 
 	-- *** Getters ***
 
 	pure public GetStartDate: () ==> Date
-	GetStartDate() ==
-	  return startDate
+		GetStartDate() ==
+		  return startDate
 		post RESULT = startDate;
 		
 	pure public GetEndDate: () ==> Date
-	GetEndDate() ==
-	  return endDate
+		GetEndDate() ==
+		  return endDate
 		post RESULT = endDate;	
 		
 	pure public GetName: () ==> String
-	GetName() ==
-	  return name
+		GetName() ==
+		  return name
 		post RESULT = name;	
 		
 	pure public GetDescription: () ==> String
-	GetDescription() ==
-	  return description
+		GetDescription() ==
+		  return description
 		post RESULT = description;	
 		
 	pure public GetCountry: () ==> Country
-	GetCountry() ==
-	  return country
+		GetCountry() ==
+		  return country
 		post RESULT = country;	
 		
 	pure public GetSurface: () ==> Surface
-	GetSurface() ==
-	  return surface
+		GetSurface() ==
+		  return surface
 		post RESULT = surface;	
 		
 	pure public GetDistance: () ==> real
-	GetDistance() ==
-	  return distance
+		GetDistance() ==
+		  return distance
 		post RESULT = distance;
 		
 	pure public GetStages: () ==> seq of Stage
-	GetStages() ==
-		return stages
+		GetStages() ==
+			return stages
 		post RESULT = stages;
-	
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here
 
 end Rally
