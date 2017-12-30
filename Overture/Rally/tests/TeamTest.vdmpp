@@ -19,6 +19,7 @@ instance variables
 	car1: Car := new Car("Hyundai i20", manufacturer3, 370, 1250);
 	car2: Car := new Car("Citroën C3", manufacturer1, 400, 1300);
 	car3: Car := new Car("Toyota Yaris", manufacturer2, 480, 1200);
+	car4: Car := new Car("Citroën C4", manufacturer1, 400, 1300);
 	
 	team1: Team := new Team("CITROËN Total Abu Dhabi WRT", <France>);
 	team2: Team := new Team("Hyundai Motorsport", <Germany>);
@@ -39,6 +40,21 @@ operations
 		assertTrue(sponsor1 in set team1.GetSponsors());
 		team1.AddSponsor(sponsor2);
 		assertTrue(sponsor2 in set team1.GetSponsors());
+		
+		team1.AddCar(car1);
+		team1.AddCar(car2);
+		
+		assertTrue({car1, car2} = team1.GetCars());
+		
+		team1.RemoveCar(car1);
+		
+		assertTrue(nil = team1.GetBacker());
+		team1.SetBacker(manufacturer1);
+		assertEqual(manufacturer1, team1.GetBacker());
+		
+		team1.AddCar(car4);
+		team1.RemoveBacker();
+		team1.AddCar(car3);
 			
 		IO`println("\nFinalizing Team Tests");
 	);

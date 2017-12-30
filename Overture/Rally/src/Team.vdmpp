@@ -11,19 +11,23 @@ instance variables
   private cars : set of Car := {};
   private name : String;
   private based : Country;
+  private true_self: Team;
   
   inv not exists d1, d2 in set drivers &
         d1 <> d2 and d1.GetName() = d2.GetName();
   inv not exists s1, s2 in set sponsors &
         s1 <> s2 and s1.GetName() = s2.GetName();
   inv not exists c1, c2 in set cars &
-        c1 <> c2 and c1.GetModel() = c2.GetModel();
+        c1 <> c2 and c1.GetModel() = c2.GetModel();    
+  inv forall d in set drivers & d.GetTeam() = true_self;
+  inv forall d in set drivers & d.GetCar() <> nil => d.GetCar() in set cars;    
   
 operations
   public Team : String * Country ==> Team
 		Team(name0, based0) == (
 			name := name0;
 			based := based0;
+			true_self := self;
 		  return self;
 		)
 		pre name0 <> ""
@@ -49,6 +53,13 @@ operations
 		)
 		pre if(backer <> nil) then c.GetManufacturer().GetName() = backer.GetName() else true
 			and not exists c1 in set cars & c1.GetModel() = c.GetModel();	
+			
+	public RemoveCar: Car ==> ()
+		RemoveCar(c) == (
+			cars := cars \ {c}
+		)			
+		pre c in set cars
+		post cars = cars~ \ {c};
 	
 	public SetBacker: Manufacturer ==> ()
 		SetBacker(m) == (
@@ -56,6 +67,12 @@ operations
 		)
 		pre not exists c1 in set cars & c1.GetManufacturer().GetName() <> m.GetName();
 
+	public RemoveBacker: () ==> ()
+		RemoveBacker() == (
+			backer := nil;
+		)
+		post backer = nil;
+	
 	-- *** Getters ***
 
 	pure public GetCars: () ==> set of Car
