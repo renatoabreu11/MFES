@@ -28,11 +28,6 @@ operations
 		)
 		pre name0 <> ""
 		post name = name0 and gender = gender0 and nationality = nationality0 and birth = birth0;
-		
-	public SetCar: Car ==> ()
-		SetCar(car0) ==
-			car := car0
-		post car = car0;
 
 	-- *** Transactions **	
 
