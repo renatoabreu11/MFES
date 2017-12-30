@@ -7,34 +7,53 @@ types
 	public Gender = Utils`Gender;
 
 instance variables
-  private team: [Team];
+  private team: [Team] := nil;
   private car: [Car] := nil;
   private name: String;
   private gender: Gender;
   private nationality: Country;
   private birth: Date;
+  private true_self: Driver;
   
-  inv if(team.GetBacker() <> nil) then team.GetBacker() = car.GetManufacturer() else true;
+  inv if(team <> nil and car <> nil and team.GetBacker() <> nil) then team.GetBacker() = car.GetManufacturer() else true;
+  -- Assured by the inv in each Team
+  -- inv if(team <> nil) then true_self in set team.GetDrivers() else true;
 
 operations
-  public Driver: String * Gender * Country * Date * Team ==> Driver
-		Driver(name0, gender0, nationality0, birth0, team0) == (
+  public Driver: String * Gender * Country * Date ==> Driver
+		Driver(name0, gender0, nationality0, birth0) == (
 		  name := name0;
 		  gender := gender0;
 		  nationality := nationality0;
 		  birth := birth0;
-		  team := team0;
+		  true_self := self;
 		  return self;
 		)
 		pre name0 <> ""
-		post name = name0 and gender = gender0 and nationality = nationality0 and birth = birth0;
+		post name = name0 and gender = gender0 and nationality = nationality0 and birth = birth0 and team = nil and car = nil;
 
 	-- *** Transactions **	
+	
+	public SetTeam: (Team) ==> ()
+		SetTeam(t) ==
+		  team := t
+		pre car = nil
+		post team = t;
+
+	public RemoveTeam: () ==> ()
+		RemoveTeam() ==
+		  team := nil
+		post team = nil;
+	
+	public RemoveCar: () ==> ()
+		RemoveCar() ==
+		  car := nil
+		post car = nil;
 
 	public SetCar: (Car) ==> ()
 		SetCar(c) ==
 		  car := c
-		pre team <> nil and c in set team.GetCars() 
+		pre team <> nil and c in set team.GetCars()
 		post car = c;
 
 	-- *** Getters ***

@@ -26,6 +26,10 @@ instance variables
 	team3: Team := new Team("M-Sport World Rally Team", <GreatBritain>);
 	team4: Team := new Team("TOYOTA Gazoo Racing WRT", <Japan>);
 	
+	driver1: Driver := new Driver("Dan", <Male>, <GreatBritain>, DateUtils`MakeDate(1980, 10, 5));
+	driver2: Driver := new Driver("Joana", <Female>, <Spain>, DateUtils`MakeDate(1987, 2, 22));
+	driver3: Driver := new Driver("Alexio", <Male>, <Germany>, DateUtils`MakeDate(1995, 5, 29));
+	
 operations
 	public Run: () ==> ()
 	Run() == (
@@ -40,13 +44,15 @@ operations
 		assertTrue(sponsor1 in set team1.GetSponsors());
 		team1.AddSponsor(sponsor2);
 		assertTrue(sponsor2 in set team1.GetSponsors());
+		team1.RemoveSponsor(sponsor1);
+		assertTrue(sponsor1 not in set team1.GetSponsors());
 		
 		team1.AddCar(car1);
 		team1.AddCar(car2);
 		
 		assertTrue({car1, car2} = team1.GetCars());
-		
 		team1.RemoveCar(car1);
+		assertTrue(car1 not in set team1.GetCars());
 		
 		assertTrue(nil = team1.GetBacker());
 		team1.SetBacker(manufacturer1);
@@ -55,6 +61,18 @@ operations
 		team1.AddCar(car4);
 		team1.RemoveBacker();
 		team1.AddCar(car3);
+		
+		team1.AddDriver(driver1);
+		team1.AddDriver(driver2);
+		assertTrue({driver1, driver2} = team1.GetDrivers());
+		
+		team1.RemoveDriver(driver1);
+		assertTrue(driver1 not in set team1.GetDrivers());
+		
+		team1.AssignCarToDriver(car2, driver2);
+		team1.RemoveCar(car3);
+		
+		team1.UnassignCarFromDriver(driver2);
 			
 		IO`println("\nFinalizing Team Tests");
 	);

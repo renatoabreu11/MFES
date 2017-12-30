@@ -2,9 +2,9 @@ class PerformanceTest is subclass of MyTestCase
 
 instance variables
 	team0: Team := new Team("Test Team", <Germany>);
-	driver1: Driver := new Driver("Anne", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7), team0);
-	driver2: Driver := new Driver("Anna", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7), team0);
-	driver3: Driver := new Driver("Annie", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7), team0);
+	driver1: Driver := new Driver("Anne", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7));
+	driver2: Driver := new Driver("Anna", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7));
+	driver3: Driver := new Driver("Annie", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7));
 	
 	performance1: Performance := new Performance(driver1);
 	performance2: Performance := new Performance(driver2);
@@ -15,6 +15,9 @@ operations
 		IO`println("\nPerformance Tests");
 		
 		--Setup
+		driver1.SetTeam(team0);
+		driver2.SetTeam(team0);
+		driver3.SetTeam(team0);
 		performance1.SetTime(200);
 		performance1.SetAverageSpeed(50);
 		

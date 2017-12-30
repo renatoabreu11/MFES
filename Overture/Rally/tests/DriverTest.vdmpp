@@ -9,13 +9,13 @@ instance variables
 	manufacturer3: Manufacturer := new Manufacturer("Toyota", "Toyota", <Japan>);
 	
 	car1: Car := new Car("Hyundai i20", manufacturer1, 370, 1250);
-	driver1: Driver := new Driver("Dan", <Male>, <GreatBritain>, DateUtils`MakeDate(1980, 10, 5), team1);
+	driver1: Driver := new Driver("Dan", <Male>, <GreatBritain>, DateUtils`MakeDate(1980, 10, 5));
 	
 	car2: Car := new Car("Citroen C3", manufacturer2, 400, 1300);
-	driver2: Driver := new Driver("Joana", <Female>, <Spain>, DateUtils`MakeDate(1987, 2, 22), team2);
+	driver2: Driver := new Driver("Joana", <Female>, <Spain>, DateUtils`MakeDate(1987, 2, 22));
 	
 	car3: Car := new Car("Toyota Yaris", manufacturer3, 480, 1200);
-	driver3: Driver := new Driver("Alexio", <Male>, <Germany>, DateUtils`MakeDate(1995, 5, 29), team2);
+	driver3: Driver := new Driver("Alexio", <Male>, <Germany>, DateUtils`MakeDate(1995, 5, 29));
 
 operations
 	public Run: () ==> ()
@@ -23,17 +23,18 @@ operations
 		IO`println("\nDriver Tests");
 		
 		-- Setup
+		team1.SetBacker(manufacturer1);
 		team1.AddDriver(driver1);
 		team1.AddCar(car1);
-		assertTrue(team1.SetCarToDriver(car1, driver1));
+		team1.AssignCarToDriver(car1, driver1);
 		
 		team2.AddDriver(driver2);
 		team2.AddCar(car2);
-		assertTrue(team2.SetCarToDriver(car2, driver2));
+		team2.AssignCarToDriver(car2, driver2);
 		
 		team2.AddDriver(driver3);
 		team2.AddCar(car3);
-		assertTrue(team2.SetCarToDriver(car3, driver3));
+		team2.AssignCarToDriver(car3, driver3);
 		
 		-- Team
 		assertEqual(team1, driver1.GetTeam());
@@ -57,6 +58,8 @@ operations
 		
 		-- Car
 		assertEqual(car1, driver1.GetCar());
+		driver1.RemoveCar();
+		assertEqual(nil, driver1.GetCar());
 		assertEqual(car3, driver3.GetCar());
 		
 		-- Team

@@ -19,6 +19,7 @@ instance variables
         s1 <> s2 and s1.GetName() = s2.GetName();
   inv not exists c1, c2 in set cars &
         c1 <> c2 and c1.GetModel() = c2.GetModel();
+       
   inv forall d in set drivers & d.GetTeam() = true_self;
   inv forall d in set drivers & d.GetCar() <> nil => d.GetCar() in set cars;
   
@@ -40,44 +41,14 @@ operations
 			sponsors := sponsors union {s}
 		)
 		pre not exists s1 in set sponsors & s1.GetName() = s.GetName();
-	
-	public SetCarToDriver: Car * Driver ==> bool
-		SetCarToDriver(car, driver) == (
-      for all elem in set drivers  
-      	do 
-        	if elem.GetName() = driver.GetName() 
-            then (elem.SetCar(car); return true);
-     	return false
-    )
-    pre car in set cars and driver in set drivers and driver.GetCar() = nil;
-
-	public AddDriver: Driver ==> ()
-		AddDriver(d) == (
-			drivers := drivers union {d}
+		
+	public RemoveSponsor: Sponsor ==> ()
+		RemoveSponsor(s) == (
+			sponsors := sponsors \ {s}
 		)
-		pre not exists d1 in set drivers & d1.GetName() = d.GetName() and d.GetTeam() = nil and d.GetCar() = nil;
+		pre s in set sponsors
+		post sponsors = sponsors~ \ {s};		
 
-	public RemoveDriver: Driver ==> ()
-		RemoveDriver(d) == (
-			drivers := drivers \ {d};
-		)
-		pre d in set drivers
-		post drivers = drivers~ \ {d};		
-
-	public AddCar: Car ==> ()
-		AddCar(c) == (
-			cars := cars union {c}
-		)
-		pre if(backer <> nil) then c.GetManufacturer().GetName() = backer.GetName() else true
-			and not exists c1 in set cars & c1.GetModel() = c.GetModel();	
-			
-	public RemoveCar: Car ==> ()
-		RemoveCar(c) == (
-			cars := cars \ {c}
-		)			
-		pre c in set cars
-		post cars = cars~ \ {c};
-	
 	public SetBacker: Manufacturer ==> ()
 		SetBacker(m) == (
 			backer := m;
@@ -89,6 +60,55 @@ operations
 			backer := nil;
 		)
 		post backer = nil;
+
+	public AddCar: Car ==> ()
+		AddCar(c) == (
+			cars := cars union {c}
+		)
+		pre if(backer <> nil) then c.GetManufacturer().GetName() = backer.GetName() else true
+			and not exists c1 in set cars & c1.GetModel() = c.GetModel()
+		post c in set cars;	
+			
+	public RemoveCar: Car ==> ()
+		RemoveCar(c) == (
+			cars := cars \ {c}
+		)			
+		pre c in set cars and forall d in set drivers & d.GetCar() <> c
+		post cars = cars~ \ {c};
+	
+	public AssignCarToDriver: Car * Driver ==> ()
+		AssignCarToDriver(car, driver) == (
+      for all elem in set drivers  
+      	do 
+        	if elem.GetName() = driver.GetName() 
+            then (elem.SetCar(car))
+    )
+    pre car in set cars and driver in set drivers and driver.GetCar() = nil;
+
+	public UnassignCarFromDriver: Driver ==> ()
+		UnassignCarFromDriver(driver) == (
+      for all elem in set drivers  
+      	do 
+        	if elem.GetName() = driver.GetName() 
+            then (elem.RemoveCar())
+    )
+    pre driver in set drivers and driver.GetCar() <> nil;
+
+	public AddDriver: Driver ==> ()
+		AddDriver(d) == (
+			d.SetTeam(self);
+			drivers := drivers union {d}
+		)
+		pre d.GetTeam() = nil and d.GetCar() = nil and not exists d1 in set drivers & d1.GetName() = d.GetName();
+
+	public RemoveDriver: Driver ==> ()
+		RemoveDriver(d) == (
+			drivers := drivers \ {d};
+			d.RemoveTeam();
+			d.RemoveCar();
+		)
+		pre d in set drivers
+		post drivers = drivers~ \ {d};			
 	
 	-- *** Getters ***
 
