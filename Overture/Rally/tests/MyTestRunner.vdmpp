@@ -9,7 +9,7 @@ operations
     new SponsorTest().Run();    
     new ManufacturerTest().Run();
     new CarTest().Run();
-    --new DriverTest().Run();
+    new DriverTest().Run();
     new TeamTest().Run();
     new PerformanceTest().Run();
     --new RallyTest().Run(); --TODO

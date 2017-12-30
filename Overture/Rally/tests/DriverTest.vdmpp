@@ -23,12 +23,17 @@ operations
 		IO`println("\nDriver Tests");
 		
 		-- Setup
-		driver1.SetCar(car1);
-		driver1.GetTeam().AddDriver(driver1);
-		driver2.SetCar(car2);
-		driver2.GetTeam().AddDriver(driver2);
-		driver3.SetCar(car3);
-		driver3.GetTeam().AddDriver(driver3);
+		team1.AddDriver(driver1);
+		team1.AddCar(car1);
+		assertTrue(team1.SetCarToDriver(car1, driver1));
+		
+		team2.AddDriver(driver2);
+		team2.AddCar(car2);
+		assertTrue(team2.SetCarToDriver(car2, driver2));
+		
+		team2.AddDriver(driver3);
+		team2.AddCar(car3);
+		assertTrue(team2.SetCarToDriver(car3, driver3));
 		
 		-- Team
 		assertEqual(team1, driver1.GetTeam());
