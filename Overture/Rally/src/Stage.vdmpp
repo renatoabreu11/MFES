@@ -13,6 +13,10 @@ instance variables
   private date: Date;
   private distance: real;
   
+  -- performances have unique drivers
+  inv not exists p1, p2 in seq performances &
+  			p1.GetDriver() = p2.GetDriver();
+  
 operations
   public Stage : StageType * Date * real ==> Stage
 	Stage(type0, date0, distance0) == (
@@ -37,7 +41,13 @@ operations
 	pure public GetDistance: () ==> real
 	GetDistance() ==
 	  return distance
-		post RESULT = distance;	
+		post RESULT = distance;
+		
+	public GetDriverPerformance: Driver ==> Performance
+	GetDriverPerformance(d) == (
+		let i in set inds performances be st performances(i).GetDriver() = d
+    in return performances(i);
+	);
 	
 functions
 -- TODO Define functiones here
