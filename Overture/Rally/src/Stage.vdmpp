@@ -3,12 +3,16 @@ class Stage
 types
 	public StageType = <Timed> | <Transport> | <Special>;
 	public Date = DateUtils`Date;
+	public StageId = nat1;
 
 instance variables
+	public static currentId: nat1 := 1;
+	
   private performances: seq of Performance := [];
   private type: StageType;
   private date: Date;
   private distance: real;
+  private id: StageId;
   
   -- performances have unique drivers
   inv not exists p1, p2 in seq performances &
@@ -20,16 +24,23 @@ operations
 			type := type0;
 			date := date0;
 			distance := distance0;
+			id := currentId;
+			currentId := currentId + 1;
 		  return self;
 		)
 		pre distance0 > 0
-		post type = type0 and date = date0 and distance = distance0;
+		post type = type0 and date = date0 and distance = distance0 and id = currentId - 1;
 
 	pure public GetType: () ==> StageType
 		GetType() ==
 		  return type
 		post RESULT = type;		
-		
+	
+	pure public GetId: () ==> StageId
+		GetId() ==
+		  return id
+		post RESULT = id;		
+	
 	pure public GetDate: () ==> Date
 		GetDate() ==
 		  return date
