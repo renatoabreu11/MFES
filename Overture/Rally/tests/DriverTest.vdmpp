@@ -9,18 +9,23 @@ instance variables
 	manufacturer3: Manufacturer := new Manufacturer("Toyota", "Toyota", <Japan>);
 	
 	car1: Car := new Car("Hyundai i20", manufacturer1, 370, 1250);
-	driver1: Driver := new Driver("Dan", <Male>, <GreatBritain>, DateUtils`MakeDate(1980, 10, 5), car1, team1);
+	driver1: Driver := new Driver("Dan", <Male>, <GreatBritain>, DateUtils`MakeDate(1980, 10, 5), team1);
 	
 	car2: Car := new Car("Citroen C3", manufacturer2, 400, 1300);
-	driver2: Driver := new Driver("Joana", <Female>, <Spain>, DateUtils`MakeDate(1987, 2, 22), car2, team2);
+	driver2: Driver := new Driver("Joana", <Female>, <Spain>, DateUtils`MakeDate(1987, 2, 22), team2);
 	
 	car3: Car := new Car("Toyota Yaris", manufacturer3, 480, 1200);
-	driver3: Driver := new Driver("Alexio", <Male>, <Germany>, DateUtils`MakeDate(1995, 5, 29), car3, team2);
+	driver3: Driver := new Driver("Alexio", <Male>, <Germany>, DateUtils`MakeDate(1995, 5, 29), team2);
 
 operations
 	public Run: () ==> ()
 	Run() == (
 		IO`println("\nDriver Tests");
+		
+		-- Setup
+		driver1.SetCar(car1);
+		driver2.SetCar(car2);
+		driver3.SetCar(car3);
 		
 		-- Team
 		assertEqual(team1, driver1.GetTeam());
