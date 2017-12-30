@@ -14,6 +14,8 @@ instance variables
   private nationality: Country;
   private birth: Date;
   
+  inv if(team.GetBacker() <> nil) then team.GetBacker() = car.GetManufacturer() else true;
+   
 operations
   public Driver: String * Gender * Country * Date * Team ==> Driver
 		Driver(name0, gender0, nationality0, birth0, team0) == (
@@ -31,6 +33,16 @@ operations
 		SetCar(car0) ==
 			car := car0
 		post car = car0;
+
+	-- *** Transactions **	
+
+	public SetCar: (Car) ==> ()
+		SetCar(c) ==
+		  car := c
+		pre team <> nil and c in set team.GetCars() 
+		post car = c;
+
+	-- *** Getters ***
 
 	pure public GetTeam: () ==> [Team]
 		GetTeam() ==

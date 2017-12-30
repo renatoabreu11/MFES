@@ -41,11 +41,28 @@ operations
 		)
 		pre not exists s1 in set sponsors & s1.GetName() = s.GetName();
 	
+	public SetCarToDriver: Car * Driver ==> bool
+		SetCarToDriver(car, driver) == (
+      for all elem in set drivers  
+      	do 
+        	if elem.GetName() = driver.GetName() 
+            then (elem.SetCar(car); return true);
+     	return false
+    )
+    pre car in set cars and driver in set drivers and driver.GetCar() = nil;
+
 	public AddDriver: Driver ==> ()
 		AddDriver(d) == (
 			drivers := drivers union {d}
 		)
-		pre not exists d1 in set drivers & d1.GetName() = d.GetName();
+		pre not exists d1 in set drivers & d1.GetName() = d.GetName() and d.GetTeam() = nil and d.GetCar() = nil;
+
+	public RemoveDriver: Driver ==> ()
+		RemoveDriver(d) == (
+			drivers := drivers \ {d};
+		)
+		pre d in set drivers
+		post drivers = drivers~ \ {d};		
 
 	public AddCar: Car ==> ()
 		AddCar(c) == (
