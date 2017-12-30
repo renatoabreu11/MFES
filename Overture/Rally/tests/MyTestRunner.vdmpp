@@ -5,7 +5,6 @@ operations
 		IO`println("Initializing Test Runner");
 		
 		new ChampionshipTest().Run();
-    new PartnerTest().Run();
     new SponsorTest().Run();    
     new ManufacturerTest().Run();
     new CarTest().Run();
@@ -13,7 +12,6 @@ operations
     new TeamTest().Run();
     new PerformanceTest().Run();
     --new RallyTest().Run(); --TODO
-    --new RankingTest().Run(); --TODO
     new StageTest().Run();
     
     IO`println("Finalizing Test Runner");

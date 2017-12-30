@@ -6,6 +6,8 @@ instance variables
   private time: real := 0.0;
   private penalty: nat := 0;
 
+	inv driver.GetTeam() <> nil and driver.GetCar() <> nil;
+	  
 operations
   public Performance : Driver ==> Performance
 		Performance(driver0) == (
@@ -52,9 +54,7 @@ operations
 functions
 	public static Compare: Performance * Performance -> int
 		Compare(p1, p2) ==
-			if p1.GetTime() > p2.GetTime()
-			then 1
-			else -1
-		pre p1.GetTime() > 0 and p2.GetTime() > 0;
+			if p1.time > p2.time then 1 else -1
+		pre p1.time > 0 and p2.time > 0;
 
 end Performance

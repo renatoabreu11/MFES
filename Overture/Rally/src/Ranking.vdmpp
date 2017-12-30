@@ -4,7 +4,7 @@ instance variables
   private driver: [Driver] := nil;
   private points: int := 0;
   
-  inv driver.GetTeam() <> nil;
+  inv driver.GetTeam() <> nil and driver.GetCar() <> nil;
   
 operations
   public Ranking: Driver ==> Ranking

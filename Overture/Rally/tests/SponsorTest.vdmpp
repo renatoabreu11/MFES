@@ -6,15 +6,22 @@ instance variables
 	sponsor3: Sponsor := new Sponsor("Stilo", "Stilo helmets competition. Top functionality, everything a driver needs must be standard feature: intercom, connections, earmuffs, drinking system.");
 	sponsor4: Sponsor := new Sponsor("Michelin", "Michelin, the leading tire company, is dedicated to enhancing its clients’ mobility, sustainably; designing and distributing the most suitable tires, services and solutions for its clients’ needs.");
 	
+	partner1: Partner := new Partner("Michelin", "Michelin, the leading tire company, is dedicated to enhancing its clients’ mobility, sustainably; designing and distributing the most suitable tires, services and solutions for its clients’ needs.");
+	partner2: Partner := new Partner("Certina", "Precision, reliability, innovation and dynamism. These are the values that have always linked Certina to sport.");	
+	partner3: Partner := new Partner("OneBet", "OneBet is the official sports betting partner of the FIA World Rally Championship, providing spectacular opportunities to boost the rush and experience of WRC.");	
+	
 operations
 	public Run: () ==> ()
 	Run() == (
-		IO`println("\nSponsor Tests");
+		IO`println("\nSponsor and Partner Tests");
 			
 		assertEqual("Abu Dhabi", sponsor1.GetName());
 		assertEqual("Spécialiste assainissement compact, développe et fabrique en exclusivité des solutions pour l'assainissement non collectif depuis 45 ans.", sponsor2.GetDescription());
 			
-		IO`println("\nFinalizing Sponsor Tests");
+		assertEqual("Michelin", partner1.GetName());
+		assertEqual("Precision, reliability, innovation and dynamism. These are the values that have always linked Certina to sport.", partner2.GetDescription());			
+			
+		IO`println("\nFinalizing Sponsor and Partner Tests");
 	);
 
 end SponsorTest

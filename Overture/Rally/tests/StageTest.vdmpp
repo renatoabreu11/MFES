@@ -11,9 +11,23 @@ instance variables
 	driver2: Driver := new Driver("Anna", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7));
 	driver3: Driver := new Driver("Annie", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7));
 	
-	performance1: Performance := new Performance(driver1);
-	performance2: Performance := new Performance(driver2);
-	performance3: Performance := new Performance(driver3);
+	performance1: [Performance] := nil;
+	performance2: [Performance] := nil;
+	performance3: [Performance] := nil;
+	
+	manufacturer1: Manufacturer := new Manufacturer("Citroën", 
+		"Citroën is one of the world's leading mainstream car manufacturers.",
+		<France>);
+	manufacturer2: Manufacturer := new Manufacturer("Toyota", 
+		"Toyota is one of the world’s best-known and most successful businesses, building cars and trucks in 26 countries for sale in more than 160 markets around the globe.",
+		<Japan>);	
+	manufacturer3: Manufacturer := new Manufacturer("Hyunday", 
+		"Hyundai Motor Company leads the Hyundai Motor Group, a wide-reaching business capable of processing resources from molten iron to finished cars.",
+		<SouthKorea>);
+		
+	car1: Car := new Car("Hyundai i20", manufacturer3, 370, 1250);
+	car2: Car := new Car("Citroën C3", manufacturer1, 400, 1300);
+	car3: Car := new Car("Toyota Yaris", manufacturer2, 480, 1200);
 
 operations
 	public Run: () ==> ()
@@ -21,9 +35,18 @@ operations
 		IO`println("\nStage Tests");
 		
 		--Setup
-		driver1.SetTeam(team0);
-		driver2.SetTeam(team0);
-		driver3.SetTeam(team0);
+		team0.AddDriver(driver1);
+		team0.AddDriver(driver2);
+		team0.AddDriver(driver3);
+		team0.AddCar(car1);
+		team0.AddCar(car2);
+		team0.AddCar(car3);
+		team0.AssignCarToDriver(car1, driver1);
+		team0.AssignCarToDriver(car2, driver2);
+		team0.AssignCarToDriver(car3, driver3);		
+		performance1 := new Performance(driver1);
+		performance2 := new Performance(driver2);
+		performance3 := new Performance(driver3);
 		
 		performance1.SetTime(200);
 		performance1.SetAverageSpeed(50);
