@@ -1,14 +1,55 @@
 class DriverTest is subclass of MyTestCase
-types
--- TODO Define types here
-values
--- TODO Define values here
+
 instance variables
--- TODO Define instance variables here
+	team1: Team := new Team("The Awesome Ones", <GreatBritain>);
+	team2: Team := new Team("The Better Ones", <Spain>);
+	
+	manufacturer1: Manufacturer := new Manufacturer("Hyunday", "Hyundai Motor Company", <SouthKorea>);
+	manufacturer2: Manufacturer := new Manufacturer("Citroen", "Citroen", <France>);
+	manufacturer3: Manufacturer := new Manufacturer("Toyota", "Toyota", <Japan>);
+	
+	car1: Car := new Car("Hyundai i20", manufacturer1, 370, 1250);
+	driver1: Driver := new Driver("Dan", <Male>, <GreatBritain>, DateUtils`MakeDate(1980, 10, 5), car1, team1);
+	
+	car2: Car := new Car("Citroen C3", manufacturer2, 400, 1300);
+	driver2: Driver := new Driver("Joana", <Female>, <Spain>, DateUtils`MakeDate(1987, 2, 22), car2, team2);
+	
+	car3: Car := new Car("Toyota Yaris", manufacturer3, 480, 1200);
+	driver3: Driver := new Driver("Alexio", <Male>, <Germany>, DateUtils`MakeDate(1995, 5, 29), car3, team2);
+
 operations
--- TODO Define operations here
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here
+	public Run: () ==> ()
+	Run() == (
+		IO`println("\nDriver Tests");
+		
+		-- Team
+		assertEqual(team1, driver1.GetTeam());
+		assertEqual(team2, driver2.GetTeam());
+		
+		-- Date
+		assertEqual(DateUtils`MakeDate(1980, 10, 5), driver1.GetBirth());
+		assertEqual(DateUtils`MakeDate(1995, 5, 29), driver3.GetBirth());
+		
+		-- Nationality
+		assertEqual(<Spain>, driver2.GetNationality());
+		assertEqual(<Germany>, driver3.GetNationality());
+		
+		-- Gender
+		assertEqual(<Female>, driver2.GetGender());
+		assertEqual(<Male>, driver3.GetGender());
+		
+		-- Name
+		assertEqual("Dan", driver1.GetName());
+		assertEqual("Joana", driver2.GetName());
+		
+		-- Car
+		assertEqual(car1, driver1.GetCar());
+		assertEqual(car3, driver3.GetCar());
+		
+		-- Team
+		assertEqual(team1, driver1.GetTeam());
+		assertEqual(team2, driver2.GetTeam());
+			
+		IO`println("\nFinalizing Driver Tests");
+	);
 end DriverTest

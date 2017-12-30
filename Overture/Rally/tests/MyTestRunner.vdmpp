@@ -9,6 +9,7 @@ operations
     new SponsorTest().Run();    
     new ManufacturerTest().Run();
     new CarTest().Run();
+    new DriverTest().Run();
     new TeamTest().Run();
     
     IO`println("Finalizing Test Runner");

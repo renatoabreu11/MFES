@@ -15,8 +15,8 @@ instance variables
   private birth: Date;
   
 operations
-  public Driver: String * Gender * Country * nat1 * Date * Car * Team ==> Driver
-	Driver(name0, gender0, nationality0, age0, birth0, car0, team0) == (
+  public Driver: String * Gender * Country * Date * Car * Team ==> Driver
+	Driver(name0, gender0, nationality0, birth0, car0, team0) == (
 	  name := name0;
 	  gender := gender0;
 	  nationality := nationality0;
