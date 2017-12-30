@@ -39,11 +39,29 @@ operations
 		GetDistance() ==
 		  return distance
 		post RESULT = distance;
+	
+	pure public GetPerformances: () ==> seq of Performance
+		GetPerformances() ==
+			return performances
+		post RESULT = performances;
+		
+	public AddPerformance: Performance ==> ()
+		AddPerformance(p) ==
+			performances := InsertSorted(p, performances, p.Compare);
 		
 	public GetDriverPerformance: Driver ==> Performance
 		GetDriverPerformance(d) == (
 			let i in set inds performances be st performances(i).GetDriver() = d
 	    in return performances(i);
 		);
+		
+functions
+	private static InsertSorted(i: Performance, l: seq of Performance, 
+                  compare: Performance * Performance -> int) res : seq of Performance ==
+    cases true :
+      (l = [])    -> [i],
+      (compare(i, hd l) <= 0)  -> [i] ^ l,
+      others      -> [hd l] ^ InsertSorted(i, tl l, compare)
+    end;
 
 end Stage

@@ -8,7 +8,7 @@ types
 
 instance variables
   private team: [Team];
-  private car: [Car];
+  private car: [Car] := nil;
   private name: String;
   private gender: Gender;
   private nationality: Country;

@@ -4,7 +4,6 @@ instance variables
   private driver: [Driver] := nil;
   private averageSpeed: real := 0.0;
   private time: real := 0.0;
-  private distance: real := 0.0;
   private penalty: nat := 0;
 
 operations
@@ -25,19 +24,37 @@ operations
 		  return averageSpeed
 		post RESULT = averageSpeed;
 		
+		public SetAverageSpeed: real ==> ()
+		SetAverageSpeed(avg) ==
+		  averageSpeed := avg
+		post avg = averageSpeed;
+		
 	pure public GetTime: () ==> real
 		GetTime() ==
 		  return time
-		post RESULT = time;		
+		post RESULT = time;
 		
-	pure public GetDistance: () ==> real
-		GetDistance() ==
-		  return distance
-		post RESULT = distance;
+	public SetTime: real ==> ()
+		SetTime(t) ==
+		  time := t
+		post t = time;
 		
 	pure public GetPenalty: () ==> nat
 		GetPenalty() ==
 		  return penalty
-		post RESULT = penalty;							
+		post RESULT = penalty;
+	
+	public SetPenalty: nat ==> ()
+		SetPenalty(p) ==
+		  penalty := p
+		post p = penalty;
+
+functions
+	public static Compare: Performance * Performance -> int
+		Compare(p1, p2) ==
+			if p1.GetTime() > p2.GetTime()
+			then 1
+			else -1
+		pre p1.GetTime() > 0 and p2.GetTime() > 0;
 
 end Performance
