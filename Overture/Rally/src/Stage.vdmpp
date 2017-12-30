@@ -45,11 +45,9 @@ operations
 		
 	public GetDriverPerformance: Driver ==> Performance
 	GetDriverPerformance(d) == (
-		let p in seq performances be st d in p.GetDriver()
-    return p;
-	)
-	--TO DO precondition to ensure driver exists
-	post RESULT in set performances;
+		let i in set inds performances be st performances(i).GetDriver() = d
+    in return performances(i);
+	);
 	
 functions
 -- TODO Define functiones here

@@ -76,11 +76,6 @@ operations
 		return partners
 		post RESULT = partners;
 		
-	pure public GetTeams: () ==> set of Team
-	GetTeams() ==
-		return teams
-		post RESULT = teams;
-		
 	pure public GetSeries: () ==> seq of Rally
 	GetSeries() ==
 		return series
