@@ -77,8 +77,6 @@ operations
 		champ1.AddRally(rally2);
 		assertEqual(rally2, champ1.GetRallyByName("Despair Woods"));
 		--assertEqual({rally1, rally2}, champ1.GetSeries());
-		--champ1.RemoveRally(rally2);
-		--assertFalse(let i in set inds champ1.GetSeries() in champ1.GetSeries()(i)=rally2);
 		assertTrue(let i in set inds champ1.GetSeries() in champ1.GetSeries()(i)=rally1);
 			
 		IO`println("\nFinalizing Championship Tests");
