@@ -59,10 +59,15 @@ operations
 	public NextStage: set of Performance ==> () 
 		NextStage(performances) == (
 			stages(currentStageIndex).Finalize();	
-			for all elem in set performances  
-		  	do stages(currentStageIndex).AddPerformance(elem);
+			for all elem in set performances
+		  	do (
+		  		stages(currentStageIndex).AddPerformance(elem);
+		  		let i in set inds rankings be st elem.GetDriver() = rankings(i).GetDriver() in
+		  					rankings(i).AddPoints(elem.GetTime());
+		  		);
+	  	rankings := Sequence`sort[Ranking](lambda x: Ranking, y: Ranking & x.GetPoints() > y.GetPoints())(rankings);
 		  	
-		  currentStageIndex := currentStageIndex + 1;	
+		  currentStageIndex := currentStageIndex + 1;
 		  if(currentStageIndex >= len stages) then EndRally() else stages(currentStageIndex).Init();
 		)
 		pre state = <Occurring> and stages(currentStageIndex).GetState() = <Occurring>;
@@ -124,6 +129,17 @@ operations
 		GetStages() ==
 			return stages
 		post RESULT = stages;
+	
+	pure public GetRankings: () ==> seq of Ranking
+		GetRankings() ==
+			return rankings
+		post RESULT = rankings;
+	
+	pure public GetCurrentStage: () ==> Stage
+		GetCurrentStage() ==
+			return stages(currentStageIndex)
+		pre currentStageIndex >= 0
+		post exists stage in seq stages & stage = RESULT;
 		
 	pure public GetDriverRanking: Driver ==> Ranking
 		GetDriverRanking(driver0) ==
