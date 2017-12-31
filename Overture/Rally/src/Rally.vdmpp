@@ -80,6 +80,18 @@ operations
 		pre state = <Occurring>
 		post state = <Completed> and not exists s in seq stages & s.GetState() <> <Completed>;
 	
+	public GetTeamRanking: String ==> int
+		GetTeamRanking(teamName) == (
+		 	dcl points: int := 0;
+	    for elem in rankings  
+	     	do 
+	        if (elem.GetDriver().GetTeam().GetName() = teamName)
+	            then (points := points + elem.GetPoints(););
+			
+			return points;
+		)
+		pre state <> <OffSeason>;
+	
 	public AddStage: Stage ==> ()
 		AddStage(s) == (
 			stages := stages ^ [s];

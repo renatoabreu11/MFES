@@ -65,7 +65,7 @@ operations
 		  if(currentRallyIndex >= len series) then EndChampionship() else series(currentRallyIndex).StartRally(GetDrivers());	
 		)
 		pre state = <Occurring> and series(currentRallyIndex).GetState() = <Completed>;
-
+	 
 	private EndChampionship: () ==> () 
 		EndChampionship() == (
 			currentRallyIndex := -1;	
@@ -80,6 +80,33 @@ operations
 		)
 		pre state = <OffSeason> and not exists p1 in set partners & p1.GetName() = p.GetName()
 		post p in set partners;
+
+	public GetTeamRallyRanking: String * String ==> int
+	 GetTeamRallyRanking(teamName, rallyName) == (
+			let i in set inds series be st series(i).GetName() = rallyName in return series(i).GetTeamRanking(teamName);
+	 )
+	 pre teamName in set dom teams and exists r in seq series & r.GetName() = rallyName;
+	 
+	public GetTeamGlobalRanking: String ==> int
+	 GetTeamGlobalRanking(teamName) == (
+	 	dcl points: int := 0;
+    for elem in series  
+     	do 
+        if (elem.GetState() <> <OffSeason>)
+            then (points := points + elem.GetTeamRanking(teamName););
+		
+		return points;
+	 )
+	 pre teamName in set dom teams; 
+
+	public GetTeamsRanking: () ==> map String to int
+	 GetTeamsRanking() == (
+	 		dcl rankings: map String to int := { |-> };
+	 		for all elem in set dom teams
+	 			do 
+	 				rankings := rankings munion { elem |-> GetTeamGlobalRanking(elem) };
+	 		return rankings;
+	 );
 		
 	public RemovePartner: Partner ==> ()
 		RemovePartner(p) == (
