@@ -58,7 +58,7 @@ operations
 
 	public NextStage: set of Performance ==> () 
 		NextStage(performances) == (
-			stages(currentStageIndex).Finalize();	
+			stages(currentStageIndex).Finalize();
 			for all elem in set performances
 		  	do (
 		  		stages(currentStageIndex).AddPerformance(elem);
