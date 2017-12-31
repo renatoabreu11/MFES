@@ -1,10 +1,10 @@
 class StageTest is subclass of MyTestCase
 
 instance variables
-	stage1: Stage := new Stage(<Timed>, DateUtils`MakeDate(2017, 12, 1), 10);
-	stage2: Stage := new Stage(<Special>, DateUtils`MakeDate(2017, 12, 2), 50);
-	stage3: Stage := new Stage(<Timed>, DateUtils`MakeDate(2017, 12, 3), 3);
-	stage4: Stage := new Stage(<Transport>, DateUtils`MakeDate(2017, 12, 5), 100);
+	stage1: Stage := new Stage(1, <Special>, DateUtils`MakeDate(2017, 12, 1), 10);
+	stage2: Stage := new Stage(2, <Special>, DateUtils`MakeDate(2017, 12, 2), 50);
+	stage3: Stage := new Stage(3, <Special>, DateUtils`MakeDate(2017, 12, 3), 3);
+	stage4: Stage := new Stage(4, <Transport>, DateUtils`MakeDate(2017, 12, 5), 100);
 	
 	team0: Team := new Team("Test Team", <Germany>);
 	driver1: Driver := new Driver("Anne", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7));
@@ -56,15 +56,24 @@ operations
 		performance2.SetPenalty(1);
 		
 		performance3.SetTime(202);
-		performance3.SetAverageSpeed(50);
+		performance3.SetAverageSpeed(52);
 		
-		stage3.AddPerformance(performance1);
-		stage3.AddPerformance(performance2);
-		stage3.AddPerformance(performance3);
+		--Id
+		assertEqual(1, stage1.GetId());
+		assertEqual(2, stage2.GetId());
+		
+		--State
+		assertEqual(<Incompleted>, stage1.GetState());
+		stage1.FinalizeStage();
+		assertEqual(<Completed>, stage1.GetState());		
 		
 		--Type
-		assertEqual(<Timed>, stage1.GetType());
-		assertEqual(<Special>, stage2.GetType());
+		assertEqual(<Special>, stage1.GetType());
+		assertEqual(<Transport>, stage4.GetType());
+		
+		stage1.AddPerformance(performance1);
+		stage1.AddPerformance(performance2);
+		stage1.AddPerformance(performance3);
 		
 		--Date
 		assertEqual(DateUtils`MakeDate(2017, 12, 3), stage3.GetDate());
@@ -75,11 +84,15 @@ operations
 		assertEqual(100, stage4.GetDistance());
 		
 		--Driver Performance
-		assertEqual(performance1, stage3.GetDriverPerformance(driver1));
-		assertEqual(performance3, stage3.GetDriverPerformance(driver3));
+		assertEqual(performance1, stage1.GetDriverPerformance(driver1));
+		assertEqual(nil, stage2.GetDriverPerformance(driver1));  
+    assertEqual(performance3, stage1.GetDriverPerformance(driver3));
+    assertEqual(performance2, stage1.GetDriverPerformance(driver2.GetName()));  
+    assertEqual(nil, stage2.GetDriverPerformance(driver1.GetName()));  
 		
 		--Performances
-		assertEqual([performance1, performance3, performance2], stage3.GetPerformances());
+		assertEqual([performance1, performance3, performance2], stage1.GetPerformances()); 
+		assertEqual([performance3, performance1, performance2], stage1.GetPerformancesSortedByAverageSpeed()); 
 			
 		IO`println("\nFinalizing Stage Tests");
 	);

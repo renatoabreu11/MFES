@@ -42,28 +42,6 @@ class DateUtils
  			
  		public static Day: Date -> nat
 	 		Day(d) == 
-	 			d mod 100;
- 			
- 		public static NextDate: Date -> Date
-	 		NextDate(d) == 
-	 			if Day(d) < DaysOfMonth(Year(d), Month(d)) then
-	         MakeDate(Year(d), Month(d), Day(d) + 1)
-	      else if Month(d) < 12 then
-	         MakeDate(Year(d), Month(d) + 1, 1)
-	      else
-	         MakeDate(Year(d) + 1 , 1, 1);
- 			
- 		public static PrevDate: Date -> Date
-	 		PrevDate(d) == 
-	      if Day(d) > 1 then
-	        MakeDate(Year(d), Month(d), Day(d) - 1)
-	      else if Month(d) > 1 then
-	        MakeDate(Year(d), Month(d) - 1, DaysOfMonth(Year(d), Month(d)-1))
-	      else
-	        MakeDate(Year(d) - 1 , 12, 31);
- 			
- 		public static DateAdd: Date * nat -> Date
-	 		DateAdd(d, ndays) == 
-	 			if ndays = 0 then d else DateAdd(NextDate(d), ndays - 1);		 			 			
+	 			d mod 100;		 			
 
 end DateUtils

@@ -26,7 +26,7 @@ operations
 		  return averageSpeed
 		post RESULT = averageSpeed;
 		
-		public SetAverageSpeed: real ==> ()
+	public SetAverageSpeed: real ==> ()
 		SetAverageSpeed(avg) ==
 		  averageSpeed := avg
 		post avg = averageSpeed;

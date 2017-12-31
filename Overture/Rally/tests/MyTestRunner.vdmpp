@@ -4,15 +4,15 @@ operations
 	public static run() == (
 		IO`println("Initializing Test Runner");
 		
-		new ChampionshipTest().Run();
     new SponsorTest().Run();    
     new ManufacturerTest().Run();
     new CarTest().Run();
     new DriverTest().Run();
     new TeamTest().Run();
     new PerformanceTest().Run();
-    --new RallyTest().Run(); --TODO
     new StageTest().Run();
+    new RallyTest().Run();
+    new ChampionshipTest().Run();
     
     IO`println("Finalizing Test Runner");
 	);

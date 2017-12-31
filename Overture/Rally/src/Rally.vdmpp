@@ -8,6 +8,8 @@ types
 	public StageId = Stage`StageId;
 
 instance variables
+	protected static currentId: nat1 := 1;
+	
   private stages: map StageId to Stage := { |-> };
   private rankings: seq of Ranking := [];
   private startDate: Date;

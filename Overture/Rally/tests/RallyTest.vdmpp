@@ -37,7 +37,6 @@ operations
 		
 		team1.AddSponsor(sponsor1);
 		team1.AddSponsor(sponsor2);
-		team1.AddCar(car1);
 		team1.AddCar(car2);
 		team1.SetBacker(manufacturer1);
 		team1.AddDriver(driver1);
