@@ -38,19 +38,33 @@ operations
 
 	public StartChampionship: () ==> () 
 		StartChampionship() == (
-			
+			currentRallyIndex := 0;
+		  series(currentRallyIndex).StartRally(GetDrivers());	
 			Init();
 		)
-		pre state = <OffSeason>
-		post state = <Occurring>;
+		pre state = <OffSeason> and series <> [] and teams <> { |-> } and not exists s in seq series & s.GetState() <> <OffSeason>
+		post state = <Occurring> and currentRallyIndex <> -1 and series(currentRallyIndex).GetState() = <Occurring>;
+
+	public UpdateCurrentRally: set of Performance ==> ()
+		UpdateCurrentRally(performances) == (
+			series(currentRallyIndex).NextStage(performances);
+		)
+		pre state = <Occurring> and series(currentRallyIndex).GetState() = <Occurring>;
+
+	public IsCurrentRallyCompleted: () ==> bool
+		IsCurrentRallyCompleted() == (
+			if(series(currentRallyIndex).GetState() = <Completed>)
+				then return true
+			else return false	
+		)
+		pre state = <Occurring>;
 
 	public NextRally: () ==> () 
 		NextRally() == (
-			
 			currentRallyIndex := currentRallyIndex + 1;	
-		  if(currentRallyIndex >= len series) then EndChampionship() else series(currentRallyIndex).Init();
+		  if(currentRallyIndex >= len series) then EndChampionship() else series(currentRallyIndex).StartRally(GetDrivers());	
 		)
-		pre state = <Occurring>;
+		pre state = <Occurring> and series(currentRallyIndex).GetState() = <Completed>;
 
 	private EndChampionship: () ==> () 
 		EndChampionship() == (
@@ -58,7 +72,7 @@ operations
 			Finalize();
 		)
 		pre state = <Occurring>
-		post state = <Completed>;
+		post state = <Completed> and not exists r in seq series & r.GetState() <> <Completed>;
 			
 	public AddPartner: Partner ==> ()
 		AddPartner(p) == (
@@ -95,6 +109,19 @@ operations
 		post t.GetName() not in set dom teams;
 	
 	-- *** Getters ***
+	
+	pure public GetCurrentRally: () ==> Rally
+		GetCurrentRally() == (
+			return 
+				if state = <Occurring>
+           then series(currentRallyIndex)
+        else nil;	
+		);	
+	
+	pure public GetDrivers: () ==> set of Driver
+		GetDrivers() == (
+			return dunion { t.GetDrivers() | t in set rng teams };
+		);
 	
 	pure public GetName: () ==> String
 		GetName() ==
