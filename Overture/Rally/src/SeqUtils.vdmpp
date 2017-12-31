@@ -1,4 +1,4 @@
-class Sequence
+class SeqUtils
 	
 functions 
 
@@ -19,19 +19,6 @@ functions
 
 	static length_measure[@T] : seq of @T +> nat
 		length_measure(s) == len s;
-
-	static public GetAverage[@T]: seq of @T ->  [real]
-		GetAverage(s) == if s = [] then nil else GetAverageAux[@T](s)(0)(len s);
-
-	static GetAverageAux[@T] : seq of @T -> @T -> @T -> real
-		GetAverageAux(s)(sum)(numberOfElem) ==
-		 if is_(s,seq of real) and is_real(sum) and is_real(numberOfElem)
-		 then
-			cases s :
-			[h] ^ tail	-> GetAverageAux[@T](tail)(sum + h)(numberOfElem),
-			[]			-> sum / numberOfElem
-			end
-		else undefined;
 
 	static public isAscendingTotalOrder [@T]: (@T * @T -> bool) -> seq of @T -> bool
 		isAscendingTotalOrder (decideOrderFunc)(s) ==
@@ -85,7 +72,7 @@ functions
 					elseif (hd decideOrderFuncSeq)(h2,h1) then
 						false
 					else
-						Sequence`isOrdered[@T](tl decideOrderFuncSeq)(tail1)(tail2)
+						SeqUtils`isOrdered[@T](tl decideOrderFuncSeq)(tail1)(tail2)
 			end;
 
 	static public Merge[@T] : (@T * @T -> bool) -> seq of @T -> seq of @T -> seq of @T
@@ -95,9 +82,9 @@ functions
 				mk_(x, [])						-> x,
 				mk_([h1]^tail1,[h2]^tail2)		->
 					if decideOrderFunc(h1,h2) then
-						[h1] ^ Sequence`Merge[@T](decideOrderFunc)(tail1)(s2)
+						[h1] ^ SeqUtils`Merge[@T](decideOrderFunc)(tail1)(s2)
 					else
-						[h2] ^ Sequence`Merge[@T](decideOrderFunc)(s1)(tail2)
+						[h2] ^ SeqUtils`Merge[@T](decideOrderFunc)(s1)(tail2)
 			end;
 	
 	static public InsertAt[@T]: nat1 -> @T -> seq of @T -> seq of @T
@@ -143,4 +130,4 @@ functions
 						IndexAux[@T](e)(xs)(indx+1)
 			end;
 
-end Sequence
+end SeqUtils

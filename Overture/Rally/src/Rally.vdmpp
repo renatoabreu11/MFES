@@ -1,9 +1,9 @@
 class Rally is subclass of State
 
 types
-	public Country = Utils`Country;
+	public Country = Team`Country;
 	public Surface = <Mountain> | <Asphalt> | <Sand> | <Forest> | <Snow> | <Gravel>;
-	public String = Utils`String;
+	public String = seq of char;
 	public Date = DateUtils`Date;
 	public StageId = Stage`StageId;
 
@@ -21,11 +21,12 @@ instance variables
   
   inv endDate > startDate;
   inv not exists s1, s2 in seq stages & s1 <> s2 and s1.GetId() = s2.GetId();
-  inv Sequence`isAscendingTotalOrder[Stage](lambda x: Stage, y: Stage & x.GetId() < y.GetId())(stages);
+  inv SeqUtils`isAscendingTotalOrder[Stage](lambda x: Stage, y: Stage & x.GetId() < y.GetId())(stages);
   inv not exists r1, r2 in seq rankings &
       r1 <> r2 and r1.GetDriver().GetName() = r2.GetDriver().GetName();
-  inv forall i in set inds rankings &
-      i > 1 => let e1 = rankings(i-1), e2 = rankings(i) in e1.GetPoints() >= e2.GetPoints();
+  -- As a post condition    
+  -- inv forall i in set inds rankings &
+      -- i > 1 => let e1 = rankings(i-1), e2 = rankings(i) in e1.GetPoints() >= e2.GetPoints();
                    
 operations
   public Rally : String * String * Country * Surface * Date * Date ==> Rally
@@ -49,7 +50,7 @@ operations
 		StartRally(drivers) == (
 			for all elem in set drivers  
 		  	do rankings := rankings ^ [new Ranking(elem)];
-		  currentStageIndex := 0;
+		  currentStageIndex := 1;
 		  stages(currentStageIndex).Init();	
 			Init();
 		)
@@ -65,12 +66,14 @@ operations
 		  		let i in set inds rankings be st elem.GetDriver() = rankings(i).GetDriver() in
 		  					rankings(i).AddPoints(elem.GetTime());
 		  		);
-	  	rankings := Sequence`sort[Ranking](lambda x: Ranking, y: Ranking & x.GetPoints() > y.GetPoints())(rankings);
+	  	rankings := SeqUtils`sort[Ranking](lambda x: Ranking, y: Ranking & x.GetPoints() > y.GetPoints())(rankings);
 		  	
 		  currentStageIndex := currentStageIndex + 1;
-		  if(currentStageIndex >= len stages) then EndRally() else stages(currentStageIndex).Init();
+		  if(currentStageIndex > len stages) then EndRally() else stages(currentStageIndex).Init();
 		)
-		pre state = <Occurring> and stages(currentStageIndex).GetState() = <Occurring>;
+		pre state = <Occurring> and stages(currentStageIndex).GetState() = <Occurring>
+		post forall i in set inds rankings &
+      i > 1 => let e1 = rankings(i-1), e2 = rankings(i) in e1.GetPoints() >= e2.GetPoints();
 
 	private EndRally: () ==> () 
 		EndRally() == (
@@ -150,7 +153,7 @@ operations
 	pure public GetCurrentStage: () ==> Stage
 		GetCurrentStage() ==
 			return stages(currentStageIndex)
-		pre currentStageIndex >= 0
+		pre currentStageIndex >= 1
 		post exists stage in seq stages & stage = RESULT;
 		
 	pure public GetDriverRanking: Driver ==> Ranking

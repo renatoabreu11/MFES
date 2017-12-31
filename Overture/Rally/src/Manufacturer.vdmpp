@@ -1,8 +1,8 @@
 class Manufacturer
 
 types 
-	public String = Utils`String;
-	public Country = Utils`Country;
+	public String = seq of char;
+	public Country = Team`Country;
 
 instance variables
   private name: String;

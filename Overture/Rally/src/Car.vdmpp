@@ -1,7 +1,7 @@
 class Car
 
 types 
-	public String = Utils`String;
+	public String = seq of char;
 
 instance variables
   private manufacturer: [Manufacturer];

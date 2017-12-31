@@ -1,7 +1,7 @@
 class Championship is subclass of State
 
 types 
-	public String = Utils`String;
+	public String = seq of char;
 	public Date = DateUtils`Date;
   public TeamName = Team`TeamName;
 
@@ -20,7 +20,7 @@ instance variables
   inv not exists p1, p2 in set partners &
         p1 <> p2 and p1.GetName() = p2.GetName();
 	inv endDate > startDate;     
-	inv Sequence`isAscendingTotalOrder[Rally](lambda x: Rally, y: Rally & x.GetStartDate() < y.GetStartDate())(series);
+	inv SeqUtils`isAscendingTotalOrder[Rally](lambda x: Rally, y: Rally & x.GetStartDate() < y.GetStartDate())(series);
 	inv forall r in seq series & r.GetEndDate() < endDate and r.GetStartDate() > startDate;
 
 operations
@@ -38,7 +38,7 @@ operations
 
 	public StartChampionship: () ==> () 
 		StartChampionship() == (
-			currentRallyIndex := 0;
+			currentRallyIndex := 1;
 		  series(currentRallyIndex).StartRally(GetDrivers());	
 			Init();
 		)
@@ -62,7 +62,7 @@ operations
 	public NextRally: () ==> () 
 		NextRally() == (
 			currentRallyIndex := currentRallyIndex + 1;	
-		  if(currentRallyIndex >= len series) then EndChampionship() else series(currentRallyIndex).StartRally(GetDrivers());	
+		  if(currentRallyIndex > len series) then EndChampionship() else series(currentRallyIndex).StartRally(GetDrivers());	
 		)
 		pre state = <Occurring> and series(currentRallyIndex).GetState() = <Completed>;
 	 
@@ -119,7 +119,7 @@ operations
 		AddRally(r) == (
 			series := series ^ [r]
 		)
-		pre state = <OffSeason> and not exists r1 in seq series & r1.GetName() = r.GetName() and r1.GetStartDate() > startDate and r1.GetEndDate() < endDate;
+		pre r.GetStages() <> [] and r.GetStartDate() > startDate and r.GetEndDate() < endDate and state = <OffSeason> and not exists r1 in seq series & r1.GetName() = r.GetName();
 
 	public AddTeam: Team ==> ()
 		AddTeam(t) == (
@@ -137,18 +137,17 @@ operations
 	
 	-- *** Getters ***
 	
-	pure public GetCurrentRally: () ==> Rally
+	pure public GetCurrentRally: () ==> [Rally]
 		GetCurrentRally() == (
 			return 
-				if state = <Occurring>
+				if state = <Occurring> and currentRallyIndex >= 1
            then series(currentRallyIndex)
         else nil;	
-		);	
+		);
 	
 	pure public GetDrivers: () ==> set of Driver
-		GetDrivers() == (
+		GetDrivers() ==
 			return dunion { t.GetDrivers() | t in set rng teams };
-		);
 	
 	pure public GetName: () ==> String
 		GetName() ==

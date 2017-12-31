@@ -1,9 +1,10 @@
 class Team
 
 types
-	public Country = Utils`Country;
-	public String = Utils`String;
-	public TeamName = Utils`String;
+	public Country = <Italy> | <France> | <Spain> | <Portugal> |
+									 <SouthKorea> | <Germany> | <GreatBritain> | <Japan>;
+	public String = seq of char;
+	public TeamName = seq of char;
 
 instance variables
   private drivers : set of Driver := {};

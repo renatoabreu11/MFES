@@ -4,7 +4,7 @@ instance variables
 	champ1: Championship := new Championship("European Championship", DateUtils`MakeDate(2017, 10, 29), DateUtils`MakeDate(2017, 12, 5));
 
 	rally1: Rally := new Rally("Rally da Costa", "Rally in Portugal", <Portugal>, <Sand>, DateUtils`MakeDate(2017, 11, 1), DateUtils`MakeDate(2017, 11, 3));
-	rally2: Rally := new Rally("Rally de la Coruña", "Rally in Spain", <Spain>, <Asphalt>, DateUtils`MakeDate(2017, 11, 5), DateUtils`MakeDate(2017, 11, 15));
+	rally2: Rally := new Rally("Rally de la Coruï¿½a", "Rally in Spain", <Spain>, <Asphalt>, DateUtils`MakeDate(2017, 11, 5), DateUtils`MakeDate(2017, 11, 15));
 	rally3: Rally := new Rally("Mont-Blanc Rally", "Rally in France", <France>, <Mountain>, DateUtils`MakeDate(2017, 11, 19), DateUtils`MakeDate(2017, 11, 25));
 	rally4: Rally := new Rally("SnowHell Rally", "Rally in GB", <GreatBritain>, <Snow>, DateUtils`MakeDate(2017, 11, 26), DateUtils`MakeDate(2017, 11, 27));
 	rally5: Rally := new Rally("Ulme Rally", "Rally in Germany", <Germany>, <Gravel>, DateUtils`MakeDate(2017, 11, 30), DateUtils`MakeDate(2017, 12, 4));
@@ -50,12 +50,6 @@ operations
 	Run() == (
 		IO`println("\nUse Cases Tests");
 		--Setup championship
-		champ1.AddRally(rally1);
-		champ1.AddRally(rally2);
-		champ1.AddRally(rally3);
-		champ1.AddRally(rally4);
-		champ1.AddRally(rally5);
-		
 		champ1.AddTeam(team1);
 		champ1.AddTeam(team2);
 		
@@ -73,6 +67,12 @@ operations
 		rally5.AddStage(stage1r5);
 		rally5.AddStage(stage2r5);
 		rally5.AddStage(stage3r5);
+		
+		champ1.AddRally(rally1);
+		champ1.AddRally(rally2);
+		champ1.AddRally(rally3);
+		champ1.AddRally(rally4);
+		champ1.AddRally(rally5);
 		
 		--Setup teams		
 		team1.AddCar(car1t1);

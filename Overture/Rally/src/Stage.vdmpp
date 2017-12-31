@@ -4,7 +4,7 @@ types
 	public StageType = <Transport> | <Special>;
 	public Date = DateUtils`Date;
 	public StageId = nat1;
-	public String = Utils`String;
+	public String = seq of char;
 
 instance variables
   private performances: seq of Performance := [];
@@ -56,7 +56,7 @@ operations
 	
 	public GetPerformancesSortedByAverageSpeed: () ==> seq of Performance
 		GetPerformancesSortedByAverageSpeed() == (
-			return Sequence`sort[Performance](lambda x: Performance, y: Performance & x.GetAverageSpeed() > y.GetAverageSpeed())(performances)
+			return SeqUtils`sort[Performance](lambda x: Performance, y: Performance & x.GetAverageSpeed() > y.GetAverageSpeed())(performances)
 		)
 		pre state = <Completed>;
 

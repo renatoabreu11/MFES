@@ -18,11 +18,4 @@ operations
     IO`println("Finalizing Test Runner");
 	);
 	
-	private SystemTest: () ==> ()
-	 SystemTest() == (
-		 IO`println("\nInitializing System Test");
-	   
-	   IO`println("\nFinalizing System Test");
-	 )
-	
 end MyTestRunner

@@ -29,6 +29,7 @@ instance variables
 	driver1: Driver := new Driver("Dan", <Male>, <GreatBritain>, DateUtils`MakeDate(1980, 10, 5));
 	driver2: Driver := new Driver("Joana", <Female>, <Spain>, DateUtils`MakeDate(1987, 2, 22));
 	driver3: Driver := new Driver("Alexio", <Male>, <Germany>, DateUtils`MakeDate(1995, 5, 29));
+	driver4: Driver := new Driver("Another one", <Male>, <Germany>, DateUtils`MakeDate(1996, 5, 29));
 	
 	stage1: Stage := new Stage(1, <Special>, DateUtils`MakeDate(2018, 1, 25), 50);
 	stage2: Stage := new Stage(2, <Special>, DateUtils`MakeDate(2018, 1, 26), 200);
@@ -37,13 +38,36 @@ instance variables
 	rally2: Rally := new Rally("Vodafone Rally de Portugal", "O Rali de Portugal é a maior prova de desporto motorizado que se realiza em Portugal anualmente.", <Portugal>, <Gravel>, DateUtils`MakeDate(2018, 5, 17), DateUtils`MakeDate(2018, 5, 20));
 	rally3: Rally := new Rally("Rally Italia Sardegna", "Held on the beautiful island of Sardinia, Rally Italy – or Rally Italia Sardegna to give it its full name – is a notoriously tricky event.", <Italy>, <Mountain>, DateUtils`MakeDate(2018, 6, 7), DateUtils`MakeDate(2018, 6, 10));
 
+	ranking1: [Ranking] := nil;
+	ranking2: [Ranking] := nil;
+	ranking3: [Ranking] := nil;
+	ranking4: [Ranking] := nil;
+
+	performance1: [Performance] := nil;
+	performance2: [Performance] := nil;
+	performance3: [Performance] := nil;
+	performance4: [Performance] := nil;		
+	
 operations
 	public Run: () ==> ()
 	Run() == (
 		IO`println("\nRally Tests");
 		
 		--Setup
+		team1.AddCar(car1);
+		team1.AddCar(car2);
+		team2.AddCar(car3);
+		team3.AddCar(car4);
 		
+		team1.AddDriver(driver1);
+		team1.AddDriver(driver2);
+		team2.AddDriver(driver3);
+		team3.AddDriver(driver4);
+		team1.AssignCarToDriver(car1, driver1);
+		team1.AssignCarToDriver(car2, driver2);
+		team2.AssignCarToDriver(car3, driver3);
+		team3.AssignCarToDriver(car4, driver4);
+
 		--Variables
 		assertEqual("Rallye Monte-Carlo", rally1.GetName());
 		assertEqual("O Rali de Portugal é a maior prova de desporto motorizado que se realiza em Portugal anualmente.", rally2.GetDescription());
@@ -54,6 +78,38 @@ operations
 		
 		--Stages
 		rally1.AddStage(stage1);
+		rally1.AddStage(stage2);
+		assertEqual(250, rally1.GetDistance());
+		assertEqual([stage1, stage2], rally1.GetStages());
+		
+		rally1.StartRally({driver1, driver2, driver3, driver4});
+		assertTrue(len rally1.GetRankings() = 4);
+		
+		performance1 := new Performance(driver1);
+		performance2 := new Performance(driver2);
+		performance3 := new Performance(driver3);
+		performance4 := new Performance(driver4);		
+		performance1.SetTime(200);
+		performance1.SetAverageSpeed(50);
+		performance2.SetTime(217);
+		performance2.SetAverageSpeed(48);
+		performance3.SetTime(202);
+		performance3.SetAverageSpeed(50);
+		performance4.SetTime(250);
+		performance4.SetAverageSpeed(46);
+		
+		rally1.NextStage({performance1, performance2, performance3, performance4});
+		
+		assertEqual(stage2, rally1.GetCurrentStage());
+		
+		rally1.NextStage({performance1, performance2, performance3, performance4});	
+			
+		assertTrue(rally1.GetDriverRanking(driver1).GetDriver() = driver1);	
+		assertTrue(rally1.GetDriverRanking(driver1).GetPoints() = 400 );	
+		
+		assertTrue(rally1.GetDriverPerformanceOnStage(1, driver1).GetTime() = 200);
+		
+		assertEqual(834, rally1.GetTeamRanking("CITROËN Total Abu Dhabi WRT"));
 			
 		IO`println("\nFinalizing Rally Tests");
 	);

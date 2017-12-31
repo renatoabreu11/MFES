@@ -1,10 +1,10 @@
 class Driver
 
 types 
-	public String = Utils`String;
-	public Country = Utils`Country;
+	public String = seq of char;
+	public Country = Team`Country;
 	public Date = DateUtils`Date;
-	public Gender = Utils`Gender;
+	public Gender = <Male> | <Female>;
 
 instance variables
   private team: [Team] := nil;
