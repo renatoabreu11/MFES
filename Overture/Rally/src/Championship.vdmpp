@@ -104,5 +104,10 @@ operations
 		GetTeamByName(tName) ==
 			let team in set teams be st team.GetName()=tName in return team
 		pre let team in set teams in team.GetName() = tName;
+	
+	pure public GetRallyByName: (String) ==> Rally
+		GetRallyByName(rName) ==
+			let i in set inds series be st series(i).GetName()=rName in return series(i)
+		pre exists i in set inds series & series(i).GetName() = rName;
 
 end Championship

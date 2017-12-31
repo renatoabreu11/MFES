@@ -20,6 +20,9 @@ instance variables
 	manufacturer3: Manufacturer := new Manufacturer("Hyunday", 
 		"Hyundai Motor Company leads the Hyundai Motor Group, a wide-reaching business capable of processing resources from molten iron to finished cars.",
 		<SouthKorea>);
+	
+	rally1: Rally := new Rally("The Dark Mountain", "A very dark mountain", <Germany>, <Mountain>, DateUtils`MakeDate(2017, 10, 5), DateUtils`MakeDate(2017, 10, 10));
+	rally2: Rally := new Rally("Despair Woods", "Maze-like woods it the heart of Spain", <Spain>, <Forest>, DateUtils`MakeDate(2017, 10, 14), DateUtils`MakeDate(2017, 10, 20));
 		
 	car1: Car := new Car("Hyundai i20", manufacturer3, 370, 1250);
 	car2: Car := new Car("Citroën C3", manufacturer1, 400, 1300);
@@ -68,6 +71,15 @@ operations
 		
 		--Team by name
 		assertEqual(team2, champ1.GetTeamByName("Hyundai Motorsport"));
+		
+		--Rally
+		champ1.AddRally(rally1);
+		champ1.AddRally(rally2);
+		assertEqual(rally2, champ1.GetRallyByName("Despair Woods"));
+		--assertEqual({rally1, rally2}, champ1.GetSeries());
+		--champ1.RemoveRally(rally2);
+		--assertFalse(let i in set inds champ1.GetSeries() in champ1.GetSeries()(i)=rally2);
+		assertTrue(let i in set inds champ1.GetSeries() in champ1.GetSeries()(i)=rally1);
 			
 		IO`println("\nFinalizing Championship Tests");
 	);
