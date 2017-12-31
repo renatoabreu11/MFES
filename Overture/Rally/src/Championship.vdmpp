@@ -98,6 +98,11 @@ operations
 	pure public GetSeries: () ==> seq of Rally
 		GetSeries() ==
 			return series
-		post RESULT = series;				
+		post RESULT = series;
+	
+	pure public GetTeamByName: (String) ==> Team
+		GetTeamByName(tName) ==
+			let team in set teams be st team.GetName()=tName in return team
+		pre let team in set teams in team.GetName() = tName;
 
 end Championship

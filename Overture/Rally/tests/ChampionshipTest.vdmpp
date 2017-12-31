@@ -65,6 +65,9 @@ operations
 		assertTrue(team1 in set champ1.GetTeams());
 		champ1.RemoveTeam(team1);
 		assertEqual({team2}, champ1.GetTeams());
+		
+		--Team by name
+		assertEqual(team2, champ1.GetTeamByName("Hyundai Motorsport"));
 			
 		IO`println("\nFinalizing Championship Tests");
 	);

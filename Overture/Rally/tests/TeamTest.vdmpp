@@ -73,6 +73,8 @@ operations
 		team1.RemoveCar(car3);
 		
 		team1.UnassignCarFromDriver(driver2);
+		
+		assertEqual(driver2, team1.GetDriverByName("Joana"));
 			
 		IO`println("\nFinalizing Team Tests");
 	);

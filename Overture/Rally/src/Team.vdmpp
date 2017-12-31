@@ -140,6 +140,11 @@ operations
 	pure public GetBased: () ==> Country
 		GetBased() ==
 		  return based
-		post RESULT = based;	    
+		post RESULT = based;
+	
+	pure public GetDriverByName: (String) ==> Driver
+		GetDriverByName(dName) ==
+			let driver in set drivers be st driver.GetName()=dName in return driver
+		pre let driver in set drivers in driver.GetName() = dName;
 
 end Team
