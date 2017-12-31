@@ -5,6 +5,7 @@ types
 	public Surface = <Mountain> | <Asphalt> | <Sand> | <Forest> | <Snow> | <Gravel>;
 	public String = Utils`String;
 	public Date = DateUtils`Date;
+	public StageId = Stage`StageId;
 
 instance variables
   private stages: seq of Stage := [];
@@ -91,5 +92,18 @@ operations
 		GetStages() ==
 			return stages
 		post RESULT = stages;
+		
+	pure public GetDriverRanking: Driver ==> Ranking
+		GetDriverRanking(driver0) ==
+			let i in set inds rankings be st rankings(i).GetDriver() = driver0 in return rankings(i)
+		pre exists ranking in seq rankings & ranking.GetDriver() = driver0;
+	
+	pure public GetDriverPerformanceOnStage: StageId * Driver ==> Performance 
+    GetDriverPerformanceOnStage(stageId0, driver0) == 
+    	let iS in set inds stages be st stages(iS).GetId() = stageId0 in
+    				(let iP in set inds stages(iS).GetPerformances() be st stages(iS).GetPerformances()(iP).GetDriver() = driver0 in
+    							return stages(iS).GetPerformances()(iP))
+		pre exists stage in seq stages & stage.GetId()=stageId0 and
+					(exists performance in seq stage.GetPerformances() & performance.GetDriver() = driver0);
 
 end Rally
