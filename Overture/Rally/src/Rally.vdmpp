@@ -1,4 +1,4 @@
-class Rally
+class Rally is subclass of State
 
 types
 	public Country = Utils`Country;
@@ -37,7 +37,7 @@ operations
 		)
 		pre endDate0 > startDate0 and name0 <> "" and description0 <> ""
 		post name = name0 and description = description0 and country = country0
-			and surface = surface0 and startDate = startDate0 
+			and surface = surface0 and startDate = startDate0
 			and endDate = endDate0 and rankings = [] and stages = [];
 
 	-- *** Transactions ***

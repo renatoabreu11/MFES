@@ -1,9 +1,10 @@
-class Championship
+class Championship is subclass of State
 
 types 
 	public String = Utils`String;
 	public Date = DateUtils`Date;
   public TeamName = Team`TeamName;
+
 instance variables
   private series: seq of Rally := [];
   private teams: map TeamName to Team := { |-> };

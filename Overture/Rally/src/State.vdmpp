@@ -1,0 +1,27 @@
+class State
+
+types
+	public State = <OffSeason> | <Completed> | <Occurring>;
+
+instance variables
+	protected state: State := <OffSeason>;
+
+operations
+	public Init: () ==> ()
+		Init() == 
+			state := <Occurring>
+			pre state = <OffSeason>
+			post state = <Occurring>;
+
+	public Finalize: () ==> ()
+		Finalize() == 
+			state := <Completed>
+			pre state = <Occurring>
+			post state = <Completed>;
+
+	pure public GetState: () ==> State
+		GetState() ==
+		  return state
+		post RESULT = state;		
+
+end State

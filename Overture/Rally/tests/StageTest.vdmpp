@@ -63,9 +63,11 @@ operations
 		assertEqual(2, stage2.GetId());
 		
 		--State
-		assertEqual(<Incompleted>, stage1.GetState());
-		stage1.FinalizeStage();
-		assertEqual(<Completed>, stage1.GetState());		
+		assertEqual(<OffSeason>, stage1.GetState());
+		stage1.Init();
+		assertEqual(<Occurring>, stage1.GetState());
+		stage1.Finalize();
+		assertEqual(<Completed>, stage1.GetState());				
 		
 		--Type
 		assertEqual(<Special>, stage1.GetType());

@@ -1,11 +1,10 @@
-class Stage
+class Stage is subclass of State
 
 types
 	public StageType = <Transport> | <Special>;
 	public Date = DateUtils`Date;
 	public StageId = nat1;
 	public String = Utils`String;
-	public StageState = <Completed> | <Incompleted>;
 
 instance variables
   private performances: seq of Performance := [];
@@ -13,12 +12,11 @@ instance variables
   private date: Date;
   private distance: real;
   private id: StageId;
-  private state: StageState := <Incompleted>;
   
   -- performances have unique drivers
   inv not exists p1, p2 in seq performances & 
         p1<>p2 and p1.GetDriver() = p2.GetDriver();
-	inv if(state = <Incompleted>) then len performances = 0 else forall p in seq performances & p.GetTime() > 0;
+	inv if(state = <OffSeason> or state = <Occurring>) then len performances = 0 else forall p in seq performances & p.GetTime() > 0;
   
 operations
   public Stage : nat1 * StageType * Date * real ==> Stage
@@ -30,7 +28,7 @@ operations
 		  return self;
 		)
 		pre distance0 > 0 and id0 <> 0
-		post type = type0 and date = date0 and distance = distance0 and id = id0;
+		post type = type0 and date = date0 and distance = distance0 and id = id0 and state = <OffSeason>;
 
 	-- *** Transactions ***
 	
@@ -56,25 +54,13 @@ operations
         else nil;		
 		);
 	
-	-- Sorted by average speed. Needs a better name
 	public GetPerformancesSortedByAverageSpeed: () ==> seq of Performance
 		GetPerformancesSortedByAverageSpeed() == (
 			return Sequence`sort[Performance](lambda x: Performance, y: Performance & x.GetAverageSpeed() > y.GetAverageSpeed())(performances)
 		)
 		pre state = <Completed>;
-		
-	public FinalizeStage: () ==> ()
-		FinalizeStage() == 
-			state := <Completed>
-			pre state = <Incompleted>
-			post state = <Completed>;
 
-	-- *** Getters *** 
-	
-	pure public GetState: () ==> StageState
-		GetState() ==
-		  return state
-		post RESULT = state;		
+	-- *** Getters *** 	
 	
 	pure public GetType: () ==> StageType
 		GetType() ==
