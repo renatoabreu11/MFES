@@ -19,7 +19,7 @@ instance variables
   private distance: real := 0.0;
   
   inv endDate > startDate;
-  inv not exists s1, s2 in set dom stages & s1 = s2; 
+  inv not exists s1, s2 in set dom stages & s1 = s2 and s1 <> s2;
   inv not exists r1, r2 in seq rankings &
       r1 <> r2 and r1.GetDriver().GetName() = r2.GetDriver().GetName();
   inv forall i in set inds rankings &
