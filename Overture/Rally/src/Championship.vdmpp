@@ -7,6 +7,7 @@ types
 
 instance variables
   private series: seq of Rally := [];
+  private currentRallyIndex: int := -1;
   private teams: map TeamName to Team := { |-> };
   private partners: set of Partner := {};
   private name: String;
@@ -19,6 +20,7 @@ instance variables
   inv not exists p1, p2 in set partners &
         p1 <> p2 and p1.GetName() = p2.GetName();
 	inv endDate > startDate;     
+	inv Sequence`isAscendingTotalOrder[Rally](lambda x: Rally, y: Rally & x.GetStartDate() < y.GetStartDate())(series);
 	inv forall r in seq series & r.GetEndDate() < endDate and r.GetStartDate() > startDate;
 
 operations
@@ -33,39 +35,63 @@ operations
 		post name = name0 and startDate = startDate0 and endDate = endDate0 and teams = { |-> };
 	
 	-- *** Transactions ***
+
+	public StartChampionship: () ==> () 
+		StartChampionship() == (
+			
+			Init();
+		)
+		pre state = <OffSeason>
+		post state = <Occurring>;
+
+	public NextRally: () ==> () 
+		NextRally() == (
+			
+			currentRallyIndex := currentRallyIndex + 1;	
+		  if(currentRallyIndex >= len series) then EndChampionship() else series(currentRallyIndex).Init();
+		)
+		pre state = <Occurring>;
+
+	private EndChampionship: () ==> () 
+		EndChampionship() == (
+			currentRallyIndex := -1;	
+			Finalize();
+		)
+		pre state = <Occurring>
+		post state = <Completed>;
 			
 	public AddPartner: Partner ==> ()
 		AddPartner(p) == (
 			partners := partners union {p}
 		)
-		pre not exists p1 in set partners & p1.GetName() = p.GetName()
+		pre state = <OffSeason> and not exists p1 in set partners & p1.GetName() = p.GetName()
 		post p in set partners;
 		
 	public RemovePartner: Partner ==> ()
 		RemovePartner(p) == (
 			partners := partners \ {p}
 		)
-		pre p in set partners
+		pre state = <OffSeason> and p in set partners
 		post partners = partners~ \ {p};	
 	
 	public AddRally: Rally ==> ()
 		AddRally(r) == (
 			series := series ^ [r]
 		)
-		pre not exists r1 in seq series & r1.GetName() = r.GetName() and r1.GetStartDate() > startDate and r1.GetEndDate() < endDate;
+		pre state = <OffSeason> and not exists r1 in seq series & r1.GetName() = r.GetName() and r1.GetStartDate() > startDate and r1.GetEndDate() < endDate;
 
 	public AddTeam: Team ==> ()
 		AddTeam(t) == (
 			teams := teams munion {t.GetName() |-> t}; 
 		)
-		pre t.GetName() not in set dom teams
+		pre state = <OffSeason> and t.GetName() not in set dom teams
 		post teams = teams~ munion {t.GetName() |-> t};
 
 	public RemoveTeam: Team ==> ()
 		RemoveTeam(t) == (
 			teams := {t.GetName()} <-: teams;
 		)
-		pre t.GetName() in set dom teams
+		pre state = <OffSeason> and t.GetName() in set dom teams
 		post t.GetName() not in set dom teams;
 	
 	-- *** Getters ***

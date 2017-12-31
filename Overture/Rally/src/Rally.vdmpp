@@ -9,6 +9,7 @@ types
 
 instance variables
   private stages: seq of Stage := [];
+  private currentStageIndex: int := -1;
   private rankings: seq of Ranking := [];
   private startDate: Date;
   private endDate: Date;
@@ -20,6 +21,7 @@ instance variables
   
   inv endDate > startDate;
   inv not exists s1, s2 in seq stages & s1 <> s2 and s1.GetId() = s2.GetId();
+  inv Sequence`isAscendingTotalOrder[Stage](lambda x: Stage, y: Stage & x.GetId() < y.GetId())(stages);
   inv not exists r1, r2 in seq rankings &
       r1 <> r2 and r1.GetDriver().GetName() = r2.GetDriver().GetName();
   inv forall i in set inds rankings &
@@ -43,12 +45,42 @@ operations
 
 	-- *** Transactions ***
 	
+	public StartRally: set of Driver ==> () 
+		StartRally(drivers) == (
+			for all elem in set drivers  
+		  	do rankings := rankings ^ [new Ranking(elem)];
+		  currentStageIndex := 0;
+		  stages(currentStageIndex).Init();	
+			Init();
+		)
+		pre state = <OffSeason> and stages <> [] and drivers <> {} and not exists s in seq stages & s.GetState() <> <OffSeason>
+		post state = <Occurring> and rankings <> [];
+
+	public NextStage: set of Performance ==> () 
+		NextStage(performances) == (
+			stages(currentStageIndex).Finalize();	
+			for all elem in set performances  
+		  	do stages(currentStageIndex).AddPerformance(elem);
+		  	
+		  currentStageIndex := currentStageIndex + 1;	
+		  if(currentStageIndex >= len stages) then EndRally() else stages(currentStageIndex).Init();
+		)
+		pre state = <Occurring> and stages(currentStageIndex).GetState() = <Occurring>;
+
+	private EndRally: () ==> () 
+		EndRally() == (
+			currentStageIndex := -1;	
+			Finalize();
+		)
+		pre state = <Occurring>
+		post state = <Completed> and not exists s in seq stages & s.GetState() <> <Completed>;
+	
 	public AddStage: Stage ==> ()
 		AddStage(s) == (
 			stages := stages ^ [s];
 			distance := distance + s.GetDistance();
 		) 
-		pre s.GetDate() >= startDate and s.GetDate() <= endDate and not exists s1 in seq stages & s <> s1 and s1.GetId() = s.GetId()
+		pre state = <OffSeason> and s.GetDate() >= startDate and s.GetDate() <= endDate and not exists s1 in seq stages & s <> s1 and s1.GetId() = s.GetId()
 		post exists s1 in seq stages & s1 = s;
 		
 	-- *** Getters ***
