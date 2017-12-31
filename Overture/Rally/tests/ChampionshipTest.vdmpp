@@ -65,9 +65,9 @@ operations
 		--Teams
 		champ1.AddTeam(team1);
 		champ1.AddTeam(team2);
-		assertTrue(team1 in set champ1.GetTeams());
+		assertTrue(team1 in set rng champ1.GetTeams());
 		champ1.RemoveTeam(team1);
-		assertEqual({team2}, champ1.GetTeams());
+		assertEqual({ team2.GetName() |-> team2 }, champ1.GetTeams());
 		
 		--Team by name
 		assertEqual(team2, champ1.GetTeamByName("Hyundai Motorsport"));

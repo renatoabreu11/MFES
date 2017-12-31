@@ -3,10 +3,10 @@ class Championship
 types 
 	public String = Utils`String;
 	public Date = DateUtils`Date;
-
+  public TeamName = Team`TeamName;
 instance variables
   private series: seq of Rally := [];
-  private teams: set of Team := {};
+  private teams: map TeamName to Team := { |-> };
   private partners: set of Partner := {};
   private name: String;
   private startDate: Date;
@@ -15,13 +15,11 @@ instance variables
   -- nome � chave de rally/team/partner, isto �, n�o podem existir dois rallies/teams/partners diferentes com o mesmo nome
   inv not exists r1, r2 in seq series &
         r1 <> r2 and r1.GetName() = r2.GetName();
-  inv not exists t1, t2 in set teams &
-        t1 <> t2 and t1.GetName() = t2.GetName();
   inv not exists p1, p2 in set partners &
         p1 <> p2 and p1.GetName() = p2.GetName();
 	inv endDate > startDate;     
 	inv forall r in seq series & r.GetEndDate() < endDate and r.GetStartDate() > startDate;
-  
+
 operations
   public Championship: String * Date * Date ==> Championship
 		Championship(name0, startDate0, endDate0) == (
@@ -31,7 +29,7 @@ operations
 			  return self;
 			)
 		pre endDate0 > startDate0 and name <> ""
-		post name = name0 and startDate = startDate0 and endDate = endDate0;
+		post name = name0 and startDate = startDate0 and endDate = endDate0 and teams = { |-> };
 	
 	-- *** Transactions ***
 			
@@ -57,16 +55,17 @@ operations
 
 	public AddTeam: Team ==> ()
 		AddTeam(t) == (
-			teams := teams union {t}
+			teams := teams munion {t.GetName() |-> t}; 
 		)
-		pre not exists t1 in set partners & t1.GetName() = t.GetName();	
+		pre t.GetName() not in set dom teams
+		post teams = teams~ munion {t.GetName() |-> t};
 
 	public RemoveTeam: Team ==> ()
 		RemoveTeam(t) == (
-			teams := teams \ {t}
+			teams := {t.GetName()} <-: teams;
 		)
-		pre t in set teams
-		post teams = teams~ \ {t};	
+		pre t.GetName() in set dom teams
+		post t.GetName() not in set dom teams;
 	
 	-- *** Getters ***
 	
@@ -85,7 +84,7 @@ operations
 		  return endDate
 		post RESULT = endDate;		
 		
-	pure public GetTeams: () ==> set of Team
+	pure public GetTeams: () ==> map TeamName to Team
 	GetTeams() ==
 		return teams
 	post RESULT = teams;
@@ -102,8 +101,8 @@ operations
 	
 	pure public GetTeamByName: (String) ==> Team
 		GetTeamByName(tName) ==
-			let team in set teams be st team.GetName()=tName in return team
-		pre let team in set teams in team.GetName() = tName;
+			return teams(tName)
+		pre tName in set dom teams;
 	
 	pure public GetRallyByName: (String) ==> Rally
 		GetRallyByName(rName) ==

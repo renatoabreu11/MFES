@@ -5,10 +5,9 @@ types
 	public Surface = <Mountain> | <Asphalt> | <Sand> | <Forest> | <Snow> | <Gravel>;
 	public String = Utils`String;
 	public Date = DateUtils`Date;
-	public StageId = Stage`StageId;
 
 instance variables
-  private stages: map StageId to Stage := { |-> };
+  private stages: seq of Stage := [];
   private rankings: seq of Ranking := [];
   private startDate: Date;
   private endDate: Date;
@@ -19,7 +18,7 @@ instance variables
   private distance: real := 0.0;
   
   inv endDate > startDate;
-  inv not exists s1, s2 in set dom stages & s1 = s2 and s1 <> s2;
+  inv not exists s1, s2 in seq stages & s1 <> s2 and s1.GetId() = s2.GetId();
   inv not exists r1, r2 in seq rankings &
       r1 <> r2 and r1.GetDriver().GetName() = r2.GetDriver().GetName();
   inv forall i in set inds rankings &
@@ -39,17 +38,17 @@ operations
 		pre endDate0 > startDate0 and name0 <> "" and description0 <> ""
 		post name = name0 and description = description0 and country = country0
 			and surface = surface0 and startDate = startDate0 
-			and endDate = endDate0 and rankings = [] and stages = { |-> };
+			and endDate = endDate0 and rankings = [] and stages = [];
 
 	-- *** Transactions ***
 	
 	public AddStage: Stage ==> ()
 		AddStage(s) == (
-			stages := stages munion {s.GetId() |-> s};
+			stages := stages ^ [s];
 			distance := distance + s.GetDistance();
 		) 
-		pre s.GetDate() >= startDate and s.GetDate() <= endDate and s.GetId() not in set dom stages
-		post stages = stages~ munion {s.GetId() |-> s};
+		pre s.GetDate() >= startDate and s.GetDate() <= endDate and not exists s1 in seq stages & s <> s1 and s1.GetId() = s.GetId()
+		post exists s1 in seq stages & s1 = s;
 		
 	-- *** Getters ***
 
@@ -88,7 +87,7 @@ operations
 		  return distance
 		post RESULT = distance;
 		
-	pure public GetStages: () ==> map StageId to Stage
+	pure public GetStages: () ==> seq of Stage
 		GetStages() ==
 			return stages
 		post RESULT = stages;
