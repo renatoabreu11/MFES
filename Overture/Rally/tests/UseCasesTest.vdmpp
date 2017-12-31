@@ -1,0 +1,63 @@
+class UseCasesTest is subclass of MyTestCase
+
+instance variables
+	champ1: Championship := new Championship("European Championship", DateUtils`MakeDate(2017, 10, 29), DateUtils`MakeDate(2017, 12, 5));
+
+	rally1: Rally := new Rally("Rally da Costa", "Rally in Portugal", <Portugal>, <Sand>, DateUtils`MakeDate(2017, 11, 1), DateUtils`MakeDate(2017, 11, 3));
+	rally2: Rally := new Rally("Rally de la Coruña", "Rally in Spain", <Spain>, <Asphalt>, DateUtils`MakeDate(2017, 11, 5), DateUtils`MakeDate(2017, 11, 15));
+	rally3: Rally := new Rally("Mont-Blanc Rally", "Rally in France", <France>, <Mountain>, DateUtils`MakeDate(2017, 11, 19), DateUtils`MakeDate(2017, 11, 25));
+	rally4: Rally := new Rally("SnowHell Rally", "Rally in GB", <GreatBritain>, <Snow>, DateUtils`MakeDate(2017, 11, 26), DateUtils`MakeDate(2017, 11, 27));
+	rally5: Rally := new Rally("Ulme Rally", "Rally in Germany", <Germany>, <Gravel>, DateUtils`MakeDate(2017, 11, 30), DateUtils`MakeDate(2017, 12, 4));
+	
+	manufacturer1: Manufacturer := new Manufacturer("Citroen", "Citroen", <France>);
+	manufacturer2: Manufacturer := new Manufacturer("Toyota", "Toyota", <Japan>);
+	manufacturer3: Manufacturer := new Manufacturer("Hyunday", "Hyundai Motors", <SouthKorea>);
+	
+	team1: Team := new Team("Team1", <Germany>);
+	team2: Team := new Team("Team2", <Japan>);
+	
+	car1t1: Car := new Car("Toyota Yaris", manufacturer2, 480, 1200);
+	car2t1: Car := new Car("Citroen C3", manufacturer1, 400, 1300);
+	car3t1: Car := new Car("Hyundai i20", manufacturer3, 370, 1250);
+	car1t2: Car := new Car("Citroen C4", manufacturer1, 400, 1300);
+	
+	driver1t1: Driver := new Driver("Dan", <Male>, <GreatBritain>, DateUtils`MakeDate(1980, 10, 5));
+	driver2t1: Driver := new Driver("Joana", <Female>, <Spain>, DateUtils`MakeDate(1987, 2, 22));
+	driver3t1: Driver := new Driver("Alexio", <Male>, <Germany>, DateUtils`MakeDate(1995, 5, 29));
+	driver1t2: Driver := new Driver("Anne", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7));
+	driver2t2: Driver := new Driver("Anna", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7));
+	driver3t2: Driver := new Driver("Annie", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7));
+
+operations
+	public Run: () ==> ()
+	Run() == (
+		IO`println("\nUse Cases Tests");
+		--Setup
+		champ1.AddRally(rally1);
+		champ1.AddRally(rally2);
+		champ1.AddRally(rally3);
+		champ1.AddRally(rally4);
+		champ1.AddRally(rally5);
+		
+		team1.AddCar(car1t1);
+		team1.AddCar(car2t1);
+		team1.AddCar(car3t1);
+		team2.AddCar(car1t2);
+		--team2.AddCar(car2t2);
+		--team2.AddCar(car3t2);
+		
+		team1.AddDriver(driver1t1);
+		team1.AddDriver(driver2t1);
+		team1.AddDriver(driver3t1);
+		team2.AddDriver(driver1t2);
+		team2.AddDriver(driver2t2);
+		team2.AddDriver(driver3t2);
+		
+		--TODO assign cars to drivers
+		
+		
+		
+		IO`println("\nFinalizing Use Cases Tests");
+	);
+	
+end UseCasesTest

@@ -13,6 +13,7 @@ operations
     new StageTest().Run();
     new RallyTest().Run();
     new ChampionshipTest().Run();
+    new UseCasesTest().Run();
     
     IO`println("Finalizing Test Runner");
 	);
