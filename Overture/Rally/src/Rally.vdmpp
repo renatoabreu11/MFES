@@ -8,8 +8,6 @@ types
 	public StageId = Stage`StageId;
 
 instance variables
-	protected static currentId: nat1 := 1;
-	
   private stages: map StageId to Stage := { |-> };
   private rankings: seq of Ranking := [];
   private startDate: Date;
@@ -24,7 +22,6 @@ instance variables
   inv not exists s1, s2 in set dom stages & s1 = s2; 
   inv not exists r1, r2 in seq rankings &
       r1 <> r2 and r1.GetDriver().GetName() = r2.GetDriver().GetName();
-      
   inv forall i in set inds rankings &
       i > 1 => let e1 = rankings(i-1), e2 = rankings(i) in e1.GetPoints() >= e2.GetPoints();
                    
@@ -46,19 +43,14 @@ operations
 
 	-- *** Transactions ***
 	
-	public AddState: Stage ==> ()
-		AddState(s) == (
+	public AddStage: Stage ==> ()
+		AddStage(s) == (
 			stages := stages munion {s.GetId() |-> s};
 			distance := distance + s.GetDistance();
 		) 
-		pre s.GetId() not in set dom stages
+		pre s.GetDate() >= startDate and s.GetDate() <= endDate and s.GetId() not in set dom stages
 		post stages = stages~ munion {s.GetId() |-> s};
 		
-	public AddRanking: Ranking ==> ()
-			AddRanking(r) == (
-				rankings := rankings ^ [r]
-			);
-
 	-- *** Getters ***
 
 	pure public GetStartDate: () ==> Date

@@ -30,18 +30,30 @@ instance variables
 	driver2: Driver := new Driver("Joana", <Female>, <Spain>, DateUtils`MakeDate(1987, 2, 22));
 	driver3: Driver := new Driver("Alexio", <Male>, <Germany>, DateUtils`MakeDate(1995, 5, 29));
 	
+	stage1: Stage := new Stage(1, <Special>, DateUtils`MakeDate(2018, 1, 25), 50);
+	stage2: Stage := new Stage(2, <Special>, DateUtils`MakeDate(2018, 1, 26), 200);
+	
+	rally1: Rally := new Rally("Rallye Monte-Carlo", "The Monte Carlo Rally or Rallye Monte Carlo is a rallying event organised each year by the Automobile Club de Monaco.", <France>, <Asphalt>, DateUtils`MakeDate(2018, 1, 25), DateUtils`MakeDate(2018, 1, 28));	
+	rally2: Rally := new Rally("Vodafone Rally de Portugal", "O Rali de Portugal é a maior prova de desporto motorizado que se realiza em Portugal anualmente.", <Portugal>, <Gravel>, DateUtils`MakeDate(2018, 5, 17), DateUtils`MakeDate(2018, 5, 20));
+	rally3: Rally := new Rally("Rally Italia Sardegna", "Held on the beautiful island of Sardinia, Rally Italy – or Rally Italia Sardegna to give it its full name – is a notoriously tricky event.", <Italy>, <Mountain>, DateUtils`MakeDate(2018, 6, 7), DateUtils`MakeDate(2018, 6, 10));
+
 operations
 	public Run: () ==> ()
 	Run() == (
 		IO`println("\nRally Tests");
 		
-		team1.AddSponsor(sponsor1);
-		team1.AddSponsor(sponsor2);
-		team1.AddCar(car2);
-		team1.SetBacker(manufacturer1);
-		team1.AddDriver(driver1);
-		team1.AddDriver(driver2);
-		team1.AssignCarToDriver(car2, driver2);
+		--Setup
+		
+		--Variables
+		assertEqual("Rallye Monte-Carlo", rally1.GetName());
+		assertEqual("O Rali de Portugal é a maior prova de desporto motorizado que se realiza em Portugal anualmente.", rally2.GetDescription());
+		assertEqual(<Italy>, rally3.GetCountry());
+		assertEqual(<Gravel>, rally2.GetSurface());
+		assertTrue(rally1.GetStartDate() < rally1.GetEndDate());
+		assertEqual(0.0, rally2.GetDistance());
+		
+		--Stages
+		rally1.AddStage(stage1);
 			
 		IO`println("\nFinalizing Rally Tests");
 	);

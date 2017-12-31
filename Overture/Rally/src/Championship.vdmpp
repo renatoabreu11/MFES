@@ -30,7 +30,7 @@ operations
 			  endDate := endDate0;
 			  return self;
 			)
-		pre endDate0 > startDate0
+		pre endDate0 > startDate0 and name <> ""
 		post name = name0 and startDate = startDate0 and endDate = endDate0;
 	
 	-- *** Transactions ***
@@ -41,6 +41,13 @@ operations
 		)
 		pre not exists p1 in set partners & p1.GetName() = p.GetName()
 		post p in set partners;
+		
+	public RemovePartner: Partner ==> ()
+		RemovePartner(p) == (
+			partners := partners \ {p}
+		)
+		pre p in set partners
+		post partners = partners~ \ {p};	
 	
 	public AddRally: Rally ==> ()
 		AddRally(r) == (
@@ -53,6 +60,13 @@ operations
 			teams := teams union {t}
 		)
 		pre not exists t1 in set partners & t1.GetName() = t.GetName();	
+
+	public RemoveTeam: Team ==> ()
+		RemoveTeam(t) == (
+			teams := teams \ {t}
+		)
+		pre t in set teams
+		post teams = teams~ \ {t};	
 	
 	-- *** Getters ***
 	
@@ -85,11 +99,5 @@ operations
 		GetSeries() ==
 			return series
 		post RESULT = series;				
-		
-
-functions
--- TODO Define functiones here
-traces
--- TODO Define Combinatorial Test Traces here
 
 end Championship

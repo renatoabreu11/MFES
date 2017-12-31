@@ -4,7 +4,7 @@ types
 	public String = seq of char;
 	public String1 = seq1 of char;
 	public Gender = <Male> | <Female>;
-	public Country = <Italy> | <France> | <Spain> | 
+	public Country = <Italy> | <France> | <Spain> | <Portugal> |
 									 <SouthKorea> | <Germany> | <GreatBritain> | <Japan>;
 
 functions

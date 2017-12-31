@@ -6,13 +6,65 @@ instance variables
 	champ3: Championship := new Championship("WRC Pro", DateUtils`MakeDate(2017, 1, 13), DateUtils`MakeDate(2017, 3, 20));
 	champ4: Championship := new Championship("Amateur WRC", DateUtils`MakeDate(2017, 2, 2), DateUtils`MakeDate(2017, 5, 15));
 	
+	sponsor1: Sponsor := new Sponsor("Abu Dhabi", "Official visitor website for Abu Dhabi travel and tourism, offering information on hotels, restaurants, things to do, culture & heritage and events.");
+	sponsor2: Sponsor := new Sponsor("Eparco", "Spécialiste assainissement compact, développe et fabrique en exclusivité des solutions pour l'assainissement non collectif depuis 45 ans.");	
+	sponsor3: Sponsor := new Sponsor("Stilo", "Stilo helmets competition. Top functionality, everything a driver needs must be standard feature: intercom, connections, earmuffs, drinking system.");
+	sponsor4: Sponsor := new Sponsor("Michelin", "Michelin, the leading tire company, is dedicated to enhancing its clients’ mobility, sustainably; designing and distributing the most suitable tires, services and solutions for its clients’ needs.");
+
+	manufacturer1: Manufacturer := new Manufacturer("Citroën", 
+		"Citroën is one of the world's leading mainstream car manufacturers.",
+		<France>);
+	manufacturer2: Manufacturer := new Manufacturer("Toyota", 
+		"Toyota is one of the world’s best-known and most successful businesses, building cars and trucks in 26 countries for sale in more than 160 markets around the globe.",
+		<Japan>);	
+	manufacturer3: Manufacturer := new Manufacturer("Hyunday", 
+		"Hyundai Motor Company leads the Hyundai Motor Group, a wide-reaching business capable of processing resources from molten iron to finished cars.",
+		<SouthKorea>);
+		
+	car1: Car := new Car("Hyundai i20", manufacturer3, 370, 1250);
+	car2: Car := new Car("Citroën C3", manufacturer1, 400, 1300);
+	car3: Car := new Car("Toyota Yaris", manufacturer2, 480, 1200);
+	car4: Car := new Car("Citroën C4", manufacturer1, 400, 1300);
+	
+	team1: Team := new Team("CITROËN Total Abu Dhabi WRT", <France>);
+	team2: Team := new Team("Hyundai Motorsport", <Germany>);
+	team3: Team := new Team("M-Sport World Rally Team", <GreatBritain>);
+	team4: Team := new Team("TOYOTA Gazoo Racing WRT", <Japan>);
+	
+	driver1: Driver := new Driver("Dan", <Male>, <GreatBritain>, DateUtils`MakeDate(1980, 10, 5));
+	driver2: Driver := new Driver("Joana", <Female>, <Spain>, DateUtils`MakeDate(1987, 2, 22));
+	driver3: Driver := new Driver("Alexio", <Male>, <Germany>, DateUtils`MakeDate(1995, 5, 29));
+	
+	partner1: Partner := new Partner("Michelin", "Michelin, the leading tire company, is dedicated to enhancing its clients’ mobility, sustainably; designing and distributing the most suitable tires, services and solutions for its clients’ needs.");
+	partner2: Partner := new Partner("Certina", "Precision, reliability, innovation and dynamism. These are the values that have always linked Certina to sport.");	
+	partner3: Partner := new Partner("OneBet", "OneBet is the official sports betting partner of the FIA World Rally Championship, providing spectacular opportunities to boost the rush and experience of WRC.");		
+	
 operations
 	public Run: () ==> ()
 	Run() == (
 		IO`println("\nChampionship Tests");
 			
+		--Setup
+		
+		--Variables	
 		assertEqual("WRC", champ1.GetName());
+		assertEqual(DateUtils`MakeDate(2017, 10, 2), champ1.GetStartDate());
+		assertEqual(DateUtils`MakeDate(2017, 11, 20), champ1.GetEndDate());
 		assertTrue(champ1.GetStartDate() < champ1.GetEndDate());
+		
+		--Partners
+		champ1.AddPartner(partner1);
+		champ1.AddPartner(partner2);
+		assertTrue(partner2 in set champ1.GetPartners());
+		champ1.RemovePartner(partner2);
+		assertTrue(partner2 not in set champ1.GetPartners());
+		
+		--Teams
+		champ1.AddTeam(team1);
+		champ1.AddTeam(team2);
+		assertTrue(team1 in set champ1.GetTeams());
+		champ1.RemoveTeam(team1);
+		assertEqual({team2}, champ1.GetTeams());
 			
 		IO`println("\nFinalizing Championship Tests");
 	);
