@@ -34,7 +34,7 @@ operations
 	
 	public AddPerformance: Performance ==> ()
 		AddPerformance(perf) ==
-			performances := InsertSorted(perf, performances, perf.Compare)
+			performances := InsertSorted(perf, performances, Compare)
 		pre state = <Completed>
 		post exists p in seq performances & perf = p;
 		
@@ -53,12 +53,6 @@ operations
            then iota p in seq performances & p.GetDriver() = d 
         else nil;		
 		);
-	
-	public GetPerformancesSortedByAverageSpeed: () ==> seq of Performance
-		GetPerformancesSortedByAverageSpeed() == (
-			return SeqUtils`sort[Performance](lambda x: Performance, y: Performance & x.GetAverageSpeed() > y.GetAverageSpeed())(performances)
-		)
-		pre state = <Completed>;
 
 	-- *** Getters *** 	
 	
@@ -92,6 +86,11 @@ functions
 		InsertSorted(i, l, compare) == 
 			if(l = []) then [i]
 			else if (compare(i, hd l) <= 0) then [i] ^ l
-			else [hd l] ^ InsertSorted(i, tl l, compare)
+			else [hd l] ^ InsertSorted(i, tl l, compare);
+
+	private static Compare: Performance * Performance -> int
+		Compare(p1, p2) ==
+			if p1.GetTime() > p2.GetTime() then 1 else -1
+		pre p1.GetTime() > 0 and p2.GetTime() > 0;
 
 end Stage

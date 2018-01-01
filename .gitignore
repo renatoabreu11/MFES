@@ -6,5 +6,6 @@ Modelio/Rally/data/\.config/auditconfiguration\.properties
 Modelio/Rally/data/fragments/Rally/admin/stamp\.dat
 
 RallyJava/\.idea/
+RallyJava/\out/
 RallyVDM++/\generated/
 RallyVDM++/\.metadata/

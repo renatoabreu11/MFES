@@ -1,6 +1,6 @@
-package Rally;
+package Rally.tests;
 
-import java.util.*;
+import Rally.*;
 import org.overture.codegen.runtime.*;
 
 @SuppressWarnings("all")
@@ -33,21 +33,27 @@ public class SponsorTest extends MyTestCase {
       new Partner(
           "OneBet",
           "OneBet is the official sports betting partner of the FIA World Rally Championship, providing spectacular opportunities to boost the rush and experience of WRC.");
-
+  /* SponsorTest.vdmpp 14:9 */
   public void Run() {
 
+    /* SponsorTest.vdmpp 16:3 */
     IO.println("\nSponsor and Partner Tests");
+    /* SponsorTest.vdmpp 18:3 */
     assertEqual("Abu Dhabi", sponsor1.GetName());
+    /* SponsorTest.vdmpp 19:3 */
     assertEqual(
         "Spécialiste assainissement compact, développe et fabrique en exclusivité des solutions pour l'assainissement non collectif depuis 45 ans.",
         sponsor2.GetDescription());
+    /* SponsorTest.vdmpp 21:3 */
     assertEqual("Michelin", partner1.GetName());
+    /* SponsorTest.vdmpp 22:3 */
     assertEqual(
         "Precision, reliability, innovation and dynamism. These are the values that have always linked Certina to sport.",
         partner2.GetDescription());
+    /* SponsorTest.vdmpp 24:3 */
     IO.println("\nFinalizing Sponsor and Partner Tests");
   }
-
+  /* SponsorTest.vdmpp 1:7 */
   public SponsorTest() {}
 
   public String toString() {

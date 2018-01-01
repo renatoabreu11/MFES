@@ -1,6 +1,7 @@
-package Rally;
+package Rally.tests;
 
-import java.util.*;
+import Rally.*;
+import Rally.quotes.*;
 import org.overture.codegen.runtime.*;
 
 @SuppressWarnings("all")
@@ -14,130 +15,130 @@ public class UseCasesTest extends MyTestCase {
       new Rally(
           "Rally da Costa",
           "Rally in Portugal",
-          Rally.quotes.PortugalQuote.getInstance(),
-          Rally.quotes.SandQuote.getInstance(),
+          PortugalQuote.getInstance(),
+          SandQuote.getInstance(),
           DateUtils.MakeDate(2017L, 11L, 1L),
           DateUtils.MakeDate(2017L, 11L, 3L));
   private Rally rally2 =
       new Rally(
           "Rally de la Coru�a",
           "Rally in Spain",
-          Rally.quotes.SpainQuote.getInstance(),
-          Rally.quotes.AsphaltQuote.getInstance(),
+          SpainQuote.getInstance(),
+          AsphaltQuote.getInstance(),
           DateUtils.MakeDate(2017L, 11L, 5L),
           DateUtils.MakeDate(2017L, 11L, 15L));
   private Rally rally3 =
       new Rally(
           "Mont-Blanc Rally",
           "Rally in France",
-          Rally.quotes.FranceQuote.getInstance(),
-          Rally.quotes.MountainQuote.getInstance(),
+          FranceQuote.getInstance(),
+          MountainQuote.getInstance(),
           DateUtils.MakeDate(2017L, 11L, 19L),
           DateUtils.MakeDate(2017L, 11L, 25L));
   private Rally rally4 =
       new Rally(
           "SnowHell Rally",
           "Rally in GB",
-          Rally.quotes.GreatBritainQuote.getInstance(),
-          Rally.quotes.SnowQuote.getInstance(),
+          GreatBritainQuote.getInstance(),
+          SnowQuote.getInstance(),
           DateUtils.MakeDate(2017L, 11L, 26L),
           DateUtils.MakeDate(2017L, 11L, 27L));
   private Rally rally5 =
       new Rally(
           "Ulme Rally",
           "Rally in Germany",
-          Rally.quotes.GermanyQuote.getInstance(),
-          Rally.quotes.GravelQuote.getInstance(),
+          GermanyQuote.getInstance(),
+          GravelQuote.getInstance(),
           DateUtils.MakeDate(2017L, 11L, 30L),
           DateUtils.MakeDate(2017L, 12L, 4L));
   private Stage stage1r1 =
       new Stage(
           201711L,
-          Rally.quotes.TransportQuote.getInstance(),
+          TransportQuote.getInstance(),
           DateUtils.MakeDate(2017L, 11L, 1L),
           350L);
   private Stage stage2r1 =
       new Stage(
           201712L,
-          Rally.quotes.SpecialQuote.getInstance(),
+          SpecialQuote.getInstance(),
           DateUtils.MakeDate(2017L, 11L, 3L),
           50L);
   private Stage stage1r2 =
       new Stage(
           201721L,
-          Rally.quotes.SpecialQuote.getInstance(),
+          SpecialQuote.getInstance(),
           DateUtils.MakeDate(2017L, 11L, 5L),
           10L);
   private Stage stage2r2 =
       new Stage(
           201722L,
-          Rally.quotes.TransportQuote.getInstance(),
+          TransportQuote.getInstance(),
           DateUtils.MakeDate(2017L, 11L, 8L),
           300L);
   private Stage stage3r2 =
       new Stage(
           201723L,
-          Rally.quotes.TransportQuote.getInstance(),
+          TransportQuote.getInstance(),
           DateUtils.MakeDate(2017L, 11L, 10L),
           1200L);
   private Stage stage4r2 =
       new Stage(
           201724L,
-          Rally.quotes.SpecialQuote.getInstance(),
+          SpecialQuote.getInstance(),
           DateUtils.MakeDate(2017L, 11L, 14L),
           35L);
   private Stage stage1r3 =
       new Stage(
           201731L,
-          Rally.quotes.TransportQuote.getInstance(),
+          TransportQuote.getInstance(),
           DateUtils.MakeDate(2017L, 11L, 19L),
           650L);
   private Stage stage2r3 =
       new Stage(
           201732L,
-          Rally.quotes.TransportQuote.getInstance(),
+          TransportQuote.getInstance(),
           DateUtils.MakeDate(2017L, 11L, 22L),
           60L);
   private Stage stage3r3 =
       new Stage(
           201733L,
-          Rally.quotes.TransportQuote.getInstance(),
+          TransportQuote.getInstance(),
           DateUtils.MakeDate(2017L, 11L, 24L),
           380L);
   private Stage stage1r4 =
       new Stage(
           201741L,
-          Rally.quotes.TransportQuote.getInstance(),
+          TransportQuote.getInstance(),
           DateUtils.MakeDate(2017L, 11L, 26L),
           500L);
   private Stage stage1r5 =
       new Stage(
           201751L,
-          Rally.quotes.SpecialQuote.getInstance(),
+          SpecialQuote.getInstance(),
           DateUtils.MakeDate(2017L, 11L, 30L),
           55L);
   private Stage stage2r5 =
       new Stage(
           201752L,
-          Rally.quotes.TransportQuote.getInstance(),
+          TransportQuote.getInstance(),
           DateUtils.MakeDate(2017L, 12L, 2L),
           450L);
   private Stage stage3r5 =
       new Stage(
           201753L,
-          Rally.quotes.SpecialQuote.getInstance(),
+          SpecialQuote.getInstance(),
           DateUtils.MakeDate(2017L, 12L, 4L),
           10L);
   private Manufacturer manufacturer1 =
-      new Manufacturer("Citroen", "Citroen", Rally.quotes.FranceQuote.getInstance());
+      new Manufacturer("Citroen", "Citroen", FranceQuote.getInstance());
   private Manufacturer manufacturer2 =
-      new Manufacturer("Toyota", "Toyota", Rally.quotes.JapanQuote.getInstance());
+      new Manufacturer("Toyota", "Toyota", JapanQuote.getInstance());
   private Manufacturer manufacturer3 =
-      new Manufacturer("Hyunday", "Hyundai Motors", Rally.quotes.SouthKoreaQuote.getInstance());
+      new Manufacturer("Hyunday", "Hyundai Motors", SouthKoreaQuote.getInstance());
   private Manufacturer manufacturer4 =
-      new Manufacturer("Mitsubishi", "Mitsubishi", Rally.quotes.JapanQuote.getInstance());
-  private Team team1 = new Team("Team1", Rally.quotes.GermanyQuote.getInstance());
-  private Team team2 = new Team("Team2", Rally.quotes.SouthKoreaQuote.getInstance());
+      new Manufacturer("Mitsubishi", "Mitsubishi", JapanQuote.getInstance());
+  private Team team1 = new Team("Team1", GermanyQuote.getInstance());
+  private Team team2 = new Team("Team2", SouthKoreaQuote.getInstance());
   private Car car1t1 = new Car("Toyota Yaris", manufacturer2, 480L, 1200L);
   private Car car2t1 = new Car("Citroen C3", manufacturer1, 400L, 1300L);
   private Car car3t1 = new Car("Hyundai i20", manufacturer3, 370L, 1250L);
@@ -147,84 +148,124 @@ public class UseCasesTest extends MyTestCase {
   private Driver driver1t1 =
       new Driver(
           "Dan",
-          Rally.quotes.MaleQuote.getInstance(),
-          Rally.quotes.GreatBritainQuote.getInstance(),
+          MaleQuote.getInstance(),
+          GreatBritainQuote.getInstance(),
           DateUtils.MakeDate(1980L, 10L, 5L));
   private Driver driver2t1 =
       new Driver(
           "Joana",
-          Rally.quotes.FemaleQuote.getInstance(),
-          Rally.quotes.SpainQuote.getInstance(),
+          FemaleQuote.getInstance(),
+          SpainQuote.getInstance(),
           DateUtils.MakeDate(1987L, 2L, 22L));
   private Driver driver3t1 =
       new Driver(
           "Alexio",
-          Rally.quotes.MaleQuote.getInstance(),
-          Rally.quotes.GermanyQuote.getInstance(),
+          MaleQuote.getInstance(),
+          GermanyQuote.getInstance(),
           DateUtils.MakeDate(1995L, 5L, 29L));
   private Driver driver1t2 =
       new Driver(
           "Anne",
-          Rally.quotes.FemaleQuote.getInstance(),
-          Rally.quotes.GermanyQuote.getInstance(),
+          FemaleQuote.getInstance(),
+          GermanyQuote.getInstance(),
           DateUtils.MakeDate(1990L, 8L, 7L));
   private Driver driver2t2 =
       new Driver(
           "Anna",
-          Rally.quotes.FemaleQuote.getInstance(),
-          Rally.quotes.GermanyQuote.getInstance(),
+          FemaleQuote.getInstance(),
+          GermanyQuote.getInstance(),
           DateUtils.MakeDate(1990L, 8L, 7L));
   private Driver driver3t2 =
       new Driver(
           "Annie",
-          Rally.quotes.FemaleQuote.getInstance(),
-          Rally.quotes.GermanyQuote.getInstance(),
+          FemaleQuote.getInstance(),
+          GermanyQuote.getInstance(),
           DateUtils.MakeDate(1990L, 8L, 7L));
-
+  /* UseCasesTest.vdmpp 49:9 */
   public void Run() {
 
+    /* UseCasesTest.vdmpp 51:3 */
     IO.println("\nUse Cases Tests");
+    /* UseCasesTest.vdmpp 53:3 */
     champ1.AddTeam(team1);
+    /* UseCasesTest.vdmpp 54:3 */
     champ1.AddTeam(team2);
+    /* UseCasesTest.vdmpp 57:3 */
     rally1.AddStage(stage1r1);
+    /* UseCasesTest.vdmpp 58:3 */
     rally1.AddStage(stage2r1);
+    /* UseCasesTest.vdmpp 59:3 */
     rally2.AddStage(stage1r2);
+    /* UseCasesTest.vdmpp 60:3 */
     rally2.AddStage(stage2r2);
+    /* UseCasesTest.vdmpp 61:3 */
     rally2.AddStage(stage3r2);
+    /* UseCasesTest.vdmpp 62:3 */
     rally2.AddStage(stage4r2);
+    /* UseCasesTest.vdmpp 63:3 */
     rally3.AddStage(stage1r3);
+    /* UseCasesTest.vdmpp 64:3 */
     rally3.AddStage(stage2r3);
+    /* UseCasesTest.vdmpp 65:3 */
     rally3.AddStage(stage3r3);
+    /* UseCasesTest.vdmpp 66:3 */
     rally4.AddStage(stage1r4);
+    /* UseCasesTest.vdmpp 67:3 */
     rally5.AddStage(stage1r5);
+    /* UseCasesTest.vdmpp 68:3 */
     rally5.AddStage(stage2r5);
+    /* UseCasesTest.vdmpp 69:3 */
     rally5.AddStage(stage3r5);
+    /* UseCasesTest.vdmpp 71:3 */
     champ1.AddRally(rally1);
+    /* UseCasesTest.vdmpp 72:3 */
     champ1.AddRally(rally2);
+    /* UseCasesTest.vdmpp 73:3 */
     champ1.AddRally(rally3);
+    /* UseCasesTest.vdmpp 74:3 */
     champ1.AddRally(rally4);
+    /* UseCasesTest.vdmpp 75:3 */
     champ1.AddRally(rally5);
+    /* UseCasesTest.vdmpp 78:3 */
     team1.AddCar(car1t1);
+    /* UseCasesTest.vdmpp 79:3 */
     team1.AddCar(car2t1);
+    /* UseCasesTest.vdmpp 80:3 */
     team1.AddCar(car3t1);
+    /* UseCasesTest.vdmpp 81:3 */
     team2.AddCar(car1t2);
+    /* UseCasesTest.vdmpp 82:3 */
     team2.AddCar(car2t2);
+    /* UseCasesTest.vdmpp 83:3 */
     team2.AddCar(car3t2);
+    /* UseCasesTest.vdmpp 85:3 */
     team1.AddDriver(driver1t1);
+    /* UseCasesTest.vdmpp 86:3 */
     team1.AddDriver(driver2t1);
+    /* UseCasesTest.vdmpp 87:3 */
     team1.AddDriver(driver3t1);
+    /* UseCasesTest.vdmpp 88:3 */
     team2.AddDriver(driver1t2);
+    /* UseCasesTest.vdmpp 89:3 */
     team2.AddDriver(driver2t2);
+    /* UseCasesTest.vdmpp 90:3 */
     team2.AddDriver(driver3t2);
+    /* UseCasesTest.vdmpp 92:3 */
     team1.AssignCarToDriver(car1t1, driver1t1);
+    /* UseCasesTest.vdmpp 93:3 */
     team1.AssignCarToDriver(car2t1, driver2t1);
+    /* UseCasesTest.vdmpp 94:3 */
     team1.AssignCarToDriver(car3t1, driver3t1);
+    /* UseCasesTest.vdmpp 95:3 */
     team2.AssignCarToDriver(car1t2, driver1t2);
+    /* UseCasesTest.vdmpp 96:3 */
     team2.AssignCarToDriver(car2t2, driver2t2);
+    /* UseCasesTest.vdmpp 97:3 */
     team2.AssignCarToDriver(car3t2, driver3t2);
+    /* UseCasesTest.vdmpp 103:3 */
     IO.println("\nFinalizing Use Cases Tests");
   }
-
+  /* UseCasesTest.vdmpp 1:7 */
   public UseCasesTest() {}
 
   public String toString() {

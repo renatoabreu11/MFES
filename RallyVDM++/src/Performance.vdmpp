@@ -51,10 +51,4 @@ operations
 		  penalty := p
 		post p = penalty;
 
-functions
-	public static Compare: Performance * Performance -> int
-		Compare(p1, p2) ==
-			if p1.time > p2.time then 1 else -1
-		pre p1.time > 0 and p2.time > 0;
-
 end Performance

@@ -21,7 +21,8 @@ instance variables
   
   inv endDate > startDate;
   inv not exists s1, s2 in seq stages & s1 <> s2 and s1.GetId() = s2.GetId();
-  inv SeqUtils`isAscendingTotalOrder[Stage](lambda x: Stage, y: Stage & x.GetId() < y.GetId())(stages);
+  inv forall i in set inds stages &
+      i > 1 => let s1 = stages(i-1), s2 = stages(i) in s1.GetId() < s2.GetId();
   inv not exists r1, r2 in seq rankings &
       r1 <> r2 and r1.GetDriver().GetName() = r2.GetDriver().GetName();
   -- As a post condition    
@@ -66,7 +67,7 @@ operations
 		  		let i in set inds rankings be st elem.GetDriver() = rankings(i).GetDriver() in
 		  					rankings(i).AddPoints(elem.GetTime());
 		  		);
-	  	rankings := SeqUtils`sort[Ranking](lambda x: Ranking, y: Ranking & x.GetPoints() > y.GetPoints())(rankings);
+	  	rankings := BubbleSort(rankings);
 		  	
 		  currentStageIndex := currentStageIndex + 1;
 		  if(currentStageIndex > len stages) then EndRally() else stages(currentStageIndex).Init();
@@ -169,24 +170,17 @@ operations
 		pre exists stage in seq stages & stage.GetId()=stageId0 and
 					(exists performance in seq stage.GetPerformances() & performance.GetDriver() = driver0);
 
-	public SortRankings: seq of Ranking ==> seq of Ranking
-		SortRankings(unorderedRankings) ==
-			AuxSortRankings(unorderedRankings, []);
-	
-	private AuxSortRankings: seq of Ranking * seq of Ranking ==> seq of Ranking
-		AuxSortRankings(unorderedRankings, orderedRankings) ==
-			if unorderedRankings = []
-			then
-				return orderedRankings
-			else 
-				return AuxSortRankings(tl unorderedRankings,
-												InsertSorted(hd unorderedRankings, orderedRankings, (hd unorderedRankings).Compare));
-
-functions
-	private static InsertSorted: Ranking * seq of Ranking * (Ranking * Ranking -> int) -> seq of Ranking
-		InsertSorted(i, l, compare) == 
-			if(l = []) then [i]
-			else if (compare(i, hd l) <= 0) then [i] ^ l
-			else [hd l] ^ InsertSorted(i, tl l, compare)
+	private static BubbleSort : seq of Ranking ==> seq of Ranking
+		BubbleSort (k) == (
+			dcl sorted_list : seq of Ranking := k;
+			for i = len k to 1 by -1 do
+				for j = 1 to i-1 do
+					if sorted_list(j).GetPoints() < sorted_list(j+1).GetPoints()
+						then (dcl temp: Ranking := sorted_list(j);
+					sorted_list(j) := sorted_list(j+1);
+					sorted_list(j+1) := temp
+			);
+			return sorted_list
+		)
 
 end Rally

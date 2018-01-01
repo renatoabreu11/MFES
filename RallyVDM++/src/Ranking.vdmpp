@@ -29,11 +29,5 @@ operations
 		GetPoints() ==
 		  return points
 		post RESULT = points;	
-		
-functions
-	public static Compare: Ranking * Ranking -> int
-		Compare(r1, r2) ==
-			if r1.points > r2.points then 1 else -1
-		pre r1.points > 0 and r2.points > 0;
 
 end Ranking

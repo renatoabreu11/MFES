@@ -27,61 +27,62 @@ instance variables
 	car3: Car := new Car("Toyota Yaris", manufacturer2, 480, 1200);
 
 operations
-	public Run() == (
-		IO`println("\nPerformance and Ranking Tests");
-		
-		--Setup
-		team0.AddDriver(driver1);
-		team0.AddDriver(driver2);
-		team0.AddDriver(driver3);
-		team0.AddCar(car1);
-		team0.AddCar(car2);
-		team0.AddCar(car3);
-		team0.AssignCarToDriver(car1, driver1);
-		team0.AssignCarToDriver(car2, driver2);
-		team0.AssignCarToDriver(car3, driver3);		
-		
-		-- Performance
-		performance1 := new Performance(driver1);
-		performance2 := new Performance(driver2);
-		performance3 := new Performance(driver3);
-		performance1.SetTime(200);
-		performance1.SetAverageSpeed(50);
-		performance2.SetTime(217);
-		performance2.SetAverageSpeed(48);
-		performance2.SetPenalty(1);
-		performance3.SetTime(202);
-		performance3.SetAverageSpeed(50);
-		
-		--Avg Speed
-		assertEqual(50, performance1.GetAverageSpeed());
-		assertEqual(48, performance2.GetAverageSpeed());
-		
-		--Penalty
-		assertEqual(1, performance2.GetPenalty());
-		assertEqual(0, performance3.GetPenalty());
-		
-		--Driver
-		assertEqual(driver1, performance1.GetDriver());
-		assertEqual(driver3, performance3.GetDriver());
-		
-		--Time
-		assertEqual(200, performance1.GetTime());
-		assertEqual(217, performance2.GetTime());
-		
-		--Comparison (TODO?)
-		
-		-- Ranking
-		ranking1 := new Ranking(driver1);
-		assertEqual(driver1, ranking1.GetDriver());
-		assertEqual(0, ranking1.GetPoints());
-		
-		ranking1.AddPoints(50);
-		assertEqual(50, ranking1.GetPoints());
-		ranking1.AddPoints(-20);
-		assertEqual(30, ranking1.GetPoints());
-		
-		IO`println("\nFinalizing Performance and Ranking Tests");
-	);
+	public Run: () ==> ()
+		Run() == (
+			IO`println("\nPerformance and Ranking Tests");
+			
+			--Setup
+			team0.AddDriver(driver1);
+			team0.AddDriver(driver2);
+			team0.AddDriver(driver3);
+			team0.AddCar(car1);
+			team0.AddCar(car2);
+			team0.AddCar(car3);
+			team0.AssignCarToDriver(car1, driver1);
+			team0.AssignCarToDriver(car2, driver2);
+			team0.AssignCarToDriver(car3, driver3);		
+			
+			-- Performance
+			performance1 := new Performance(driver1);
+			performance2 := new Performance(driver2);
+			performance3 := new Performance(driver3);
+			performance1.SetTime(200);
+			performance1.SetAverageSpeed(50);
+			performance2.SetTime(217);
+			performance2.SetAverageSpeed(48);
+			performance2.SetPenalty(1);
+			performance3.SetTime(202);
+			performance3.SetAverageSpeed(50);
+			
+			--Avg Speed
+			assertEqual(50, performance1.GetAverageSpeed());
+			assertEqual(48, performance2.GetAverageSpeed());
+			
+			--Penalty
+			assertEqual(1, performance2.GetPenalty());
+			assertEqual(0, performance3.GetPenalty());
+			
+			--Driver
+			assertEqual(driver1, performance1.GetDriver());
+			assertEqual(driver3, performance3.GetDriver());
+			
+			--Time
+			assertEqual(200, performance1.GetTime());
+			assertEqual(217, performance2.GetTime());
+			
+			--Comparison (TODO?)
+			
+			-- Ranking
+			ranking1 := new Ranking(driver1);
+			assertEqual(driver1, ranking1.GetDriver());
+			assertEqual(0, ranking1.GetPoints());
+			
+			ranking1.AddPoints(50);
+			assertEqual(50, ranking1.GetPoints());
+			ranking1.AddPoints(-20);
+			assertEqual(30, ranking1.GetPoints());
+			
+			IO`println("\nFinalizing Performance and Ranking Tests");
+		);
 
 end PerformanceTest

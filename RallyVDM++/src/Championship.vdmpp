@@ -20,7 +20,8 @@ instance variables
   inv not exists p1, p2 in set partners &
         p1 <> p2 and p1.GetName() = p2.GetName();
 	inv endDate > startDate;     
-	inv SeqUtils`isAscendingTotalOrder[Rally](lambda x: Rally, y: Rally & x.GetStartDate() < y.GetStartDate())(series);
+  inv forall i in set inds series &
+      i > 1 => let s1 = series(i-1), s2 = series(i) in s1.GetStartDate() < s2.GetStartDate();	
 	inv forall r in seq series & r.GetEndDate() < endDate and r.GetStartDate() > startDate;
 
 operations

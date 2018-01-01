@@ -94,7 +94,6 @@ operations
 		
 		--Performances
 		assertEqual([performance1, performance3, performance2], stage1.GetPerformances()); 
-		assertEqual([performance3, performance1, performance2], stage1.GetPerformancesSortedByAverageSpeed()); 
 			
 		IO`println("\nFinalizing Stage Tests");
 	);
