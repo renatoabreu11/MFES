@@ -1,0 +1,46 @@
+class SeqUtils
+	
+functions 
+
+	static public isAscendingTotalOrder [@T]: (@T * @T -> bool) -> seq of @T -> bool
+		isAscendingTotalOrder (decideOrderFunc)(s) ==
+			forall i,j  in set inds s & i < j  => decideOrderFunc(s(i),s(j)) or s(i) = s(j);
+
+	static public isDescendingTotalOrder [@T]: (@T * @T -> bool) -> seq of @T -> bool
+		isDescendingTotalOrder (decideOrderFunc)(s) ==
+			forall i,j  in set inds s & i < j  => decideOrderFunc(s(j),s(i)) or s(i) = s(j);
+
+	static public isAscendingOrder [@T]: seq of @T -> bool
+		isAscendingOrder(s) ==
+			isAscendingTotalOrder [@T](lambda x : @T, y : @T & if is_real(x) and is_real(y)
+		                                                     then x < y
+		                                                     else undefined)(s);
+
+	static public isDescendingOrder[@T]: seq of @T -> bool
+		isDescendingOrder(s) ==
+			isDescendingTotalOrder [@T](lambda x : @T, y : @T & if is_real(x) and is_real(y)
+		                                                      then x < y
+		                                                      else undefined)(s);
+
+static public sort[@T] : (@T * @T -> bool) -> seq of @T -> seq of @T
+sort(decideOrderFunc)(s) ==
+	cases s:
+		[]	-> [],
+		[h]^tail	-> 
+			sort[@T](decideOrderFunc)([tail(i) | i in set inds tail & decideOrderFunc(tail(i),h)]) ^
+			[h] ^
+			sort[@T](decideOrderFunc)([tail(i) | i in set inds tail & not decideOrderFunc(tail(i),h)])
+	end;
+
+static public ascendingOrderSort[@T] : seq of @T -> seq of @T
+ascendingOrderSort(s) == sort[@T](lambda x : @T, y : @T & if is_real(x) and is_real(y)
+                                                          then x < y
+                                                          else undefined)(s);
+
+static public descendingOrderSort[@T] : seq of @T -> seq of @T
+descendingOrderSort(s) == sort[@T](lambda x : @T, y : @T & if is_real(x) and is_real(y)
+                                                           then x > y
+                                                           else undefined)(s);
+
+
+end SeqUtils

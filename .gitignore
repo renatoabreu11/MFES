@@ -5,9 +5,6 @@ Modelio/Rally/data/\.config/auditconfiguration\.properties
 
 Modelio/Rally/data/fragments/Rally/admin/stamp\.dat
 
-Overture/\.metadata/
-
-Overture/Rally/generated/
-
-java/\.idea/
-java/\out/ 
+RallyJava/\.idea/
+RallyVDM++/\generated/
+RallyVDM++/\.metadata/

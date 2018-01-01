@@ -89,11 +89,9 @@ operations
 		
 functions
 	private static InsertSorted: Performance * seq of Performance * (Performance * Performance -> int) -> seq of Performance
-		InsertSorted(i, l, compare) ==     
-			cases true :
-	      (l = [])    -> [i],
-	      (compare(i, hd l) <= 0)  -> [i] ^ l,
-	      others      -> [hd l] ^ InsertSorted(i, tl l, compare)
-	    end;
+		InsertSorted(i, l, compare) == 
+			if(l = []) then [i]
+			else if (compare(i, hd l) <= 0) then [i] ^ l
+			else [hd l] ^ InsertSorted(i, tl l, compare)
 
 end Stage
