@@ -169,4 +169,24 @@ operations
 		pre exists stage in seq stages & stage.GetId()=stageId0 and
 					(exists performance in seq stage.GetPerformances() & performance.GetDriver() = driver0);
 
+	public SortRankings: seq of Ranking ==> seq of Ranking
+		SortRankings(unorderedRankings) ==
+			AuxSortRankings(unorderedRankings, []);
+	
+	private AuxSortRankings: seq of Ranking * seq of Ranking ==> seq of Ranking
+		AuxSortRankings(unorderedRankings, orderedRankings) ==
+			if unorderedRankings = []
+			then
+				return orderedRankings
+			else 
+				return AuxSortRankings(tl unorderedRankings,
+												InsertSorted(hd unorderedRankings, orderedRankings, (hd unorderedRankings).Compare));
+
+functions
+	private static InsertSorted: Ranking * seq of Ranking * (Ranking * Ranking -> int) -> seq of Ranking
+		InsertSorted(i, l, compare) == 
+			if(l = []) then [i]
+			else if (compare(i, hd l) <= 0) then [i] ^ l
+			else [hd l] ^ InsertSorted(i, tl l, compare)
+
 end Rally
