@@ -8,3 +8,6 @@ Modelio/Rally/data/fragments/Rally/admin/stamp\.dat
 Overture/\.metadata/
 
 Overture/Rally/generated/
+
+java/\.idea/
+java/\out/ 
