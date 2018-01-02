@@ -98,5 +98,14 @@ operations
 		IO`println("\nFinalizing Stage Tests");
 	);
 
+	public testInvalidPerformance: () ==> ()
+		-- Only if the stage is completed, is then possible to add a driver performance
+		testInvalidPerformance() == (
+			team0.AddDriver(driver1);
+			team0.AddCar(car1);
+			team0.AssignCarToDriver(car1, driver1);
+			performance1 := new Performance(driver1);
+			stage1.AddPerformance(performance1);
+		);
 
 end StageTest

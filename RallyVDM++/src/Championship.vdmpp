@@ -41,9 +41,7 @@ operations
 	-- *** Transactions ***
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Starts the championship, initializing the first rally participants
 	 */	
 	public StartChampionship: () ==> () 
 		StartChampionship() == (
@@ -55,9 +53,8 @@ operations
 		post state = <Occurring> and currentRallyIndex <> -1 and series(currentRallyIndex).GetState() = <Occurring>;
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Updates the current rally. 
+	 * The set of performances is used to define the driver performances of the current stage that is happening
 	 */	
 	public UpdateCurrentRally: set of Performance ==> ()
 		UpdateCurrentRally(performances) == (
@@ -66,9 +63,9 @@ operations
 		pre state = <Occurring> and series(currentRallyIndex).GetState() = <Occurring>;
 
 	/**
-	 * Gets the car model.
+	 * Checks if the current rally is completed
 	 * 
-	 * @return model
+	 * @return bool
 	 */	
 	public IsCurrentRallyCompleted: () ==> bool
 		IsCurrentRallyCompleted() == (
@@ -79,9 +76,7 @@ operations
 		pre state = <Occurring>;
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Starts the next rally, only if the current one is completed
 	 */	
 	public NextRally: () ==> () 
 		NextRally() == (
@@ -91,10 +86,8 @@ operations
 		pre state = <Occurring> and series(currentRallyIndex).GetState() = <Completed>;
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
-	 */	 
+	 * Ends the championship
+	 */	
 	private EndChampionship: () ==> () 
 		EndChampionship() == (
 			currentRallyIndex := -1;	
@@ -104,10 +97,8 @@ operations
 		post state = <Completed> and not exists r in seq series & r.GetState() <> <Completed>;
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
-	 */				
+	 * Adds a partner to the championship
+	 */			
 	public AddPartner: Partner ==> ()
 		AddPartner(p) == (
 			partners := partners union {p}
@@ -116,10 +107,10 @@ operations
 		post p in set partners;
 
 	/**
-	 * Gets the car model.
+	 * Gets the points of a team on a specific rally
 	 * 
-	 * @return model
-	 */	
+	 * @return int
+	 */		
 	public GetTeamRallyRanking: String * String ==> int
 	 GetTeamRallyRanking(teamName, rallyName) == (
 			let i in set inds series be st series(i).GetName() = rallyName in return series(i).GetTeamRanking(teamName);
@@ -127,10 +118,10 @@ operations
 	 pre teamName in set dom teams and exists r in seq series & r.GetName() = rallyName;
 
 	/**
-	 * Gets the car model.
+	 * Gets the global ranking of a single driver, during the respective championship
 	 * 
-	 * @return model
-	 */		 
+	 * @return int
+	 */			 
 	 pure public GetDriverGlobalRanking: Driver ==> int
 	 	GetDriverGlobalRanking(d) == (
 	 		dcl points: int := 0;
@@ -142,9 +133,9 @@ operations
  		);
 
 	/**
-	 * Gets the car model.
+	 * Gets the global ranking (points) of a team
 	 * 
-	 * @return model
+	 * @return int
 	 */		 
 	public GetTeamGlobalRanking: String ==> int
 	 GetTeamGlobalRanking(teamName) == (
@@ -159,9 +150,9 @@ operations
 	 pre teamName in set dom teams; 
 
 	/**
-	 * Gets the car model.
+	 * Gets the championship global ranking, with the points of each team
 	 * 
-	 * @return model
+	 * @return map String to int
 	 */	
 	public GetTeamsRanking: () ==> map String to int
 	 GetTeamsRanking() == (
@@ -173,10 +164,8 @@ operations
 	 );
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
-	 */			
+	 * Removes a partner from the championship
+	 */		
 	public RemovePartner: Partner ==> ()
 		RemovePartner(p) == (
 			partners := partners \ {p}
@@ -185,10 +174,9 @@ operations
 		post partners = partners~ \ {p};	
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
-	 */		
+	 * Adds a rally to the championship, whose dates must be between the championship start and end
+	 * Furthermore, the rally state must be OffSeason
+	 */	
 	public AddRally: Rally ==> ()
 		AddRally(r) == (
 			series := series ^ [r]
@@ -196,9 +184,7 @@ operations
 		pre r.GetStages() <> [] and r.GetStartDate() > startDate and r.GetEndDate() < endDate and state = <OffSeason> and not exists r1 in seq series & r1.GetName() = r.GetName();
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Adds a team to the championship
 	 */	
 	public AddTeam: Team ==> ()
 		AddTeam(t) == (
@@ -208,9 +194,7 @@ operations
 		post teams = teams~ munion {t.GetName() |-> t};
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Removes a team from the championship
 	 */	
 	public RemoveTeam: Team ==> ()
 		RemoveTeam(t) == (
@@ -222,10 +206,10 @@ operations
 	-- *** Getters ***
 
 	/**
-	 * Gets the car model.
+	 * Gets the current rally that its occurring
 	 * 
-	 * @return model
-	 */		
+	 * @return Rally
+	 */	
 	pure public GetCurrentRally: () ==> [Rally]
 		GetCurrentRally() == (
 			return 
@@ -235,28 +219,28 @@ operations
 		);
 	
 	/**
-	 * Gets the car model.
+	 * Gets the championship set of drivers
 	 * 
-	 * @return model
+	 * @return set of Driver
 	 */		
 	pure public GetDrivers: () ==> set of Driver
 		GetDrivers() ==
 			return dunion { t.GetDrivers() | t in set rng teams };
 
 	/**
-	 * Gets the car model.
+	 * Gets the championship name.
 	 * 
-	 * @return model
-	 */		
+	 * @return String
+	 */			
 	pure public GetName: () ==> String
 		GetName() ==
 		  return name
 		post RESULT = name;
 
 	/**
-	 * Gets the car model.
+	 * Gets the championship start date.
 	 * 
-	 * @return model
+	 * @return Date
 	 */			
 	pure public GetStartDate: () ==> Date
 		GetStartDate() ==
@@ -264,9 +248,9 @@ operations
 		post RESULT = startDate;
 
 	/**
-	 * Gets the car model.
+	 * Gets the championship end date.
 	 * 
-	 * @return model
+	 * @return Date
 	 */			
 	pure public GetEndDate: () ==> Date
 		GetEndDate() ==
@@ -274,9 +258,9 @@ operations
 		post RESULT = endDate;		
 
 	/**
-	 * Gets the car model.
+	 * Gets the championship teams
 	 * 
-	 * @return model
+	 * @return map TeamName to Team
 	 */			
 	pure public GetTeams: () ==> map TeamName to Team
 	GetTeams() ==
@@ -284,9 +268,9 @@ operations
 	post RESULT = teams;
 
 	/**
-	 * Gets the car model.
+	 * Gets the championship partners
 	 * 
-	 * @return model
+	 * @return set of Partner
 	 */			
 	pure public GetPartners: () ==> set of Partner
 		GetPartners() ==
@@ -294,9 +278,9 @@ operations
 		post RESULT = partners;
 
 	/**
-	 * Gets the car model.
+	 * Gets the sequence of rallies
 	 * 
-	 * @return model
+	 * @return seq of Rally
 	 */			
 	pure public GetSeries: () ==> seq of Rally
 		GetSeries() ==
@@ -304,9 +288,9 @@ operations
 		post RESULT = series;
 
 	/**
-	 * Gets the car model.
+	 * Gets a team that matches the name given
 	 * 
-	 * @return model
+	 * @return Team
 	 */		
 	pure public GetTeamByName: (String) ==> Team
 		GetTeamByName(tName) ==
@@ -314,9 +298,9 @@ operations
 		pre tName in set dom teams;
 
 	/**
-	 * Gets the car model.
+	 * Gets a rally that matches the name given
 	 * 
-	 * @return model
+	 * @return Rally
 	 */		
 	pure public GetRallyByName: (String) ==> Rally
 		GetRallyByName(rName) ==

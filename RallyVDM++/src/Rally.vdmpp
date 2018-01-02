@@ -31,10 +31,8 @@ instance variables
                    
 operations
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
-	 */	
+	 * Instantiates a rally instance.
+	 */
   public Rally : String * String * Country * Surface * Date * Date ==> Rally
 		Rally(name0, description0, country0, surface0, startDate0, endDate0) == (
 			name := name0;
@@ -53,9 +51,7 @@ operations
 	-- *** Transactions ***
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Starts a rally by changing the rally state, and initializing the ranking of the drivers that will participate
 	 */		
 	public StartRally: set of Driver ==> () 
 		StartRally(drivers) == (
@@ -69,10 +65,11 @@ operations
 		post state = <Occurring> and rankings <> [];
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
-	 */	
+	 * Receives a set of performances, and terminates the current stage that is happening. 
+	 * The performances are added to the respective stage and then rally ranking points are updated accordingly
+	 * If the stage is the last one, it ends the rally
+	 * As a post condition, all the rankings must be properly ordered
+	 */		
 	public NextStage: set of Performance ==> () 
 		NextStage(performances) == (
 			stages(currentStageIndex).Finalize();
@@ -92,9 +89,7 @@ operations
       i > 1 => let e1 = rankings(i-1), e2 = rankings(i) in e1.GetPoints() >= e2.GetPoints();
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Ends the rally
 	 */	
 	private EndRally: () ==> () 
 		EndRally() == (
@@ -105,9 +100,9 @@ operations
 		post state = <Completed> and not exists s in seq stages & s.GetState() <> <Completed>;
 
 	/**
-	 * Gets the car model.
+	 * Returns the sum of points from the drivers that belong to a team, that is, the team points
 	 * 
-	 * @return model
+	 * @return int
 	 */		
 	public GetTeamRanking: String ==> int
 		GetTeamRanking(teamName) == (
@@ -122,9 +117,7 @@ operations
 		pre state <> <OffSeason>;
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Adds a new stage, whose dates must be between the rally start and end
 	 */		
 	public AddStage: Stage ==> ()
 		AddStage(s) == (
@@ -137,9 +130,9 @@ operations
 	-- *** Getters ***
 
 	/**
-	 * Gets the car model.
+	 * Gets the rally starting date.
 	 * 
-	 * @return model
+	 * @return Date
 	 */	
 	pure public GetStartDate: () ==> Date
 		GetStartDate() ==
@@ -147,9 +140,9 @@ operations
 		post RESULT = startDate;
 
 	/**
-	 * Gets the car model.
+	 * Gets the rally end date.
 	 * 
-	 * @return model
+	 * @return Date
 	 */			
 	pure public GetEndDate: () ==> Date
 		GetEndDate() ==
@@ -157,9 +150,9 @@ operations
 		post RESULT = endDate;	
 
 	/**
-	 * Gets the car model.
+	 * Gets the rally name.
 	 * 
-	 * @return model
+	 * @return String
 	 */			
 	pure public GetName: () ==> String
 		GetName() ==
@@ -167,9 +160,9 @@ operations
 		post RESULT = name;	
 
 	/**
-	 * Gets the car model.
+	 * Gets the rally description.
 	 * 
-	 * @return model
+	 * @return String
 	 */			
 	pure public GetDescription: () ==> String
 		GetDescription() ==
@@ -177,9 +170,9 @@ operations
 		post RESULT = description;	
 
 	/**
-	 * Gets the car model.
+	 * Gets the rally Country.
 	 * 
-	 * @return model
+	 * @return Country
 	 */		
 	pure public GetCountry: () ==> Country
 		GetCountry() ==
@@ -187,9 +180,9 @@ operations
 		post RESULT = country;	
 
 	/**
-	 * Gets the car model.
+	 * Gets the rally Surface.
 	 * 
-	 * @return model
+	 * @return Surface
 	 */	
 	pure public GetSurface: () ==> Surface
 		GetSurface() ==
@@ -197,9 +190,9 @@ operations
 		post RESULT = surface;	
 
 	/**
-	 * Gets the car model.
+	 * Gets the rally total distance.
 	 * 
-	 * @return model
+	 * @return real
 	 */			
 	pure public GetDistance: () ==> real
 		GetDistance() ==
@@ -207,9 +200,9 @@ operations
 		post RESULT = distance;
 
 	/**
-	 * Gets the car model.
+	 * Gets the rally stages.
 	 * 
-	 * @return model
+	 * @return seq of Stage
 	 */			
 	pure public GetStages: () ==> seq of Stage
 		GetStages() ==
@@ -217,9 +210,9 @@ operations
 		post RESULT = stages;
 
 	/**
-	 * Gets the car model.
+	 * Gets the rally rankings.
 	 * 
-	 * @return model
+	 * @return seq of Ranking
 	 */		
 	pure public GetRankings: () ==> seq of Ranking
 		GetRankings() ==
@@ -227,9 +220,9 @@ operations
 		post RESULT = rankings;
 
 	/**
-	 * Gets the car model.
+	 * Gets the rally current stage.
 	 * 
-	 * @return model
+	 * @return Stage
 	 */		
 	pure public GetCurrentStage: () ==> Stage
 		GetCurrentStage() ==
@@ -238,9 +231,9 @@ operations
 		post exists stage in seq stages & stage = RESULT;
 
 	/**
-	 * Gets the car model.
+	 * Gets the specified driver ranking
 	 * 
-	 * @return model
+	 * @return Ranking
 	 */			
 	pure public GetDriverRanking: Driver ==> Ranking
 		GetDriverRanking(driver0) ==
@@ -248,9 +241,9 @@ operations
 		pre exists ranking in seq rankings & ranking.GetDriver() = driver0;
 
 	/**
-	 * Gets the car model.
+	 * Gets the specified driver performance on the defined stage.
 	 * 
-	 * @return model
+	 * @return Performance
 	 */		
 	pure public GetDriverPerformanceOnStage: StageId * Driver ==> Performance 
     GetDriverPerformanceOnStage(stageId0, driver0) == 
@@ -261,9 +254,9 @@ operations
 					(exists performance in seq stage.GetPerformances() & performance.GetDriver() = driver0);
 
 	/**
-	 * Gets the car model.
+	 * Orders a sequence of rankings, using the algorithm bubble sort
 	 * 
-	 * @return model
+	 * @return seq of Ranking
 	 */	
 	private static BubbleSort : seq of Ranking ==> seq of Ranking
 		BubbleSort (k) == (
