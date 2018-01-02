@@ -101,9 +101,7 @@ public class Driver {
   public String toString() {
 
     return "Driver{"
-        + "team := "
-        + Utils.toString(team)
-        + ", car := "
+        + "car := "
         + Utils.toString(car)
         + ", name := "
         + Utils.toString(name)
@@ -113,8 +111,6 @@ public class Driver {
         + Utils.toString(nationality)
         + ", birth := "
         + Utils.toString(birth)
-        + ", true_self := "
-        + Utils.toString(true_self)
         + "}";
   }
 }

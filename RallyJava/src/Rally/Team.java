@@ -90,7 +90,7 @@ public class Team {
     }
   }
   /* Team.vdmpp 99:9 */
-  public void AddDriver(final Driver d) {
+  public void AddDriver(Driver d) {
 
     /* Team.vdmpp 101:4 */
     d.SetTeam(this);
@@ -179,8 +179,6 @@ public class Team {
         + Utils.toString(name)
         + ", based := "
         + Utils.toString(based)
-        + ", true_self := "
-        + Utils.toString(true_self)
         + "}";
   }
 }
