@@ -79,4 +79,28 @@ operations
 		IO`println("\nFinalizing Team Tests");
 	);
 	
+	public testInvalidTeamDriver: () ==> ()
+		-- All the drivers that belong to a team, must have their team variable pointing to the respective team
+		testInvalidTeamDriver() == (
+			team1.AddDriver(driver1);
+			driver1.RemoveTeam();
+		);
+
+		public testInvalidTeamDriverCar: () ==> ()
+		-- All the drivers only can have a car if it's assigned by their own team. If a car is assigned and don't belong to the team, the invariant is violated
+		testInvalidTeamDriverCar() == (
+			team1.AddDriver(driver1);
+			driver1.SetCar(car1);
+		);
+		
+		public testInvalidTeamCar: () ==> ()
+		-- If the team backer is instantiated, then all the cars that belong to the team need to have its manufacturer object pointing to the team backer.
+		-- Otherwise, the team cars can have different manufacturers
+		testInvalidTeamCar() == (
+			team1.AddCar(car2);
+			team1.AddCar(car4);
+			team1.SetBacker(manufacturer1);
+			team1.AddCar(car3);
+		);
+	
 end TeamTest

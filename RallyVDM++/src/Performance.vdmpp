@@ -10,10 +10,8 @@ instance variables
 	  
 operations
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
-	 */	
+	 * Instantiates a performance instance.
+	 */
   public Performance : Driver ==> Performance
 		Performance(driver0) == (
 			driver := driver0;
@@ -22,9 +20,9 @@ operations
 		post driver = driver0;
 
 	/**
-	 * Gets the car model.
+	 * Gets the performance driver.
 	 * 
-	 * @return model
+	 * @return Driver
 	 */		
 	pure public GetDriver: () ==> [Driver]
 		GetDriver() ==
@@ -32,9 +30,9 @@ operations
 		post RESULT = driver;		
 
 	/**
-	 * Gets the car model.
+	 * Gets the performance average speed.
 	 * 
-	 * @return model
+	 * @return real
 	 */			
 	pure public GetAverageSpeed: () ==> real
 		GetAverageSpeed() ==
@@ -42,9 +40,7 @@ operations
 		post RESULT = averageSpeed;
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Sets the performance average speed.
 	 */			
 	public SetAverageSpeed: real ==> ()
 		SetAverageSpeed(avg) ==
@@ -52,9 +48,9 @@ operations
 		post avg = averageSpeed;
 
 	/**
-	 * Gets the car model.
+	 * Gets the performance time.
 	 * 
-	 * @return model
+	 * @return real
 	 */			
 	pure public GetTime: () ==> real
 		GetTime() ==
@@ -62,9 +58,7 @@ operations
 		post RESULT = time;
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Sets the performance time.
 	 */			
 	public SetTime: real ==> ()
 		SetTime(t) ==
@@ -72,9 +66,9 @@ operations
 		post t = time;
 
 	/**
-	 * Gets the car model.
+	 * Gets the performance penalty.
 	 * 
-	 * @return model
+	 * @return nat
 	 */			
 	pure public GetPenalty: () ==> nat
 		GetPenalty() ==
@@ -82,10 +76,8 @@ operations
 		post RESULT = penalty;
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
-	 */		
+	 * Sets the performance penalty.
+	 */			
 	public SetPenalty: nat ==> ()
 		SetPenalty(p) ==
 		  penalty := p
