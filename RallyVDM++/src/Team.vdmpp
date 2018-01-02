@@ -27,9 +27,7 @@ instance variables
   
 operations
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Instantiates a team instance.
 	 */	
   public Team : String * Country ==> Team
 		Team(name0, based0) == (
@@ -44,9 +42,7 @@ operations
 	-- *** Transactions ***
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Adds a new sponsor
 	 */		
 	public AddSponsor: Sponsor ==> ()
 		AddSponsor(s) == (
@@ -55,9 +51,7 @@ operations
 		pre not exists s1 in set sponsors & s1.GetName() = s.GetName();
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Removes a sponsor that must exist
 	 */			
 	public RemoveSponsor: Sponsor ==> ()
 		RemoveSponsor(s) == (
@@ -67,9 +61,7 @@ operations
 		post sponsors = sponsors~ \ {s};		
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Sets the team manufacturer
 	 */	
 	public SetBacker: Manufacturer ==> ()
 		SetBacker(m) == (
@@ -78,9 +70,7 @@ operations
 		pre not exists c1 in set cars & c1.GetManufacturer().GetName() <> m.GetName();
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Removes the team manufacturer
 	 */	
 	public RemoveBacker: () ==> ()
 		RemoveBacker() == (
@@ -89,9 +79,7 @@ operations
 		post backer = nil;
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Adds a new car
 	 */	
 	public AddCar: Car ==> ()
 		AddCar(c) == (
@@ -102,9 +90,7 @@ operations
 		post c in set cars;	
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Removes a car, that must exist
 	 */				
 	public RemoveCar: Car ==> ()
 		RemoveCar(c) == (
@@ -114,9 +100,7 @@ operations
 		post cars = cars~ \ {c};
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Assigns a car to a driver. Both must belong in the respective team
 	 */		
 	public AssignCarToDriver: Car * Driver ==> ()
 		AssignCarToDriver(car, driver) == (
@@ -128,9 +112,7 @@ operations
     pre car in set cars and driver in set drivers and driver.GetCar() = nil;
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Removes a car assignment
 	 */	
 	public UnassignCarFromDriver: Driver ==> ()
 		UnassignCarFromDriver(driver) == (
@@ -142,9 +124,7 @@ operations
     pre driver in set drivers and driver.GetCar() <> nil;
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Adds a new driver
 	 */	
 	public AddDriver: Driver ==> ()
 		AddDriver(d) == (
@@ -154,9 +134,7 @@ operations
 		pre d.GetTeam() = nil and d.GetCar() = nil and not exists d1 in set drivers & d1.GetName() = d.GetName();
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Removes a driver
 	 */	
 	public RemoveDriver: Driver ==> ()
 		RemoveDriver(d) == (
@@ -170,9 +148,9 @@ operations
 	-- *** Getters ***
 
 	/**
-	 * Gets the car model.
+	 * Gets the team cars
 	 * 
-	 * @return model
+	 * @return set of Car
 	 */	
 	pure public GetCars: () ==> set of Car
 		GetCars() ==
@@ -180,9 +158,9 @@ operations
 		post RESULT = cars;		
 
 	/**
-	 * Gets the car model.
+	 * Gets the team sponsors.
 	 * 
-	 * @return model
+	 * @return set of sponsor
 	 */			
 	pure public GetSponsors: () ==> set of Sponsor
 		GetSponsors() ==
@@ -190,9 +168,9 @@ operations
 		post RESULT = sponsors;
 
 	/**
-	 * Gets the car model.
+	 * Gets the team drivers
 	 * 
-	 * @return model
+	 * @return set of Driver
 	 */			
 	pure public GetDrivers: () ==> set of Driver
 		GetDrivers() ==
@@ -200,9 +178,9 @@ operations
 		post RESULT = drivers;	
 
 	/**
-	 * Gets the car model.
+	 * Gets the team manufacturer
 	 * 
-	 * @return model
+	 * @return Manufacturer
 	 */	
 	pure public GetBacker: () ==> [Manufacturer]
 		GetBacker() ==
@@ -210,9 +188,9 @@ operations
 		post RESULT = backer;		
 
 	/**
-	 * Gets the car model.
+	 * Gets the team name.
 	 * 
-	 * @return model
+	 * @return name
 	 */			
 	pure public GetName: () ==> String
 		GetName() ==
@@ -220,9 +198,9 @@ operations
 		post RESULT = name;
 
 	/**
-	 * Gets the car model.
+	 * Gets the team original country.
 	 * 
-	 * @return model
+	 * @return Country
 	 */			
 	pure public GetBased: () ==> Country
 		GetBased() ==
@@ -230,9 +208,9 @@ operations
 		post RESULT = based;
 
 	/**
-	 * Gets the car model.
+	 * Gets a driver instance, through its name.
 	 * 
-	 * @return model
+	 * @return Driver
 	 */		
 	pure public GetDriverByName: (String) ==> Driver
 		GetDriverByName(dName) ==

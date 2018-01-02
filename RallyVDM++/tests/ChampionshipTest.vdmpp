@@ -23,6 +23,7 @@ instance variables
 	
 	rally1: Rally := new Rally("The Dark Mountain", "A very dark mountain", <Germany>, <Mountain>, DateUtils`MakeDate(2017, 10, 5), DateUtils`MakeDate(2017, 10, 10));
 	rally2: Rally := new Rally("Despair Woods", "Maze-like woods it the heart of Spain", <Spain>, <Forest>, DateUtils`MakeDate(2017, 10, 14), DateUtils`MakeDate(2017, 10, 20));
+	rally3: Rally := new Rally("Fail Rally date", "Maze-like woods it the heart of Spain", <Spain>, <Forest>, DateUtils`MakeDate(2017, 9, 25), DateUtils`MakeDate(2017, 10, 20));	
 		
 	car1: Car := new Car("Hyundai i20", manufacturer3, 370, 1250);
 	car2: Car := new Car("Citroën C3", manufacturer1, 400, 1300);
@@ -148,5 +149,67 @@ operations
 		assertTrue({1668, 808, 1000} subset rng champ1.GetTeamsRanking());
 		IO`println("\nFinalizing Championship Tests");
 	);
+	
+		public testRalliesDates: () ==> ()
+		 -- A championship has a start and end date, just like a rally; A stage has a single date;
+		 -- So, a rally must have their dates between the respective championship that is part of; and a stage must have the date between the rally dates from which it belong to
+			testRalliesDates() == (
+				rally3.AddStage(stage1);
+				rally3.AddStage(stage2);
+				champ1.AddRally(rally3);
+			);	
+
+		public testChampionshipStates: () ==> ()
+			-- A championship also has a pre defined flow:
+			-- As usual, all teams, partners and rallies are added; After this, they cannot be updated
+			-- Then, the method StartChampionship is called, which initializes the first rally rankings
+			-- The rally flow is then used, by calling the method UpdateCurrentRally
+			-- When all the rally stages are completed and only then the NextRally must be called
+			-- After all the rallies are completed, the endChampionship can be called.
+			testChampionshipStates() == (
+				team1.AddCar(car1);
+				team1.AddCar(car2);
+				team2.AddCar(car3);
+				team3.AddCar(car4);
+				team1.AddDriver(driver1);
+				team1.AddDriver(driver2);
+				team2.AddDriver(driver3);
+				team3.AddDriver(driver4);
+				team1.AssignCarToDriver(car1, driver1);
+				team1.AssignCarToDriver(car2, driver2);
+				team2.AssignCarToDriver(car3, driver3);
+				team3.AssignCarToDriver(car4, driver4);
+				--Teams
+				champ1.AddTeam(team1);
+				champ1.AddTeam(team2);
+				champ1.AddTeam(team3);
+				
+				--Rally
+				rally1.AddStage(stage1);
+				rally1.AddStage(stage2);
+				rally2.AddStage(stage3);
+				rally2.AddStage(stage4);
+				champ1.AddRally(rally1);
+				champ1.AddRally(rally2);
+				
+				champ1.StartChampionship();
+				
+				performance1 := new Performance(driver1);
+				performance2 := new Performance(driver2);
+				performance3 := new Performance(driver3);
+				performance4 := new Performance(driver4);		
+				performance1.SetTime(200);
+				performance1.SetAverageSpeed(50);
+				performance2.SetTime(217);
+				performance2.SetAverageSpeed(48);
+				performance3.SetTime(202);
+				performance3.SetAverageSpeed(50);
+				performance4.SetTime(250);
+				performance4.SetAverageSpeed(46);
+				
+				champ1.UpdateCurrentRally({performance1, performance2, performance3, performance4});
+				champ1.NextRally(); -- The current rally is not completed (there are stages to be ran)
+				champ1.UpdateCurrentRally({performance1, performance2, performance3, performance4});
+			);
 		
 end ChampionshipTest

@@ -8,9 +8,7 @@ instance variables
   
 operations
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Instantiates a ranking instance.
 	 */	
   public Ranking: Driver ==> Ranking
 		Ranking(driver0) == (
@@ -20,9 +18,7 @@ operations
 		post driver = driver0 and points = 0;
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Adds points to the ranking instance
 	 */	
 	public AddPoints: int ==> ()
 		AddPoints(score) == 
@@ -31,9 +27,9 @@ operations
 	-- *** Getters ***
 
 	/**
-	 * Gets the car model.
+	 * Gets the instance driver.
 	 * 
-	 * @return model
+	 * @return Driver
 	 */		
 	pure public GetDriver: () ==> [Driver]
 		GetDriver() ==
@@ -41,9 +37,9 @@ operations
 		post RESULT = driver;		
 
 	/**
-	 * Gets the car model.
+	 * Gets the number of points made by the driver, so far.
 	 * 
-	 * @return model
+	 * @return int
 	 */			
 	pure public GetPoints: () ==> int
 		GetPoints() ==

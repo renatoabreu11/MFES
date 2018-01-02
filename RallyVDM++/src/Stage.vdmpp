@@ -20,10 +20,8 @@ instance variables
   
 operations
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
-	 */	
+	 * Instantiates a stage instance.
+	 */
   public Stage : nat1 * StageType * Date * real ==> Stage
 		Stage(id0, type0, date0, distance0) == (
 			id := id0;
@@ -38,9 +36,8 @@ operations
 	-- *** Transactions ***
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Adds a new performance to the stage. Performances are unique and a stage can have the performances of all drivers that participated in the rally or not.
+	 * A performance can be added to the stage performances only if the stage is completed
 	 */		
 	public AddPerformance: Performance ==> ()
 		AddPerformance(perf) ==
@@ -48,6 +45,11 @@ operations
 		pre state = <Completed>
 		post exists p in seq performances & perf = p;
 		
+	/**
+	 * Finds the driver with the specified name and returns the performance, if it exists
+	 * 
+	 * @return Performance
+	 */	
 	public GetDriverPerformance: String ==> [Performance]
 		GetDriverPerformance(driverName) == (
 			return 
@@ -57,9 +59,9 @@ operations
 		);
 
 	/**
-	 * Gets the car model.
+	 * Gets the specified driver performance, if it exists
 	 * 
-	 * @return model
+	 * @return Performance
 	 */			
 	public GetDriverPerformance: Driver ==> [Performance]
 		GetDriverPerformance(d) == (
@@ -72,9 +74,9 @@ operations
 	-- *** Getters *** 	
 
 	/**
-	 * Gets the car model.
+	 * Gets the stage type.
 	 * 
-	 * @return model
+	 * @return StageType
 	 */		
 	pure public GetType: () ==> StageType
 		GetType() ==
@@ -82,9 +84,9 @@ operations
 		post RESULT = type;		
 
 	/**
-	 * Gets the car model.
+	 * Gets the stage identifier.
 	 * 
-	 * @return model
+	 * @return StageId
 	 */		
 	pure public GetId: () ==> StageId
 		GetId() ==
@@ -92,9 +94,9 @@ operations
 		post RESULT = id;		
 
 	/**
-	 * Gets the car model.
+	 * Gets the stage date.
 	 * 
-	 * @return model
+	 * @return Date
 	 */		
 	pure public GetDate: () ==> Date
 		GetDate() ==
@@ -102,9 +104,9 @@ operations
 		post RESULT = date;
 
 	/**
-	 * Gets the car model.
+	 * Gets the stage total distance.
 	 * 
-	 * @return model
+	 * @return real
 	 */			
 	pure public GetDistance: () ==> real
 		GetDistance() ==
@@ -112,10 +114,10 @@ operations
 		post RESULT = distance;
 
 	/**
-	 * Gets the car model.
+	 * Gets the stage performances
 	 * 
-	 * @return model
-	 */		
+	 * @return seq of performances
+	 */	
 	pure public GetPerformances: () ==> seq of Performance
 		GetPerformances() ==
 			return performances

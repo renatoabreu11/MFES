@@ -113,4 +113,41 @@ operations
 			
 		IO`println("\nFinalizing Rally Tests");
 	);
+	
+	public testRallyStates: () ==> ()
+		-- The occurrence of a rally and its stages works following this flow:
+		-- A rally is started, and the participating drivers are defined;
+		-- The next stage method is called, which finalizes a stage and defines its performances and initializes the next stage
+		-- When it gets to the last stage, the rally is terminated and then no more changes can be done to the rankings or stage performances
+		-- So, no stage can be terminated except from the NextStage method. There is a defined flow that must be followed
+		testRallyStates() == (
+			team1.AddCar(car1);
+			team1.AddCar(car2);
+			team2.AddCar(car3);
+			team3.AddCar(car4);
+			
+			team1.AddDriver(driver1);
+			team1.AddDriver(driver2);
+			team2.AddDriver(driver3);
+			team3.AddDriver(driver4);
+			team1.AssignCarToDriver(car1, driver1);
+			team1.AssignCarToDriver(car2, driver2);
+			team2.AssignCarToDriver(car3, driver3);
+			team3.AssignCarToDriver(car4, driver4);
+			
+			performance1 := new Performance(driver1);
+			performance2 := new Performance(driver2);
+			performance3 := new Performance(driver3);
+			performance4 := new Performance(driver4);		
+			
+			--Stages
+			rally1.AddStage(stage1);
+			rally1.AddStage(stage2);
+			
+			rally1.StartRally({driver1, driver2, driver3, driver4});
+		
+			stage1.Finalize();
+			rally1.NextStage({performance1, performance2, performance3, performance4});
+		);	
+	
 end RallyTest
