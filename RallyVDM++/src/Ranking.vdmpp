@@ -7,6 +7,11 @@ instance variables
   inv driver.GetTeam() <> nil and driver.GetCar() <> nil;
   
 operations
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
   public Ranking: Driver ==> Ranking
 		Ranking(driver0) == (
 			driver := driver0;
@@ -14,17 +19,32 @@ operations
 		)
 		post driver = driver0 and points = 0;
 
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	public AddPoints: int ==> ()
 		AddPoints(score) == 
 			points := points + score;	
 
 	-- *** Getters ***
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	pure public GetDriver: () ==> [Driver]
 		GetDriver() ==
 		  return driver
 		post RESULT = driver;		
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetPoints: () ==> int
 		GetPoints() ==
 		  return points

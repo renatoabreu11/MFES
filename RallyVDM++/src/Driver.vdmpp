@@ -20,6 +20,12 @@ instance variables
   -- inv if(team <> nil) then true_self in set team.GetDrivers() else true;
 
 operations
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
   public Driver: String * Gender * Country * Date ==> Driver
 		Driver(name0, gender0, nationality0, birth0) == (
 		  name := name0;
@@ -33,23 +39,43 @@ operations
 		post name = name0 and gender = gender0 and nationality = nationality0 and birth = birth0 and team = nil and car = nil;
 
 	-- *** Transactions **	
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	public SetTeam: (Team) ==> ()
 		SetTeam(t) ==
 		  team := t
 		pre car = nil
 		post team = t;
 
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	public RemoveTeam: () ==> ()
 		RemoveTeam() ==
 		  team := nil
 		post team = nil;
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	public RemoveCar: () ==> ()
 		RemoveCar() ==
 		  car := nil
 		post car = nil;
 
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	public SetCar: (Car) ==> ()
 		SetCar(c) ==
 		  car := c
@@ -58,31 +84,61 @@ operations
 
 	-- *** Getters ***
 
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	pure public GetTeam: () ==> [Team]
 		GetTeam() ==
 		  return team
 		post RESULT = team;
-		
+	
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetCar: () ==> [Car]
 		GetCar() ==
 		  return car
 		post RESULT = car;	
 		
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetName: () ==> String
 		GetName() ==
 		  return name
 		post RESULT = name;
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetGender: () ==> Gender
 		GetGender() ==
 		  return gender
 		post RESULT = gender;	
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetNationality: () ==> Country
 		GetNationality() ==
 		  return nationality
 		post RESULT = nationality;	
-		
+	
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetBirth: () ==> Date
 		GetBirth() ==
 		  return birth

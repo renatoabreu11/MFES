@@ -30,6 +30,11 @@ instance variables
       -- i > 1 => let e1 = rankings(i-1), e2 = rankings(i) in e1.GetPoints() >= e2.GetPoints();
                    
 operations
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
   public Rally : String * String * Country * Surface * Date * Date ==> Rally
 		Rally(name0, description0, country0, surface0, startDate0, endDate0) == (
 			name := name0;
@@ -46,7 +51,12 @@ operations
 			and endDate = endDate0 and rankings = [] and stages = [];
 
 	-- *** Transactions ***
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	public StartRally: set of Driver ==> () 
 		StartRally(drivers) == (
 			for all elem in set drivers  
@@ -58,6 +68,11 @@ operations
 		pre state = <OffSeason> and stages <> [] and drivers <> {} and not exists s in seq stages & s.GetState() <> <OffSeason>
 		post state = <Occurring> and rankings <> [];
 
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	public NextStage: set of Performance ==> () 
 		NextStage(performances) == (
 			stages(currentStageIndex).Finalize();
@@ -76,6 +91,11 @@ operations
 		post forall i in set inds rankings &
       i > 1 => let e1 = rankings(i-1), e2 = rankings(i) in e1.GetPoints() >= e2.GetPoints();
 
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	private EndRally: () ==> () 
 		EndRally() == (
 			currentStageIndex := -1;	
@@ -83,7 +103,12 @@ operations
 		)
 		pre state = <Occurring>
 		post state = <Completed> and not exists s in seq stages & s.GetState() <> <Completed>;
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	public GetTeamRanking: String ==> int
 		GetTeamRanking(teamName) == (
 		 	dcl points: int := 0;
@@ -95,7 +120,12 @@ operations
 			return points;
 		)
 		pre state <> <OffSeason>;
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	public AddStage: Stage ==> ()
 		AddStage(s) == (
 			stages := stages ^ [s];
@@ -106,62 +136,122 @@ operations
 		
 	-- *** Getters ***
 
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	pure public GetStartDate: () ==> Date
 		GetStartDate() ==
 		  return startDate
 		post RESULT = startDate;
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetEndDate: () ==> Date
 		GetEndDate() ==
 		  return endDate
 		post RESULT = endDate;	
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetName: () ==> String
 		GetName() ==
 		  return name
 		post RESULT = name;	
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetDescription: () ==> String
 		GetDescription() ==
 		  return description
 		post RESULT = description;	
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	pure public GetCountry: () ==> Country
 		GetCountry() ==
 		  return country
 		post RESULT = country;	
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	pure public GetSurface: () ==> Surface
 		GetSurface() ==
 		  return surface
 		post RESULT = surface;	
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetDistance: () ==> real
 		GetDistance() ==
 		  return distance
 		post RESULT = distance;
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetStages: () ==> seq of Stage
 		GetStages() ==
 			return stages
 		post RESULT = stages;
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	pure public GetRankings: () ==> seq of Ranking
 		GetRankings() ==
 			return rankings
 		post RESULT = rankings;
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	pure public GetCurrentStage: () ==> Stage
 		GetCurrentStage() ==
 			return stages(currentStageIndex)
 		pre currentStageIndex >= 1
 		post exists stage in seq stages & stage = RESULT;
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetDriverRanking: Driver ==> Ranking
 		GetDriverRanking(driver0) ==
 			let i in set inds rankings be st rankings(i).GetDriver() = driver0 in return rankings(i)
 		pre exists ranking in seq rankings & ranking.GetDriver() = driver0;
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	pure public GetDriverPerformanceOnStage: StageId * Driver ==> Performance 
     GetDriverPerformanceOnStage(stageId0, driver0) == 
     	let iS in set inds stages be st stages(iS).GetId() = stageId0 in
@@ -170,6 +260,11 @@ operations
 		pre exists stage in seq stages & stage.GetId()=stageId0 and
 					(exists performance in seq stage.GetPerformances() & performance.GetDriver() = driver0);
 
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	private static BubbleSort : seq of Ranking ==> seq of Ranking
 		BubbleSort (k) == (
 			dcl sorted_list : seq of Ranking := k;

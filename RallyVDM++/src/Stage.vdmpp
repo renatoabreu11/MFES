@@ -19,6 +19,11 @@ instance variables
 	inv if(state = <OffSeason> or state = <Occurring>) then len performances = 0 else forall p in seq performances & p.GetTime() > 0;
   
 operations
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
   public Stage : nat1 * StageType * Date * real ==> Stage
 		Stage(id0, type0, date0, distance0) == (
 			id := id0;
@@ -31,7 +36,12 @@ operations
 		post type = type0 and date = date0 and distance = distance0 and id = id0 and state = <OffSeason>;
 
 	-- *** Transactions ***
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	public AddPerformance: Performance ==> ()
 		AddPerformance(perf) ==
 			performances := InsertSorted(perf, performances, Compare)
@@ -45,7 +55,12 @@ operations
            then iota p in seq performances & p.GetDriver().GetName() = driverName 
         else nil;		
 		);
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	public GetDriverPerformance: Driver ==> [Performance]
 		GetDriverPerformance(d) == (
 			return 
@@ -55,27 +70,52 @@ operations
 		);
 
 	-- *** Getters *** 	
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	pure public GetType: () ==> StageType
 		GetType() ==
 		  return type
 		post RESULT = type;		
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	pure public GetId: () ==> StageId
 		GetId() ==
 		  return id
 		post RESULT = id;		
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	pure public GetDate: () ==> Date
 		GetDate() ==
 		  return date
 		post RESULT = date;
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetDistance: () ==> real
 		GetDistance() ==
 		  return distance
 		post RESULT = distance;
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	pure public GetPerformances: () ==> seq of Performance
 		GetPerformances() ==
 			return performances
