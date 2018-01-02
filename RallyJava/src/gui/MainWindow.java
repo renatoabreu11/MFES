@@ -1,7 +1,10 @@
 package gui;
 
+import Rally.Team;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class MainWindow extends JFrame{
     private MainOptions mainOptions;
@@ -75,5 +78,9 @@ public class MainWindow extends JFrame{
     public void showLayout(String layout){
         CardLayout cardLayout = (CardLayout) contentPane.getLayout();
         cardLayout.show(contentPane, layout);
+    }
+
+    public ArrayList<Team> GetParticipants() {
+        return this.participantsManager.getTeams();
     }
 }

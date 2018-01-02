@@ -124,10 +124,7 @@ public class ParticipantsManager {
 
         addTeamBackerButton.addActionListener(e -> {
             String manName = (String) teamBacker.getSelectedItem();
-            Manufacturer m = manufacturers.stream()
-                    .filter(obj -> obj.GetName().equals(manName))
-                    .findFirst()
-                    .orElse(null);
+            Manufacturer m = findManufacturer(manName);
 
             if(m == null)
                 return;
@@ -231,11 +228,8 @@ public class ParticipantsManager {
         });
 
         addCarButton.addActionListener(e -> {
-            String name = (String) carModel.getText();
-            Manufacturer m = manufacturers.stream()
-                    .filter(obj -> obj.GetName().equals(name))
-                    .findFirst()
-                    .orElse(null);
+            String name = (String) carManufacturer.getSelectedItem();
+            Manufacturer m = findManufacturer(name);
             cars.add(new Car(carModel.getText(),
                     m,
                     carHorsePower.getValue(),
@@ -351,5 +345,16 @@ public class ParticipantsManager {
 
     public JButton getBackButton() {
         return backButton;
+    }
+
+    private Manufacturer findManufacturer(String name) {
+        return manufacturers.stream()
+                .filter(obj -> obj.GetName().equals(name))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public ArrayList<Team> getTeams() {
+        return teams;
     }
 }
