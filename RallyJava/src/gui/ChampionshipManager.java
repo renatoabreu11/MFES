@@ -6,26 +6,39 @@ public class ChampionshipManager {
     private MainWindow parent;
     private JPanel pane;
     private JButton backButton;
-    private JSpinner spinner1;
-    private JSpinner spinner2;
-    private JTextField textField1;
+    private JSpinner stageId;
+    private JSpinner stageDistance;
+    private JTextField stageDate;
+    private JComboBox stageType;
+    private JButton addStageButton;
+    private JButton addPartnerButton;
+    private JTextField partnerName;
+    private JTextField partnerDescription;
+    private JTextPane stagesTP;
+    private JTextPane partnersTP;
+    private JButton addRallyButton;
+    private JTextPane ralliesTP;
+    private JTextField rallyName;
+    private JTextField rallyDescription;
+    private JComboBox rallyCountry;
+    private JComboBox rallySurface;
+    private JTextField rallyStartDate;
+    private JTextField rallyEndDate;
+    private JButton addChampionshipButton;
+    private JTextPane championshipsTP;
+    private JTextField championshipName;
+    private JTextField championshipStartDate;
+    private JTextField championshipEndDate;
+    private JComboBox rallyStage;
+    private JButton addStageToRallyButton;
     private JComboBox comboBox1;
-    private JButton button1;
-    private JButton button2;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextPane textPane1;
-    private JTextPane textPane2;
-    private JButton button3;
-    private JTextPane textPane3;
-    private JTextField textField4;
-    private JTextField textField5;
     private JComboBox comboBox2;
     private JComboBox comboBox3;
-    private JTextField textField6;
-    private JTextField textField7;
-    private JButton button4;
-    private JTextPane textPane4;
+    private JButton addTeamToChampionshipButton;
+    private JButton addRallyToChampionshipButton;
+    private JButton addPartnerToChampionshipButton;
+    private JComboBox comboBox4;
+    private JComboBox comboBox5;
 
     public ChampionshipManager(MainWindow mainWindow) {
         this.parent = mainWindow;
@@ -47,4 +60,5 @@ public class ChampionshipManager {
     public JButton getBackButton() {
         return backButton;
     }
+
 }
