@@ -1,106 +1,123 @@
 class UseCasesTest is subclass of MyTestCase
 
 instance variables
-	champ1: Championship := new Championship("European Championship", DateUtils`MakeDate(2017, 10, 29), DateUtils`MakeDate(2017, 12, 5));
+	champ1: Championship := new Championship("European Championship", DateUtils`MakeDate(2017, 10, 29), DateUtils`MakeDate(2017, 11, 16));
 
 	rally1: Rally := new Rally("Rally da Costa", "Rally in Portugal", <Portugal>, <Sand>, DateUtils`MakeDate(2017, 11, 1), DateUtils`MakeDate(2017, 11, 3));
-	rally2: Rally := new Rally("Rally de la Coru�a", "Rally in Spain", <Spain>, <Asphalt>, DateUtils`MakeDate(2017, 11, 5), DateUtils`MakeDate(2017, 11, 15));
-	rally3: Rally := new Rally("Mont-Blanc Rally", "Rally in France", <France>, <Mountain>, DateUtils`MakeDate(2017, 11, 19), DateUtils`MakeDate(2017, 11, 25));
-	rally4: Rally := new Rally("SnowHell Rally", "Rally in GB", <GreatBritain>, <Snow>, DateUtils`MakeDate(2017, 11, 26), DateUtils`MakeDate(2017, 11, 27));
-	rally5: Rally := new Rally("Ulme Rally", "Rally in Germany", <Germany>, <Gravel>, DateUtils`MakeDate(2017, 11, 30), DateUtils`MakeDate(2017, 12, 4));
+	rally2: Rally := new Rally("Rally de la Coruna", "Rally in Spain", <Spain>, <Asphalt>, DateUtils`MakeDate(2017, 11, 5), DateUtils`MakeDate(2017, 11, 15));
 	
 	stage1r1: Stage := new Stage(201711, <Transport>, DateUtils`MakeDate(2017, 11, 1), 350);
 	stage2r1: Stage := new Stage(201712, <Special>, DateUtils`MakeDate(2017, 11, 3), 50);
 	stage1r2: Stage := new Stage(201721, <Special>, DateUtils`MakeDate(2017, 11, 5), 10);
 	stage2r2: Stage := new Stage(201722, <Transport>, DateUtils`MakeDate(2017, 11, 8), 300);
-	stage3r2: Stage := new Stage(201723, <Transport>, DateUtils`MakeDate(2017, 11, 10), 1200);
-	stage4r2: Stage := new Stage(201724, <Special>, DateUtils`MakeDate(2017, 11, 14), 35);
-	stage1r3: Stage := new Stage(201731, <Transport>, DateUtils`MakeDate(2017, 11, 19), 650);
-	stage2r3: Stage := new Stage(201732, <Transport>, DateUtils`MakeDate(2017, 11, 22), 60);
-	stage3r3: Stage := new Stage(201733, <Transport>, DateUtils`MakeDate(2017, 11, 24), 380);
-	stage1r4: Stage := new Stage(201741, <Transport>, DateUtils`MakeDate(2017, 11, 26), 500);
-	stage1r5: Stage := new Stage(201751, <Special>, DateUtils`MakeDate(2017, 11, 30), 55);
-	stage2r5: Stage := new Stage(201752, <Transport>, DateUtils`MakeDate(2017, 12, 2), 450);
-	stage3r5: Stage := new Stage(201753, <Special>, DateUtils`MakeDate(2017, 12, 4), 10);
 	
 	manufacturer1: Manufacturer := new Manufacturer("Citroen", "Citroen", <France>);
 	manufacturer2: Manufacturer := new Manufacturer("Toyota", "Toyota", <Japan>);
-	manufacturer3: Manufacturer := new Manufacturer("Hyunday", "Hyundai Motors", <SouthKorea>);
-	manufacturer4: Manufacturer := new Manufacturer("Mitsubishi", "Mitsubishi", <Japan>);
+	manufacturer3: Manufacturer := new Manufacturer("Mitsubishi", "Mitsubishi", <Japan>);
 	
 	team1: Team := new Team("Team1", <Germany>);
 	team2: Team := new Team("Team2", <SouthKorea>);
 	
 	car1t1: Car := new Car("Toyota Yaris", manufacturer2, 480, 1200);
 	car2t1: Car := new Car("Citroen C3", manufacturer1, 400, 1300);
-	car3t1: Car := new Car("Hyundai i20", manufacturer3, 370, 1250);
 	car1t2: Car := new Car("Citroen C4", manufacturer1, 400, 1300);
-	car2t2: Car := new Car("Mitsubishi Mirage R5", manufacturer4, 450, 1310);
-	car3t2: Car := new Car("Mitsubishi Lancer Evo X R4", manufacturer4, 420, 1290);
+	car2t2: Car := new Car("Mitsubishi Mirage R5", manufacturer3, 450, 1310);
 	
 	driver1t1: Driver := new Driver("Dan", <Male>, <GreatBritain>, DateUtils`MakeDate(1980, 10, 5));
 	driver2t1: Driver := new Driver("Joana", <Female>, <Spain>, DateUtils`MakeDate(1987, 2, 22));
-	driver3t1: Driver := new Driver("Alexio", <Male>, <Germany>, DateUtils`MakeDate(1995, 5, 29));
 	driver1t2: Driver := new Driver("Anne", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7));
 	driver2t2: Driver := new Driver("Anna", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7));
-	driver3t2: Driver := new Driver("Annie", <Female>, <Germany>, DateUtils`MakeDate(1990, 8, 7));
-
+	
+	driver1t1perf: Performance;
+	driver2t1perf: Performance;
+	driver1t2perf: Performance;
+	driver2t2perf: Performance;
+	
 operations
 	public Run: () ==> ()
-	Run() == (
-		IO`println("\nUse Cases Tests");
-		--Setup championship
+		Run() == (
+			IO`println("\nUse Cases Tests");
+			Setup();			
+			
+			--Start Championship
+			assertEqual(nil, champ1.GetCurrentRally());
+			champ1.StartChampionship();
+			assertEqual({"Team1" |-> 0, "Team2" |-> 0}, champ1.GetTeamsRanking());
+			
+			--Rally 1
+			assertEqual(rally1, champ1.GetCurrentRally());
+			assertFalse(champ1.IsCurrentRallyCompleted());
+			
+			assertEqual(stage1r1, rally1.GetCurrentStage());
+			champ1.UpdateCurrentRally({driver1t1perf, driver2t1perf, driver1t2perf, driver2t2perf});
+			assertEqual({"Team1" |-> 225, "Team2" |-> 230}, champ1.GetTeamsRanking());
+			
+			assertEqual(stage2r1, rally1.GetCurrentStage());
+			champ1.UpdateCurrentRally({driver1t1perf, driver2t1perf, driver1t2perf, driver2t2perf});
+			assertEqual({"Team1" |-> 450, "Team2" |-> 460}, champ1.GetTeamsRanking());
+			
+			assertTrue(champ1.IsCurrentRallyCompleted());
+			champ1.NextRally();
+			
+			--Rally 2
+			assertEqual(rally2, champ1.GetCurrentRally());
+
+			assertEqual(stage1r2, rally2.GetCurrentStage());
+			champ1.UpdateCurrentRally({driver1t1perf, driver2t1perf, driver1t2perf, driver2t2perf});
+			assertEqual({"Team1" |-> 675, "Team2" |-> 690}, champ1.GetTeamsRanking());
+			
+			assertEqual(stage2r2, rally2.GetCurrentStage());
+			champ1.UpdateCurrentRally({driver1t1perf, driver2t1perf, driver1t2perf, driver2t2perf});
+			assertEqual({"Team1" |-> 900, "Team2" |-> 920}, champ1.GetTeamsRanking());
+			
+			assertTrue(champ1.IsCurrentRallyCompleted());
+			
+			IO`println("\nFinalizing Use Cases Tests");
+		);
+	
+	private Setup: () ==> ()
+		Setup() == (
+		--Setup championship's teams
 		champ1.AddTeam(team1);
 		champ1.AddTeam(team2);
 		
-		--Setup series
+		--Setup series' stages
 		rally1.AddStage(stage1r1);
 		rally1.AddStage(stage2r1);
 		rally2.AddStage(stage1r2);
 		rally2.AddStage(stage2r2);
-		rally2.AddStage(stage3r2);
-		rally2.AddStage(stage4r2);
-		rally3.AddStage(stage1r3);
-		rally3.AddStage(stage2r3);
-		rally3.AddStage(stage3r3);
-		rally4.AddStage(stage1r4);
-		rally5.AddStage(stage1r5);
-		rally5.AddStage(stage2r5);
-		rally5.AddStage(stage3r5);
 		
+		--Setup championship's rallies
 		champ1.AddRally(rally1);
 		champ1.AddRally(rally2);
-		champ1.AddRally(rally3);
-		champ1.AddRally(rally4);
-		champ1.AddRally(rally5);
 		
-		--Setup teams		
+		--Setup teams' cars
 		team1.AddCar(car1t1);
 		team1.AddCar(car2t1);
-		team1.AddCar(car3t1);
 		team2.AddCar(car1t2);
 		team2.AddCar(car2t2);
-		team2.AddCar(car3t2);
 		
+		--Setup teams' drivers
 		team1.AddDriver(driver1t1);
 		team1.AddDriver(driver2t1);
-		team1.AddDriver(driver3t1);
 		team2.AddDriver(driver1t2);
 		team2.AddDriver(driver2t2);
-		team2.AddDriver(driver3t2);
 		
+		--Setup driver's cars
 		team1.AssignCarToDriver(car1t1, driver1t1);
 		team1.AssignCarToDriver(car2t1, driver2t1);
-		team1.AssignCarToDriver(car3t1, driver3t1);
 		team2.AssignCarToDriver(car1t2, driver1t2);
 		team2.AssignCarToDriver(car2t2, driver2t2);
-		team2.AssignCarToDriver(car3t2, driver3t2);
 		
-		--Start Championship
-		--champ1.StartChampionship();
-				
-		
-		IO`println("\nFinalizing Use Cases Tests");
-	);
+		--Setup performances
+		driver1t1perf := new Performance(driver1t1);
+		driver2t1perf := new Performance(driver2t1);
+		driver1t2perf := new Performance(driver1t2);
+		driver2t2perf := new Performance(driver2t2);
+		driver1t1perf.SetTime(100);
+		driver2t1perf.SetTime(125);
+		driver1t2perf.SetTime(110);
+		driver2t2perf.SetTime(120);
+		);
 	
 end UseCasesTest
