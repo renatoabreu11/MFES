@@ -129,6 +129,8 @@ public class ParticipantsManager {
                     .findFirst()
                     .orElse(null);
 
+            if(m == null)
+                return;
             Integer teamIndex = teamPicker.getSelectedIndex();
             teams.get(teamIndex).SetBacker(m);
             setTeamsArea();
