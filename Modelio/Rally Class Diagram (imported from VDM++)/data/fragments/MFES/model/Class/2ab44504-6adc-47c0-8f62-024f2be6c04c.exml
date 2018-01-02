@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Union&lt;int&gt;" version="3">
+  <DEPS>
+    <ID name="Union&lt;int&gt;" mc="Class" uid="2ab44504-6adc-47c0-8f62-024f2be6c04c"/>
+    <EXTID name="Union&lt;A&gt;" mc="Class" uid="93709698-c277-4a57-b66e-620206ede36c"/>
+    <EXTID name="int" mc="DataType" uid="0b292bc6-e742-4e30-94d5-718142c3b5b6"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Union&lt;int&gt;" mc="Class" uid="2ab44504-6adc-47c0-8f62-024f2be6c04c"/>
+    <PID name="Binding classes" mc="Package" uid="02cbaafa-63c9-4230-b5ec-3853ff05f5a9"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Union<int>]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="TemplateInstanciation">
+        <OBJECT>
+          <ID name="" mc="TemplateBinding" uid="d2a91563-4387-4dac-aab2-97454b3c6551"/>
+          <PID name="Union&lt;int&gt;" mc="Class" uid="2ab44504-6adc-47c0-8f62-024f2be6c04c"/>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="ParameterSubstitution">
+              <OBJECT>
+                <ID name="" mc="TemplateParameterSubstitution" uid="e350b023-e338-463a-b2bd-598cec18bf83"/>
+                <PID name="Union&lt;int&gt;" mc="Class" uid="2ab44504-6adc-47c0-8f62-024f2be6c04c"/>
+                <ATTRIBUTES>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Actual">
+                    <ID name="int" mc="DataType" uid="0b292bc6-e742-4e30-94d5-718142c3b5b6"/>
+                  </LINK>
+                  <LINK relation="FormalParameter">
+                    <REFOBJ>
+                      <ID name="" mc="TemplateParameter" uid="c92471f9-6651-4357-a624-2ae269c95708"/>
+                      <PID name="Union&lt;A&gt;" mc="Class" uid="93709698-c277-4a57-b66e-620206ede36c"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

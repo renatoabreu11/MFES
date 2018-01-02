@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="StageId" version="3">
+  <DEPS>
+    <ID name="StageId" mc="Class" uid="730fba64-d114-4971-8c45-bd136579c786"/>
+    <EXTID name="nat1" mc="DataType" uid="8a270ee7-56ce-49a4-be26-f2f3589c478d"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="StageId" mc="Class" uid="730fba64-d114-4971-8c45-bd136579c786"/>
+    <PID name="Stage" mc="Class" uid="9ae7a1e6-2f06-4382-a5b7-90fd1f3e588c"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[StageId]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Parent">
+        <OBJECT>
+          <ID name="" mc="Generalization" uid="99620211-694e-4215-941e-d05f0badd3db"/>
+          <PID name="StageId" mc="Class" uid="730fba64-d114-4971-8c45-bd136579c786"/>
+          <ATTRIBUTES>
+            <ATT name="Discriminator"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="SuperType">
+              <ID name="nat1" mc="DataType" uid="8a270ee7-56ce-49a4-be26-f2f3589c478d"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Surface" version="3">
+  <DEPS>
+    <ID name="Surface" mc="Class" uid="ea751eac-254e-4e4f-b07c-a669ad361684"/>
+    <EXTID name="Rally" mc="Class" uid="7f8ad7c2-ee43-4d93-8ecf-8edac79bcec7"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Surface" mc="Class" uid="ea751eac-254e-4e4f-b07c-a669ad361684"/>
+    <PID name="Rally" mc="Class" uid="7f8ad7c2-ee43-4d93-8ecf-8edac79bcec7"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Surface]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Parent">
+        <OBJECT>
+          <ID name="" mc="Generalization" uid="4acac723-a8b8-4f81-9fa4-75914f75c6f8"/>
+          <PID name="Surface" mc="Class" uid="ea751eac-254e-4e4f-b07c-a669ad361684"/>
+          <ATTRIBUTES>
+            <ATT name="Discriminator"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="SuperType">
+              <REFOBJ>
+                <ID name="Surface_AsphaltForestGravelMountainSandSnow__1161313832" mc="Enumeration" uid="fc93005d-2267-414e-a4d2-722c9bdfa613"/>
+                <PID name="Rally" mc="Class" uid="7f8ad7c2-ee43-4d93-8ecf-8edac79bcec7"/>
+              </REFOBJ>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

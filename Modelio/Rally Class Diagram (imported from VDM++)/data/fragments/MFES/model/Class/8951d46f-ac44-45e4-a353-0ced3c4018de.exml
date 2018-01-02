@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Set&lt;TestListener&gt;" version="3">
+  <DEPS>
+    <ID name="Set&lt;TestListener&gt;" mc="Class" uid="8951d46f-ac44-45e4-a353-0ced3c4018de"/>
+    <EXTID name="Set&lt;T&gt;" mc="Class" uid="aff49052-8d2b-48d6-9b99-e8b2b628918d"/>
+    <EXTID name="TestListener" mc="Class" uid="998f2e90-8fe8-48d4-a748-2d9c9189ceef"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Set&lt;TestListener&gt;" mc="Class" uid="8951d46f-ac44-45e4-a353-0ced3c4018de"/>
+    <PID name="Binding classes" mc="Package" uid="02cbaafa-63c9-4230-b5ec-3853ff05f5a9"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Set<TestListener>]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="TemplateInstanciation">
+        <OBJECT>
+          <ID name="" mc="TemplateBinding" uid="1a8ef10e-98b7-422f-a70e-af8cc6144653"/>
+          <PID name="Set&lt;TestListener&gt;" mc="Class" uid="8951d46f-ac44-45e4-a353-0ced3c4018de"/>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="ParameterSubstitution">
+              <OBJECT>
+                <ID name="" mc="TemplateParameterSubstitution" uid="0e63ecfb-121b-4130-84bc-6c61bd3c1c5b"/>
+                <PID name="Set&lt;TestListener&gt;" mc="Class" uid="8951d46f-ac44-45e4-a353-0ced3c4018de"/>
+                <ATTRIBUTES>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Actual">
+                    <ID name="TestListener" mc="Class" uid="998f2e90-8fe8-48d4-a748-2d9c9189ceef"/>
+                  </LINK>
+                  <LINK relation="FormalParameter">
+                    <REFOBJ>
+                      <ID name="" mc="TemplateParameter" uid="3fe3c3de-75e9-490b-96e1-f4b8b1ff697d"/>
+                      <PID name="Set&lt;T&gt;" mc="Class" uid="aff49052-8d2b-48d6-9b99-e8b2b628918d"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

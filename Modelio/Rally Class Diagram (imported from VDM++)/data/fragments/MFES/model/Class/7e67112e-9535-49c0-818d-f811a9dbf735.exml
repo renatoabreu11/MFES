@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Set&lt;Car&gt;" version="3">
+  <DEPS>
+    <ID name="Set&lt;Car&gt;" mc="Class" uid="7e67112e-9535-49c0-818d-f811a9dbf735"/>
+    <EXTID name="Car" mc="Class" uid="1ad61731-1a0a-44f7-892d-02a6309da2e6"/>
+    <EXTID name="Set&lt;T&gt;" mc="Class" uid="aff49052-8d2b-48d6-9b99-e8b2b628918d"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Set&lt;Car&gt;" mc="Class" uid="7e67112e-9535-49c0-818d-f811a9dbf735"/>
+    <PID name="Binding classes" mc="Package" uid="02cbaafa-63c9-4230-b5ec-3853ff05f5a9"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Set<Car>]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="TemplateInstanciation">
+        <OBJECT>
+          <ID name="" mc="TemplateBinding" uid="2fdf74b5-a6e3-4459-a048-476d58d1dc00"/>
+          <PID name="Set&lt;Car&gt;" mc="Class" uid="7e67112e-9535-49c0-818d-f811a9dbf735"/>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="ParameterSubstitution">
+              <OBJECT>
+                <ID name="" mc="TemplateParameterSubstitution" uid="fbaea052-d080-4930-8703-390a522b93fc"/>
+                <PID name="Set&lt;Car&gt;" mc="Class" uid="7e67112e-9535-49c0-818d-f811a9dbf735"/>
+                <ATTRIBUTES>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Actual">
+                    <ID name="Car" mc="Class" uid="1ad61731-1a0a-44f7-892d-02a6309da2e6"/>
+                  </LINK>
+                  <LINK relation="FormalParameter">
+                    <REFOBJ>
+                      <ID name="" mc="TemplateParameter" uid="3fe3c3de-75e9-490b-96e1-f4b8b1ff697d"/>
+                      <PID name="Set&lt;T&gt;" mc="Class" uid="aff49052-8d2b-48d6-9b99-e8b2b628918d"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

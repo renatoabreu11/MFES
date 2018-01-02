@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="StageType" version="3">
+  <DEPS>
+    <ID name="StageType" mc="Class" uid="963c0bf8-31db-4653-a50b-ecc01db2f758"/>
+    <EXTID name="Stage" mc="Class" uid="9ae7a1e6-2f06-4382-a5b7-90fd1f3e588c"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="StageType" mc="Class" uid="963c0bf8-31db-4653-a50b-ecc01db2f758"/>
+    <PID name="Stage" mc="Class" uid="9ae7a1e6-2f06-4382-a5b7-90fd1f3e588c"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[StageType]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Parent">
+        <OBJECT>
+          <ID name="" mc="Generalization" uid="195a873f-f580-44ea-b304-a4d9a0b830e7"/>
+          <PID name="StageType" mc="Class" uid="963c0bf8-31db-4653-a50b-ecc01db2f758"/>
+          <ATTRIBUTES>
+            <ATT name="Discriminator"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="SuperType">
+              <REFOBJ>
+                <ID name="StageType_SpecialTransport__373372157" mc="Enumeration" uid="e11ecc8f-6f91-4a44-b3e5-8f435ff2884d"/>
+                <PID name="Stage" mc="Class" uid="9ae7a1e6-2f06-4382-a5b7-90fd1f3e588c"/>
+              </REFOBJ>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

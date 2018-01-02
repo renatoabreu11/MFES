@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Set&lt;Driver&gt;" version="3">
+  <DEPS>
+    <ID name="Set&lt;Driver&gt;" mc="Class" uid="d658a05d-db23-4fff-a0d8-fb41233cd538"/>
+    <EXTID name="Driver" mc="Class" uid="db9446bd-7cb3-4ef0-94ea-90d40521aa1e"/>
+    <EXTID name="Set&lt;T&gt;" mc="Class" uid="aff49052-8d2b-48d6-9b99-e8b2b628918d"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Set&lt;Driver&gt;" mc="Class" uid="d658a05d-db23-4fff-a0d8-fb41233cd538"/>
+    <PID name="Binding classes" mc="Package" uid="02cbaafa-63c9-4230-b5ec-3853ff05f5a9"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Set<Driver>]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="TemplateInstanciation">
+        <OBJECT>
+          <ID name="" mc="TemplateBinding" uid="a7f50a19-dbfe-4dfe-96b6-f7b6d0a699e6"/>
+          <PID name="Set&lt;Driver&gt;" mc="Class" uid="d658a05d-db23-4fff-a0d8-fb41233cd538"/>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="ParameterSubstitution">
+              <OBJECT>
+                <ID name="" mc="TemplateParameterSubstitution" uid="093037ed-48d8-4f4f-88e0-2c24fb182f6b"/>
+                <PID name="Set&lt;Driver&gt;" mc="Class" uid="d658a05d-db23-4fff-a0d8-fb41233cd538"/>
+                <ATTRIBUTES>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Actual">
+                    <ID name="Driver" mc="Class" uid="db9446bd-7cb3-4ef0-94ea-90d40521aa1e"/>
+                  </LINK>
+                  <LINK relation="FormalParameter">
+                    <REFOBJ>
+                      <ID name="" mc="TemplateParameter" uid="3fe3c3de-75e9-490b-96e1-f4b8b1ff697d"/>
+                      <PID name="Set&lt;T&gt;" mc="Class" uid="aff49052-8d2b-48d6-9b99-e8b2b628918d"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

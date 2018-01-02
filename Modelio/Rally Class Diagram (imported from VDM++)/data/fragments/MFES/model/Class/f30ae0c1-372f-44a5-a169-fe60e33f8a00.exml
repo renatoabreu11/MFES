@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Gender" version="3">
+  <DEPS>
+    <ID name="Gender" mc="Class" uid="f30ae0c1-372f-44a5-a169-fe60e33f8a00"/>
+    <EXTID name="Driver" mc="Class" uid="db9446bd-7cb3-4ef0-94ea-90d40521aa1e"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Gender" mc="Class" uid="f30ae0c1-372f-44a5-a169-fe60e33f8a00"/>
+    <PID name="Driver" mc="Class" uid="db9446bd-7cb3-4ef0-94ea-90d40521aa1e"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Gender]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Parent">
+        <OBJECT>
+          <ID name="" mc="Generalization" uid="2b88ae9f-034e-4e54-a9bf-97ee0830e500"/>
+          <PID name="Gender" mc="Class" uid="f30ae0c1-372f-44a5-a169-fe60e33f8a00"/>
+          <ATTRIBUTES>
+            <ATT name="Discriminator"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="SuperType">
+              <REFOBJ>
+                <ID name="Gender_FemaleMale_375619406" mc="Enumeration" uid="58f73412-7e77-4eeb-9f7a-3235a29c09f0"/>
+                <PID name="Driver" mc="Class" uid="db9446bd-7cb3-4ef0-94ea-90d40521aa1e"/>
+              </REFOBJ>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

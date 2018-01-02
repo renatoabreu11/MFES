@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Seq&lt;Rally&gt;" version="3">
+  <DEPS>
+    <ID name="Seq&lt;Rally&gt;" mc="Class" uid="85a39451-e31f-4548-a267-67c89b3bdad1"/>
+    <EXTID name="Rally" mc="Class" uid="7f8ad7c2-ee43-4d93-8ecf-8edac79bcec7"/>
+    <EXTID name="Seq&lt;T&gt;" mc="Class" uid="d539d387-2bd7-4402-93d2-14e709782180"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Seq&lt;Rally&gt;" mc="Class" uid="85a39451-e31f-4548-a267-67c89b3bdad1"/>
+    <PID name="Binding classes" mc="Package" uid="02cbaafa-63c9-4230-b5ec-3853ff05f5a9"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Seq<Rally>]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="TemplateInstanciation">
+        <OBJECT>
+          <ID name="" mc="TemplateBinding" uid="948cce49-c3df-4679-a3f8-240ffa477db6"/>
+          <PID name="Seq&lt;Rally&gt;" mc="Class" uid="85a39451-e31f-4548-a267-67c89b3bdad1"/>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="ParameterSubstitution">
+              <OBJECT>
+                <ID name="" mc="TemplateParameterSubstitution" uid="05172841-c1f4-400d-948b-681cdee30d55"/>
+                <PID name="Seq&lt;Rally&gt;" mc="Class" uid="85a39451-e31f-4548-a267-67c89b3bdad1"/>
+                <ATTRIBUTES>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Actual">
+                    <ID name="Rally" mc="Class" uid="7f8ad7c2-ee43-4d93-8ecf-8edac79bcec7"/>
+                  </LINK>
+                  <LINK relation="FormalParameter">
+                    <REFOBJ>
+                      <ID name="" mc="TemplateParameter" uid="a3d4ceab-8d1f-40ff-a9a3-2d86803e801d"/>
+                      <PID name="Seq&lt;T&gt;" mc="Class" uid="d539d387-2bd7-4402-93d2-14e709782180"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

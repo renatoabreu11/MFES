@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="TeamName" version="3">
+  <DEPS>
+    <ID name="TeamName" mc="Class" uid="c202abcd-55f9-45bb-9b77-74e583b67249"/>
+    <EXTID name="TeamName" mc="Class" uid="5aae0550-0151-489a-8f5f-0add845fb2d3"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="TeamName" mc="Class" uid="c202abcd-55f9-45bb-9b77-74e583b67249"/>
+    <PID name="Championship" mc="Class" uid="e88692f4-d540-438a-af92-7f1129e6e0bf"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[TeamName]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Parent">
+        <OBJECT>
+          <ID name="" mc="Generalization" uid="35fd3572-0318-4cd4-a53b-63712637e2c2"/>
+          <PID name="TeamName" mc="Class" uid="c202abcd-55f9-45bb-9b77-74e583b67249"/>
+          <ATTRIBUTES>
+            <ATT name="Discriminator"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="SuperType">
+              <ID name="TeamName" mc="Class" uid="5aae0550-0151-489a-8f5f-0add845fb2d3"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,105 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="mfes" version="3">
+  <DEPS>
+    <ID name="mfes" mc="Package" uid="708079bd-7591-4f47-bde3-8eccd2b42a61"/>
+    <COMPID name="Assert" mc="Class" uid="d83bbef3-ab89-4584-9fb9-1a2fbc3857de"/>
+    <COMPID name="AssertionFailedError" mc="Class" uid="ab6ba28f-354a-4bfa-87d7-f8fa5d06aa71"/>
+    <COMPID name="Basic VDM Types" mc="Package" uid="7fb396d9-2117-4239-b72e-7d2998f17887"/>
+    <COMPID name="Binding classes" mc="Package" uid="02cbaafa-63c9-4230-b5ec-3853ff05f5a9"/>
+    <COMPID name="Car" mc="Class" uid="1ad61731-1a0a-44f7-892d-02a6309da2e6"/>
+    <COMPID name="CarTest" mc="Class" uid="3ac97f1f-7ade-4e44-8e86-c6d72ac07d8d"/>
+    <COMPID name="Championship" mc="Class" uid="e88692f4-d540-438a-af92-7f1129e6e0bf"/>
+    <COMPID name="ChampionshipTest" mc="Class" uid="703d6bdd-ccd1-4336-b013-89d809b92a29"/>
+    <COMPID name="Composite VDM Types" mc="Package" uid="38f3dba0-efeb-4807-be3e-8531537196e8"/>
+    <COMPID name="DateUtils" mc="Class" uid="269c01ab-d96c-457c-bdb1-eff74781b0c9"/>
+    <COMPID name="Driver" mc="Class" uid="db9446bd-7cb3-4ef0-94ea-90d40521aa1e"/>
+    <COMPID name="DriverTest" mc="Class" uid="8dbc1a87-eac5-4606-9ac2-ad22d71625e9"/>
+    <COMPID name="Error" mc="Class" uid="60389cfb-823f-4e1d-9067-8bfb270154cf"/>
+    <COMPID name="IO" mc="Class" uid="b72449f2-7c55-49de-9e3c-912be018db60"/>
+    <COMPID name="Manufacturer" mc="Class" uid="aceed098-9baf-4414-98da-1f4a46beec66"/>
+    <COMPID name="ManufacturerTest" mc="Class" uid="4bbe6e41-3de9-4f65-910a-1804ae5c9cda"/>
+    <COMPID name="MyTestCase" mc="Class" uid="cb02f262-9867-4bbc-b93d-151f5e920e6b"/>
+    <COMPID name="MyTestRunner" mc="Class" uid="09ccef3a-8f1d-4f93-8d8e-de9b1cb1f6a9"/>
+    <COMPID name="Partner" mc="Class" uid="2895e956-a31e-4ee8-b6c1-6388f8e2ce63"/>
+    <COMPID name="Performance" mc="Class" uid="03ea8a88-84ac-4f63-91d7-988169e1a390"/>
+    <COMPID name="PerformanceTest" mc="Class" uid="32ea22db-24e3-4737-84a0-6238b3115dd9"/>
+    <COMPID name="Rally" mc="Class" uid="7f8ad7c2-ee43-4d93-8ecf-8edac79bcec7"/>
+    <COMPID name="RallyTest" mc="Class" uid="89d65e23-b406-4333-9e18-81348e1618a5"/>
+    <COMPID name="Ranking" mc="Class" uid="20dd0061-298f-466a-9b06-910dc3500fd4"/>
+    <COMPID name="Sponsor" mc="Class" uid="c9d154c8-f2a3-4ce6-8d65-271ebbc6e9a3"/>
+    <COMPID name="SponsorTest" mc="Class" uid="f02c99a3-011a-4804-a8ca-a2e19133ea07"/>
+    <COMPID name="Stage" mc="Class" uid="9ae7a1e6-2f06-4382-a5b7-90fd1f3e588c"/>
+    <COMPID name="StageTest" mc="Class" uid="df5f7e3d-2a55-4f4b-8a33-b0988f3a8be0"/>
+    <COMPID name="State" mc="Class" uid="1556d55b-43cc-42e8-9070-2b859dd97bcb"/>
+    <COMPID name="Team" mc="Class" uid="6373637a-851d-400e-9f7b-e248abbc263a"/>
+    <COMPID name="TeamTest" mc="Class" uid="56610fb6-1b5a-4d6b-bbdf-d6b8358152e7"/>
+    <COMPID name="Test" mc="Class" uid="77aa6518-8919-4d79-9795-355bffb34e2d"/>
+    <COMPID name="TestCase" mc="Class" uid="447ebca9-008a-47a3-9fbe-cd2709eb4286"/>
+    <COMPID name="TestListener" mc="Class" uid="998f2e90-8fe8-48d4-a748-2d9c9189ceef"/>
+    <COMPID name="TestResult" mc="Class" uid="0c59ee0e-3659-4475-8bef-e99413eabc6f"/>
+    <COMPID name="TestRunner" mc="Class" uid="6007e4ee-4359-4b65-a19b-cadcf0593c2c"/>
+    <COMPID name="TestSuite" mc="Class" uid="7b07cc1c-29e8-4774-bc02-9ab05f5b726a"/>
+    <COMPID name="Throwable" mc="Class" uid="fd4b5081-39fd-4a1b-ae8d-d1beb8c156b8"/>
+    <COMPID name="UseCasesTest" mc="Class" uid="675974cd-2181-48f1-9eea-573838975531"/>
+    <COMPID name="overview diagram" mc="ClassDiagram" uid="07a7b364-093d-4b5b-bb3f-5006e1f44433"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="mfes" mc="Package" uid="708079bd-7591-4f47-bde3-8eccd2b42a61"/>
+    <PID name="MFES" mc="Project" uid="ed6b8686-233b-49b7-af1e-d536380e273a"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[mfes]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Basic VDM Types" mc="Package" uid="7fb396d9-2117-4239-b72e-7d2998f17887"/>
+        <COMPID name="IO" mc="Class" uid="b72449f2-7c55-49de-9e3c-912be018db60"/>
+        <COMPID name="Throwable" mc="Class" uid="fd4b5081-39fd-4a1b-ae8d-d1beb8c156b8"/>
+        <COMPID name="Error" mc="Class" uid="60389cfb-823f-4e1d-9067-8bfb270154cf"/>
+        <COMPID name="AssertionFailedError" mc="Class" uid="ab6ba28f-354a-4bfa-87d7-f8fa5d06aa71"/>
+        <COMPID name="Assert" mc="Class" uid="d83bbef3-ab89-4584-9fb9-1a2fbc3857de"/>
+        <COMPID name="Test" mc="Class" uid="77aa6518-8919-4d79-9795-355bffb34e2d"/>
+        <COMPID name="TestCase" mc="Class" uid="447ebca9-008a-47a3-9fbe-cd2709eb4286"/>
+        <COMPID name="TestSuite" mc="Class" uid="7b07cc1c-29e8-4774-bc02-9ab05f5b726a"/>
+        <COMPID name="TestListener" mc="Class" uid="998f2e90-8fe8-48d4-a748-2d9c9189ceef"/>
+        <COMPID name="TestResult" mc="Class" uid="0c59ee0e-3659-4475-8bef-e99413eabc6f"/>
+        <COMPID name="TestRunner" mc="Class" uid="6007e4ee-4359-4b65-a19b-cadcf0593c2c"/>
+        <COMPID name="Car" mc="Class" uid="1ad61731-1a0a-44f7-892d-02a6309da2e6"/>
+        <COMPID name="Championship" mc="Class" uid="e88692f4-d540-438a-af92-7f1129e6e0bf"/>
+        <COMPID name="DateUtils" mc="Class" uid="269c01ab-d96c-457c-bdb1-eff74781b0c9"/>
+        <COMPID name="Driver" mc="Class" uid="db9446bd-7cb3-4ef0-94ea-90d40521aa1e"/>
+        <COMPID name="Manufacturer" mc="Class" uid="aceed098-9baf-4414-98da-1f4a46beec66"/>
+        <COMPID name="Partner" mc="Class" uid="2895e956-a31e-4ee8-b6c1-6388f8e2ce63"/>
+        <COMPID name="Performance" mc="Class" uid="03ea8a88-84ac-4f63-91d7-988169e1a390"/>
+        <COMPID name="Rally" mc="Class" uid="7f8ad7c2-ee43-4d93-8ecf-8edac79bcec7"/>
+        <COMPID name="Ranking" mc="Class" uid="20dd0061-298f-466a-9b06-910dc3500fd4"/>
+        <COMPID name="Sponsor" mc="Class" uid="c9d154c8-f2a3-4ce6-8d65-271ebbc6e9a3"/>
+        <COMPID name="Stage" mc="Class" uid="9ae7a1e6-2f06-4382-a5b7-90fd1f3e588c"/>
+        <COMPID name="State" mc="Class" uid="1556d55b-43cc-42e8-9070-2b859dd97bcb"/>
+        <COMPID name="Team" mc="Class" uid="6373637a-851d-400e-9f7b-e248abbc263a"/>
+        <COMPID name="CarTest" mc="Class" uid="3ac97f1f-7ade-4e44-8e86-c6d72ac07d8d"/>
+        <COMPID name="ChampionshipTest" mc="Class" uid="703d6bdd-ccd1-4336-b013-89d809b92a29"/>
+        <COMPID name="DriverTest" mc="Class" uid="8dbc1a87-eac5-4606-9ac2-ad22d71625e9"/>
+        <COMPID name="ManufacturerTest" mc="Class" uid="4bbe6e41-3de9-4f65-910a-1804ae5c9cda"/>
+        <COMPID name="MyTestCase" mc="Class" uid="cb02f262-9867-4bbc-b93d-151f5e920e6b"/>
+        <COMPID name="MyTestRunner" mc="Class" uid="09ccef3a-8f1d-4f93-8d8e-de9b1cb1f6a9"/>
+        <COMPID name="PerformanceTest" mc="Class" uid="32ea22db-24e3-4737-84a0-6238b3115dd9"/>
+        <COMPID name="RallyTest" mc="Class" uid="89d65e23-b406-4333-9e18-81348e1618a5"/>
+        <COMPID name="SponsorTest" mc="Class" uid="f02c99a3-011a-4804-a8ca-a2e19133ea07"/>
+        <COMPID name="StageTest" mc="Class" uid="df5f7e3d-2a55-4f4b-8a33-b0988f3a8be0"/>
+        <COMPID name="TeamTest" mc="Class" uid="56610fb6-1b5a-4d6b-bbdf-d6b8358152e7"/>
+        <COMPID name="UseCasesTest" mc="Class" uid="675974cd-2181-48f1-9eea-573838975531"/>
+        <COMPID name="Composite VDM Types" mc="Package" uid="38f3dba0-efeb-4807-be3e-8531537196e8"/>
+        <COMPID name="Binding classes" mc="Package" uid="02cbaafa-63c9-4230-b5ec-3853ff05f5a9"/>
+      </COMP>
+      <COMP relation="Product">
+        <COMPID name="overview diagram" mc="ClassDiagram" uid="07a7b364-093d-4b5b-bb3f-5006e1f44433"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

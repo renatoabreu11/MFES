@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="LocalProfile" version="3">
+  <DEPS>
+    <ID name="LocalProfile" mc="Profile" uid="51c54434-a4f6-4862-bb0e-147287c9332a"/>
+    <COMPID name="record" mc="Stereotype" uid="a49baed5-e2c4-4c42-bc72-e8ae2d8873df"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="LocalProfile" mc="Profile" uid="51c54434-a4f6-4862-bb0e-147287c9332a"/>
+    <PID name="LocalModule" mc="ModuleComponent" uid="91a4d08f-5b61-4eb0-be83-0197416ed066"/>
+    <ATTRIBUTES>
+      <ATT name="JCode"></ATT>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[LocalProfile]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="DefinedStereotype">
+        <COMPID name="record" mc="Stereotype" uid="a49baed5-e2c4-4c42-bc72-e8ae2d8873df"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

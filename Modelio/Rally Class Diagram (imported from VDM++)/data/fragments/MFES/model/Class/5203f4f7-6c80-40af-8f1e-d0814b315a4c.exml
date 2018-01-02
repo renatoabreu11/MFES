@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Seq&lt;Stage&gt;" version="3">
+  <DEPS>
+    <ID name="Seq&lt;Stage&gt;" mc="Class" uid="5203f4f7-6c80-40af-8f1e-d0814b315a4c"/>
+    <EXTID name="Seq&lt;T&gt;" mc="Class" uid="d539d387-2bd7-4402-93d2-14e709782180"/>
+    <EXTID name="Stage" mc="Class" uid="9ae7a1e6-2f06-4382-a5b7-90fd1f3e588c"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Seq&lt;Stage&gt;" mc="Class" uid="5203f4f7-6c80-40af-8f1e-d0814b315a4c"/>
+    <PID name="Binding classes" mc="Package" uid="02cbaafa-63c9-4230-b5ec-3853ff05f5a9"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Seq<Stage>]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="TemplateInstanciation">
+        <OBJECT>
+          <ID name="" mc="TemplateBinding" uid="5590a56c-a18a-4a00-bb63-84544d956583"/>
+          <PID name="Seq&lt;Stage&gt;" mc="Class" uid="5203f4f7-6c80-40af-8f1e-d0814b315a4c"/>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="ParameterSubstitution">
+              <OBJECT>
+                <ID name="" mc="TemplateParameterSubstitution" uid="ffb09eb4-c3d3-4ddb-88cd-7fd75cb1987a"/>
+                <PID name="Seq&lt;Stage&gt;" mc="Class" uid="5203f4f7-6c80-40af-8f1e-d0814b315a4c"/>
+                <ATTRIBUTES>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Actual">
+                    <ID name="Stage" mc="Class" uid="9ae7a1e6-2f06-4382-a5b7-90fd1f3e588c"/>
+                  </LINK>
+                  <LINK relation="FormalParameter">
+                    <REFOBJ>
+                      <ID name="" mc="TemplateParameter" uid="a3d4ceab-8d1f-40ff-a9a3-2d86803e801d"/>
+                      <PID name="Seq&lt;T&gt;" mc="Class" uid="d539d387-2bd7-4402-93d2-14e709782180"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

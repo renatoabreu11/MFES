@@ -1,0 +1,25 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="MFES" version="3">
+  <DEPS>
+    <ID name="MFES" mc="Project" uid="ed6b8686-233b-49b7-af1e-d536380e273a"/>
+    <COMPID name="MFES" mc="DiagramSet" uid="34c74a6c-687c-407f-bb11-965566aa5442"/>
+    <COMPID name="mfes" mc="Package" uid="708079bd-7591-4f47-bde3-8eccd2b42a61"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="MFES" mc="Project" uid="ed6b8686-233b-49b7-af1e-d536380e273a"/>
+    <ATTRIBUTES>
+      <ATT name="ProjectContext"></ATT>
+      <ATT name="ProjectDescr"></ATT>
+      <ATT name="Name"><![CDATA[MFES]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="DiagramRoot">
+        <COMPID name="MFES" mc="DiagramSet" uid="34c74a6c-687c-407f-bb11-965566aa5442"/>
+      </COMP>
+      <COMP relation="Model">
+        <COMPID name="mfes" mc="Package" uid="708079bd-7591-4f47-bde3-8eccd2b42a61"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

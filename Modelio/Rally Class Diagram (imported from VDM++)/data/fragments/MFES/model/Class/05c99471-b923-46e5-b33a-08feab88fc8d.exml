@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Country" version="3">
+  <DEPS>
+    <ID name="Country" mc="Class" uid="05c99471-b923-46e5-b33a-08feab88fc8d"/>
+    <EXTID name="Country" mc="Class" uid="8cb9cab1-123c-4030-96da-09f219a9a5a4"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Country" mc="Class" uid="05c99471-b923-46e5-b33a-08feab88fc8d"/>
+    <PID name="Driver" mc="Class" uid="db9446bd-7cb3-4ef0-94ea-90d40521aa1e"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Country]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Parent">
+        <OBJECT>
+          <ID name="" mc="Generalization" uid="a237926c-1818-44fc-b040-35b59985ff2f"/>
+          <PID name="Country" mc="Class" uid="05c99471-b923-46e5-b33a-08feab88fc8d"/>
+          <ATTRIBUTES>
+            <ATT name="Discriminator"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="SuperType">
+              <ID name="Country" mc="Class" uid="8cb9cab1-123c-4030-96da-09f219a9a5a4"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

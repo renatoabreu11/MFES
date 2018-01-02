@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="T" version="3">
+  <DEPS>
+    <ID name="T" mc="Class" uid="f7df73df-faed-455b-8ec3-9991d8616476"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="T" mc="Class" uid="f7df73df-faed-455b-8ec3-9991d8616476"/>
+    <PID name="Seq&lt;T&gt;" mc="Class" uid="d539d387-2bd7-4402-93d2-14e709782180"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[T]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES></DEPENDENCIES>
+  </OBJECT>
+</EXT>

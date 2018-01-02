@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Basic VDM Types" version="3">
+  <DEPS>
+    <ID name="Basic VDM Types" mc="Package" uid="7fb396d9-2117-4239-b72e-7d2998f17887"/>
+    <COMPID name="&lt;Asphalt&gt;" mc="DataType" uid="a7b95784-eb9f-4996-9d45-797dcf5c77cc"/>
+    <COMPID name="&lt;Completed&gt;" mc="DataType" uid="0e2fb9b5-60da-4e09-8d6a-3323224c0c9e"/>
+    <COMPID name="&lt;Female&gt;" mc="DataType" uid="2a48813c-9724-44ee-b0bb-c57b01fa88ba"/>
+    <COMPID name="&lt;Forest&gt;" mc="DataType" uid="cef7ccaa-0130-4c64-96aa-4386a29d9a71"/>
+    <COMPID name="&lt;France&gt;" mc="DataType" uid="e73cc54e-b6c0-403b-9a8d-374e6269a280"/>
+    <COMPID name="&lt;Germany&gt;" mc="DataType" uid="8cf9c2e8-e95f-44e4-92b3-6065a5d68162"/>
+    <COMPID name="&lt;Gravel&gt;" mc="DataType" uid="cc9e4c37-b9d7-4f98-a9f4-4716fa6006a3"/>
+    <COMPID name="&lt;GreatBritain&gt;" mc="DataType" uid="6473549a-35d8-4c15-9413-9ea8be23d9ee"/>
+    <COMPID name="&lt;Italy&gt;" mc="DataType" uid="0105a75d-403f-4ecf-beeb-41ddece98966"/>
+    <COMPID name="&lt;Japan&gt;" mc="DataType" uid="9223aac9-6b8a-412b-929f-ccf88968720c"/>
+    <COMPID name="&lt;Male&gt;" mc="DataType" uid="7f0808db-dd12-4211-9582-a7623d659dc9"/>
+    <COMPID name="&lt;Mountain&gt;" mc="DataType" uid="a4ed8b04-d256-40b3-ba72-9eca4564e9d3"/>
+    <COMPID name="&lt;Occurring&gt;" mc="DataType" uid="54825ee2-2a73-4141-8417-19aa8b0bc552"/>
+    <COMPID name="&lt;OffSeason&gt;" mc="DataType" uid="ffb4abb7-d007-4e8d-8abe-edc443d3727c"/>
+    <COMPID name="&lt;Portugal&gt;" mc="DataType" uid="ea91ff02-327f-4881-83a9-2e4511473d81"/>
+    <COMPID name="&lt;Sand&gt;" mc="DataType" uid="70e44000-cf04-4238-b6ae-1d6bddbd29ce"/>
+    <COMPID name="&lt;Snow&gt;" mc="DataType" uid="fddf2270-b9d3-4c70-9698-d7f0303eb821"/>
+    <COMPID name="&lt;SouthKorea&gt;" mc="DataType" uid="9c11122e-e560-4cae-a993-16200bd63ff0"/>
+    <COMPID name="&lt;Spain&gt;" mc="DataType" uid="fde79157-8af2-470e-9399-a7424d0d4dca"/>
+    <COMPID name="&lt;Special&gt;" mc="DataType" uid="4c5c0bc5-37e3-4157-b155-f7768bc4f4aa"/>
+    <COMPID name="&lt;Transport&gt;" mc="DataType" uid="30f71396-71df-4ced-a930-5bbe68fef097"/>
+    <COMPID name="&lt;append&gt;" mc="DataType" uid="18e60add-046d-42e8-8c04-ae632ad40b54"/>
+    <COMPID name="&lt;start&gt;" mc="DataType" uid="05f8e602-c374-426e-88d6-2f48a5759187"/>
+    <COMPID name="Any" mc="DataType" uid="0492147a-6614-40d9-ac23-fed0f96d16f4"/>
+    <COMPID name="Void" mc="DataType" uid="d32de836-88af-4ea3-8609-a37480feac3c"/>
+    <COMPID name="bool" mc="DataType" uid="b85ef344-87f3-4842-a063-ffc64b3569dd"/>
+    <COMPID name="int" mc="DataType" uid="0b292bc6-e742-4e30-94d5-718142c3b5b6"/>
+    <COMPID name="nat" mc="DataType" uid="ca053f2d-c347-4d60-b679-e369fa03b0e0"/>
+    <COMPID name="nat1" mc="DataType" uid="8a270ee7-56ce-49a4-be26-f2f3589c478d"/>
+    <COMPID name="real" mc="DataType" uid="61bfd3b1-209f-485c-8c29-1214e431c693"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Basic VDM Types" mc="Package" uid="7fb396d9-2117-4239-b72e-7d2998f17887"/>
+    <PID name="mfes" mc="Package" uid="708079bd-7591-4f47-bde3-8eccd2b42a61"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Basic VDM Types]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="&lt;append&gt;" mc="DataType" uid="18e60add-046d-42e8-8c04-ae632ad40b54"/>
+        <COMPID name="&lt;start&gt;" mc="DataType" uid="05f8e602-c374-426e-88d6-2f48a5759187"/>
+        <COMPID name="nat" mc="DataType" uid="ca053f2d-c347-4d60-b679-e369fa03b0e0"/>
+        <COMPID name="&lt;France&gt;" mc="DataType" uid="e73cc54e-b6c0-403b-9a8d-374e6269a280"/>
+        <COMPID name="&lt;Germany&gt;" mc="DataType" uid="8cf9c2e8-e95f-44e4-92b3-6065a5d68162"/>
+        <COMPID name="&lt;GreatBritain&gt;" mc="DataType" uid="6473549a-35d8-4c15-9413-9ea8be23d9ee"/>
+        <COMPID name="&lt;Italy&gt;" mc="DataType" uid="0105a75d-403f-4ecf-beeb-41ddece98966"/>
+        <COMPID name="&lt;Japan&gt;" mc="DataType" uid="9223aac9-6b8a-412b-929f-ccf88968720c"/>
+        <COMPID name="&lt;Portugal&gt;" mc="DataType" uid="ea91ff02-327f-4881-83a9-2e4511473d81"/>
+        <COMPID name="&lt;SouthKorea&gt;" mc="DataType" uid="9c11122e-e560-4cae-a993-16200bd63ff0"/>
+        <COMPID name="&lt;Spain&gt;" mc="DataType" uid="fde79157-8af2-470e-9399-a7424d0d4dca"/>
+        <COMPID name="&lt;Female&gt;" mc="DataType" uid="2a48813c-9724-44ee-b0bb-c57b01fa88ba"/>
+        <COMPID name="&lt;Male&gt;" mc="DataType" uid="7f0808db-dd12-4211-9582-a7623d659dc9"/>
+        <COMPID name="&lt;Asphalt&gt;" mc="DataType" uid="a7b95784-eb9f-4996-9d45-797dcf5c77cc"/>
+        <COMPID name="&lt;Forest&gt;" mc="DataType" uid="cef7ccaa-0130-4c64-96aa-4386a29d9a71"/>
+        <COMPID name="&lt;Gravel&gt;" mc="DataType" uid="cc9e4c37-b9d7-4f98-a9f4-4716fa6006a3"/>
+        <COMPID name="&lt;Mountain&gt;" mc="DataType" uid="a4ed8b04-d256-40b3-ba72-9eca4564e9d3"/>
+        <COMPID name="&lt;Sand&gt;" mc="DataType" uid="70e44000-cf04-4238-b6ae-1d6bddbd29ce"/>
+        <COMPID name="&lt;Snow&gt;" mc="DataType" uid="fddf2270-b9d3-4c70-9698-d7f0303eb821"/>
+        <COMPID name="nat1" mc="DataType" uid="8a270ee7-56ce-49a4-be26-f2f3589c478d"/>
+        <COMPID name="&lt;Special&gt;" mc="DataType" uid="4c5c0bc5-37e3-4157-b155-f7768bc4f4aa"/>
+        <COMPID name="&lt;Transport&gt;" mc="DataType" uid="30f71396-71df-4ced-a930-5bbe68fef097"/>
+        <COMPID name="&lt;Completed&gt;" mc="DataType" uid="0e2fb9b5-60da-4e09-8d6a-3323224c0c9e"/>
+        <COMPID name="&lt;Occurring&gt;" mc="DataType" uid="54825ee2-2a73-4141-8417-19aa8b0bc552"/>
+        <COMPID name="&lt;OffSeason&gt;" mc="DataType" uid="ffb4abb7-d007-4e8d-8abe-edc443d3727c"/>
+        <COMPID name="bool" mc="DataType" uid="b85ef344-87f3-4842-a063-ffc64b3569dd"/>
+        <COMPID name="Any" mc="DataType" uid="0492147a-6614-40d9-ac23-fed0f96d16f4"/>
+        <COMPID name="Void" mc="DataType" uid="d32de836-88af-4ea3-8609-a37480feac3c"/>
+        <COMPID name="int" mc="DataType" uid="0b292bc6-e742-4e30-94d5-718142c3b5b6"/>
+        <COMPID name="real" mc="DataType" uid="61bfd3b1-209f-485c-8c29-1214e431c693"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Seq&lt;TestResult::InternalError&gt;" version="3">
+  <DEPS>
+    <ID name="Seq&lt;TestResult::InternalError&gt;" mc="Class" uid="75b7b0f0-bae1-4748-8d52-43c5544ea96f"/>
+    <EXTID name="InternalError" mc="Class" uid="795d74f5-014c-4699-8927-fa04261045a3"/>
+    <EXTID name="Seq&lt;T&gt;" mc="Class" uid="d539d387-2bd7-4402-93d2-14e709782180"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Seq&lt;TestResult::InternalError&gt;" mc="Class" uid="75b7b0f0-bae1-4748-8d52-43c5544ea96f"/>
+    <PID name="Binding classes" mc="Package" uid="02cbaafa-63c9-4230-b5ec-3853ff05f5a9"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Seq<TestResult::InternalError>]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="TemplateInstanciation">
+        <OBJECT>
+          <ID name="" mc="TemplateBinding" uid="153bd56e-42d8-41b3-9743-055954c60137"/>
+          <PID name="Seq&lt;TestResult::InternalError&gt;" mc="Class" uid="75b7b0f0-bae1-4748-8d52-43c5544ea96f"/>
+          <ATTRIBUTES>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <COMP relation="ParameterSubstitution">
+              <OBJECT>
+                <ID name="" mc="TemplateParameterSubstitution" uid="e53fccfa-e004-4c3c-9876-425cfc808a4d"/>
+                <PID name="Seq&lt;TestResult::InternalError&gt;" mc="Class" uid="75b7b0f0-bae1-4748-8d52-43c5544ea96f"/>
+                <ATTRIBUTES>
+                  <ATT name="Value"></ATT>
+                  <ATT name="Name"></ATT>
+                  <ATT name="status">1970354901745664</ATT>
+                </ATTRIBUTES>
+                <DEPENDENCIES>
+                  <LINK relation="Actual">
+                    <ID name="InternalError" mc="Class" uid="795d74f5-014c-4699-8927-fa04261045a3"/>
+                  </LINK>
+                  <LINK relation="FormalParameter">
+                    <REFOBJ>
+                      <ID name="" mc="TemplateParameter" uid="a3d4ceab-8d1f-40ff-a9a3-2d86803e801d"/>
+                      <PID name="Seq&lt;T&gt;" mc="Class" uid="d539d387-2bd7-4402-93d2-14e709782180"/>
+                    </REFOBJ>
+                  </LINK>
+                </DEPENDENCIES>
+              </OBJECT>
+            </COMP>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

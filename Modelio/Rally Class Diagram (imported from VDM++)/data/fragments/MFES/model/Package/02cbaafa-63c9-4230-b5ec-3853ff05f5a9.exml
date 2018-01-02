@@ -1,0 +1,83 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Binding classes" version="3">
+  <DEPS>
+    <ID name="Binding classes" mc="Package" uid="02cbaafa-63c9-4230-b5ec-3853ff05f5a9"/>
+    <COMPID name="Map&lt;Championship::String,int&gt;" mc="Class" uid="317bff1a-75b7-4039-b6db-f9690ced1de6"/>
+    <COMPID name="Map&lt;Championship::TeamName,Team&gt;" mc="Class" uid="f9a2b5a0-7659-4f54-9a8a-682652975167"/>
+    <COMPID name="Optional&lt;Car&gt;" mc="Class" uid="3897f28c-b212-4138-87dd-1251e9c07897"/>
+    <COMPID name="Optional&lt;Driver&gt;" mc="Class" uid="74834542-4e13-4081-8de1-2eba2f33a224"/>
+    <COMPID name="Optional&lt;IO::filedirective&gt;" mc="Class" uid="4da90744-345c-48bf-882c-379abf99825f"/>
+    <COMPID name="Optional&lt;Manufacturer&gt;" mc="Class" uid="add4b45a-99ff-4161-b5d4-1a5cc02355ee"/>
+    <COMPID name="Optional&lt;Performance&gt;" mc="Class" uid="a8580e04-e325-4298-aeb9-2f1c46a06e84"/>
+    <COMPID name="Optional&lt;Rally&gt;" mc="Class" uid="6f24dafe-0ad2-4d57-90ff-15f1715679d6"/>
+    <COMPID name="Optional&lt;Ranking&gt;" mc="Class" uid="ab209af4-5287-4eb7-8bbf-153689ee13b4"/>
+    <COMPID name="Optional&lt;Team&gt;" mc="Class" uid="f2cfd3f9-2eeb-4a80-92dc-66f7eab67456"/>
+    <COMPID name="Optional&lt;p&gt;" mc="Class" uid="459a0d89-a8e7-4c68-8f7c-aaf6e9c88109"/>
+    <COMPID name="Product&lt;bool,Optional&lt;p&gt;&gt;" mc="Class" uid="c4d7d036-f842-44e2-8683-4841eddc7ebd"/>
+    <COMPID name="Seq&lt;Any&gt;" mc="Class" uid="c7075fcc-67d0-4223-a502-decb7a4e7a7d"/>
+    <COMPID name="Seq&lt;AssertionFailedError&gt;" mc="Class" uid="9011760f-5480-4067-8a1e-1979289c7823"/>
+    <COMPID name="Seq&lt;Performance&gt;" mc="Class" uid="9e659fb1-e6f7-4550-bafd-5e8df6699bc8"/>
+    <COMPID name="Seq&lt;Rally&gt;" mc="Class" uid="85a39451-e31f-4548-a267-67c89b3bdad1"/>
+    <COMPID name="Seq&lt;Ranking&gt;" mc="Class" uid="0aa6749e-b297-436a-9c69-2c47ca560943"/>
+    <COMPID name="Seq&lt;Seq&lt;char&gt;&gt;" mc="Class" uid="4c97028b-72ed-4034-ba95-782e14498bde"/>
+    <COMPID name="Seq&lt;Stage&gt;" mc="Class" uid="5203f4f7-6c80-40af-8f1e-d0814b315a4c"/>
+    <COMPID name="Seq&lt;Test&gt;" mc="Class" uid="f3f589f7-1164-4fdf-942f-50d217082be2"/>
+    <COMPID name="Seq&lt;TestResult::InternalError&gt;" mc="Class" uid="75b7b0f0-bae1-4748-8d52-43c5544ea96f"/>
+    <COMPID name="Seq&lt;char&gt;" mc="Class" uid="23d6d37f-a296-4dc9-9247-9d373463b69f"/>
+    <COMPID name="Set&lt;Car&gt;" mc="Class" uid="7e67112e-9535-49c0-818d-f811a9dbf735"/>
+    <COMPID name="Set&lt;Driver&gt;" mc="Class" uid="d658a05d-db23-4fff-a0d8-fb41233cd538"/>
+    <COMPID name="Set&lt;Partner&gt;" mc="Class" uid="62261714-4bed-4e58-a4f4-e96a4b6cfe8e"/>
+    <COMPID name="Set&lt;Performance&gt;" mc="Class" uid="4f4c41bc-22e3-4769-899d-63aead1c2f6f"/>
+    <COMPID name="Set&lt;Sponsor&gt;" mc="Class" uid="6a924cf9-1027-4453-b2ec-dd4cced29aec"/>
+    <COMPID name="Set&lt;Test&gt;" mc="Class" uid="3aa3672f-3977-41b9-be11-4205acf2d6b4"/>
+    <COMPID name="Set&lt;TestListener&gt;" mc="Class" uid="8951d46f-ac44-45e4-a353-0ced3c4018de"/>
+    <COMPID name="Union&lt;int&gt;" mc="Class" uid="2ab44504-6adc-47c0-8f62-024f2be6c04c"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Binding classes" mc="Package" uid="02cbaafa-63c9-4230-b5ec-3853ff05f5a9"/>
+    <PID name="mfes" mc="Package" uid="708079bd-7591-4f47-bde3-8eccd2b42a61"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Binding classes]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="OwnedElement">
+        <COMPID name="Seq&lt;char&gt;" mc="Class" uid="23d6d37f-a296-4dc9-9247-9d373463b69f"/>
+        <COMPID name="Product&lt;bool,Optional&lt;p&gt;&gt;" mc="Class" uid="c4d7d036-f842-44e2-8683-4841eddc7ebd"/>
+        <COMPID name="Optional&lt;p&gt;" mc="Class" uid="459a0d89-a8e7-4c68-8f7c-aaf6e9c88109"/>
+        <COMPID name="Optional&lt;IO::filedirective&gt;" mc="Class" uid="4da90744-345c-48bf-882c-379abf99825f"/>
+        <COMPID name="Seq&lt;Any&gt;" mc="Class" uid="c7075fcc-67d0-4223-a502-decb7a4e7a7d"/>
+        <COMPID name="Seq&lt;Test&gt;" mc="Class" uid="f3f589f7-1164-4fdf-942f-50d217082be2"/>
+        <COMPID name="Set&lt;Test&gt;" mc="Class" uid="3aa3672f-3977-41b9-be11-4205acf2d6b4"/>
+        <COMPID name="Seq&lt;Seq&lt;char&gt;&gt;" mc="Class" uid="4c97028b-72ed-4034-ba95-782e14498bde"/>
+        <COMPID name="Seq&lt;AssertionFailedError&gt;" mc="Class" uid="9011760f-5480-4067-8a1e-1979289c7823"/>
+        <COMPID name="Seq&lt;TestResult::InternalError&gt;" mc="Class" uid="75b7b0f0-bae1-4748-8d52-43c5544ea96f"/>
+        <COMPID name="Set&lt;TestListener&gt;" mc="Class" uid="8951d46f-ac44-45e4-a353-0ced3c4018de"/>
+        <COMPID name="Union&lt;int&gt;" mc="Class" uid="2ab44504-6adc-47c0-8f62-024f2be6c04c"/>
+        <COMPID name="Optional&lt;Manufacturer&gt;" mc="Class" uid="add4b45a-99ff-4161-b5d4-1a5cc02355ee"/>
+        <COMPID name="Seq&lt;Rally&gt;" mc="Class" uid="85a39451-e31f-4548-a267-67c89b3bdad1"/>
+        <COMPID name="Map&lt;Championship::TeamName,Team&gt;" mc="Class" uid="f9a2b5a0-7659-4f54-9a8a-682652975167"/>
+        <COMPID name="Set&lt;Partner&gt;" mc="Class" uid="62261714-4bed-4e58-a4f4-e96a4b6cfe8e"/>
+        <COMPID name="Set&lt;Performance&gt;" mc="Class" uid="4f4c41bc-22e3-4769-899d-63aead1c2f6f"/>
+        <COMPID name="Map&lt;Championship::String,int&gt;" mc="Class" uid="317bff1a-75b7-4039-b6db-f9690ced1de6"/>
+        <COMPID name="Optional&lt;Rally&gt;" mc="Class" uid="6f24dafe-0ad2-4d57-90ff-15f1715679d6"/>
+        <COMPID name="Set&lt;Driver&gt;" mc="Class" uid="d658a05d-db23-4fff-a0d8-fb41233cd538"/>
+        <COMPID name="Optional&lt;Team&gt;" mc="Class" uid="f2cfd3f9-2eeb-4a80-92dc-66f7eab67456"/>
+        <COMPID name="Optional&lt;Car&gt;" mc="Class" uid="3897f28c-b212-4138-87dd-1251e9c07897"/>
+        <COMPID name="Optional&lt;Driver&gt;" mc="Class" uid="74834542-4e13-4081-8de1-2eba2f33a224"/>
+        <COMPID name="Seq&lt;Stage&gt;" mc="Class" uid="5203f4f7-6c80-40af-8f1e-d0814b315a4c"/>
+        <COMPID name="Seq&lt;Ranking&gt;" mc="Class" uid="0aa6749e-b297-436a-9c69-2c47ca560943"/>
+        <COMPID name="Seq&lt;Performance&gt;" mc="Class" uid="9e659fb1-e6f7-4550-bafd-5e8df6699bc8"/>
+        <COMPID name="Optional&lt;Performance&gt;" mc="Class" uid="a8580e04-e325-4298-aeb9-2f1c46a06e84"/>
+        <COMPID name="Set&lt;Sponsor&gt;" mc="Class" uid="6a924cf9-1027-4453-b2ec-dd4cced29aec"/>
+        <COMPID name="Set&lt;Car&gt;" mc="Class" uid="7e67112e-9535-49c0-818d-f811a9dbf735"/>
+        <COMPID name="Optional&lt;Ranking&gt;" mc="Class" uid="ab209af4-5287-4eb7-8bbf-153689ee13b4"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

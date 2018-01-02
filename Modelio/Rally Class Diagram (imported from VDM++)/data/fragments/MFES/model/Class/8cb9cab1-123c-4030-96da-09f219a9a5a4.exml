@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="Country" version="3">
+  <DEPS>
+    <ID name="Country" mc="Class" uid="8cb9cab1-123c-4030-96da-09f219a9a5a4"/>
+    <EXTID name="Team" mc="Class" uid="6373637a-851d-400e-9f7b-e248abbc263a"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="Country" mc="Class" uid="8cb9cab1-123c-4030-96da-09f219a9a5a4"/>
+    <PID name="Team" mc="Class" uid="6373637a-851d-400e-9f7b-e248abbc263a"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[Country]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Parent">
+        <OBJECT>
+          <ID name="" mc="Generalization" uid="09bed89f-bb21-4128-9f52-b844fa747651"/>
+          <PID name="Country" mc="Class" uid="8cb9cab1-123c-4030-96da-09f219a9a5a4"/>
+          <ATTRIBUTES>
+            <ATT name="Discriminator"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="SuperType">
+              <REFOBJ>
+                <ID name="Country_FranceGermanyGreatBritainItalyJapanPortugalSouthKoreaSpain_997638402" mc="Enumeration" uid="1ba6354d-1f10-4a09-8886-e6c2c7537cbe"/>
+                <PID name="Team" mc="Class" uid="6373637a-851d-400e-9f7b-e248abbc263a"/>
+              </REFOBJ>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

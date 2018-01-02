@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="State" version="3">
+  <DEPS>
+    <ID name="State" mc="Class" uid="02751ab7-e43a-4db8-8a1d-615d619328ce"/>
+    <EXTID name="State" mc="Class" uid="1556d55b-43cc-42e8-9070-2b859dd97bcb"/>
+  </DEPS>
+  <OBJECT>
+    <ID name="State" mc="Class" uid="02751ab7-e43a-4db8-8a1d-615d619328ce"/>
+    <PID name="State" mc="Class" uid="1556d55b-43cc-42e8-9070-2b859dd97bcb"/>
+    <ATTRIBUTES>
+      <ATT name="IsActive">false</ATT>
+      <ATT name="IsMain">false</ATT>
+      <ATT name="IsElementary">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[State]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Parent">
+        <OBJECT>
+          <ID name="" mc="Generalization" uid="6cabcc5b-2055-4a48-9b81-ae7fec5da6bd"/>
+          <PID name="State" mc="Class" uid="02751ab7-e43a-4db8-8a1d-615d619328ce"/>
+          <ATTRIBUTES>
+            <ATT name="Discriminator"></ATT>
+            <ATT name="Name"></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="SuperType">
+              <REFOBJ>
+                <ID name="State_CompletedOccurringOffSeason_1428552484" mc="Enumeration" uid="4da2fe41-fab9-4b19-80bf-a30821e51c88"/>
+                <PID name="State" mc="Class" uid="1556d55b-43cc-42e8-9070-2b859dd97bcb"/>
+              </REFOBJ>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>
