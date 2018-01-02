@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="pane" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="550" y="1039" width="534" height="1303"/>
+      <xy x="348" y="1039" width="736" height="1303"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -427,7 +427,7 @@
               </component>
               <component id="63610" class="javax.swing.JComboBox" binding="teamSponsors">
                 <constraints>
-                  <grid row="26" column="2" row-span="2" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="26" column="1" row-span="2" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
@@ -441,7 +441,7 @@
               </component>
               <component id="c8a37" class="javax.swing.JComboBox" binding="teamBacker">
                 <constraints>
-                  <grid row="28" column="2" row-span="2" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="28" column="1" row-span="2" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
@@ -471,25 +471,25 @@
               </component>
               <component id="f6b54" class="javax.swing.JComboBox" binding="teamCars">
                 <constraints>
-                  <grid row="30" column="2" row-span="2" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="30" column="1" row-span="2" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
               <component id="fe25f" class="javax.swing.JComboBox" binding="teamDrivers">
                 <constraints>
-                  <grid row="32" column="2" row-span="2" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="32" column="1" row-span="2" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
               <component id="b6b2a" class="javax.swing.JComboBox" binding="teamAssignDriver">
                 <constraints>
-                  <grid row="34" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="34" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
               <component id="7967" class="javax.swing.JComboBox" binding="teamAssignCar">
                 <constraints>
-                  <grid row="35" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="35" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
@@ -511,13 +511,13 @@
               </component>
               <component id="b7986" class="javax.swing.JComboBox" binding="teamPicker">
                 <constraints>
-                  <grid row="25" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="25" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties/>
               </component>
               <component id="45fa5" class="javax.swing.JButton" binding="removeTeamBackerButton" default-binding="true">
                 <constraints>
-                  <grid row="29" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="29" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="Remove Team Backer"/>
@@ -525,7 +525,7 @@
               </component>
               <component id="7598a" class="javax.swing.JButton" binding="removeTeamCarButton" default-binding="true">
                 <constraints>
-                  <grid row="31" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="31" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="Remove Team Car"/>
@@ -533,7 +533,7 @@
               </component>
               <component id="7611d" class="javax.swing.JButton" binding="removeTeamDriverButton" default-binding="true">
                 <constraints>
-                  <grid row="33" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="33" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="Remove Team Driver"/>
@@ -541,7 +541,7 @@
               </component>
               <component id="6ce47" class="javax.swing.JButton" binding="removeTeamSponsorButton" default-binding="true">
                 <constraints>
-                  <grid row="27" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="27" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="Remove Team Sponsor"/>
@@ -557,7 +557,7 @@
               </component>
               <component id="a7f83" class="javax.swing.JButton" binding="assignCarToDriverButton" default-binding="true">
                 <constraints>
-                  <grid row="34" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="34" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="Assign car to driver"/>
@@ -565,7 +565,7 @@
               </component>
               <component id="4d892" class="javax.swing.JButton" binding="unassignCarFromDriverButton" default-binding="true">
                 <constraints>
-                  <grid row="35" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="35" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>
                 <properties>
                   <text value="Unassign car from driver"/>
