@@ -11,10 +11,8 @@ instance variables
   
 operations
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
-	 */	
+	 * Instantiates a manufacturer instance.
+	 */	 
   public Manufacturer : String * String * Country ==> Manufacturer
 		Manufacturer(name0, description0, country0) == (
 		  name := name0;
@@ -26,9 +24,9 @@ operations
 		post name = name0 and description = description0 and country = country0;
 	
 	/**
-	 * Gets the car model.
+	 * Gets the manufacturer name.
 	 * 
-	 * @return model
+	 * @return name
 	 */		
 	pure public GetName: () ==> String
 		GetName() ==
@@ -36,9 +34,9 @@ operations
 		post RESULT = name;		
 	
 	/**
-	 * Gets the car model.
+	 * Gets the manufacturer description.
 	 * 
-	 * @return model
+	 * @return description
 	 */			
 	pure public GetDescription: () ==> String
 		GetDescription() ==
@@ -46,10 +44,10 @@ operations
 		post RESULT = description;	
 	
 	/**
-	 * Gets the car model.
+	 * Gets the manufacturer country.
 	 * 
-	 * @return model
-	 */			
+	 * @return country
+	 */		
 	pure public GetCountry: () ==> Country
 		GetCountry() ==
 		  return country

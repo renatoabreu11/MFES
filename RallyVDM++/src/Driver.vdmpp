@@ -22,9 +22,7 @@ instance variables
 operations
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Instantiates a driver instance.
 	 */	
   public Driver: String * Gender * Country * Date ==> Driver
 		Driver(name0, gender0, nationality0, birth0) == (
@@ -41,9 +39,7 @@ operations
 	-- *** Transactions **	
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Sets the driver team.
 	 */		
 	public SetTeam: (Team) ==> ()
 		SetTeam(t) ==
@@ -52,9 +48,7 @@ operations
 		post team = t;
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Removes the current team
 	 */	
 	public RemoveTeam: () ==> ()
 		RemoveTeam() ==
@@ -62,9 +56,7 @@ operations
 		post team = nil;
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Removes the current car
 	 */		
 	public RemoveCar: () ==> ()
 		RemoveCar() ==
@@ -72,9 +64,7 @@ operations
 		post car = nil;
 
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Sets the driver car
 	 */	
 	public SetCar: (Car) ==> ()
 		SetCar(c) ==
@@ -85,9 +75,9 @@ operations
 	-- *** Getters ***
 
 	/**
-	 * Gets the car model.
+	 * Gets the driver current team.
 	 * 
-	 * @return model
+	 * @return team
 	 */	
 	pure public GetTeam: () ==> [Team]
 		GetTeam() ==
@@ -95,9 +85,9 @@ operations
 		post RESULT = team;
 	
 	/**
-	 * Gets the car model.
+	 * Gets the driver car.
 	 * 
-	 * @return model
+	 * @return Car
 	 */			
 	pure public GetCar: () ==> [Car]
 		GetCar() ==
@@ -105,9 +95,9 @@ operations
 		post RESULT = car;	
 		
 	/**
-	 * Gets the car model.
+	 * Gets the driver name.
 	 * 
-	 * @return model
+	 * @return name
 	 */			
 	pure public GetName: () ==> String
 		GetName() ==
@@ -115,9 +105,9 @@ operations
 		post RESULT = name;
 
 	/**
-	 * Gets the car model.
+	 * Gets the driver gender.
 	 * 
-	 * @return model
+	 * @return gender
 	 */			
 	pure public GetGender: () ==> Gender
 		GetGender() ==
@@ -125,9 +115,9 @@ operations
 		post RESULT = gender;	
 
 	/**
-	 * Gets the car model.
+	 * Gets the driver nationality.
 	 * 
-	 * @return model
+	 * @return country
 	 */			
 	pure public GetNationality: () ==> Country
 		GetNationality() ==
@@ -135,9 +125,9 @@ operations
 		post RESULT = nationality;	
 	
 	/**
-	 * Gets the car model.
+	 * Gets the birth date.
 	 * 
-	 * @return model
+	 * @return Date
 	 */			
 	pure public GetBirth: () ==> Date
 		GetBirth() ==

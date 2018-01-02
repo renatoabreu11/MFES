@@ -9,9 +9,7 @@ instance variables
   
 operations
 	/**
-	 * Gets the car model.
-	 * 
-	 * @return model
+	 * Instantiates a partner instance.
 	 */	  
   public Partner : String * String ==> Partner
 		Partner(name0, description0) == (
@@ -23,9 +21,9 @@ operations
 		post name = name0 and description = description0;
 
 	/**
-	 * Gets the car model.
+	 * Gets the partner name.
 	 * 
-	 * @return model
+	 * @return name
 	 */		
 	pure public GetName: () ==> String
 		GetName() ==
@@ -33,10 +31,10 @@ operations
 		post RESULT = name;		
 
 	/**
-	 * Gets the car model.
+	 * Gets the partner description.
 	 * 
-	 * @return model
-	 */			
+	 * @return description
+	 */				
 	pure public GetDescription: () ==> String
 		GetDescription() ==
 		  return description
