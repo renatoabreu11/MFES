@@ -61,7 +61,7 @@ operations
 			assertEqual(460, champ1.GetTeamRallyRanking("Team2", "Rally da Costa")); --Use Case: See team's rally ranking
 			assertEqual(200, rally1.GetDriverRanking(driver1t1).GetPoints()); --Use Case: See driver's rally performance
 			assertEqual(100, rally1.GetDriverPerformanceOnStage(201712, driver1t1).GetTime()); --Use Case: See driver's stage performance
-			--Use Case: See driver's global performance
+			assertEqual(200, champ1.GetDriverGlobalRanking(driver1t1));--Use Case: See driver's global performance
 						
 			assertTrue(champ1.IsCurrentRallyCompleted());
 			champ1.NextRally();

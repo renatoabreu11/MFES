@@ -88,6 +88,16 @@ operations
 	 )
 	 pre teamName in set dom teams and exists r in seq series & r.GetName() = rallyName;
 	 
+	 pure public GetDriverGlobalRanking: Driver ==> int
+	 	GetDriverGlobalRanking(d) == (
+	 		dcl points: int := 0;
+	 		for rally in series
+	 			do
+	 				if(rally.GetState() <> <OffSeason>)
+	 					then (points := points + rally.GetDriverRanking(d).GetPoints(););
+			return points;
+ 		);
+	 
 	public GetTeamGlobalRanking: String ==> int
 	 GetTeamGlobalRanking(teamName) == (
 	 	dcl points: int := 0;
