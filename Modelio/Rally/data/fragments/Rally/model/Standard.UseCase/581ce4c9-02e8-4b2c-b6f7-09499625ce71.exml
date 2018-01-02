@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="See a stage's performance" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="See driver's stage performance" version="4">
   <OBJECT>
-    <ID name="See a stage's performance" mc="Standard.UseCase" uid="581ce4c9-02e8-4b2c-b6f7-09499625ce71"/>
-    <PID name="rally-usecases" mc="Standard.Package" uid="35bf0559-bde7-42f6-b6da-1aa32408fed7"/>
+    <ID name="See driver's stage performance" mc="Standard.UseCase" uid="581ce4c9-02e8-4b2c-b6f7-09499625ce71"/>
+    <PID name="use-cases" mc="Standard.Package" uid="35bf0559-bde7-42f6-b6da-1aa32408fed7"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[See a stage's performance]]></ATT>
+      <ATT name="Name"><![CDATA[See driver's stage performance]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>

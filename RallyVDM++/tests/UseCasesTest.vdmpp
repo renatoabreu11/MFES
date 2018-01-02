@@ -37,25 +37,32 @@ operations
 	public Run: () ==> ()
 		Run() == (
 			IO`println("\nUse Cases Tests");
-			Setup();			
+			Setup();
+			
+			--Use Case: See car's information
+			assertEqual(car1t1, driver1t1.GetCar());
 			
 			--Start Championship
 			assertEqual(nil, champ1.GetCurrentRally());
 			champ1.StartChampionship();
-			assertEqual({"Team1" |-> 0, "Team2" |-> 0}, champ1.GetTeamsRanking());
+			assertEqual({"Team1" |-> 0, "Team2" |-> 0}, champ1.GetTeamsRanking()); --Use Case: See team's global performance
 			
 			--Rally 1
 			assertEqual(rally1, champ1.GetCurrentRally());
 			assertFalse(champ1.IsCurrentRallyCompleted());
 			
 			assertEqual(stage1r1, rally1.GetCurrentStage());
-			champ1.UpdateCurrentRally({driver1t1perf, driver2t1perf, driver1t2perf, driver2t2perf});
-			assertEqual({"Team1" |-> 225, "Team2" |-> 230}, champ1.GetTeamsRanking());
+			champ1.UpdateCurrentRally({driver1t1perf, driver2t1perf, driver1t2perf, driver2t2perf}); --Use Case: Record relevant stage info
+			assertEqual({"Team1" |-> 225, "Team2" |-> 230}, champ1.GetTeamsRanking()); --Use Case: See team's global performance
 			
 			assertEqual(stage2r1, rally1.GetCurrentStage());
-			champ1.UpdateCurrentRally({driver1t1perf, driver2t1perf, driver1t2perf, driver2t2perf});
-			assertEqual({"Team1" |-> 450, "Team2" |-> 460}, champ1.GetTeamsRanking());
-			
+			champ1.UpdateCurrentRally({driver1t1perf, driver2t1perf, driver1t2perf, driver2t2perf}); --Use Case: Record relevant stage info
+			assertEqual({"Team1" |-> 450, "Team2" |-> 460}, champ1.GetTeamsRanking()); --Use Case: See team's global performance
+			assertEqual(460, champ1.GetTeamRallyRanking("Team2", "Rally da Costa")); --Use Case: See team's rally ranking
+			assertEqual(200, rally1.GetDriverRanking(driver1t1).GetPoints()); --Use Case: See driver's rally performance
+			assertEqual(100, rally1.GetDriverPerformanceOnStage(201712, driver1t1).GetTime()); --Use Case: See driver's stage performance
+			--Use Case: See driver's global performance
+						
 			assertTrue(champ1.IsCurrentRallyCompleted());
 			champ1.NextRally();
 			
@@ -63,12 +70,12 @@ operations
 			assertEqual(rally2, champ1.GetCurrentRally());
 
 			assertEqual(stage1r2, rally2.GetCurrentStage());
-			champ1.UpdateCurrentRally({driver1t1perf, driver2t1perf, driver1t2perf, driver2t2perf});
-			assertEqual({"Team1" |-> 675, "Team2" |-> 690}, champ1.GetTeamsRanking());
+			champ1.UpdateCurrentRally({driver1t1perf, driver2t1perf, driver1t2perf, driver2t2perf}); --Use Case: Record relevant stage info
+			assertEqual({"Team1" |-> 675, "Team2" |-> 690}, champ1.GetTeamsRanking()); --Use Case: See team's global performance
 			
 			assertEqual(stage2r2, rally2.GetCurrentStage());
-			champ1.UpdateCurrentRally({driver1t1perf, driver2t1perf, driver1t2perf, driver2t2perf});
-			assertEqual({"Team1" |-> 900, "Team2" |-> 920}, champ1.GetTeamsRanking());
+			champ1.UpdateCurrentRally({driver1t1perf, driver2t1perf, driver1t2perf, driver2t2perf}); --Use Case: Record relevant stage info
+			assertEqual({"Team1" |-> 900, "Team2" |-> 920}, champ1.GetTeamsRanking()); --Use Case: See team's global performance
 			
 			assertTrue(champ1.IsCurrentRallyCompleted());
 			
@@ -77,33 +84,39 @@ operations
 	
 	private Setup: () ==> ()
 		Setup() == (
-		--Setup championship's teams
+		--Setup championship's teams (Use Case: Manage teams)
 		champ1.AddTeam(team1);
 		champ1.AddTeam(team2);
+
+		--Setup championship's partners	(Use Case: Set partners)
+		champ1.AddPartner(new Partner("Partner 1", "The only partner this championship needs!"));
 		
-		--Setup series' stages
+		--Setup series' stages (Use Case: Set rallies and their stages)
 		rally1.AddStage(stage1r1);
 		rally1.AddStage(stage2r1);
 		rally2.AddStage(stage1r2);
 		rally2.AddStage(stage2r2);
 		
-		--Setup championship's rallies
+		--Setup championship's rallies (Use Case: Set rallies and their stages)
 		champ1.AddRally(rally1);
 		champ1.AddRally(rally2);
 		
-		--Setup teams' cars
+		--Setup teams' (Use Case: Set sponsors)
+		team1.AddSponsor(new Sponsor("Sp", "Team 1's only sponsor"));
+		
+		--Setup teams' cars (Use Case: Set drivers and their cars)
 		team1.AddCar(car1t1);
 		team1.AddCar(car2t1);
 		team2.AddCar(car1t2);
 		team2.AddCar(car2t2);
 		
-		--Setup teams' drivers
+		--Setup teams' drivers (Use Case: Set drivers and their cars)
 		team1.AddDriver(driver1t1);
 		team1.AddDriver(driver2t1);
 		team2.AddDriver(driver1t2);
 		team2.AddDriver(driver2t2);
 		
-		--Setup driver's cars
+		--Setup driver's cars (Use Case: Set drivers and their cars)
 		team1.AssignCarToDriver(car1t1, driver1t1);
 		team1.AssignCarToDriver(car2t1, driver2t1);
 		team2.AssignCarToDriver(car1t2, driver1t2);

@@ -1,15 +1,15 @@
 <?xml version="1.0" ?>
-<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="See global performance" version="4">
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="See driver's global performance" version="4">
   <OBJECT>
-    <ID name="See global performance" mc="Standard.UseCase" uid="b758c600-dab5-44a5-8481-60fed270d880"/>
-    <PID name="rally-usecases" mc="Standard.Package" uid="35bf0559-bde7-42f6-b6da-1aa32408fed7"/>
+    <ID name="See driver's global performance" mc="Standard.UseCase" uid="b758c600-dab5-44a5-8481-60fed270d880"/>
+    <PID name="use-cases" mc="Standard.Package" uid="35bf0559-bde7-42f6-b6da-1aa32408fed7"/>
     <ATTRIBUTES>
       <ATT name="IsElementary">false</ATT>
       <ATT name="IsAbstract">false</ATT>
       <ATT name="IsLeaf">false</ATT>
       <ATT name="IsRoot">false</ATT>
       <ATT name="Visibility">Public</ATT>
-      <ATT name="Name"><![CDATA[See global performance]]></ATT>
+      <ATT name="Name"><![CDATA[See driver's global performance]]></ATT>
       <ATT name="status">1970354901745664</ATT>
     </ATTRIBUTES>
     <DEPENDENCIES>
