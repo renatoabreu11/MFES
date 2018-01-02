@@ -9,43 +9,83 @@ instance variables
 	inv driver.GetTeam() <> nil and driver.GetCar() <> nil;
 	  
 operations
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
   public Performance : Driver ==> Performance
 		Performance(driver0) == (
 			driver := driver0;
 		  return self;
 		)
 		post driver = driver0;
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	pure public GetDriver: () ==> [Driver]
 		GetDriver() ==
 		  return driver
 		post RESULT = driver;		
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetAverageSpeed: () ==> real
 		GetAverageSpeed() ==
 		  return averageSpeed
 		post RESULT = averageSpeed;
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	public SetAverageSpeed: real ==> ()
 		SetAverageSpeed(avg) ==
 		  averageSpeed := avg
 		post avg = averageSpeed;
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetTime: () ==> real
 		GetTime() ==
 		  return time
 		post RESULT = time;
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	public SetTime: real ==> ()
 		SetTime(t) ==
 		  time := t
 		post t = time;
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetPenalty: () ==> nat
 		GetPenalty() ==
 		  return penalty
 		post RESULT = penalty;
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	public SetPenalty: nat ==> ()
 		SetPenalty(p) ==
 		  penalty := p

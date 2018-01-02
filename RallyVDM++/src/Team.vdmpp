@@ -26,6 +26,11 @@ instance variables
   inv forall d in set drivers & d.GetCar() <> nil => d.GetCar() in set cars;
   
 operations
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
   public Team : String * Country ==> Team
 		Team(name0, based0) == (
 			name := name0;
@@ -37,13 +42,23 @@ operations
 		post name = name0 and based = based0;
 
 	-- *** Transactions ***
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	public AddSponsor: Sponsor ==> ()
 		AddSponsor(s) == (
 			sponsors := sponsors union {s}
 		)
 		pre not exists s1 in set sponsors & s1.GetName() = s.GetName();
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	public RemoveSponsor: Sponsor ==> ()
 		RemoveSponsor(s) == (
 			sponsors := sponsors \ {s}
@@ -51,18 +66,33 @@ operations
 		pre s in set sponsors
 		post sponsors = sponsors~ \ {s};		
 
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	public SetBacker: Manufacturer ==> ()
 		SetBacker(m) == (
 			backer := m;
 		)
 		pre not exists c1 in set cars & c1.GetManufacturer().GetName() <> m.GetName();
 
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	public RemoveBacker: () ==> ()
 		RemoveBacker() == (
 			backer := nil;
 		)
 		post backer = nil;
 
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	public AddCar: Car ==> ()
 		AddCar(c) == (
 			cars := cars union {c}
@@ -70,14 +100,24 @@ operations
 		pre if(backer <> nil) then c.GetManufacturer().GetName() = backer.GetName() else true
 			and not exists c1 in set cars & c1.GetModel() = c.GetModel()
 		post c in set cars;	
-			
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */				
 	public RemoveCar: Car ==> ()
 		RemoveCar(c) == (
 			cars := cars \ {c}
 		)			
 		pre c in set cars and forall d in set drivers & d.GetCar() <> c
 		post cars = cars~ \ {c};
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	public AssignCarToDriver: Car * Driver ==> ()
 		AssignCarToDriver(car, driver) == (
       for all elem in set drivers  
@@ -87,6 +127,11 @@ operations
     )
     pre car in set cars and driver in set drivers and driver.GetCar() = nil;
 
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	public UnassignCarFromDriver: Driver ==> ()
 		UnassignCarFromDriver(driver) == (
       for all elem in set drivers  
@@ -96,6 +141,11 @@ operations
     )
     pre driver in set drivers and driver.GetCar() <> nil;
 
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	public AddDriver: Driver ==> ()
 		AddDriver(d) == (
 			d.SetTeam(self);
@@ -103,6 +153,11 @@ operations
 		)
 		pre d.GetTeam() = nil and d.GetCar() = nil and not exists d1 in set drivers & d1.GetName() = d.GetName();
 
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	public RemoveDriver: Driver ==> ()
 		RemoveDriver(d) == (
 			drivers := drivers \ {d};
@@ -114,36 +169,71 @@ operations
 	
 	-- *** Getters ***
 
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	pure public GetCars: () ==> set of Car
 		GetCars() ==
 		  return cars
 		post RESULT = cars;		
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetSponsors: () ==> set of Sponsor
 		GetSponsors() ==
 		  return sponsors
 		post RESULT = sponsors;
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetDrivers: () ==> set of Driver
 		GetDrivers() ==
 		  return drivers
 		post RESULT = drivers;	
 
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	
 	pure public GetBacker: () ==> [Manufacturer]
 		GetBacker() ==
 		  return backer
 		post RESULT = backer;		
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetName: () ==> String
 		GetName() ==
 		  return name
 		post RESULT = name;
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetBased: () ==> Country
 		GetBased() ==
 		  return based
 		post RESULT = based;
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	pure public GetDriverByName: (String) ==> Driver
 		GetDriverByName(dName) ==
 			let driver in set drivers be st driver.GetName()=dName in return driver

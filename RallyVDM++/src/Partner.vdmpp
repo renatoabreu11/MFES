@@ -8,6 +8,11 @@ instance variables
   private description: String;
   
 operations
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */	  
   public Partner : String * String ==> Partner
 		Partner(name0, description0) == (
 		  name := name0;
@@ -16,12 +21,22 @@ operations
 		)
 		pre name0 <> "" and description0 <> "" 
 		post name = name0 and description = description0;
-	
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */		
 	pure public GetName: () ==> String
 		GetName() ==
 		  return name
 		post RESULT = name;		
-		
+
+	/**
+	 * Gets the car model.
+	 * 
+	 * @return model
+	 */			
 	pure public GetDescription: () ==> String
 		GetDescription() ==
 		  return description

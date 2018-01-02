@@ -83,7 +83,7 @@
               </component>
               <component id="143ea" class="javax.swing.JTextPane" binding="sponsorsTP">
                 <constraints>
-                  <grid row="0" column="5" row-span="4" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                  <grid row="0" column="3" row-span="4" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
                   </grid>
                 </constraints>
@@ -373,7 +373,7 @@
               </component>
               <component id="9e0b0" class="javax.swing.JTextPane" binding="manufacturersTP">
                 <constraints>
-                  <grid row="4" column="5" row-span="5" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                  <grid row="4" column="3" row-span="5" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
                   </grid>
                 </constraints>
@@ -383,7 +383,7 @@
               </component>
               <component id="7da2b" class="javax.swing.JTextPane" binding="carsTP">
                 <constraints>
-                  <grid row="9" column="5" row-span="6" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                  <grid row="9" column="3" row-span="6" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
                   </grid>
                 </constraints>
@@ -393,7 +393,7 @@
               </component>
               <component id="88fa7" class="javax.swing.JTextPane" binding="driversTP">
                 <constraints>
-                  <grid row="15" column="5" row-span="6" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                  <grid row="15" column="3" row-span="6" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
                     <preferred-size width="150" height="50"/>
                   </grid>
                 </constraints>
