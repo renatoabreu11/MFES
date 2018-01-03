@@ -10,8 +10,7 @@
     </ATTRIBUTES>
     <DEPENDENCIES>
       <COMP relation="Model">
-        <COMPID name="rally-classdiagram" mc="Standard.Package" uid="a5cd72cf-101f-4654-88e4-6cda998ba80c"/>
-        <COMPID name="rally-usecases" mc="Standard.Package" uid="35bf0559-bde7-42f6-b6da-1aa32408fed7"/>
+        <COMPID name="use-cases-diagram" mc="Standard.Package" uid="35bf0559-bde7-42f6-b6da-1aa32408fed7"/>
       </COMP>
       <COMP relation="DiagramRoot">
         <COMPID name="Rally" mc="Infrastructure.DiagramSet" uid="9bfc9b3d-5d8d-4d6b-a06b-097d915cf2d9"/>
