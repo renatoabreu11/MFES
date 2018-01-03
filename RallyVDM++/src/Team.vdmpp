@@ -23,6 +23,7 @@ instance variables
         c1 <> c2 and c1.GetModel() = c2.GetModel();
        
   inv forall d in set drivers & d.GetTeam() = true_self;
+  inv if(backer <> nil) then forall c in set cars & c.GetManufacturer() = backer else true;
   inv forall d in set drivers & d.GetCar() <> nil => d.GetCar() in set cars;
   
 operations
