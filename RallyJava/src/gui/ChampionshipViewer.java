@@ -6,7 +6,6 @@ import org.overture.codegen.runtime.SetUtil;
 import org.overture.codegen.runtime.Utils;
 import org.overture.codegen.runtime.VDMSet;
 import javax.swing.*;
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ChampionshipViewer {
@@ -23,6 +22,7 @@ public class ChampionshipViewer {
     private JButton updateRallyButton;
     private JButton startChampionshipButton;
     private JButton nextRallyButton;
+    private JTextPane ralliesTP;
 
     public ChampionshipViewer(MainWindow mainWindow) {
         this.parent = mainWindow;
@@ -32,9 +32,12 @@ public class ChampionshipViewer {
     private void addListeners() {
         startChampionshipButton.addActionListener(e -> {
             championship.StartChampionship();
+            setRalliesArea();
         });
         nextRallyButton.addActionListener(e -> {
             championship.NextRally();
+            setRalliesArea();
+            setTeamsArea();
         });
         updateRallyButton.addActionListener(e -> {
             VDMSet driversSet = championship.GetDrivers();
@@ -49,6 +52,8 @@ public class ChampionshipViewer {
                 performancesSet.add(p);
             }
             championship.UpdateCurrentRally(performancesSet);
+            setTeamsArea();
+            setRalliesArea();
         });
     }
 
@@ -81,6 +86,18 @@ public class ChampionshipViewer {
             Team t = ((Team) aSet);
             sb.append(t.toString()).append("\n");
         }
+        teamsTP.setText(sb.toString());
+    }
+
+    private void setRalliesArea() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Championship: ").append(championship.GetName()).append("\nRally: ").append(championship.GetCurrentRally().GetName()).append("\n");
+        ralliesTP.setText(sb.toString());
+    }
+
+    private void setTeamsArea() {
+        StringBuilder sb = new StringBuilder();
+        //sb.append(championship.GetTeamsRanking());
         teamsTP.setText(sb.toString());
     }
 }
