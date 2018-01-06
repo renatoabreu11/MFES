@@ -1,12 +1,10 @@
 package gui;
 
 import Rally.*;
+import Rally.quotes.*;
 import org.overture.codegen.runtime.*;
-import sun.misc.Perf;
 
 import javax.swing.*;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -24,7 +22,8 @@ public class ChampionshipViewer {
     private JButton updateRallyButton;
     private JButton startChampionshipButton;
     private JButton nextRallyButton;
-    private JTextPane ralliesTP;
+    private JTextPane globalInfoTP;
+    private JTextPane ralliesInfoTP;
 
     public ChampionshipViewer(MainWindow mainWindow) {
         this.parent = mainWindow;
@@ -33,15 +32,21 @@ public class ChampionshipViewer {
 
     private void addListeners() {
         startChampionshipButton.addActionListener(e -> {
+            if(championship.GetTeams().isEmpty() || championship.GetDrivers().isEmpty() || championship.GetSeries().isEmpty())
+                return;
             championship.StartChampionship();
-            setRalliesArea();
+            setGlobalInfo();
         });
         nextRallyButton.addActionListener(e -> {
-            championship.NextRally();
-            setRalliesArea();
-            setTeamsArea();
+            if(championship.IsCurrentRallyCompleted()) {
+                championship.NextRally();
+                setGlobalInfo();
+                setRalliesInfo();
+            }
         });
         updateRallyButton.addActionListener(e -> {
+            if(championship.IsCurrentRallyCompleted())
+                return;
             VDMSet driversSet = championship.GetDrivers();
             VDMSet performancesSet = SetUtil.set();
             for (Object d: driversSet) {
@@ -54,10 +59,11 @@ public class ChampionshipViewer {
                 performancesSet.add(p);
             }
             championship.UpdateCurrentRally(performancesSet);
-            setRalliesArea();
-            setTeamsArea();
+            setGlobalInfo();
+            setRalliesInfo();
         });
     }
+
 
     public void setVisible() {
         this.pane.setVisible(true);
@@ -91,51 +97,61 @@ public class ChampionshipViewer {
         teamsTP.setText(sb.toString());
     }
 
-    private void setRalliesArea() {
+    private void setGlobalInfo() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Championship: ").append(championship.GetName()).append("\nRally: ").append(championship.GetCurrentRally().GetName()).append("\nStage: ").append(championship.GetCurrentRally().GetCurrentStage()).append("\n");
-        ralliesTP.setText(sb.toString());
-    }
+        sb.append("Championship: ").append(championship.GetName());
 
-    private void setTeamsArea() {
-        StringBuilder sb = new StringBuilder();
-        Set<String> teamNames = championship.GetTeams().keySet();
+        if (!championship.GetState().equals(CompletedQuote.getInstance())) {
+            sb.append("\nRally: ").append(championship.GetCurrentRally().GetName());
+        } else sb.append("Championship completed!");
 
+        if(!championship.IsCurrentRallyCompleted()){
+            sb.append("\nStage: ").append(championship.GetCurrentRally().GetCurrentStage());
+        } else sb.append("\nState: Completed").append("\nStart the next rally");
+
+        Set teamNames = championship.GetTeams().keySet();
         boolean first = true;
-        sb.append("Team Global Rankings: {");
-        for(String tName: teamNames){
+        sb.append("\n\n\nTeam Global Rankings: {");
+        for(Object tName: teamNames){
             if(first){
-                sb.append(tName).append(" -> ").append(championship.GetTeamGlobalRanking(tName));
+                sb.append(tName).append(" -> ").append(championship.GetTeamGlobalRanking((String) tName));
                 first = false;
-            } else sb.append(", ").append(tName).append(" -> ").append(championship.GetTeamGlobalRanking(tName));
+            } else sb.append(", ").append(tName).append(" -> ").append(championship.GetTeamGlobalRanking((String) tName));
         }
         sb.append("}\n");
 
-        sb.append("\nDriver Rally and Stage Rankings:\n");
+        globalInfoTP.setText(sb.toString());
+    }
+
+    private void setRalliesInfo() {
+        StringBuilder sb = new StringBuilder();
+        boolean first;
+
+        sb.append("Driver Rally and Stage Rankings:\n");
         VDMSet set_r = SeqUtil.inds(championship.GetSeries());
-        for (Iterator iterator_r = set_r.iterator(); iterator_r.hasNext(); ) {
-            Rally rally = (Rally) Utils.get(championship.GetSeries(), iterator_r.next());
+        for (Object aSet_r : set_r) {
+            Rally rally = (Rally) Utils.get(championship.GetSeries(), aSet_r);
             sb.append("\t").append(rally.GetName()).append("\n");
 
             VDMSet set_s = SeqUtil.inds(rally.GetStages());
-            for(Iterator iterator_s = set_s.iterator(); iterator_s.hasNext(); ){
-                Stage stage = (Stage) Utils.get(rally.GetStages(), iterator_s.next());
+            for (Object set_ : set_s) {
+                Stage stage = (Stage) Utils.get(rally.GetStages(), set_);
                 sb.append("\t\t").append(stage.GetId()).append(" -> ").append("{");
 
                 first = true;
                 VDMSet set_p = SeqUtil.inds(stage.GetPerformances());
-                for(Iterator iterator_p = set_p.iterator(); iterator_p.hasNext(); ){
-                    Performance performance = (Performance) Utils.get(stage.GetPerformances(), iterator_p.next());
-                    if(first) {
-                        sb.append(performance.GetDriver().GetName()).append(" -> ").append(performance.GetAverageSpeed());
-                        first=false;
-                    }
-                    else sb.append(", ").append(performance.GetDriver().GetName()).append(" -> ").append(performance.GetAverageSpeed());
+                for (Object aSet_p : set_p) {
+                    Performance performance = (Performance) Utils.get(stage.GetPerformances(), aSet_p);
+                    if (first) {
+                        sb.append(performance.GetDriver().GetName()).append(" -> ").append(performance.GetTime());
+                        first = false;
+                    } else
+                        sb.append(", ").append(performance.GetDriver().GetName()).append(" -> ").append(performance.GetTime());
                 }
-                sb.append("}\n");
+                sb.append("}\n\n");
             }
         }
 
-        teamsTP.setText(sb.toString());
+        ralliesInfoTP.setText(sb.toString());
     }
 }
