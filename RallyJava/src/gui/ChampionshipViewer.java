@@ -1,11 +1,13 @@
 package gui;
 
 import Rally.*;
-import org.overture.codegen.runtime.MapUtil;
-import org.overture.codegen.runtime.SetUtil;
-import org.overture.codegen.runtime.Utils;
-import org.overture.codegen.runtime.VDMSet;
+import org.overture.codegen.runtime.*;
+import sun.misc.Perf;
+
 import javax.swing.*;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ChampionshipViewer {
@@ -52,8 +54,8 @@ public class ChampionshipViewer {
                 performancesSet.add(p);
             }
             championship.UpdateCurrentRally(performancesSet);
-            setTeamsArea();
             setRalliesArea();
+            setTeamsArea();
         });
     }
 
@@ -91,13 +93,49 @@ public class ChampionshipViewer {
 
     private void setRalliesArea() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Championship: ").append(championship.GetName()).append("\nRally: ").append(championship.GetCurrentRally().GetName()).append("\n");
+        sb.append("Championship: ").append(championship.GetName()).append("\nRally: ").append(championship.GetCurrentRally().GetName()).append("\nStage: ").append(championship.GetCurrentRally().GetCurrentStage()).append("\n");
         ralliesTP.setText(sb.toString());
     }
 
     private void setTeamsArea() {
         StringBuilder sb = new StringBuilder();
-        //sb.append(championship.GetTeamsRanking());
+        Set<String> teamNames = championship.GetTeams().keySet();
+
+        boolean first = true;
+        sb.append("Team Global Rankings: {");
+        for(String tName: teamNames){
+            if(first){
+                sb.append(tName).append(" -> ").append(championship.GetTeamGlobalRanking(tName));
+                first = false;
+            } else sb.append(", ").append(tName).append(" -> ").append(championship.GetTeamGlobalRanking(tName));
+        }
+        sb.append("}\n");
+
+        sb.append("\nDriver Rally and Stage Rankings:\n");
+        VDMSet set_r = SeqUtil.inds(championship.GetSeries());
+        for (Iterator iterator_r = set_r.iterator(); iterator_r.hasNext(); ) {
+            Rally rally = (Rally) Utils.get(championship.GetSeries(), iterator_r.next());
+            sb.append("\t").append(rally.GetName()).append("\n");
+
+            VDMSet set_s = SeqUtil.inds(rally.GetStages());
+            for(Iterator iterator_s = set_s.iterator(); iterator_s.hasNext(); ){
+                Stage stage = (Stage) Utils.get(rally.GetStages(), iterator_s.next());
+                sb.append("\t\t").append(stage.GetId()).append(" -> ").append("{");
+
+                first = true;
+                VDMSet set_p = SeqUtil.inds(stage.GetPerformances());
+                for(Iterator iterator_p = set_p.iterator(); iterator_p.hasNext(); ){
+                    Performance performance = (Performance) Utils.get(stage.GetPerformances(), iterator_p.next());
+                    if(first) {
+                        sb.append(performance.GetDriver().GetName()).append(" -> ").append(performance.GetAverageSpeed());
+                        first=false;
+                    }
+                    else sb.append(", ").append(performance.GetDriver().GetName()).append(" -> ").append(performance.GetAverageSpeed());
+                }
+                sb.append("}\n");
+            }
+        }
+
         teamsTP.setText(sb.toString());
     }
 }
