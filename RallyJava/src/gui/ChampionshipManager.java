@@ -237,7 +237,7 @@ public class ChampionshipManager {
         });
 
         addStageToRallyButton.addActionListener(e -> {
-            int stageId = (int) rallyStagePicker.getSelectedItem();
+            long stageId = (long) rallyStagePicker.getSelectedItem();
             Stage s = findStage(stageId);
 
             if(s != null && rallyPicker.getSelectedItem() != null) {
@@ -350,7 +350,7 @@ public class ChampionshipManager {
         return backButton;
     }
 
-    private Stage findStage(int id) {
+    private Stage findStage(long id) {
         return stages.stream()
                 .filter(obj -> obj.GetId().equals(id))
                 .findFirst()
