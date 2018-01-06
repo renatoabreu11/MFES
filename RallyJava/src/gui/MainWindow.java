@@ -73,11 +73,16 @@ public class MainWindow extends JFrame{
         mainOptions.getParticipantsButton().addActionListener(e -> showLayout("Participants Manager"));
         participantsManager.getBackButton().addActionListener(e -> showLayout("Main Options"));
         championshipManager.getBackButton().addActionListener(e -> showLayout("Main Options"));
+        championshipViewer.getBackButton().addActionListener(e -> showLayout("Championship Manager"));
     }
 
     public void showLayout(String layout){
         CardLayout cardLayout = (CardLayout) contentPane.getLayout();
         cardLayout.show(contentPane, layout);
+    }
+
+    public ChampionshipViewer getChampionshipViewer() {
+        return championshipViewer;
     }
 
     public ArrayList<Team> GetParticipants() {

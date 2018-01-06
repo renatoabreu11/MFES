@@ -61,6 +61,7 @@ public class ChampionshipManager {
     // Rally - Championship
     private JComboBox<String> championshipRallyPicker;
     private JButton addRallyToChampionshipButton;
+    private JButton viewChampionshipButton;
 
     private ArrayList<Partner> partners = new ArrayList<>();
     private ArrayList<Stage> stages = new ArrayList<>();
@@ -189,6 +190,13 @@ public class ChampionshipManager {
     }
 
     private void addListeners() {
+        viewChampionshipButton.addActionListener(e -> {
+            if(championshipPicker.getSelectedItem() != null) {
+                Integer champIndex = championshipPicker.getSelectedIndex();
+                parent.getChampionshipViewer().setChampionship(championships.get(champIndex));
+                parent.showLayout("Championship Viewer");
+            }
+        });
         addStageButton.addActionListener(e -> {
             String date = stageDate.getText();
             String[] values = date.split("-");
